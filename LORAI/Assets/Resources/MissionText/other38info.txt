@@ -1,0 +1,13 @@
+<b>Special Rules:</b>
+The <color="red">Dewback Rider</color> can be redeployed once defeated. However, when the terminal has been discarded and the <color="red">Dewback Rider</color> has been defeated at least once, all doors still open.
+
+<b>Repositioning Target:</b>
+Block access to the terminal.
+
+<b>Rebel Victory:</b>
+<color="red">Captain Terro</color> is defeated.
+
+<b>Imperial Victory:</b>
+At the end of Round 6, or all heroes are wounded.
+
+<b>When the door opens:</b> <color="red">Take On the Cavalry</color>

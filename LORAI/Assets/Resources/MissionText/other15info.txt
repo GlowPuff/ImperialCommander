@@ -1,0 +1,18 @@
+<b>Information:</b>
+Refer to the mission rules for instructions for <b>Xarok</b>.
+
+<b>Special Rules:</b>
+Imperial Officers can be redeployed. However, the door to the Market unlocks once both Imperial Officers have been defeated at least once.
+
+<b>Repositioning Target:</b>
+<color="red">Death Trooper</color>: Be on the Cantina tile.
+
+<b>Rebel Victory:</b>
+<b>Xarok</b> is defeated.
+
+<b>Imperial Victory:</b>
+At the end of Round 6, or all heroes are wounded.
+
+<b>At the end of Round 2:</b> <color="red">Unwelcome Visitors</color>
+
+<b>When the door to the Market opens:</b> <color="red">Let’s Finish This</color>

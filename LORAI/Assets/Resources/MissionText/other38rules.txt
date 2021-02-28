@@ -1,0 +1,2 @@
+<color="red">Take On the Cavalry:</color>
+<color="red">Captain Terro</color> does not activate as described in the campaign guide. Instead, <color="red">Captain Terro</color> activates one additional time for each Stormtrooper group currently deployed. The additional activations happen immediately after the first. (Follow the instruction list again from the top.)

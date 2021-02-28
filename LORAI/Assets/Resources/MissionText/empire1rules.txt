@@ -1,0 +1,2 @@
+<color="red">Support Troops:</color>
+The <color="red">AT-DP</color> can be redeployed once defeated. However, the mission can progress even if the <color="red">AT-DP</color> is on the map, provided it has been defeated at least once.

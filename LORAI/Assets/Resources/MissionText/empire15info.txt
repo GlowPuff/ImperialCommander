@@ -1,0 +1,21 @@
+<b>Information:</b>
+Refer to the mission rules for instructions for the <b>X-8 blaster droids</b>. 
+
+<b>Special Setup:</b>
+Deploy three Custom Groups as the <b>X-8 blaster droids</b> and assign them colors. The app activates and exhausts them.
+
+<b>Special Rules:</b>
+When a group of <b>X-8 blaster droids</b> is defeated, do not mark them as defeated in the app. If they activate before they are redeployed, ignore their activation and proceed to the next Imperial activation.
+
+<b>Repositioning Target:</b>
+Block access to the terminals.
+
+<b>Rebel Victory:</b>
+All terminals are destroyed and there are no more <b>X-8 blaster droids</b> in the factory.
+
+<b>Imperial Victory:</b>
+At the end of Round 6, or all heroes are wounded.
+
+<b>When the door is opened:</b> <color="red">Manufactured Mayhem</color>
+
+<b>When the plans are downloaded:</b> <color="red">Rightful Owner</color>

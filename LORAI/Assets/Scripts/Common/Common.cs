@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public enum FX { Click, CopyThat, Droid, Computer, Deploy, Drill, Trouble, Vader, SetBlasters, Restricted, DropWeapons, None }
+public enum Difficulty { NotSet, Easy, Medium, Hard }
+public enum AllyRules { NotSet, Normal, Lothal }
+public enum YesNo { NotSet, Yes, No }
+public enum Faction { Imperial, Mercenary }
+public enum Expansion { Core, Twin, Hoth, Bespin, Jabba, Empire, Lothal, Other }
+public enum ChooserMode { DeploymentGroups, Missions, Hero, Ally, Villain }
+public enum DeployMode { Calm, Reinforcements, Landing, Onslaught }
+
+public static class Extensions
+{
+	public static List<CardDescriptor> Owned( this List<CardDescriptor> thisCD )
+	{
+		return thisCD.Where( x => DataStore.ownedExpansions.Contains( (Expansion)Enum.Parse( typeof( Expansion ), x.expansion ) ) ).ToList();
+	}
+
+	public static List<CardDescriptor> OwnedPlusOther( this List<CardDescriptor> thisCD )
+	{
+		return thisCD.Where( x => DataStore.ownedExpansions.Contains( (Expansion)Enum.Parse( typeof( Expansion ), x.expansion ) ) || x.expansion == "Other" ).ToList();
+	}
+
+	public static List<CardDescriptor> MinusEarnedVillains( this List<CardDescriptor> thisCD )
+	{
+		return thisCD.Where( x => !DataStore.sessionData.EarnedVillains.Contains( x ) ).ToList();
+	}
+
+	public static List<CardDescriptor> MinusIgnored( this List<CardDescriptor> thisCD )
+	{
+		return thisCD.Where( x => !DataStore.sessionData.MissionIgnored.Contains( x ) ).ToList();
+	}
+
+	public static List<CardDescriptor> MinusStarting( this List<CardDescriptor> thisCD )
+	{
+		return thisCD.Where( x => !DataStore.sessionData.MissionStarting.Contains( x ) ).ToList();
+	}
+
+	public static List<CardDescriptor> MinusReserved( this List<CardDescriptor> thisCD )
+	{
+		return thisCD.Where( x => !DataStore.sessionData.MissionReserved.Contains( x ) ).ToList();
+	}
+
+	public static List<CardDescriptor> MinusDeployed( this List<CardDescriptor> thisCD )
+	{
+		return thisCD.Where( x => !DataStore.deployedEnemies.Contains( x ) ).ToList();
+	}
+
+	public static List<CardDescriptor> MinusInDeploymentHand( this List<CardDescriptor> thisCD )
+	{
+		return thisCD.Where( x => !DataStore.deploymentHand.Contains( x ) ).ToList();
+	}
+
+	public static List<CardDescriptor> GetVillains( this List<CardDescriptor> thisCD )
+	{
+		return thisCD.Where( x => DataStore.villainCards.cards.Contains( x ) ).ToList();
+	}
+
+	public static List<CardDescriptor> FilterByFaction( this List<CardDescriptor> thisCD )
+	{
+		if ( DataStore.sessionData.includeImperials && !DataStore.sessionData.includeMercs )
+			return thisCD.Where( x => x.faction == "Imperial" ).ToList();
+		else if ( DataStore.sessionData.includeMercs && !DataStore.sessionData.includeImperials )
+			return thisCD.Where( x => x.faction == "Mercenary" ).ToList();
+		else
+			return thisCD.Where( x => x.faction == "Imperial" || x.faction == "Mercenary" ).ToList();
+	}
+
+	public static List<CardDescriptor> GetHeroesAndAllies( this List<CardDescriptor> thisCD )
+	{
+		return thisCD.Where( x => x.id[0] == 'H' || x.id[0] == 'A' ).ToList();
+	}
+
+	/// <summary>
+	/// returns list of heroes/allies, starting with HEALTHY ones first
+	/// </summary>
+	public static List<CardDescriptor> IsHealthy( this List<CardDescriptor> thisCD )
+	{
+		var healthy = thisCD.Where( x => x.isHealthy ).ToList();
+		var unhealthy = thisCD.Where( x => !x.isHealthy ).ToList();
+		return healthy.Concat( unhealthy ).ToList();
+	}
+
+	public static T FirstOr<T>( this IEnumerable<T> thisEnum, T def )
+	{
+		foreach ( var item in thisEnum )
+			return item;
+		return def;
+	}
+}
