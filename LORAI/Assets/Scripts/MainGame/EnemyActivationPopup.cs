@@ -11,8 +11,10 @@ public class EnemyActivationPopup : MonoBehaviour
 	public TextMeshProUGUI bonusNameText, bonusText, ignoreText;
 	public Text enemyName;
 	public Image thumbnail;
+	public CardZoom cardZoom;
 
 	CardInstruction cardInstruction;
+	CardDescriptor cardDescriptor;
 
 	public void Show( CardDescriptor cd )
 	{
@@ -24,6 +26,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		enemyName.text = "";
 		ignoreText.text = "";
 
+		cardDescriptor = cd;
 
 		cardInstruction = DataStore.activationInstructions.Where( x => x.instID == cd.id ).FirstOr( null );
 		if ( cardInstruction == null )
@@ -137,7 +140,8 @@ public class EnemyActivationPopup : MonoBehaviour
 			{
 				nt.color = new Color( 0, 0.6440244f, 1, 1 );
 				//nt.margin = new Vector4( 25, 0, 0, 0 );
-				item = item.Replace( "{-}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">U</font></color> " );
+				//item = item.Replace( "{-}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">U</font></color> " );
+				item = item.Replace( "{-}", " ■ " );
 			}
 			//orange highlight
 			if ( item.Contains( "{O}" ) )
@@ -181,6 +185,13 @@ public class EnemyActivationPopup : MonoBehaviour
 		}
 
 		return item;
+	}
+
+	public void OnViewCard()
+	{
+		Sprite s = Resources.Load<Sprite>( $"Cards/Enemies/{cardDescriptor.expansion}/{cardDescriptor.id}" );
+		if ( s != null )
+			cardZoom.Show( s, cardDescriptor );
 	}
 
 	public void OnClose()

@@ -7,7 +7,7 @@ using System;
 public class GroupChooserScreen : MonoBehaviour
 {
 	public CardZoomer cardZoomer;
-	public Image previewImage;
+	public Image previewImage, fader;
 	public CanvasGroup cg;
 	public GroupToggleContainer groupToggleContainer;
 	public MissionToggleContainer missionToggleContainer;
@@ -28,6 +28,7 @@ public class GroupChooserScreen : MonoBehaviour
 		gameObject.SetActive( true );
 		cg.alpha = 0;
 		cg.DOFade( 1, .5f );
+		fader.DOFade( .95f, .5f );
 		this.mode = mode;
 
 		//reset expansion buttons except Core
@@ -48,7 +49,7 @@ public class GroupChooserScreen : MonoBehaviour
 			switch ( dataGroupIndex )
 			{
 				case 0:
-					enemyGroupTitle.text = "starting";
+					enemyGroupTitle.text = "initial";
 					break;
 				case 1:
 					enemyGroupTitle.text = "reserved";
@@ -95,6 +96,7 @@ public class GroupChooserScreen : MonoBehaviour
 	public void OnBack()
 	{
 		sound.PlaySound( FX.Click );
+		fader.DOFade( 0, .5f );
 		cg.DOFade( 0, .5f ).OnComplete( () =>
 		{
 			gameObject.SetActive( false );

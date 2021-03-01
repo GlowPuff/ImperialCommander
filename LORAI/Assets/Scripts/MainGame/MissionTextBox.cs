@@ -16,6 +16,9 @@ public class MissionTextBox : MonoBehaviour
 		fader.color = new Color( 0, 0, 0, 0 );
 		fader.DOFade( .95f, 1 );
 		cg.DOFade( 1, .5f );
+
+		theText.transform.parent.localPosition = new Vector3( theText.transform.parent.localPosition.x, -500, 0 );
+
 		transform.GetChild( 0 ).localScale = new Vector3( .85f, .85f, .85f );
 		transform.GetChild( 0 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
 	}

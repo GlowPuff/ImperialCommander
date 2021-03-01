@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 3734764380663410860}
   - component: {fileID: 3734764380663410861}
   - component: {fileID: 3734764380663410858}
+  - component: {fileID: 1004987133406808214}
   m_Layer: 5
   m_Name: icon Button
   m_TagString: Untagged
@@ -443,6 +444,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1004987133406808214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734764380663410856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6750897b3d6e3548a7fc7ce279a2afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pfab: {fileID: 3734764381717673002}
 --- !u!1 &3734764380694939045
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,6 +900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3734764381717673003}
   - component: {fileID: 3734764381717673002}
+  - component: {fileID: 5725093811284621743}
   m_Layer: 5
   m_Name: DeployedGroupPrefab
   m_TagString: Untagged
@@ -940,6 +955,14 @@ MonoBehaviour:
   - {r: 0, g: 0.32941177, b: 1, a: 1}
   exhaustedOverlay: {fileID: 6218507574144178855}
   selfButton: {fileID: 3734764380663410858}
+--- !u!222 &5725093811284621743
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734764381717673000}
+  m_CullTransparentMesh: 0
 --- !u!1 &3734764381956926553
 GameObject:
   m_ObjectHideFlags: 0

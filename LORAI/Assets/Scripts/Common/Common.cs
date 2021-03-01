@@ -10,6 +10,7 @@ public enum Faction { Imperial, Mercenary }
 public enum Expansion { Core, Twin, Hoth, Bespin, Jabba, Empire, Lothal, Other }
 public enum ChooserMode { DeploymentGroups, Missions, Hero, Ally, Villain }
 public enum DeployMode { Calm, Reinforcements, Landing, Onslaught }
+public enum SettingsCommand { Quit, ReturnTitles }
 
 public static class Extensions
 {
@@ -53,6 +54,9 @@ public static class Extensions
 		return thisCD.Where( x => !DataStore.deploymentHand.Contains( x ) ).ToList();
 	}
 
+	/// <summary>
+	/// Filters and returns just the villains in the supplied list
+	/// </summary>
 	public static List<CardDescriptor> GetVillains( this List<CardDescriptor> thisCD )
 	{
 		return thisCD.Where( x => DataStore.villainCards.cards.Contains( x ) ).ToList();

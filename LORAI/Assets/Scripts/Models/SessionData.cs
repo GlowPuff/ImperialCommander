@@ -83,11 +83,12 @@ public class SessionData
 		gameVars.round = 1;
 		gameVars.eventsTriggered = 0;
 
-		gameVars.currentThreat = threatLevel + addtlThreat;
+		gameVars.currentThreat = 0;
 		if ( optionalDeployment == YesNo.Yes )
 			gameVars.currentThreat += threatLevel * 2;
-		if ( allyThreatCost == YesNo.Yes )
+		if ( allyThreatCost == YesNo.Yes && selectedAlly != null )
 			gameVars.currentThreat += selectedAlly.cost;
+		gameVars.currentThreat += addtlThreat;
 
 		gameVars.deploymentModifier = 0;
 		if ( difficulty == Difficulty.Hard )

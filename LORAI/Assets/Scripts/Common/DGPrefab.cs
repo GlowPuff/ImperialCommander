@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using DG.Tweening;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class DGPrefab : MonoBehaviour
 {
@@ -148,7 +149,8 @@ public class DGPrefab : MonoBehaviour
 		tf.DOScale( 0, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
 		 {
 			 //add card back to dep hand ONLY IF IT'S NOT THE CUSTOM GROUP
-			 if ( cardDescriptor.id != "DG1000" )
+			 //AND if it's NOT a villain
+			 if ( cardDescriptor.id != "DG1000" && !DataStore.villainCards.cards.Contains( cardDescriptor ) )
 				 DataStore.deploymentHand.Add( cardDescriptor );
 			 //remove it from deployed list
 			 DataStore.deployedEnemies.Remove( cardDescriptor );
@@ -189,5 +191,13 @@ public class DGPrefab : MonoBehaviour
 	public void ToggleExhausted( bool isExhausted )
 	{
 		exhaustedOverlay.SetActive( isExhausted );
+	}
+
+	public void OnPointerClick()
+	{
+		CardZoom cardZoom = GlowEngine.FindObjectsOfTypeSingle<CardZoom>();
+		Sprite s = Resources.Load<Sprite>( $"Cards/Enemies/{cardDescriptor.expansion}/{cardDescriptor.id}" );
+		if ( s != null )
+			cardZoom.Show( s, cardDescriptor );
 	}
 }

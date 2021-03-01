@@ -14,6 +14,10 @@ public class TitleController : MonoBehaviour
 
 	void Start()
 	{
+		System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+		System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+		System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
+
 		fader.UnFade( 2 );
 		DataStore.InitData();
 		if ( !PlayerPrefs.HasKey( "music" ) )
@@ -79,7 +83,12 @@ public class TitleController : MonoBehaviour
 	public void OnOptions()
 	{
 		soundController.PlaySound( FX.Click );
-		GlowEngine.FindObjectsOfTypeSingle<SettingsScreen>().Show();
+		GlowEngine.FindObjectsOfTypeSingle<SettingsScreen>().Show( OnSettingsClose, true );
+	}
+
+	void OnSettingsClose( SettingsCommand s )
+	{
+		Application.Quit();
 	}
 
 	public void OnCloseExpansions()

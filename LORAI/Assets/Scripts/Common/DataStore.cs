@@ -96,7 +96,6 @@ public static class DataStore
 		sessionData = new SessionData();
 	}
 
-
 	static DeploymentCards LoadCards( string asset )
 	{
 		TextAsset json = Resources.Load<TextAsset>( $"DeploymentGroups/{asset}" );

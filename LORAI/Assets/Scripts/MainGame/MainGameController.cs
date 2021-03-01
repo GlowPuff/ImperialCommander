@@ -2,6 +2,7 @@
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainGameController : MonoBehaviour
@@ -23,11 +24,17 @@ public class MainGameController : MonoBehaviour
 
 	private void Start()
 	{
+		System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+		System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+		System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
+
 		//DEBUG BOOTSTRAP A MISSION
 		/*
 #if DEBUG
 		DataStore.InitData();
 		DataStore.StartNewSession();
+		DataStore.sessionData.selectedMissionExpansion = Expansion.Core;
+		DataStore.sessionData.selectedMissionID = "core3";
 		//optional dep
 		//DataStore.sessionData.optionalDeployment = YesNo.Yes;
 		//difficulty
@@ -257,7 +264,22 @@ public class MainGameController : MonoBehaviour
 	public void OnSettings()
 	{
 		sound.PlaySound( FX.Click );
-		GlowEngine.FindObjectsOfTypeSingle<SettingsScreen>().Show();
+		GlowEngine.FindObjectsOfTypeSingle<SettingsScreen>().Show( OnSettingsClose );
+	}
+
+	void OnSettingsClose( SettingsCommand c )
+	{
+		if ( c == SettingsCommand.ReturnTitles )
+		{
+			sound.FadeOutMusic();
+			faderOverlay.gameObject.SetActive( true );
+			faderOverlay.DOFade( 1, 1 ).OnComplete( () =>
+			{
+				SceneManager.LoadScene( "Title" );
+			} );
+		}
+		else
+			Application.Quit();
 	}
 
 	public void OnReserved()

@@ -97,7 +97,8 @@ public class EventPopup : MonoBehaviour
 		{
 			nt.color = new Color( 0, 0.6440244f, 1, 1 );
 			nt.margin = new Vector4( 25, 0, 0, 0 );
-			item = item.Replace( "{-}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">U</font></color> " );
+			//item = item.Replace( "{-}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">U</font></color> " );
+			item = item.Replace( "{-}", " ■ " );
 		}
 		//handle rebels
 		if ( item.Contains( "{R1}" ) )

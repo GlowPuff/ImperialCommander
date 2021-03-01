@@ -18,7 +18,8 @@ public class NewGameScreen : MonoBehaviour
 	public Image allyImage;
 	public Text[] enemyGroupText;
 	public HeroMeta[] heroMetas;
-	public AudioSource musicSource;
+	public MissionTextBox missionTextBox;
+	public HeroChooser heroChooser;
 
 	Sound sound;
 
@@ -40,6 +41,7 @@ public class NewGameScreen : MonoBehaviour
 
 		//reset UI
 		selectedMissionText.transform.Find( "view Button" ).GetComponent<Button>().interactable = false;
+		selectedMissionText.transform.Find( "mission info button" ).GetComponent<Button>().interactable = false;
 		selectedMissionText.text = "Choose Mission";
 		difficultyText.text = "difficulty";
 		rulesText.text = "ally rules";
@@ -110,6 +112,12 @@ public class NewGameScreen : MonoBehaviour
 	public void OnBack()
 	{
 		sound.PlaySound( FX.Click );
+
+		//clear hero bar
+		for ( int i = 0; i < 4; i++ )
+			heroMetas[i].gameObject.SetActive( false );
+
+
 		cg.DOFade( 0, .5f ).OnComplete( () =>
 		{
 			gameObject.SetActive( false );
@@ -127,6 +135,14 @@ public class NewGameScreen : MonoBehaviour
 		groupChooser.ActivateScreen( ChooserMode.Missions );
 	}
 
+	public void OnMisionInfo()
+	{
+		sound.PlaySound( FX.Click );
+		var txt = Resources.Load<TextAsset>( $"MissionText/{DataStore.sessionData.selectedMissionID}info" );
+		if ( txt != null )
+			missionTextBox.Show( txt.text );
+	}
+
 	public void OnChooseEnemyGroups( int btnIndex )
 	{
 		//0=starting, 1=reserved, 2=villains, 3=ignored, 4=heroes
@@ -137,13 +153,9 @@ public class NewGameScreen : MonoBehaviour
 
 	public void OnAddHero()
 	{
-		ColorBlock cb = addHeroButton.colors;
-		cb.normalColor = new Color( 0, 0.6440244f, 1, 1 );
-		addHeroButton.colors = cb;
-
 		sound.PlaySound( FX.Click );
 		cg.DOFade( 0, .5f );
-		groupChooser.ActivateScreen( ChooserMode.Hero, 4 );
+		heroChooser.Show();
 	}
 
 	public void OnRemoveHero( int index )
@@ -174,6 +186,7 @@ public class NewGameScreen : MonoBehaviour
 		//handle selected mission
 		selectedMissionText.text = DataStore.sessionData.selectedMissionName.ToLower();
 		selectedMissionText.transform.Find( "view Button" ).GetComponent<Button>().interactable = true;
+		selectedMissionText.transform.Find( "mission info button" ).GetComponent<Button>().interactable = true;
 
 		//handle selected enemy groups
 		for ( int i = 0; i < 4; i++ )
@@ -187,13 +200,13 @@ public class NewGameScreen : MonoBehaviour
 				enemyGroupText[i].text = "choose";
 		}
 
-		//handle selected hero
+		//handle selected heroes
 		for ( int i = 0; i < 4; i++ )
 			heroMetas[i].gameObject.SetActive( false );
-		addHeroButton.interactable = DataStore.sessionData.selectedDeploymentCards[4].cards.Count < 4;
+		addHeroButton.interactable = DataStore.sessionData.MissionHeroes.Count < 4;
 
 		int idx = 0;
-		foreach ( CardDescriptor dc in DataStore.sessionData.selectedDeploymentCards[4].cards )
+		foreach ( CardDescriptor dc in DataStore.sessionData.MissionHeroes )
 		{
 			//add thumbnail
 			heroMetas[idx].gameObject.SetActive( true );
@@ -202,6 +215,12 @@ public class NewGameScreen : MonoBehaviour
 			heroMetas[idx].allySprite.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{dc.id}" );
 			idx++;
 		}
+		ColorBlock cb = addHeroButton.colors;
+		if ( DataStore.sessionData.MissionHeroes.Count > 0 )
+			cb.normalColor = new Color( 0, 0.6440244f, 1, 1 );
+		else
+			cb.normalColor = new Color( 1, 0.1568628f, 0, 1 );
+		addHeroButton.colors = cb;
 
 		//handle selected ally
 		if ( DataStore.sessionData.selectedAlly != null )
