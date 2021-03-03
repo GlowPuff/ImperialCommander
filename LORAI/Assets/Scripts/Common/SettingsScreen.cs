@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using DG.Tweening;
 using System;
+using UnityEngine.EventSystems;
 
 public class SettingsScreen : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class SettingsScreen : MonoBehaviour
 
 	public void OnOK()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		PlayerPrefs.SetInt( "music", musicToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "sound", soundToggle.isOn ? 1 : 0 );
@@ -49,6 +51,7 @@ public class SettingsScreen : MonoBehaviour
 
 	public void OnToggle( Toggle t )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		if ( t.name == "music Toggle" )
 		{
@@ -61,12 +64,14 @@ public class SettingsScreen : MonoBehaviour
 
 	public void OnQuit()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		closeAction?.Invoke( SettingsCommand.Quit );
 	}
 
 	public void OnReturnTitles()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{

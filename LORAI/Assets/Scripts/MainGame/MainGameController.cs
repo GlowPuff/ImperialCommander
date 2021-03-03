@@ -2,6 +2,7 @@
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -90,7 +91,6 @@ public class MainGameController : MonoBehaviour
 		//perform option deployment if it's toggled
 		if ( DataStore.sessionData.optionalDeployment == YesNo.Yes )
 			GlowTimer.SetTimer( 1, () => deploymentPopup.Show( DeployMode.Landing, false, true ) );
-		;
 	}
 
 	void ResetUI()
@@ -118,6 +118,7 @@ public class MainGameController : MonoBehaviour
 
 	public void OnActivateImperial()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		int[] rnd;
 		CardDescriptor toActivate = null;
@@ -146,6 +147,7 @@ public class MainGameController : MonoBehaviour
 
 	public void OnMissionRules()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		var txt = Resources.Load<TextAsset>( $"MissionText/{DataStore.sessionData.selectedMissionID}rules" );
 		if ( txt != null )
@@ -156,6 +158,7 @@ public class MainGameController : MonoBehaviour
 
 	public void OnMissionInfo()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		var txt = Resources.Load<TextAsset>( $"MissionText/{DataStore.sessionData.selectedMissionID}info" );
 		if ( txt != null )
@@ -166,12 +169,14 @@ public class MainGameController : MonoBehaviour
 
 	public void OnOptionalDeploy()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		deploymentPopup.Show( DeployMode.Landing, false, true );
 	}
 
 	public void OnEndRound()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Vader );
 		//pause dep ON, pause threat OFF = activate with CALM
 		//pause dep ON, pause threat ON = just ready all groups
@@ -194,7 +199,7 @@ public class MainGameController : MonoBehaviour
 			DoDeployment( false );
 
 		DataStore.sessionData.gameVars.round++;
-		roundText.text = DataStore.sessionData.gameVars.round.ToString();
+		roundText.text = "round\r\n" + DataStore.sessionData.gameVars.round.ToString();
 		dgManager.ReadyAllGroups();
 
 		//debug stuff
@@ -214,6 +219,7 @@ public class MainGameController : MonoBehaviour
 
 	void DoDeployment( bool skipThreatIncrease )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		int[] rnd = GlowEngine.GenerateRandomNumbers( 6 );
 		int roll1 = rnd[0] + 1;
 
@@ -238,6 +244,7 @@ public class MainGameController : MonoBehaviour
 
 	void DoEvent()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		int[] rnd = GlowEngine.GenerateRandomNumbers( 6 );
 		int roll1 = rnd[0] + 1;
 
@@ -263,6 +270,7 @@ public class MainGameController : MonoBehaviour
 
 	public void OnSettings()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		GlowEngine.FindObjectsOfTypeSingle<SettingsScreen>().Show( OnSettingsClose );
 	}
@@ -284,6 +292,7 @@ public class MainGameController : MonoBehaviour
 
 	public void OnReserved()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		//minus deployed, minus dep hand
 		sound.PlaySound( FX.Click );
 		genericChooser.Show( ChooserMode.DeploymentGroups, DataStore.sessionData
@@ -294,12 +303,14 @@ public class MainGameController : MonoBehaviour
 
 	public void OnAlly()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		genericChooser.Show( ChooserMode.Ally, DataStore.allyCards.cards, AddAlly );
 	}
 
 	public void OnEnemy()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		//try from manual list, skip dep hand, skip deployed
 		if ( DataStore.manualDeploymentList
@@ -321,6 +332,7 @@ public class MainGameController : MonoBehaviour
 
 	public void OnRandom()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		randomDeployPopup.Show();
 	}
@@ -371,7 +383,13 @@ public class MainGameController : MonoBehaviour
 
 		if ( Input.GetKeyDown( KeyCode.Escape ) )
 		{
-			GlowEngine.FindObjectsOfTypeSingle<DebugPopup>().Show();
+			if ( FindObjectOfType<DebugPopup>() != null )
+				FindObjectOfType<DebugPopup>().OnClose();
+			else
+			{
+				EventSystem.current.SetSelectedGameObject( null );
+				GlowEngine.FindObjectsOfTypeSingle<DebugPopup>().Show();
+			}
 		}
 	}
 }

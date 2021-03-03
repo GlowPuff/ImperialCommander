@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 //Handle toggling HEROES and ALLY ONLY
@@ -40,6 +41,7 @@ public class HeroAllyToggleContainer : MonoBehaviour
 
 	public void OnChangeExpansion( string expansion )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		//disable all toggle buttons
 		foreach ( Transform c in transform )
 		{
@@ -65,6 +67,7 @@ public class HeroAllyToggleContainer : MonoBehaviour
 
 	public void OnToggle( int index )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		//checking for Active makes sure this code does NOT run when the Toggle is INACTIVE
 		if ( !buttonToggles[index].gameObject.activeInHierarchy )
 			return;
@@ -95,5 +98,11 @@ public class HeroAllyToggleContainer : MonoBehaviour
 				DataStore.sessionData.selectedAlly = selectedHero;
 		}
 		FindObjectOfType<GroupChooserScreen>().OnBack();
+	}
+
+	private void Update()
+	{
+		if ( Input.GetKeyDown( KeyCode.Space ) )
+			OnBack();
 	}
 }

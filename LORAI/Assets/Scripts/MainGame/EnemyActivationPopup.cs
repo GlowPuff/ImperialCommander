@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class EnemyActivationPopup : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	CardInstruction cardInstruction;
 	CardDescriptor cardDescriptor;
+	bool spaceListen;
 
 	public void Show( CardDescriptor cd )
 	{
@@ -25,6 +27,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		bonusText.text = "";
 		enemyName.text = "";
 		ignoreText.text = "";
+		spaceListen = true;
 
 		cardDescriptor = cd;
 
@@ -189,9 +192,16 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	public void OnViewCard()
 	{
+		spaceListen = false;
+		EventSystem.current.SetSelectedGameObject( null );
 		Sprite s = Resources.Load<Sprite>( $"Cards/Enemies/{cardDescriptor.expansion}/{cardDescriptor.id}" );
 		if ( s != null )
-			cardZoom.Show( s, cardDescriptor );
+			cardZoom.Show( s, cardDescriptor, OnReturn );
+	}
+
+	void OnReturn()
+	{
+		spaceListen = true;
 	}
 
 	public void OnClose()
@@ -206,5 +216,11 @@ public class EnemyActivationPopup : MonoBehaviour
 		} );
 		cg.DOFade( 0, .2f );
 		transform.GetChild( 0 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
+	}
+
+	private void Update()
+	{
+		if ( spaceListen && Input.GetKeyDown( KeyCode.Space ) )
+			OnClose();
 	}
 }

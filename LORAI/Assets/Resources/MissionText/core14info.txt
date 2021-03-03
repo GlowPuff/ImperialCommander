@@ -11,7 +11,7 @@ Refer to the mission rules for instructions for <color="red">Darth Vader</color>
 <color="red">Darth Vader</color> is defeated.
 
 <b>Imperial Victory:</b>
-<color="red"Darth Vader</color> locates Luke.
+<color="red">Darth Vader</color> locates Luke.
 
 <b>At the end of Round 1:</b> <color="red">Security Breach</color>
 

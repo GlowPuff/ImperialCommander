@@ -244,4 +244,10 @@ public class EventPopup : MonoBehaviour
 		else
 			return new CardDescriptor() { name = "<color=\"red\">None</color>" };
 	}
+
+	private void Update()
+	{
+		if ( Input.GetKeyDown( KeyCode.Space ) )
+			OnClose();
+	}
 }

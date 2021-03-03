@@ -30,4 +30,10 @@ public class MissionTextBox : MonoBehaviour
 		cg.DOFade( 0, .2f );
 		transform.GetChild( 0 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 	}
+
+	private void Update()
+	{
+		if ( Input.GetKeyDown( KeyCode.Space ) )
+			OnClose();
+	}
 }

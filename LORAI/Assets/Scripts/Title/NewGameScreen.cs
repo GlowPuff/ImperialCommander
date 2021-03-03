@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class NewGameScreen : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class NewGameScreen : MonoBehaviour
 		cg.DOFade( 1, .5f );
 
 		//reset UI
+		addHeroButton.interactable = true;
 		selectedMissionText.transform.Find( "view Button" ).GetComponent<Button>().interactable = false;
 		selectedMissionText.transform.Find( "mission info button" ).GetComponent<Button>().interactable = false;
 		selectedMissionText.text = "Choose Mission";
@@ -103,6 +105,7 @@ public class NewGameScreen : MonoBehaviour
 
 	public void OnViewMissionCard()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 
 		Sprite sprite = Resources.Load<Sprite>( $"Cards/Missions/{DataStore.sessionData.selectedMissionExpansion}/{DataStore.sessionData.selectedMissionID}" );
@@ -137,6 +140,7 @@ public class NewGameScreen : MonoBehaviour
 
 	public void OnMisionInfo()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		var txt = Resources.Load<TextAsset>( $"MissionText/{DataStore.sessionData.selectedMissionID}info" );
 		if ( txt != null )
@@ -145,6 +149,7 @@ public class NewGameScreen : MonoBehaviour
 
 	public void OnChooseEnemyGroups( int btnIndex )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		//0=starting, 1=reserved, 2=villains, 3=ignored, 4=heroes
 		sound.PlaySound( FX.Click );
 		cg.DOFade( 0, .5f );
@@ -153,6 +158,7 @@ public class NewGameScreen : MonoBehaviour
 
 	public void OnAddHero()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		cg.DOFade( 0, .5f );
 		heroChooser.Show();
@@ -160,6 +166,7 @@ public class NewGameScreen : MonoBehaviour
 
 	public void OnRemoveHero( int index )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		DataStore.sessionData.ToggleHero( heroMetas[index].id );
 		heroMetas[index].gameObject.SetActive( false );
 		addHeroButton.interactable = true;
@@ -167,6 +174,7 @@ public class NewGameScreen : MonoBehaviour
 
 	public void OnAddAlly()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		cg.DOFade( 0, .5f );
 		groupChooser.ActivateScreen( ChooserMode.Ally, 4 );
@@ -174,6 +182,7 @@ public class NewGameScreen : MonoBehaviour
 
 	public void OnRemoveAlly()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		addAllyButton.SetActive( true );
 		allyImage.gameObject.SetActive( false );
 		DataStore.sessionData.selectedAlly = null;
@@ -181,6 +190,7 @@ public class NewGameScreen : MonoBehaviour
 
 	public void OnReturnTo()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		cg.DOFade( 1, .5f );
 
 		//handle selected mission
@@ -238,6 +248,7 @@ public class NewGameScreen : MonoBehaviour
 
 	public void OnStartNewGame()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 		startMissionButton.interactable = false;
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 //Handle toggling ENEMY GROUPS and VILLAINS ONLY
@@ -28,6 +29,7 @@ public class GroupToggleContainer : MonoBehaviour
 
 	public void OnToggle( int index )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		//checking for Active makes sure this code does NOT run when the Toggle is INACTIVE
 		if ( !buttonToggles[index].gameObject.activeInHierarchy )
 			return;
@@ -67,6 +69,7 @@ public class GroupToggleContainer : MonoBehaviour
 
 	public void OnChangeExpansion( string expansion )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		Enum.TryParse( expansion, out selectedExpansion );
 
 		previewImage.gameObject.SetActive( false );

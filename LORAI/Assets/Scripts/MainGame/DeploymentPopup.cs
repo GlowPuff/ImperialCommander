@@ -289,4 +289,10 @@ public class DeploymentPopup : MonoBehaviour
 			onslaughtDWarning.gameObject.SetActive( true );
 		}
 	}
+
+	private void Update()
+	{
+		if ( Input.GetKeyDown( KeyCode.Space ) )
+			OnClose();
+	}
 }

@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class HeroChooser : MonoBehaviour
@@ -33,8 +34,17 @@ public class HeroChooser : MonoBehaviour
 		}
 
 		selectedHeroes = DataStore.sessionData.MissionHeroes;
+		//Debug.Log( "SELECTED H" );
+		//foreach ( CardDescriptor cd in selectedHeroes )
+		//	Debug.Log( cd.name );
+		//Debug.Log( "END SELECTED H" );
+
 		//filter owned heroes
 		ownedHeroes = DataStore.heroCards.cards.Owned();
+		//Debug.Log( "OWNED H" );
+		//foreach ( CardDescriptor cd in ownedHeroes )
+		//	Debug.Log( cd.name );
+		//Debug.Log( "END OWNED H" );
 
 		//only show owned heroes, toggle if previously selected
 		for ( int i = 0; i < ownedHeroes.Count; i++ )
@@ -61,15 +71,17 @@ public class HeroChooser : MonoBehaviour
 
 	public void OnToggle( Toggle t )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		if ( !t.gameObject.activeInHierarchy )
 			return;
 
 		sound.PlaySound( FX.Click );
 
 		//get index Toggle (1)
-		Regex rx = new Regex( @"[\d+]" );
+		Regex rx = new Regex( @"\d{1,2}" );
 		var m = rx.Match( t.name );
 		int idx = int.Parse( m.Value ) - 1;
+		//Debug.Log( idx );
 		CardDescriptor clicked = ownedHeroes[idx];
 		if ( t.isOn && !selectedHeroes.Contains( clicked ) )
 			selectedHeroes.Add( clicked );
@@ -97,5 +109,11 @@ public class HeroChooser : MonoBehaviour
 			foreach ( Transform tf in container )
 				tf.GetComponent<Toggle>().interactable = true;
 		}
+	}
+
+	private void Update()
+	{
+		if ( Input.GetKeyDown( KeyCode.Space ) )
+			OnBack();
 	}
 }

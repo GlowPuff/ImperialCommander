@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TitleController : MonoBehaviour
@@ -8,6 +10,7 @@ public class TitleController : MonoBehaviour
 	public Sound soundController;
 	public NewGameScreen newGameScreen;
 	public TitleText titleText;
+	public GameObject donateButton;
 
 	private int m_OpenParameterId;
 	private int expID;
@@ -45,31 +48,37 @@ public class TitleController : MonoBehaviour
 
 	public void ReturnTo()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		FlipIn( animator );
 		titleText.Show();
 		titleText.FlipIn();
+		donateButton.SetActive( true );
 	}
 
 	public void OnNewGame()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
 		animator.SetBool( m_OpenParameterId, false );
 		animator.SetBool( expID, false );
 
 		titleText.FlipOut();
 
+		donateButton.SetActive( false );
+
 		DataStore.StartNewSession();
 		newGameScreen.ActivateScreen();
 	}
 
-	public void OnLoadGame()
-	{
-		soundController.PlaySound( FX.Click );
+	//public void OnLoadGame()
+	//{
+	//	soundController.PlaySound( FX.Click );
 
-	}
+	//}
 
 	public void OnExpansions()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
 		if ( animator.GetBool( expID ) == true )
 			animator.SetBool( expID, false );
@@ -82,6 +91,7 @@ public class TitleController : MonoBehaviour
 
 	public void OnOptions()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
 		GlowEngine.FindObjectsOfTypeSingle<SettingsScreen>().Show( OnSettingsClose, true );
 	}
@@ -93,12 +103,14 @@ public class TitleController : MonoBehaviour
 
 	public void OnCloseExpansions()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
 		animator.SetBool( expID, false );
 	}
 
 	public void ToggleExpansion( Toggle t )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		soundController.PlaySound( FX.Click );
 		if ( t.isOn )
 			DataStore.AddExpansion( t.name );
@@ -109,5 +121,10 @@ public class TitleController : MonoBehaviour
 	public void FadeOut( float time )
 	{
 		fader.FadeToBlack( time );
+	}
+
+	public void OnDonate()
+	{
+		Application.OpenURL( "https://paypal.me/glowpuff" );
 	}
 }

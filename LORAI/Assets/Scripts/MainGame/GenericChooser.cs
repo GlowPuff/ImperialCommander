@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class GenericChooser : MonoBehaviour
 {
@@ -65,6 +66,7 @@ public class GenericChooser : MonoBehaviour
 
 	public void OnToggle( int index )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		Transform grid = transform.Find( "Panel/mugshot grid" );
 		if ( !grid.GetChild( index ).gameObject.activeInHierarchy )
 			return;
@@ -142,5 +144,11 @@ public class GenericChooser : MonoBehaviour
 			//var label = child.Find( "Label" );
 			//label.GetComponent<Text>().text = enemyCards[i].name.ToLower();
 		}
+	}
+
+	private void Update()
+	{
+		if ( Input.GetKeyDown( KeyCode.Space ) )
+			OnClose();
 	}
 }

@@ -106,4 +106,10 @@ public class GroupChooserScreen : MonoBehaviour
 		} );
 		FindObjectOfType<NewGameScreen>().OnReturnTo();
 	}
+
+	private void Update()
+	{
+		if ( Input.GetKeyDown( KeyCode.Space ) )
+			OnBack();
+	}
 }
