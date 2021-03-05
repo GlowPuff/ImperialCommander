@@ -16,11 +16,12 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	CardInstruction cardInstruction;
 	CardDescriptor cardDescriptor;
+	CardDescriptor rebel1;
 	bool spaceListen;
 
 	public void Show( CardDescriptor cd )
 	{
-		Debug.Log( "ID: " + cd.id );
+		Debug.Log( "Showing: " + cd.name + " / " + cd.id );
 		//clear values
 		thumbnail.color = new Color( 1, 1, 1, 0 );
 		bonusNameText.text = "";
@@ -71,6 +72,8 @@ public class EnemyActivationPopup : MonoBehaviour
 			ignoreText.text = "";
 		//if multiple card instructions, pick 1
 		int[] rnd = GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count );
+
+		rebel1 = FindRebel();
 
 		ParseInstructions( cardInstruction.content[rnd[0]] );
 		ParseBonus( cd.id );
@@ -179,22 +182,43 @@ public class EnemyActivationPopup : MonoBehaviour
 
 		if ( item.Contains( "{R1}" ) )
 		{
-			var hlist = DataStore.deployedHeroes.IsHealthy();
-			Debug.Log( "HEROES: " + hlist.Count );
-			int[] rnd = GlowEngine.GenerateRandomNumbers( hlist.Count() );
-			CardDescriptor rebel1 = hlist[rnd[0]];
-
 			item = item.Replace( "{R1}", "<color=#00A4FF>" + rebel1.name + "</color>" );
 		}
 
 		return item;
 	}
 
+	CardDescriptor FindRebel()
+	{
+		var hlist = DataStore.deployedHeroes.GetHealthy();
+		var ulist = DataStore.deployedHeroes.GetUnhealthy();
+		CardDescriptor r = new CardDescriptor() { name = "None" };
+
+		if ( hlist != null )
+		{
+			Debug.Log( "healthy HEROES: " + hlist.Count );
+			int[] rnd = GlowEngine.GenerateRandomNumbers( hlist.Count() );
+			r = hlist[rnd[0]];
+		}
+		else if ( ulist != null )
+		{
+			Debug.Log( "UNhealthy HEROES: " + ulist.Count );
+			int[] rnd = GlowEngine.GenerateRandomNumbers( ulist.Count() );
+			r = ulist[rnd[0]];
+		}
+
+		return r;
+	}
+
 	public void OnViewCard()
 	{
 		spaceListen = false;
 		EventSystem.current.SetSelectedGameObject( null );
-		Sprite s = Resources.Load<Sprite>( $"Cards/Enemies/{cardDescriptor.expansion}/{cardDescriptor.id}" );
+		Sprite s = null;
+		if ( DataStore.villainCards.cards.Contains( cardDescriptor ) )
+			s = Resources.Load<Sprite>( $"Cards/Villains/{cardDescriptor.id}" );
+		else
+			s = Resources.Load<Sprite>( $"Cards/Enemies/{cardDescriptor.expansion}/{cardDescriptor.id}" );
 		if ( s != null )
 			cardZoom.Show( s, cardDescriptor, OnReturn );
 	}

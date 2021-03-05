@@ -2,7 +2,7 @@
 If there are non-retrieved spice barrels on the map, place 1 Imperial Officer on each non-retrieved spice barrel (maximum 2). If possible, first use figures set aside, then from Manual Deployment. The Imperial Officer immediately retrieves the spice barrel.
 
 <b>Rules for Imperial Officers:</b>
-If an Imperial Officer would be defeated, do not mark them as defeated in the app. Remove its figure from the map and set it aside. If it activates before it is deployed again, ignore its activation and proceed to the next Imperial activation.
+If an Imperial Officer would be defeated, do not mark them as defeated in the app. Remove its figure from the map and set it aside. As long as he is not on the map, exhaust his deployment group.
 
 When an Imperial Officer carrying a spice barrel moves adjacent to or on the Spicer's stockpile, the Imperial AI claims that barrel. Then, remove that figure from the map and set it aside. (It is not defeated.)
 

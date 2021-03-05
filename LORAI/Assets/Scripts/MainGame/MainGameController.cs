@@ -3,6 +3,8 @@ using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -20,6 +22,7 @@ public class MainGameController : MonoBehaviour
 	public DeploymentPopup deploymentPopup;
 	public RandomDeployPopup randomDeployPopup;
 	public Button activateImperialButton, endTurnButton;
+	public VolumeProfile volume;
 
 	Sound sound;
 
@@ -39,11 +42,12 @@ public class MainGameController : MonoBehaviour
 		//optional dep
 		//DataStore.sessionData.optionalDeployment = YesNo.Yes;
 		//difficulty
-		DataStore.sessionData.difficulty = Difficulty.Hard;
+		DataStore.sessionData.difficulty = Difficulty.Medium;
 		//bootstrap threat
 		DataStore.sessionData.threatLevel = 3;
 		//bootstrap a hero
 		DataStore.sessionData.MissionHeroes.Add( DataStore.heroCards.cards[0] );
+		DataStore.sessionData.MissionHeroes.Add( DataStore.heroCards.cards[1] );
 
 		//bootstrap some starting enemy groups
 		DataStore.sessionData.MissionStarting.Add( DataStore.deploymentCards.cards.Where( x => x.id == "DG015" ).FirstOrDefault() );
@@ -62,8 +66,11 @@ public class MainGameController : MonoBehaviour
 #endif
 		*/
 
+		//apply settings
 		sound = FindObjectOfType<Sound>();
 		sound.CheckMusic();
+		if ( volume.TryGet<Bloom>( out var bloom ) )
+			bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
 
 		DataStore.sessionData.InitGameVars();
 		ResetUI();
@@ -305,7 +312,9 @@ public class MainGameController : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
-		genericChooser.Show( ChooserMode.Ally, DataStore.allyCards.cards, AddAlly );
+		//filter out DEPLOYED allies
+		var allies = DataStore.allyCards.cards.Where( x => !DataStore.deployedHeroes.Contains( x ) ).ToList();
+		genericChooser.Show( ChooserMode.Ally, allies, AddAlly );
 	}
 
 	public void OnEnemy()

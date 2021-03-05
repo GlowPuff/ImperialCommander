@@ -32,7 +32,7 @@ public class EventPopup : MonoBehaviour
 		enemyToAdd = null;
 
 		//pick 2 rebels/allies
-		var hlist = DataStore.deployedHeroes.IsHealthy();
+		var hlist = DataStore.deployedHeroes.GetHealthy();
 		int[] rnd = GlowEngine.GenerateRandomNumbers( hlist.Count() );
 		rebel1 = hlist[rnd[0]];
 		if ( hlist.Count > 1 )

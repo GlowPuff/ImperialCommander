@@ -2,7 +2,7 @@
 Instead of adding <color="red">Dengar</color> to the open groups, declare him as an earned villain.
 
 <b>Special Rules:</b>
-When the <b>Krandt Brothers</b> are defeated, do not mark them as defeated in the app to keep them from being redeployed. Simply set aside their figures. Ignore all further activations by that group and proceed to the next Imperial activation.
+When the <b>Krandt Brothers</b> are defeated, do not mark them as defeated in the app to keep them from being redeployed. Simply set aside their figures. Once both brothers are defeated, defeat the entire group and remove it from the deployment hand.
 
 <b>Repositioning Target:</b>
 Block access to the doors.

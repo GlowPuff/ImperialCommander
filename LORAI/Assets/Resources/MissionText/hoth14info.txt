@@ -2,7 +2,7 @@
 Refer to the mission rules for instructions for <color="red">Stormtroopers</color>.
 
 <b>Special Rules:</b>
-When defeating a <color="red">Stormtrooper</color>, do not mark him as defeated in the app to keep it from being redeployed. Simply set aside the figure. After defeating the last figure, defeat the entire group. If it is redeployed, treat it as normal <color="red">Stormtroopers</color> without the mission instructions.
+When defeating a <color="red">Stormtrooper</color>, do not mark him as defeated in the app to keep it from being redeployed. Simply set aside the figure. After defeating the last figure, defeat the entire group and remove it from the deployment hand.
 
 <b>Repositioning Target:</b>
 Homestead tile without fire.

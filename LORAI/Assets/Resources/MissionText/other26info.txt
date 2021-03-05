@@ -9,6 +9,6 @@ All heroes are wounded.
 
 <b>At the end of Round 5, and each Round after:</b> <color="red">No Longer Amused</color>
 
-<b>After the first attack targeting <color="red">Jabba the Hutt</color> resolves:</b> <color="red">OH HO HO!</color>. If <color="red">Jabba the Hutt</color> activates this round, ignore his activation and proceed to the next Imperial activation.
+<b>After the first attack targeting <color="red">Jabba the Hutt</color> resolves:</b> <color="red">OH HO HO!</color>
 
 <b>When the Corridor door opens:</b> <color="red">Deeper</color>

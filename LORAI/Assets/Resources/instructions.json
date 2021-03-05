@@ -110,7 +110,9 @@
 				{
 					"instruction": [
 						"{A} INDISCRIMINATE FIRE: If there is at least 1 Rebel within 3 spaces, roll 1 red die. One Rebel within 3 spaces suffers {H} equal to the {H} results. Then each figure adjacent to that Rebel other than this figure suffers 1 {H}.",
-						"{Q} Move 3 to attack {R1}. {Q}{A} Move 5 to attack {R1}. {A} Move 2 to reposition 3.",
+						"{Q} Move 3 to attack {R1}.",
+						"{Q}{A} Move 5 to attack {R1}.",
+						"{A} Move 2 to reposition 3.",
 						"{A} Move 4 to reposition 3.",
 					]
 				},

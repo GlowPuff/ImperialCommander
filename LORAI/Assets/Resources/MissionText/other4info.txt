@@ -1,5 +1,5 @@
 <b>Special Rules:</b>
-When defeating a <color="red">Hired Gun</color> figure, do not mark it as defeated to prevent it from being redeployed. Simply set the figure aside. When the group activates even though its last figure is defeated, simply ignore the activation and proceed to the next Imperial activation.
+When defeating a <color="red">Hired Gun</color> figure, do not mark it as defeated to prevent it from being redeployed. When the last figure is defeated, exhaust the group until it is redeployed.
 
 <b>Repositioning Target:</b>
 Block access to the Back Room.

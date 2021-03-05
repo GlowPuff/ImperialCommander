@@ -1,5 +1,5 @@
 <b>Special Rules:</b>
-The <color="red">Wampa</color> can be redeployed.
+When the <color="red">Wampa</color> is defeated, remove it from the deployment hand.
 
 <b>Repositioning Target:</b>
 Block access to the survivor.

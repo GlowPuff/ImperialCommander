@@ -4,9 +4,6 @@ Refer to the mission rules for instructions for the <b>E-XD</b>.
 <b>Special Setup:</b>
 Deploy a Custom Group as the <b>E-XD</b>.
 
-<b>Special Rules:</b>
-When the <b>E-XD</b> is defeated, do not mark it as defeated in the app. If it activates before it is redeployed, ignore its activation and proceed to the next Imperial activation.
-
 <b>Repositioning Target:</b>
 Block access to the <b>E-XD</b>.
 

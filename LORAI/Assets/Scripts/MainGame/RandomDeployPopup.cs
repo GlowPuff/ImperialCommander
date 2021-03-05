@@ -40,9 +40,14 @@ public class RandomDeployPopup : MonoBehaviour
 		List<CardDescriptor> list = new List<CardDescriptor>();
 		do
 		{
-			var p = DataStore.manualDeploymentList
+			var p = DataStore.deploymentCards.cards
+				.MinusDeployed()
+				.MinusInDeploymentHand()
+				.MinusStarting()
+				.MinusReserved()
 				.MinusIgnored()
 				.FilterByFaction()
+				.Concat( DataStore.sessionData.EarnedVillains )
 				.Where( x => x.cost <= c && !list.Contains( x ) )
 				.ToList();
 			if ( p.Count > 0 )

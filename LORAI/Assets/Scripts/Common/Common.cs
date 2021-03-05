@@ -78,13 +78,24 @@ public static class Extensions
 	}
 
 	/// <summary>
-	/// returns list of heroes/allies, starting with HEALTHY ones first
+	/// returns list of healthy heroes/allies
 	/// </summary>
-	public static List<CardDescriptor> IsHealthy( this List<CardDescriptor> thisCD )
+	public static List<CardDescriptor> GetHealthy( this List<CardDescriptor> thisCD )
 	{
-		var healthy = thisCD.Where( x => x.isHealthy ).ToList();
-		var unhealthy = thisCD.Where( x => !x.isHealthy ).ToList();
-		return healthy.Concat( unhealthy ).ToList();
+		if ( thisCD.Any( x => x.isHealthy ) )
+			return thisCD.Where( x => x.isHealthy ).ToList();
+		else
+			return null;
+		//var unhealthy = thisCD.Where( x => !x.isHealthy ).ToList();
+		//return healthy.Concat( unhealthy ).ToList();
+	}
+
+	public static List<CardDescriptor> GetUnhealthy( this List<CardDescriptor> thisCD )
+	{
+		if ( thisCD.Any( x => !x.isHealthy ) )
+			return thisCD.Where( x => !x.isHealthy ).ToList();
+		else
+			return null;
 	}
 
 	public static T FirstOr<T>( this IEnumerable<T> thisEnum, T def )

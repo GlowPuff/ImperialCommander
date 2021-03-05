@@ -2,7 +2,7 @@
 Refer to the mission rules for instructions for Imperial Officers and <color="red">Imperial Officers</color>
 
 <b>Special Rules:</b>
-Imperial Officers and <color="red">Imperial Officers</color> do not gain a new special action. If an Imperial Officer or <color="red">Imperial Officer</color> is defeated, do not mark it as defeated. Instead, set the figure aside. Ignore all activations from figures set aside and instead proceed to the next Imperial activation.
+Imperial Officers and <color="red">Imperial Officers</color> do not gain a new special action. If an Imperial Officer or <color="red">Imperial Officer</color> is defeated, do not mark him as defeated. Instead, set the figure aside. As long as he is not on the map, exhaust the group.
 
 At the beginning of each Round, if there are Imperial Officers or <color="red">Imperial Officers</color> set aside, place them on the deployment point closest to a terminal. (Maximum 2 figures per round, prioritize <color="red">Imperial Officers</color>)
 

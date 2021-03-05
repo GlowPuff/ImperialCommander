@@ -1,6 +1,7 @@
-﻿using System.Diagnostics;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class TitleController : MonoBehaviour
@@ -11,6 +12,7 @@ public class TitleController : MonoBehaviour
 	public NewGameScreen newGameScreen;
 	public TitleText titleText;
 	public GameObject donateButton;
+	public VolumeProfile volume;
 
 	private int m_OpenParameterId;
 	private int expID;
@@ -27,7 +29,12 @@ public class TitleController : MonoBehaviour
 			PlayerPrefs.SetInt( "music", 1 );
 		if ( !PlayerPrefs.HasKey( "sound" ) )
 			PlayerPrefs.SetInt( "sound", 1 );
+		if ( !PlayerPrefs.HasKey( "bloom" ) )
+			PlayerPrefs.SetInt( "bloom", 1 );
 		PlayerPrefs.Save();
+
+		if ( volume.TryGet<Bloom>( out var bloom ) )
+			bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
 
 		FindObjectOfType<Sound>().CheckMusic();
 	}

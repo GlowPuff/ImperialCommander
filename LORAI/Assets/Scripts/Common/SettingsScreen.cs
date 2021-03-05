@@ -1,16 +1,19 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
 using DG.Tweening;
-using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class SettingsScreen : MonoBehaviour
 {
 	public CanvasGroup cg;
 	public Image fader;
-	public Toggle musicToggle, soundToggle;
+	public Toggle musicToggle, soundToggle, bloomToggle;
 	public Sound sound;
 	public GameObject returnButton;
+	public VolumeProfile volume;
 
 	Action<SettingsCommand> closeAction;
 
@@ -29,6 +32,7 @@ public class SettingsScreen : MonoBehaviour
 
 		musicToggle.isOn = PlayerPrefs.GetInt( "music" ) == 1;
 		soundToggle.isOn = PlayerPrefs.GetInt( "sound" ) == 1;
+		bloomToggle.isOn = PlayerPrefs.GetInt( "bloom" ) == 1;
 	}
 
 	public void OnOK()
@@ -37,6 +41,7 @@ public class SettingsScreen : MonoBehaviour
 		sound.PlaySound( FX.Click );
 		PlayerPrefs.SetInt( "music", musicToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "sound", soundToggle.isOn ? 1 : 0 );
+		PlayerPrefs.SetInt( "bloom", bloomToggle.isOn ? 1 : 0 );
 		PlayerPrefs.Save();
 
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
@@ -59,6 +64,13 @@ public class SettingsScreen : MonoBehaviour
 				sound.PlayMusic();
 			else
 				sound.StopMusic();
+		}
+		else if ( t.name == "bloom toggle" )
+		{
+			if ( volume.TryGet<Bloom>( out var bloom ) )
+			{
+				bloom.active = t.isOn;
+			}
 		}
 	}
 

@@ -43,11 +43,37 @@ public class HGPrefab : MonoBehaviour
 	public void OnCount1( Toggle t )
 	{
 		cardDescriptor.isHealthy = t.isOn;
+
+		//if it's an ally, remove it from game
+		if ( DataStore.allyCards.cards.Contains( cardDescriptor ) )
+		{
+			woundToggle.interactable = false;
+			Transform tf = transform.GetChild( 0 );
+			tf.DOScale( 0, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
+			{
+				//remove it from deployed HERO list
+				DataStore.deployedHeroes.Remove( cardDescriptor );
+				Object.Destroy( gameObject );
+			} );
+		}
+
 		//Debug.Log( "HEALTHY: " + cardDescriptor.isHealthy );
 	}
 
 	public void OnClickSelf()
 	{
 
+	}
+
+	public void OnRemoveSelf()
+	{
+		woundToggle.interactable = false;
+		Transform tf = transform.GetChild( 0 );
+		tf.DOScale( 0, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
+		{
+			//remove it from deployed HERO list
+			DataStore.deployedHeroes.Remove( cardDescriptor );
+			Object.Destroy( gameObject );
+		} );
 	}
 }

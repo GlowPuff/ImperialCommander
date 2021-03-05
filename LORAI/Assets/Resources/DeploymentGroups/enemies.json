@@ -58,7 +58,7 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Core",
-			"ignored": "Cower, Order"
+			"ignored": "Cower"
 		},
 		{
 			"name": "Imperial Officer (Elite)",
@@ -82,7 +82,7 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Core",
-			"ignored": "Imperial"
+			"ignored": "Tripod"
 		},
 		{
 			"name": "E-Web Engineer (Elite)",
@@ -214,7 +214,7 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Core",
-			"ignored": ""
+			"ignored": "Pounce"
 		},
 		{
 			"name": "Heavy Stormtrooper",
@@ -250,7 +250,7 @@
 			"rcost": 2,
 			"size": 2,
 			"expansion": "Twin",
-			"ignored": ""
+			"ignored": "Tusken Cycler"
 		},		
 		{
 			"name": "Tusken Raider (Elite)",
@@ -262,7 +262,7 @@
 			"rcost": 3,
 			"size": 2,
 			"expansion": "Twin",
-			"ignored": ""
+			"ignored": "Tusken Cycler"
 		},		
 		{
 			"name": "Snowtrooper",
@@ -478,7 +478,7 @@
 			"rcost": 3,
 			"size": 2,
 			"expansion": "Jabba",
-			"ignored": "Gamorrean Honor"
+			"ignored": "Gamorrean Honor, Labored Attack"
 		},		
 		{
 			"name": "Gamorrean Guard (Elite)",
@@ -538,7 +538,7 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Jabba",
-			"ignored": ""
+			"ignored": "Brutality, Trained"
 		},		
 		{
 			"name": "AT-DP",
@@ -718,7 +718,7 @@
 			"rcost": 2,
 			"size": 2,
 			"expansion": "Lothal",
-			"ignored": "Rat Catcher"
+			"ignored": "Rat Catcher, Pounce"
 		},		
 		{
 			"name": "Loth-cat (Elite)",
