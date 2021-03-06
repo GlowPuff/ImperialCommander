@@ -70,7 +70,7 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Twin",
-			"ignored": "Battle Discipline, Battle Presence"		
+			"ignored": "Battle Presence, Battle Discipline"		
 		},
 		{
 			"name": "Dengar",
@@ -130,7 +130,7 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Jabba",
-			"ignored": "Bully, Financial Incentive, Execution Order, Plot, Hutt Syndicate"		
+			"ignored": "Bully, Execution Order, Financial Incentive, Plot, Hutt Syndicate"		
 		},
 		{
 			"name": "Captain Terro",
@@ -178,7 +178,7 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Lothal",
-			"ignored": "Patience, Prediction"		
+			"ignored": "Prediction, Patience"		
 		},
 		{
 			"name": "Hondo Ohnaka",
@@ -214,7 +214,7 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Other",
-			"ignored": "Invasive Procedure, Shocking Palm"		
+			"ignored": "Shocking Palm, Invasive Procedure"		
 		},
 		{
 			"name": "BT-1",

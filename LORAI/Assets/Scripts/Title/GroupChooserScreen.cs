@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using System;
+using UnityEngine.EventSystems;
 
 public class GroupChooserScreen : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GroupChooserScreen : MonoBehaviour
 	public MissionToggleContainer missionToggleContainer;
 	public HeroAllyToggleContainer heroAllyToggleContainer;
 	public Text enemyGroupTitle;
+	public GameObject previewButton;
 
 	Sound sound;
 	ChooserMode mode;
@@ -44,6 +46,7 @@ public class GroupChooserScreen : MonoBehaviour
 		expButtons[7].gameObject.SetActive( true );//Other is always active
 
 		//reset UI
+		previewButton.gameObject.SetActive( false );
 		if ( mode == ChooserMode.DeploymentGroups )
 		{
 			switch ( dataGroupIndex )
@@ -79,6 +82,7 @@ public class GroupChooserScreen : MonoBehaviour
 	public void OnViewCard()
 	{
 		sound.PlaySound( FX.Click );
+		EventSystem.current.SetSelectedGameObject( null );
 		cardZoomer.ZoomIn( previewImage.sprite );
 	}
 
@@ -96,6 +100,7 @@ public class GroupChooserScreen : MonoBehaviour
 	public void OnBack()
 	{
 		sound.PlaySound( FX.Click );
+		EventSystem.current.SetSelectedGameObject( null );
 		fader.DOFade( 0, .5f );
 		cg.DOFade( 0, .5f ).OnComplete( () =>
 		{
@@ -109,7 +114,7 @@ public class GroupChooserScreen : MonoBehaviour
 
 	private void Update()
 	{
-		if ( Input.GetKeyDown( KeyCode.Space ) )
+		if ( Input.GetKeyDown( KeyCode.Space ) && !cardZoomer.gameObject.activeInHierarchy )
 			OnBack();
 	}
 }

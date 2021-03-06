@@ -46,7 +46,7 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Core",
-			"ignored": "Cower, Order"
+			"ignored": "Order, Cower"
 		},
 		{
 			"name": "Imperial Officer",
@@ -58,7 +58,7 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Core",
-			"ignored": "Cower"
+			"ignored": "Order, Cower"
 		},
 		{
 			"name": "Imperial Officer (Elite)",
@@ -70,7 +70,7 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Core",
-			"ignored": "Cower, Executive Order, Order"
+			"ignored": "Executive Order, Cower"
 		},
 		{
 			"name": "E-Web Engineer",
@@ -154,7 +154,7 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Core",
-			"ignored": "Self-Destruct, Targeting Computer"
+			"ignored": "Targeting Computer, Self-Destruct"
 		},
 		{
 			"name": "AT-ST",
@@ -466,7 +466,7 @@
 			"rcost": 3,
 			"size": 2,
 			"expansion": "Jabba",
-			"ignored": "Gamorrean Honor"
+			"ignored": "Gamorrean Honor, Labored Attack"
 		},		
 		{
 			"name": "Gamorrean Guard",
@@ -586,7 +586,7 @@
 			"rcost": 3,
 			"size": 2,
 			"expansion": "Empire",
-			"ignored": "Crowd Control, Professional, Shield"
+			"ignored": "Crowd Control, Shield, Professional"
 		},		
 		{
 			"name": "Sentry Droid",
@@ -598,7 +598,7 @@
 			"rcost": 3,
 			"size": 2,
 			"expansion": "Empire",
-			"ignored": "Charged Shot, Multi-Fire, Targeting Computer"
+			"ignored": "Multi-Fire, Charged Shot, Targeting Computer"
 		},		
 		{
 			"name": "Sentry Droid",
@@ -610,7 +610,7 @@
 			"rcost": 3,
 			"size": 2,
 			"expansion": "Empire",
-			"ignored": "Charged Shot, Multi-Fire, Targeting Computer"
+			"ignored": "Multi-Fire, Charged Shot, Targeting Computer"
 		},		
 		{
 			"name": "Sentry Droid (Elite)",
@@ -622,7 +622,7 @@
 			"rcost": 5,
 			"size": 2,
 			"expansion": "Empire",
-			"ignored": "Charged Shot, Multi-Fire, Targeting Computer"
+			"ignored": "Multi-Fire, Charged Shot, Targeting Computer"
 		},		
 		{
 			"name": "Clawdite Shapeshifter",
@@ -718,7 +718,7 @@
 			"rcost": 2,
 			"size": 2,
 			"expansion": "Lothal",
-			"ignored": "Rat Catcher, Pounce"
+			"ignored": "Pounce, Rat Catcher"
 		},		
 		{
 			"name": "Loth-cat (Elite)",
@@ -730,7 +730,7 @@
 			"rcost": 3,
 			"size": 2,
 			"expansion": "Lothal",
-			"ignored": "Fresh Catch"
+			"ignored": "Pounce, Fresh Catch"
 		},		
 		{
 			"name": "Dewback Rider (Elite)",

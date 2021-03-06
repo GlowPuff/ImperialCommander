@@ -151,6 +151,14 @@ public static class DataStore
 			.MinusStarting()
 			.MinusEarnedVillains();
 
+		available.Sort( ( x, y ) =>
+		 {
+			 if ( int.Parse( x.id.Replace( "DG", "" ) ) == int.Parse( y.id.Replace( "DG", "" ) ) )
+				 return 0;
+			 else
+				 return int.Parse( x.id.Replace( "DG", "" ) ) < int.Parse( y.id.Replace( "DG", "" ) ) ? -1 : 1;
+		 } );
+
 		manualDeploymentList = available.ToList();
 		Debug.Log( $"MANUAL GROUP SIZE: {manualDeploymentList.Count} CARDS" );
 

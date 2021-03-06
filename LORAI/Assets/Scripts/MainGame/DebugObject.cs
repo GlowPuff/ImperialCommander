@@ -25,6 +25,8 @@ public class DebugObject : MonoBehaviour
 	public void OnRemove()
 	{
 		DataStore.deploymentHand.Remove( cardDescriptor );
+		DataStore.CreateManualDeployment();
+
 		Destroy( gameObject );
 	}
 }

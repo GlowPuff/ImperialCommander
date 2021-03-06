@@ -2,6 +2,7 @@
 using DG.Tweening;
 using UnityEngine.UI;
 using System;
+using UnityEngine.EventSystems;
 
 public class CardZoomer : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class CardZoomer : MonoBehaviour
 	public void OnClose()
 	{
 		sound.PlaySound( FX.Click );
+		EventSystem.current.SetSelectedGameObject( null );
 		ZoomOut();
 	}
 
