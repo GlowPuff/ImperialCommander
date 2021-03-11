@@ -9,6 +9,7 @@ public class CardZoomer : MonoBehaviour
 	public Image image, fader;
 	public GameObject button;
 	public Canvas canvas;
+	public CanvasGroup cg;
 
 	Sound sound;
 
@@ -22,7 +23,8 @@ public class CardZoomer : MonoBehaviour
 		canvas.gameObject.SetActive( true );
 		image.sprite = sprite;
 		image.transform.DOScale( 0.22f, .5f ).SetEase( Ease.OutExpo ).OnComplete( () => button.SetActive( true ) );
-		image.DOFade( 1, 1.5f );
+		//image.DOFade( 1, 1.5f );
+		cg.DOFade( 1, .5f );
 
 		fader.gameObject.SetActive( true );
 		fader.DOFade( .75f, .5f );
@@ -31,8 +33,9 @@ public class CardZoomer : MonoBehaviour
 	public void ZoomOut()
 	{
 		button.SetActive( false );
-		image.transform.DOScale( 0, .5f ).SetEase( Ease.OutExpo );
-		image.DOFade( 0, .25f );
+		image.transform.DOScale( .187f, .5f ).SetEase( Ease.OutExpo );
+		//image.DOFade( 0, .25f );
+		cg.DOFade( 0, .2f );
 
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{

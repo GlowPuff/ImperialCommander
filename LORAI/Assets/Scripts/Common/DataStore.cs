@@ -391,10 +391,11 @@ public static class DataStore
 				return tier3Group;
 			}
 		}
+		//otherwise try to return the tier 3 group, if any picked
+		else if ( validEnemy == null && tier3Group != null )
+			return tier3Group;
 
-		//otherwise return the normal backup already chosen, whether it's null or not
-		if ( validEnemy != null )
-			deploymentHand.Remove( validEnemy );
+		//finally try to return the tier1/2 group, even if it's null
 		return validEnemy;
 	}
 }

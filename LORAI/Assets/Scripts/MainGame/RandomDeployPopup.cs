@@ -41,6 +41,7 @@ public class RandomDeployPopup : MonoBehaviour
 		do
 		{
 			var p = DataStore.deploymentCards.cards
+				.OwnedPlusOther()
 				.MinusDeployed()
 				.MinusInDeploymentHand()
 				.MinusStarting()
@@ -64,6 +65,9 @@ public class RandomDeployPopup : MonoBehaviour
 		//deploy any groups picked
 		foreach ( var card in list )
 			FindObjectOfType<DeploymentGroupManager>().DeployGroup( card, true );
+
+		if ( list.Count == 0 )
+			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "<color=\"orange\">No matching Groups with cost " + mWheelHandler.wheelValue + " or less.</color>" );
 
 		OnCancel();
 	}

@@ -20,7 +20,7 @@ public class CardDescriptor
 	public string ignored;
 	public int currentSize;
 	public bool isHealthy;
-	public Color idColor = new Color( 0, 0.3294118f, 1, 1 );
+	public Color idColor = new Color( 0.3301887f, 0.3301887f, 0.3301887f, 1 );
 }
 
 //public class DeployedCard : CardDescriptor

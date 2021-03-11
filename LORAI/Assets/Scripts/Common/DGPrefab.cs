@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Linq;
 using DG.Tweening;
-using System.Linq;
-using UnityEngine.EventSystems;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class DGPrefab : MonoBehaviour
 {
@@ -161,7 +160,7 @@ public class DGPrefab : MonoBehaviour
 	public void ToggleColor()
 	{
 		//red black purple blue
-		colorIndex = colorIndex == 3 ? 0 : colorIndex + 1;
+		colorIndex = colorIndex == 5 ? 0 : colorIndex + 1;
 		colorPip.color = colors[colorIndex];
 		cardDescriptor.idColor = colorPip.color;
 	}

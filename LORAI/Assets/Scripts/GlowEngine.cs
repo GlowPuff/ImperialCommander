@@ -1,6 +1,10 @@
 ﻿/// <summary>
 /// Edit the DATE if anything is ADDED or MODIFIED
 /// 
+/// Modified 3/10/2021
+/// +GetAspectRatio()
+/// return the aspect ratio with 2 digit precison (eg: 1.33)
+/// 
 /// Modified 2/23/2021
 /// Fixed RandomAddTo() for loop
 /// Fixed RandomBool()'s use of Random.Range
@@ -591,4 +595,37 @@ public class GlowEngine : MonoBehaviour
 		return results[0];
 	}
 
+	public static float GetAspectRatio()
+	{
+		//float aspect = (float)Screen.height / (float)Screen.width; // Portrait
+		//landscape
+		float aspect = (float)Screen.width / (float)Screen.height;
+		aspect = (float)Math.Round( aspect, 2 );
+		//Debug.Log( "Aspect Ratio:" + aspect );
+		//if ( aspect >= 1.87 )
+		//{
+		//	Debug.Log( "19.5:9" ); // iPhone X
+		//}
+		//else if ( aspect >= 1.74 )  // 16:9
+		//{
+		//	Debug.Log( "16:9" );
+		//}
+		//else if ( aspect > 1.6 )// 5:3
+		//	Debug.Log( "5:3" );
+		//else if ( Math.Abs( aspect - 1.6 ) < Mathf.Epsilon )// 16:10
+		//	Debug.Log( "16:10" );
+		//else if ( aspect >= 1.5 )// 3:2
+		//	Debug.Log( "3:2" );
+		//else
+		//{ // 4:3
+		//	Debug.Log( "4:3 or other" );
+		//}
+
+		//string _r = aspect.ToString( "F2" );
+		//string ratio = _r.Substring( 0, 4 );
+		//print( "RATIO:" + ratio );
+
+
+		return aspect;
+	}
 }

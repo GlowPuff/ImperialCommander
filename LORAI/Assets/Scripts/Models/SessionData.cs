@@ -164,7 +164,7 @@ public class SessionData
 	/// <summary>
 	/// Positive or negative number to add/decrease
 	/// </summary>
-	public void UpdateThreat( int amount, bool force = false )
+	public void ModifyThreat( int amount, bool force = false )
 	{
 		if ( amount > 0 )
 		{

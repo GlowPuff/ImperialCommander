@@ -71,6 +71,8 @@ public class MainGameController : MonoBehaviour
 		sound.CheckMusic();
 		if ( volume.TryGet<Bloom>( out var bloom ) )
 			bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
+		if ( volume.TryGet<Vignette>( out var vig ) )
+			vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
 
 		DataStore.sessionData.InitGameVars();
 		ResetUI();
@@ -271,7 +273,7 @@ public class MainGameController : MonoBehaviour
 	public void OnApplyThreatModifier()
 	{
 		sound.PlaySound( FX.CopyThat );
-		DataStore.sessionData.UpdateThreat( threatWheelHandler.wheelValue, true );
+		DataStore.sessionData.ModifyThreat( threatWheelHandler.wheelValue, true );
 		threatWheelHandler.ResetWheeler();
 	}
 
@@ -365,6 +367,11 @@ public class MainGameController : MonoBehaviour
 
 		dgManager.ExhaustGroup( cd.id );
 		enemyActivationPopup.Show( cd );
+	}
+
+	public void OnShowDebug()
+	{
+		GlowEngine.FindObjectsOfTypeSingle<DebugPopup>().Show();
 	}
 
 	private void Update()

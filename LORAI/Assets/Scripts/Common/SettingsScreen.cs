@@ -10,7 +10,7 @@ public class SettingsScreen : MonoBehaviour
 {
 	public CanvasGroup cg;
 	public Image fader;
-	public Toggle musicToggle, soundToggle, bloomToggle;
+	public Toggle musicToggle, soundToggle, bloomToggle, vignetteToggle;
 	public Sound sound;
 	public GameObject returnButton;
 	public VolumeProfile volume;
@@ -33,6 +33,7 @@ public class SettingsScreen : MonoBehaviour
 		musicToggle.isOn = PlayerPrefs.GetInt( "music" ) == 1;
 		soundToggle.isOn = PlayerPrefs.GetInt( "sound" ) == 1;
 		bloomToggle.isOn = PlayerPrefs.GetInt( "bloom" ) == 1;
+		vignetteToggle.isOn = PlayerPrefs.GetInt( "vignette" ) == 1;
 	}
 
 	public void OnOK()
@@ -42,6 +43,7 @@ public class SettingsScreen : MonoBehaviour
 		PlayerPrefs.SetInt( "music", musicToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "sound", soundToggle.isOn ? 1 : 0 );
 		PlayerPrefs.SetInt( "bloom", bloomToggle.isOn ? 1 : 0 );
+		PlayerPrefs.SetInt( "vignette", vignetteToggle.isOn ? 1 : 0 );
 		PlayerPrefs.Save();
 
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
@@ -68,10 +70,11 @@ public class SettingsScreen : MonoBehaviour
 		else if ( t.name == "bloom toggle" )
 		{
 			if ( volume.TryGet<Bloom>( out var bloom ) )
-			{
 				bloom.active = t.isOn;
-			}
 		}
+		else if ( t.name == "vignette toggle" )
+			if ( volume.TryGet<Vignette>( out var vig ) )
+				vig.active = t.isOn;
 	}
 
 	public void OnQuit()

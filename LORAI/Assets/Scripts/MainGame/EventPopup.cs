@@ -118,7 +118,7 @@ public class EventPopup : MonoBehaviour
 			if ( enemyToAdd.name.Contains( "None" ) )
 				enemyToAdd = null;
 			else
-				DataStore.sessionData.UpdateThreat( -Math.Min( 7, enemyToAdd.cost ) );
+				DataStore.sessionData.ModifyThreat( -Math.Min( 7, enemyToAdd.cost ) );
 		}
 		else if ( cardEvent.eventRule == "R13" )
 		{
@@ -138,7 +138,7 @@ public class EventPopup : MonoBehaviour
 			if ( enemyToAdd.name.Contains( "None" ) )
 				enemyToAdd = null;
 			else
-				DataStore.sessionData.UpdateThreat( -Math.Min( 5, enemyToAdd.cost ) );
+				DataStore.sessionData.ModifyThreat( -Math.Min( 5, enemyToAdd.cost ) );
 		}
 		else if ( cardEvent.eventRule == "R23" )
 		{
@@ -147,7 +147,7 @@ public class EventPopup : MonoBehaviour
 			if ( allyToAdd.name.Contains( "None" ) )
 				allyToAdd = null;
 			else
-				DataStore.sessionData.UpdateThreat( allyToAdd.cost / 2 );
+				DataStore.sessionData.ModifyThreat( allyToAdd.cost / 2 );
 		}
 
 		nt.text = item;

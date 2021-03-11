@@ -1,13 +1,19 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDragHandler
 {
 	public int wheelValue;
 	public int maxValue = 10;
 	public int minValue = 0;
 	public Text numberText;
+
+	//swiping
+	public float distancePerTick = 15;//distance (pixels) have to swipe to register 1 tick of increment/decrement
+
+	private float currentDistance = 0;
 
 	bool isHovering = false;
 	Sound sound;
@@ -37,6 +43,7 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
 		numberText.text = wheelValue.ToString();
 	}
+
 	public void OnPointerEnter( PointerEventData eventData )
 	{
 		isHovering = true;
@@ -47,9 +54,24 @@ public class MWheelHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 		isHovering = false;
 	}
 
-	public void ResetWheeler()
+	public void ResetWheeler( int value = 0 )
 	{
-		wheelValue = 0;
-		numberText.text = "0";
+		wheelValue = value;
+		numberText.text = wheelValue.ToString();
+	}
+
+	public void OnDrag( PointerEventData eventData )
+	{
+		eventData.useDragThreshold = true;
+
+		currentDistance += Math.Abs( eventData.delta.x );
+		if ( currentDistance >= distancePerTick )
+		{
+			currentDistance = 0;
+			if ( eventData.delta.x > 0 )
+				wheelValue = Mathf.Min( maxValue, wheelValue + 1 );
+			else
+				wheelValue = Mathf.Max( minValue, wheelValue - 1 );
+		}
 	}
 }

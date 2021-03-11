@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 3734764380663410860}
   - component: {fileID: 3734764380663410861}
   - component: {fileID: 3734764380663410858}
-  - component: {fileID: 1004987133406808214}
+  - component: {fileID: 3953311267101454723}
   m_Layer: 5
   m_Name: icon Button
   m_TagString: Untagged
@@ -444,7 +444,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1004987133406808214
+--- !u!114 &3953311267101454723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -453,10 +453,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 3734764380663410856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6750897b3d6e3548a7fc7ce279a2afc, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f3fd1024c985a743adfdfb979b638e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pfab: {fileID: 3734764381717673002}
+  clickCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  rightClickCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3734764381717673002}
+        m_MethodName: OnPointerClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  swipeCallback:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3734764381717673002}
+        m_MethodName: OnPointerClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3734764380694939045
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,10 +979,12 @@ MonoBehaviour:
   outline: {fileID: 3734764380053158898}
   eliteColor: {r: 1, g: 0, b: 0, a: 1}
   colors:
-  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
   - {r: 0.6784314, g: 0, b: 1, a: 1}
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.32941177, b: 1, a: 1}
+  - {r: 0, g: 0.735849, b: 0.105648436, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
   exhaustedOverlay: {fileID: 6218507574144178855}
   selfButton: {fileID: 3734764380663410858}
 --- !u!222 &5725093811284621743
@@ -1022,7 +1054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.3294118, b: 1, a: 1}
+  m_Color: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

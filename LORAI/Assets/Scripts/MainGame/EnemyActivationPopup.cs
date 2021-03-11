@@ -11,7 +11,7 @@ public class EnemyActivationPopup : MonoBehaviour
 	public CanvasGroup cg;
 	public TextMeshProUGUI bonusNameText, bonusText, ignoreText;
 	public Text enemyName;
-	public Image thumbnail;
+	public Image thumbnail, colorPip;
 	public CardZoom cardZoom;
 
 	CardInstruction cardInstruction;
@@ -21,7 +21,7 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	public void Show( CardDescriptor cd )
 	{
-		Debug.Log( "Showing: " + cd.name + " / " + cd.id );
+		//Debug.Log( "Showing: " + cd.name + " / " + cd.id );
 		//clear values
 		thumbnail.color = new Color( 1, 1, 1, 0 );
 		bonusNameText.text = "";
@@ -29,6 +29,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		enemyName.text = "";
 		ignoreText.text = "";
 		spaceListen = true;
+		colorPip.color = cd.idColor;
 
 		cardDescriptor = cd;
 
@@ -196,13 +197,13 @@ public class EnemyActivationPopup : MonoBehaviour
 
 		if ( hlist != null )
 		{
-			Debug.Log( "healthy HEROES: " + hlist.Count );
+			//Debug.Log( "healthy HEROES: " + hlist.Count );
 			int[] rnd = GlowEngine.GenerateRandomNumbers( hlist.Count() );
 			r = hlist[rnd[0]];
 		}
 		else if ( ulist != null )
 		{
-			Debug.Log( "UNhealthy HEROES: " + ulist.Count );
+			//Debug.Log( "UNhealthy HEROES: " + ulist.Count );
 			int[] rnd = GlowEngine.GenerateRandomNumbers( ulist.Count() );
 			r = ulist[rnd[0]];
 		}

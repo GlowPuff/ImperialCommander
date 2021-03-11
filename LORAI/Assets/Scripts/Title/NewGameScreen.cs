@@ -8,7 +8,7 @@ public class NewGameScreen : MonoBehaviour
 {
 	public MWheelHandler threatWheelHandler;
 	public MWheelHandler addtlThreatWheelHandler;
-	public Text difficultyText, rulesText, deploymentText, selectedMissionText, threatCostText;
+	public Text difficultyText, deploymentText, selectedMissionText, threatCostText;
 	public Toggle imperialToggle, mercenaryToggle;
 	public TitleController titleController;
 	public CanvasGroup cg;
@@ -21,6 +21,7 @@ public class NewGameScreen : MonoBehaviour
 	public HeroMeta[] heroMetas;
 	public MissionTextBox missionTextBox;
 	public HeroChooser heroChooser;
+	public GridLayoutGroup gridLayoutGroup;
 
 	Sound sound;
 
@@ -46,7 +47,6 @@ public class NewGameScreen : MonoBehaviour
 		selectedMissionText.transform.Find( "mission info button" ).GetComponent<Button>().interactable = false;
 		selectedMissionText.text = "Choose Mission";
 		difficultyText.text = "difficulty";
-		rulesText.text = "ally rules";
 		deploymentText.text = "no";
 		imperialToggle.isOn = true;
 		mercenaryToggle.isOn = true;
@@ -62,6 +62,12 @@ public class NewGameScreen : MonoBehaviour
 		cb = addHeroButton.colors;
 		cb.normalColor = new Color( 1, 0.1568628f, 0, 1 );
 		addHeroButton.colors = cb;
+
+		//aspect ratio adjustment
+		if ( GlowEngine.GetAspectRatio() >= 1.6f )//16:9 or greater
+			gridLayoutGroup.cellSize = new Vector2( 413, 400 );
+		else if ( GlowEngine.GetAspectRatio() >= 1.33f )//4:3, 5:4
+			gridLayoutGroup.cellSize = new Vector2( 313, 400 );
 	}
 
 	public void OnDifficulty()
@@ -71,12 +77,6 @@ public class NewGameScreen : MonoBehaviour
 		ColorBlock cb = difficultyButton.colors;
 		cb.normalColor = new Color( 0, 0.6440244f, 1, 1 );
 		difficultyButton.colors = cb;
-	}
-
-	public void OnAllyRules()
-	{
-		sound.PlaySound( FX.Click );
-		rulesText.text = DataStore.sessionData.ToggleRules();
 	}
 
 	public void OnOptionalDeployment()

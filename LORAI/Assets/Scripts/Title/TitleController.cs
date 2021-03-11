@@ -31,10 +31,14 @@ public class TitleController : MonoBehaviour
 			PlayerPrefs.SetInt( "sound", 1 );
 		if ( !PlayerPrefs.HasKey( "bloom" ) )
 			PlayerPrefs.SetInt( "bloom", 1 );
+		if ( !PlayerPrefs.HasKey( "vignette" ) )
+			PlayerPrefs.SetInt( "vignette", 1 );
 		PlayerPrefs.Save();
 
 		if ( volume.TryGet<Bloom>( out var bloom ) )
 			bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
+		if ( volume.TryGet<Vignette>( out var vig ) )
+			vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
 
 		FindObjectOfType<Sound>().CheckMusic();
 	}

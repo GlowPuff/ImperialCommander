@@ -120,7 +120,7 @@ public class DeploymentPopup : MonoBehaviour
 		No deployment
 		DM +2
 		*/
-		DataStore.sessionData.UpdateThreat( DataStore.sessionData.threatLevel );
+		DataStore.sessionData.ModifyThreat( DataStore.sessionData.threatLevel );
 		DataStore.sessionData.UpdateDeploymentModifier( 2 );
 	}
 
@@ -131,7 +131,7 @@ public class DeploymentPopup : MonoBehaviour
 		Reinforce up to 2 groups
 		DM +1
 		*/
-		DataStore.sessionData.UpdateThreat( DataStore.sessionData.threatLevel );
+		DataStore.sessionData.ModifyThreat( DataStore.sessionData.threatLevel );
 		DataStore.sessionData.UpdateDeploymentModifier( 1 );
 
 		CardDescriptor r1 = DataStore.GetReinforcement();
@@ -142,7 +142,7 @@ public class DeploymentPopup : MonoBehaviour
 			topR2.Init( r1, 1 );
 			r1.currentSize += 1;
 			//update threat just spent
-			DataStore.sessionData.UpdateThreat( r1.rcost );
+			DataStore.sessionData.ModifyThreat( -r1.rcost );
 			//Debug.Log( "new size R1:" + r1.currentSize );
 		}
 		CardDescriptor r2 = DataStore.GetReinforcement();
@@ -153,7 +153,7 @@ public class DeploymentPopup : MonoBehaviour
 			bottomR2.Init( r2, 1 );
 			r2.currentSize += 1;
 			//update threat just spent
-			DataStore.sessionData.UpdateThreat( r2.rcost );
+			DataStore.sessionData.ModifyThreat( -r2.rcost );
 			//Debug.Log( "new size R2:" + r2.currentSize );
 		}
 
@@ -176,7 +176,7 @@ public class DeploymentPopup : MonoBehaviour
 			landingMessage.SetActive( false );
 		else// if ( !skipThreatIncrease )
 		{
-			DataStore.sessionData.UpdateThreat( DataStore.sessionData.threatLevel + 1 );
+			DataStore.sessionData.ModifyThreat( DataStore.sessionData.threatLevel + 1 );
 			DataStore.sessionData.UpdateDeploymentModifier( 1 );
 			landingMessage.SetActive( true );
 		}
@@ -190,7 +190,7 @@ public class DeploymentPopup : MonoBehaviour
 			//remove it from dep hand
 			DataStore.deploymentHand.Remove( d1 );
 			//update threat just spent
-			DataStore.sessionData.UpdateThreat( -d1.cost );
+			DataStore.sessionData.ModifyThreat( -d1.cost );
 		}
 
 		CardDescriptor d2 = DataStore.GetFuzzyDeployable();
@@ -202,7 +202,7 @@ public class DeploymentPopup : MonoBehaviour
 			//remove it from dep hand
 			DataStore.deploymentHand.Remove( d2 );
 			//update threat just spent
-			DataStore.sessionData.UpdateThreat( -d2.cost );
+			DataStore.sessionData.ModifyThreat( -d2.cost );
 		}
 
 		if ( d1 == null && d2 == null )
@@ -230,7 +230,7 @@ public class DeploymentPopup : MonoBehaviour
 			onslaughtMessage.SetActive( false );
 		else
 		{
-			DataStore.sessionData.UpdateThreat( DataStore.sessionData.threatLevel + 2 );
+			DataStore.sessionData.ModifyThreat( DataStore.sessionData.threatLevel + 2 );
 			DataStore.sessionData.UpdateDeploymentModifier( -2 );
 			onslaughtMessage.SetActive( true );
 		}
@@ -243,7 +243,7 @@ public class DeploymentPopup : MonoBehaviour
 			on1R1.Init( r1 );
 			on1R2.Init( r1, 1 );
 			r1.currentSize += 1;
-			DataStore.sessionData.UpdateThreat( -( Mathf.Max( 1, r1.rcost - 1 ) ) );
+			DataStore.sessionData.ModifyThreat( -( Mathf.Max( 1, r1.rcost - 1 ) ) );
 		}
 
 		CardDescriptor r2 = DataStore.GetReinforcement( true );
@@ -253,7 +253,7 @@ public class DeploymentPopup : MonoBehaviour
 			on2R1.Init( r2 );
 			on2R2.Init( r2, 1 );
 			r2.currentSize += 1;
-			DataStore.sessionData.UpdateThreat( -( Mathf.Max( 1, r2.rcost - 1 ) ) );
+			DataStore.sessionData.ModifyThreat( -( Mathf.Max( 1, r2.rcost - 1 ) ) );
 		}
 
 		if ( r1 == null && r2 == null )
@@ -275,11 +275,11 @@ public class DeploymentPopup : MonoBehaviour
 				//remove it from dep hand
 				DataStore.deploymentHand.Remove( dep );
 				if ( dep.tier == 1 )
-					DataStore.sessionData.UpdateThreat( -dep.cost );
+					DataStore.sessionData.ModifyThreat( -dep.cost );
 				else if ( dep.tier == 2 )
-					DataStore.sessionData.UpdateThreat( -( dep.cost - 1 ) );
+					DataStore.sessionData.ModifyThreat( -( dep.cost - 1 ) );
 				else
-					DataStore.sessionData.UpdateThreat( -( dep.cost - 2 ) );
+					DataStore.sessionData.ModifyThreat( -( dep.cost - 2 ) );
 			}
 		}
 		while ( dep != null );
