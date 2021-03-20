@@ -33,7 +33,7 @@ public class DeploymentGroupManager : MonoBehaviour
 
 	public void DeployStartingGroups()
 	{
-		foreach ( var cd in DataStore.sessionData.selectedDeploymentCards[0].cards )
+		foreach ( var cd in DataStore.sessionData.MissionStarting )
 		{
 			cd.currentSize = cd.size;
 			var go = Instantiate( dgPrefab, gridContainer );

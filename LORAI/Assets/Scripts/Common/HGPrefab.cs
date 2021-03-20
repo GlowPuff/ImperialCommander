@@ -9,6 +9,7 @@ public class HGPrefab : MonoBehaviour
 	public Image iconImage;
 	public Outline outline;
 	public Color eliteColor;
+	public GameObject exhaustedOverlay;
 
 	CardDescriptor cardDescriptor;
 
@@ -43,37 +44,44 @@ public class HGPrefab : MonoBehaviour
 	public void OnCount1( Toggle t )
 	{
 		cardDescriptor.isHealthy = t.isOn;
+		if ( cardDescriptor.isHealthy )
+			exhaustedOverlay.SetActive( false );
 
-		//if it's an ally, remove it from game
+		//if it's an ally, mark it defeated
 		if ( DataStore.allyCards.cards.Contains( cardDescriptor ) )
 		{
-			woundToggle.interactable = false;
-			Transform tf = transform.GetChild( 0 );
-			tf.DOScale( 0, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
-			{
-				//remove it from deployed HERO list
-				DataStore.deployedHeroes.Remove( cardDescriptor );
-				Object.Destroy( gameObject );
-			} );
+			exhaustedOverlay.SetActive( !cardDescriptor.isHealthy );
+			//	woundToggle.interactable = false;
+			//	Transform tf = transform.GetChild( 0 );
+			//	tf.DOScale( 0, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
+			//	{
+			//		//remove it from deployed HERO list
+			//		DataStore.deployedHeroes.Remove( cardDescriptor );
+			//		Object.Destroy( gameObject );
+			//	} );
 		}
 
 		//Debug.Log( "HEALTHY: " + cardDescriptor.isHealthy );
 	}
 
+	/// <summary>
+	/// Toggle DEFEATED (dimmed overlay)
+	/// </summary>
 	public void OnClickSelf()
 	{
-
+		exhaustedOverlay.SetActive( !exhaustedOverlay.activeInHierarchy );
+		woundToggle.isOn = !exhaustedOverlay.activeInHierarchy;
 	}
 
-	public void OnRemoveSelf()
-	{
-		woundToggle.interactable = false;
-		Transform tf = transform.GetChild( 0 );
-		tf.DOScale( 0, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
-		{
-			//remove it from deployed HERO list
-			DataStore.deployedHeroes.Remove( cardDescriptor );
-			Object.Destroy( gameObject );
-		} );
-	}
+	//public void OnRemoveSelf()
+	//{
+	//	woundToggle.interactable = false;
+	//	Transform tf = transform.GetChild( 0 );
+	//	tf.DOScale( 0, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
+	//	{
+	//		//remove it from deployed HERO list
+	//		DataStore.deployedHeroes.Remove( cardDescriptor );
+	//		Object.Destroy( gameObject );
+	//	} );
+	//}
 }

@@ -44,7 +44,7 @@ public class MainGameController : MonoBehaviour
 		//difficulty
 		DataStore.sessionData.difficulty = Difficulty.Medium;
 		//bootstrap threat
-		DataStore.sessionData.threatLevel = 3;
+		DataStore.sessionData.threatLevel = 6;
 		//bootstrap a hero
 		DataStore.sessionData.MissionHeroes.Add( DataStore.heroCards.cards[0] );
 		DataStore.sessionData.MissionHeroes.Add( DataStore.heroCards.cards[1] );
@@ -59,10 +59,12 @@ public class MainGameController : MonoBehaviour
 
 		//bootstrap an ally
 		DataStore.sessionData.selectedAlly = DataStore.allyCards.cards.Where( x => x.id == "A005" ).FirstOrDefault();
+
 		//bootstrap factions
 		//DataStore.sessionData.includeImperials = false;
-		//bootstrap villains
-		//DataStore.sessionData.SelectedVillains.Add( DataStore.villainCards.cards.Where( x => x.id == "DG072" ).FirstOrDefault() );//darth vader
+
+		//bootstrap earned villains
+		DataStore.sessionData.EarnedVillains.Add( DataStore.villainCards.cards.Where( x => x.id == "DG072" ).FirstOrDefault() );//darth vader
 #endif
 		*/
 
@@ -86,12 +88,12 @@ public class MainGameController : MonoBehaviour
 	{
 		//create deployment hand and manual deploy list
 		var dh = DataStore.CreateDeploymentHand();
-		foreach ( var d in dh )
-			Debug.Log( "DH: " + d.name );
+		//foreach ( var d in dh )
+		//	Debug.Log( "DH: " + d.name );
 		DataStore.CreateManualDeployment();
 		//deploy heroes
-		for ( int i = 0; i < DataStore.sessionData.selectedDeploymentCards[4].cards.Count; i++ )
-			dgManager.DeployHeroAlly( DataStore.sessionData.selectedDeploymentCards[4].cards[i] );
+		for ( int i = 0; i < DataStore.sessionData.MissionHeroes.Count; i++ )
+			dgManager.DeployHeroAlly( DataStore.sessionData.MissionHeroes[i] );
 		//deploy ally
 		if ( DataStore.sessionData.selectedAlly != null )
 			dgManager.DeployHeroAlly( DataStore.sessionData.selectedAlly );

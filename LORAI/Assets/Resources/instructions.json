@@ -185,8 +185,9 @@
 				},
 				{
 					"instruction": [
-						"{-} STREETRAT: At the start of this activation, gain the Streetrat Form card. Q Move 3 to attack {R1}",
-						"{-} ASSASSIN’S BLADE: Move 2 to engage the closest Rebel. If it engages, roll 1 red die. That Rebel suffers H equal to the H results.",
+						"{-} STREETRAT: At the start of this activation, gain the Streetrat Form card.",
+						"{Q} Move 3 to attack {R1}.",
+						"{-} ASSASSIN’S BLADE: Move 2 to engage the closest Rebel. If it engages, roll 1 red die. That Rebel suffers {H} equal to the {H} results.",
 						"{A} Move 2 to reposition 4.",
 						"{A} Move 6 to reposition 4.",
 						"{-} SHAPESHIFT: If there is no figure on this figure’s Deployment card, take the defeated figure with the highest figure cost from another Imperial group still on the map and place it on this  figure’s Deployment card. When that figure’s group activates, activate this figure as if it was a figure in that group, using that group’s attack dice, surge priority and instructions. When the figure on this group’s Deployment card is redeployed or its group is defeated, remove the figure from this figure’s Deployment card.",
@@ -196,7 +197,7 @@
 					"instruction": [
 						"{-} SENATOR: At the start of this activation, gain the Senator Form card",
 						"{A} Move 2 to reposition 4.",
-						"{-} CONSPIRE: Roll this figure’s attack pool plus 1 yellow die. Each Imperial figure within X spaces gains 1 {g}, where X is the number of B results.",
+						"{-} CONSPIRE: Roll this figure’s attack pool plus 1 yellow die. Each Imperial figure within X spaces gains 1 {g}, where X is the number of {B} results.",
 						"{A} Move 6 to reposition 4.",
 						"{-} SHAPESHIFT: If there is no figure on this figure’s Deployment card, take the defeated figure with the highest figure cost from another Imperial group still on the map and place it on this  figure’s Deployment card. When that figure’s group activates, activate this figure as if it was a figure in that group, using that group’s attack dice, surge priority and instructions. When the figure on this group’s Deployment card is redeployed or its group is defeated, remove the figure from this figure’s Deployment card.",
 					]
@@ -221,8 +222,9 @@
 				},
 				{
 					"instruction": [
-						"{-} STREETRAT: At the start of this activation, gain the Streetrat Form card. Q Move 3 to attack {R1}",
-						"{-} ASSASSIN’S BLADE: Move 2 to engage the closest Rebel. If it engages, roll 1 red die. That Rebel suffers H equal to the H results.",
+						"{-} STREETRAT: At the start of this activation, gain the Streetrat Form card.",
+						"{Q} Move 3 to attack {R1}.",
+						"{-} ASSASSIN’S BLADE: Move 2 to engage the closest Rebel. If it engages, roll 1 red die. That Rebel suffers {H} equal to the {H} results.",
 						"{A} Move 2 to reposition 4.",
 						"{A} Move 6 to reposition 4.",
 						"{-} SHAPESHIFT: If there is no figure on this figure’s Deployment card, take the defeated figure with the highest figure cost from another Imperial group still on the map and place it on this  figure’s Deployment card. When that figure’s group activates, activate this figure as if it was a figure in that group, using that group’s attack dice, surge priority and instructions. When the figure on this group’s Deployment card is redeployed or its group is defeated, remove the figure from this figure’s Deployment card.",
@@ -232,7 +234,7 @@
 					"instruction": [
 						"{-} SENATOR: At the start of this activation, gain the Senator Form card",
 						"{A} Move 2 to reposition 4.",
-						"{-} CONSPIRE: Roll this figure’s attack pool plus 1 yellow die. Each Imperial figure within X spaces gains 1 {g}, where X is the number of B results.",
+						"{-} CONSPIRE: Roll this figure’s attack pool plus 1 yellow die. Each Imperial figure within X spaces gains 1 {g}, where X is the number of {B} results.",
 						"{A} Move 6 to reposition 4.",
 						"{-} SHAPESHIFT: If there is no figure on this figure’s Deployment card, take the defeated figure with the highest figure cost from another Imperial group still on the map and place it on this  figure’s Deployment card. When that figure’s group activates, activate this figure as if it was a figure in that group, using that group’s attack dice, surge priority and instructions. When the figure on this group’s Deployment card is redeployed or its group is defeated, remove the figure from this figure’s Deployment card.",
 					]
@@ -257,8 +259,9 @@
 				},
 				{
 					"instruction": [
-						"{-} STREETRAT: At the start of this activation, gain the Streetrat Form card. Q Move 3 to attack {R1}",
-						"{-} ASSASSIN’S BLADE: Move 2 to engage the closest Rebel. If it engages, roll 1 red die. That Rebel suffers H equal to the H results.",
+						"{-} STREETRAT: At the start of this activation, gain the Streetrat Form card.",
+						"{Q} Move 3 to attack {R1}.",
+						"{-} ASSASSIN’S BLADE: Move 2 to engage the closest Rebel. If it engages, roll 1 red die. That Rebel suffers {H} equal to the {H} results.",
 						"{A} Move 2 to reposition 4.",
 						"{A} Move 6 to reposition 4.",
 						"{-} SHAPESHIFT: If there is no figure on this figure’s Deployment card, take the defeated figure with the highest figure cost from another Imperial group still on the map and place it on this  figure’s Deployment card. When that figure’s group activates, activate this figure as if it was a figure in that group, using that group’s attack dice, surge priority and instructions. When the figure on this group’s Deployment card is redeployed or its group is defeated, remove the figure from this figure’s Deployment card.",
@@ -268,7 +271,7 @@
 					"instruction": [
 						"{-} SENATOR: At the start of this activation, gain the Senator Form card",
 						"{A} Move 2 to reposition 4.",
-						"{-} CONSPIRE: Roll this figure’s attack pool plus 1 yellow die. Each Imperial figure within X spaces gains 1 {g}, where X is the number of B results.",
+						"{-} CONSPIRE: Roll this figure’s attack pool plus 1 yellow die. Each Imperial figure within X spaces gains 1 {g}, where X is the number of {B} results.",
 						"{A} Move 6 to reposition 4.",
 						"{-} SHAPESHIFT: If there is no figure on this figure’s Deployment card, take the defeated figure with the highest figure cost from another Imperial group still on the map and place it on this  figure’s Deployment card. When that figure’s group activates, activate this figure as if it was a figure in that group, using that group’s attack dice, surge priority and instructions. When the figure on this group’s Deployment card is redeployed or its group is defeated, remove the figure from this figure’s Deployment card.",
 					]
@@ -281,7 +284,7 @@
 			"content": [
 				{
 					"instruction": [
-						"This figure discards each Harmful condition, then suffers 1 {H} for each condition discarded. If this figure would be defeated, it is not defeated until the end of this activation.",
+						"{-} This figure discards each Harmful condition, then suffers 1 {H} for each condition discarded. If this figure would be defeated, it is not defeated until the end of this activation.",
 						"{Q}{A} BRUTALITY: Move 4 to engage 2 or more Rebels. Then, attack each adjacent Rebel.",
 						"{Q} Move 4 to attack {R1}.",
 						"{A} Force choke: Move 2 toward {R1}. Then that figure suffers 2 {H} and 1 {C}.",
@@ -495,7 +498,7 @@
 				{
 					"instruction": [
 						"{Q} Move 3 to attack {R1}.",
-						"{A} Roll 1 green die. A Rebel within 4 spaces suffers {H} equal to the {H} results. Target the healthy Rebel who has suffered the most {H}. If a {H} was rolled, become Focused.",
+						"{A} Roll 1 green die. A Rebel within 4 spaces suffers {H} equal to the {H} results. Target the healthy Rebel who has suffered the most {H}. If a {B} was rolled, become Focused.",
 						"{A} Move 2 to reposition 2.",
 						"{A} Move 6 to reposition 2.",
 						"{-} GENERAL’S ORDERS: The two other highest-cost Imperial figures move 2 towards the Rebels and become Focused.",
@@ -797,7 +800,7 @@
 						"{A} EXECUTION ORDER: The other Imperial figure with the highest figure cost that can attack attacks {R1}.",
 						"{Q} Attack {R1}.",
 						"{A} If there is a Rebel within 3 spaces of this figure, move 2 to reposition 5.",
-						"If Salacious B. Crumb is in play, he moves 4 through as many spaces containing Rebels as possible (minimum 1). If he cannot enter any Rebel space, he moves 4 toward {R1} instead.",
+						"{-} If Salacious B. Crumb is in play, he moves 4 through as many spaces containing Rebels as possible (minimum 1). If he cannot enter any Rebel space, he moves 4 toward {R1} instead.",
 					]
 				},
 			],
@@ -1040,7 +1043,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{O}PROFESSIONAL: Gain +1 {H}.",
+						"{-} PROFESSIONAL: Gain +1 {H}.",
 						"{Q} Move 4 to attack {R1}. After this attack, if the target suffered any {H}, it may test {K}. If it does not pass, it suffers 1 {C}.",
 						"{A} Move 2 to reposition 2.",
 						"{A} Move 6 to reposition 2",
@@ -1055,7 +1058,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{O}PROFESSIONAL: Gain +1 {H}.",
+						"{-} PROFESSIONAL: Gain +1 {H}.",
 						"{Q} Move 4 to attack {R1}. After this attack, if the target suffered any {H}, it may test {K}. If it does not pass, it suffers 1 {C}.",
 						"{A} Move 2 to reposition 2.",
 						"{A} Move 6 to reposition 2",
@@ -1070,7 +1073,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{O}PROFESSIONAL: Gain +1 {H}.",
+						"{-} PROFESSIONAL: Gain +1 {H}.",
 						"{Q} Move 4 to attack {R1}. After this attack, if the target suffered any {H}, it suffers 1 {C}.",
 						"{A} Move 2 to reposition 2",
 						"{A} Move 6 to reposition 2",
@@ -1178,7 +1181,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{-} CHARGED SHOT: Gain +1 H and +4 Accuracy. Figures do not block this figure’s line of sight.",
+						"{-} CHARGED SHOT: Gain +1 {H} and +4 Accuracy. Figures do not block this figure’s line of sight.",
 						"{Q} Move 2 to attack {R1}.",
 						"{-} MULTI-FIRE: Move 1 to attack a Rebel that this figure has not attacked during this activation. Apply -2 {H} to this attack’s results.",
 						"{A} Move 2 to reposition 4.",
@@ -1434,7 +1437,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{-} RAIDER: While attacking, reroll each attack die not showing any H results. The defender must reroll each defense die showing an E result or 3 G results.",
+						"{-} RAIDER: While attacking, reroll each attack die not showing any {H} results. The defender must reroll each defense die showing an {E} result or 3 {G} results.",
 						"{A} PROWL: If this figure is not Hidden, it becomes Hidden.",
 						"{Q} Move 4 to attack {R1}.",
 						"{A} Move 2 to reposition 3.",

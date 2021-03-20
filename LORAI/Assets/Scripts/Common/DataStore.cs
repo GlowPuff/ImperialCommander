@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using Newtonsoft.Json;
 using UnityEditor;
@@ -28,6 +29,8 @@ public static class DataStore
 	public static List<CardInstruction> activationInstructions;
 	public static List<BonusEffect> bonusEffects;
 
+	private static List<CardDescriptor> villainsToManuallyAdd;
+
 	//manualDeploymentList includes all owned expansion groups plus villains, minus deployment hand, plus both factions, minus reserved, minus starting, minus EARNED villains
 
 	/// <summary>
@@ -43,6 +46,7 @@ public static class DataStore
 		manualDeploymentList = new List<CardDescriptor>();
 		deployedHeroes = new List<CardDescriptor>();
 		deployedEnemies = new List<CardDescriptor>();
+		villainsToManuallyAdd = new List<CardDescriptor>();
 		//permDefeatedEnemies = new List<CardDescriptor>();
 
 		cardEvents = new List<CardEvent>();
@@ -136,7 +140,7 @@ public static class DataStore
 			ownedExpansions.Remove( xp );
 	}
 
-	public static List<CardDescriptor> CreateManualDeployment()
+	public static void CreateManualDeployment()
 	{
 		//filter owned expansions
 		var available = deploymentCards.cards
@@ -144,12 +148,19 @@ public static class DataStore
 			.ToList();
 		//add all villains
 		available = available.Concat( villainCards.cards ).ToList();
-		//filter out reserved/starting
+		//filter out reserved/starting/earned villains
 		available = available
 			.MinusInDeploymentHand()
 			.MinusReserved()
 			.MinusStarting()
 			.MinusEarnedVillains();
+
+		//add any earned villains that didn't make it into the dep hand
+		available.AddRange( villainsToManuallyAdd );
+		foreach ( var cd in villainsToManuallyAdd )
+		{
+			//Debug.Log( "TO ADD: " + cd.name );
+		}
 
 		available.Sort( ( x, y ) =>
 		 {
@@ -161,8 +172,17 @@ public static class DataStore
 
 		manualDeploymentList = available.ToList();
 		Debug.Log( $"MANUAL GROUP SIZE: {manualDeploymentList.Count} CARDS" );
+	}
 
-		return manualDeploymentList;
+	public static void SortManualDeployList()
+	{
+		manualDeploymentList.Sort( ( x, y ) =>
+		{
+			if ( int.Parse( x.id.Replace( "DG", "" ) ) == int.Parse( y.id.Replace( "DG", "" ) ) )
+				return 0;
+			else
+				return int.Parse( x.id.Replace( "DG", "" ) ) < int.Parse( y.id.Replace( "DG", "" ) ) ? -1 : 1;
+		} );
 	}
 
 	public static List<CardDescriptor> CreateDeploymentHand()
@@ -188,12 +208,32 @@ public static class DataStore
 			available = GetCardsByTier( available.ToList(), 1, 2, 2 );
 
 		//if there are any villains and none were added, "help" add one (50% chance)
-		if ( sessionData.EarnedVillains.Count() > 0 && !available.Any( x => sessionData.EarnedVillains.Contains( x ) ) && GlowEngine.RandomBool() )
+		if ( sessionData.EarnedVillains.Count > 0
+			&& !available.Any( x => sessionData.EarnedVillains.Contains( x ) )
+			&& GlowEngine.RandomBool() )
 		{
 			int[] rv = GlowEngine.GenerateRandomNumbers( sessionData.EarnedVillains.Count );
 			var v = sessionData.EarnedVillains[rv[0]];
 			available = available.Concat( new List<CardDescriptor>() { v } ).ToList();
-			Debug.Log( $"ADDED A VILLAIN (50%): {v.name}" );
+			//add any remaining earned villains back into manual deploy list
+			foreach ( var cd in sessionData.EarnedVillains )
+			{
+				if ( !available.Contains( cd ) )
+					villainsToManuallyAdd.Add( cd );
+			}
+			//Debug.Log( $"ADDED A VILLAIN (50%): {v.name}" );
+		}
+		else
+		{
+			//if villain wasn't already added to DH, AND it didn't get helped into hand, add it to manual deployment list
+			foreach ( var cd in sessionData.EarnedVillains )
+			{
+				if ( !available.Contains( cd ) )
+				{
+					//Debug.Log( "VILLAIN *NOT* ADDED TO DH: " + cd.name );
+					villainsToManuallyAdd.Add( cd );
+				}
+			}
 		}
 
 		Debug.Log( $"DEPLOYMENT HAND SIZE: {available.Count()} CARDS" );

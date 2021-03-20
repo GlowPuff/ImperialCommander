@@ -84,7 +84,7 @@
 			"eventID": "E9",
 			"eventFlavor": "With a whirring sound, automatic blaster emplacements emerge from walls and hidden locations. They immediately start blasting you.",
 			"content": [
-				"Roll 1 yellow die. Each Rebel suffers 1 {H} for each {H} rolled and 1 {C} for each B rolled.",
+				"Roll 1 yellow die. Each Rebel suffers 1 {H} for each {H} rolled and 1 {C} for each {B} rolled.",
 			],
 			"eventRule": ""
 		},

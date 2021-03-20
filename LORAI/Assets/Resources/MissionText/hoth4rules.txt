@@ -1,5 +1,5 @@
 <color="red">The Final Confrontation:</color>
-Apply +2 Health to <color="red" General Sorin</color>.
+Apply +2 Health to <color="red"> General Sorin</color>.
 The <b>Sorin-class tank</b> gains +1 <font="ImperialAssaultSymbols SDF">G</font>.
 The <b>Sorin-class tank</b> applies +1 <font="ImperialAssaultSymbols SDF">H</font> to every attack.
 

@@ -153,6 +153,12 @@ public class DGPrefab : MonoBehaviour
 				 DataStore.deploymentHand.Add( cardDescriptor );
 			 //remove it from deployed list
 			 DataStore.deployedEnemies.Remove( cardDescriptor );
+			 //if it is an EARNED villain, add it back into manual deploy list
+			 if ( DataStore.sessionData.EarnedVillains.Contains( cardDescriptor ) && !DataStore.manualDeploymentList.Contains( cardDescriptor ) )
+			 {
+				 DataStore.manualDeploymentList.Add( cardDescriptor );
+				 DataStore.SortManualDeployList();
+			 }
 			 Object.Destroy( gameObject );
 		 } );
 	}

@@ -86,8 +86,6 @@ public static class Extensions
 			return thisCD.Where( x => x.isHealthy ).ToList();
 		else
 			return null;
-		//var unhealthy = thisCD.Where( x => !x.isHealthy ).ToList();
-		//return healthy.Concat( unhealthy ).ToList();
 	}
 
 	public static List<CardDescriptor> GetUnhealthy( this List<CardDescriptor> thisCD )

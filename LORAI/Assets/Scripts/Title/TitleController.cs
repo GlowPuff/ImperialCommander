@@ -11,7 +11,7 @@ public class TitleController : MonoBehaviour
 	public Sound soundController;
 	public NewGameScreen newGameScreen;
 	public TitleText titleText;
-	public GameObject donateButton;
+	public GameObject donateButton, versionInfo;
 	public VolumeProfile volume;
 
 	private int m_OpenParameterId;
@@ -64,6 +64,7 @@ public class TitleController : MonoBehaviour
 		titleText.Show();
 		titleText.FlipIn();
 		donateButton.SetActive( true );
+		versionInfo.SetActive( true );
 	}
 
 	public void OnNewGame()
@@ -76,6 +77,7 @@ public class TitleController : MonoBehaviour
 		titleText.FlipOut();
 
 		donateButton.SetActive( false );
+		versionInfo.SetActive( false );
 
 		DataStore.StartNewSession();
 		newGameScreen.ActivateScreen();

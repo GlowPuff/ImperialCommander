@@ -123,14 +123,14 @@
 		"bonusID": "DG019",
 		"effects": [
 			"VETERAN: Gain +1 {B} and +2 Accuracy.",
-			"BURST FIRE: After each attack, each Rebel within 2 spaces of the target space suffers 1 {H}.",
+			"BURST FIRE: After each attack, each other Rebel within 2 spaces of the target space suffers 1 {H}.",
 		]
 	},
 	{
 		"bonusID": "DG020",
 		"effects": [
 			"VETERAN: Gain +1 {B} and +2 Accuracy.",
-			"BURST FIRE: After each attack, each Rebel within 2 spaces of the target space suffers 1 {H}.",
+			"BURST FIRE: After each attack, each other Rebel within 2 spaces of the target space suffers 1 {H}.",
 		]
 	},
 	{
@@ -150,14 +150,14 @@
 	{
 		"bonusID": "DG026",
 		"effects": [
-			"ACQUIRE TARGET: At the start of this group's activation, each of its figures that does not have line of sight to a Rebel move 2 toward a Rebel, gaining line of sight if possible.",
+			"ACQUIRE TARGET: At the start of this group's activation, each of its figures that does not have line of sight to a Rebel moves 2 toward a Rebel, gaining line of sight if possible.",
 			"OVERWATCH: At the start of this group's activation, one Rebel in line of sight of a figure in this group may test {J}. If it does not pass, it suffers 1 {H} and becomes Weakened.",
 		]
 	},
 	{
 		"bonusID": "DG027",
 		"effects": [
-			"ACQUIRE TARGET: At the start of this group's activation, each of its figures that does not have line of sight to a Rebel move 2 toward a Rebel, gaining line of sight if possible.",
+			"ACQUIRE TARGET: At the start of this group's activation, each of its figures that does not have line of sight to a Rebel moves 2 toward a Rebel, gaining line of sight if possible.",
 			"OVERWATCH: At the start of this group's activation, one Rebel in line of sight of a figure in this group may test {J}. If it does not pass, it suffers 1 {H} and becomes Weakened.",
 		]
 	},
@@ -471,7 +471,7 @@
 		"effects": [
 			"HUNGER PANGS: Gain +1 {B}. After attacking, this figure recovers 2 {H}.",
 			"HOWL: At the start of this activation, each Rebel within 5 spaces may test {K}. Each Rebel that does not pass suffers 1 {C}.",
-			"CHASE DOWN: At the start of this activation, move 3 toward the Rebel.",
+			"CHASE DOWN: At the start of this activation, move 3 toward the closest Rebel.",
 		]
 	},
 	{
@@ -479,7 +479,7 @@
 		"effects": [
 			"HUNGER PANGS: Gain +1 {B}. After attacking, this figure recovers 2 {H}.",
 			"HOWL: At the start of this activation, each Rebel within 5 spaces may test {K}. Each Rebel that does not pass suffers 1 {C}.",
-			"CHASE DOWN: At the start of this activation, move 3 toward the Rebel.",
+			"CHASE DOWN: At the start of this activation, move 3 toward the closest Rebel.",
 		]
 	},
 	{
@@ -569,7 +569,7 @@
 		"effects": [
 			"MOUNTED COMMAND: At the start of this activation, each figure in the Imperial group with the most non-Focused figures becomes Focused.",
 			"RAM: The first time this figure enters a space adjacent to a Rebel, each Rebel adjacent to this figure suffers 1 {H}.",
-			"DEBILITATING BURNS: When a Rebel suffers H from Flamethrower, it becomes Stunned unless it discards 1 Beneficial condition.",
+			"DEBILITATING BURNS: When a Rebel suffers {H} from Flamethrower, it becomes Stunned unless it discards 1 Beneficial condition.",
 		]
 	},
 	{
@@ -577,7 +577,7 @@
 		"effects": [
 			"DETERMINATION: Apply +1 {H} to each attack. At the end of this figure’s activation, this figure suffers 2 {H}.",
 			"CRUEL AURA: At the end of this figure’s activation, each Rebel adjacent to this figure suffers 1 {H}.",
-			"FORCE PUSH: At the start of this figure’s activation, push the closest Rebel 2 spaces toward this figure.",
+			"FORCE PULL: At the start of this figure’s activation, push the closest Rebel 2 spaces toward this figure.",
 		]
 	},
 	{
@@ -669,7 +669,7 @@
 		"bonusID": "DG087",
 		"effects": [
 			"AIMED THROW: Add 1 yellow die to each roll for Lightsaber Throw.",
-			"WEAR THEM DOWN: At the start of this activation, one  Rebel suffers 1 {C}.",
+			"WEAR THEM DOWN: At the start of this activation, one Rebel suffers 1 {C}.",
 		]
 	},
 	{
