@@ -36,6 +36,8 @@ public class HGPrefab : MonoBehaviour
 		if ( cd.id[0] == 'A' )
 			outline.effectColor = eliteColor;
 
+		SetHealth( cd.heroHealth );
+
 		Transform tf = transform.GetChild( 0 );
 		tf.localScale = Vector3.zero;
 		tf.DOScale( 1, 1f ).SetEase( Ease.OutBounce );
@@ -43,22 +45,26 @@ public class HGPrefab : MonoBehaviour
 
 	public void OnCount1( Toggle t )
 	{
+		if ( !woundToggle.gameObject.activeInHierarchy )
+			return;
+
 		cardDescriptor.isHealthy = t.isOn;
 		if ( cardDescriptor.isHealthy )
+		{
+			cardDescriptor.heroHealth = HeroHealth.Healthy;
 			exhaustedOverlay.SetActive( false );
+		}
+		else
+			cardDescriptor.heroHealth = HeroHealth.Wounded;
+
+		if ( exhaustedOverlay.activeInHierarchy )
+			cardDescriptor.heroHealth = HeroHealth.Defeated;
 
 		//if it's an ally, mark it defeated
-		if ( DataStore.allyCards.cards.Contains( cardDescriptor ) )
+		if ( cardDescriptor.id[0] == 'A' )
 		{
 			exhaustedOverlay.SetActive( !cardDescriptor.isHealthy );
-			//	woundToggle.interactable = false;
-			//	Transform tf = transform.GetChild( 0 );
-			//	tf.DOScale( 0, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
-			//	{
-			//		//remove it from deployed HERO list
-			//		DataStore.deployedHeroes.Remove( cardDescriptor );
-			//		Object.Destroy( gameObject );
-			//	} );
+			cardDescriptor.heroHealth = HeroHealth.Defeated;
 		}
 
 		//Debug.Log( "HEALTHY: " + cardDescriptor.isHealthy );
@@ -71,17 +77,22 @@ public class HGPrefab : MonoBehaviour
 	{
 		exhaustedOverlay.SetActive( !exhaustedOverlay.activeInHierarchy );
 		woundToggle.isOn = !exhaustedOverlay.activeInHierarchy;
+		if ( exhaustedOverlay.activeInHierarchy )
+			cardDescriptor.heroHealth = HeroHealth.Defeated;
 	}
 
-	//public void OnRemoveSelf()
-	//{
-	//	woundToggle.interactable = false;
-	//	Transform tf = transform.GetChild( 0 );
-	//	tf.DOScale( 0, 1f ).SetEase( Ease.InBounce ).OnComplete( () =>
-	//	{
-	//		//remove it from deployed HERO list
-	//		DataStore.deployedHeroes.Remove( cardDescriptor );
-	//		Object.Destroy( gameObject );
-	//	} );
-	//}
+	public void SetHealth( HeroHealth heroHealth )
+	{
+		cardDescriptor.heroHealth = heroHealth;
+		woundToggle.gameObject.SetActive( false );//skip callback
+
+		if ( heroHealth == HeroHealth.Wounded || heroHealth == HeroHealth.Defeated )
+		{
+			woundToggle.isOn = false;
+		}
+		if ( cardDescriptor.heroHealth == HeroHealth.Defeated )
+			exhaustedOverlay.SetActive( true );
+
+		woundToggle.gameObject.SetActive( true );
+	}
 }

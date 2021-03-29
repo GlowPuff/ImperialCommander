@@ -107,6 +107,10 @@ public class DeploymentPopup : MonoBehaviour
 				FindObjectOfType<DeploymentGroupManager>().DeployGroup( groupsToDeploy[i] );
 			}
 			FindObjectOfType<DeploymentGroupManager>().UpdateGroups();
+
+			//save state
+			DataStore.sessionData.SaveSession();
+
 			postAction?.Invoke();
 		} );
 		cg.DOFade( 0, .2f );

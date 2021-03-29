@@ -1,4 +1,4 @@
-<color="red">Backup has Arrived:</color>
+<color="red">Secure the Shuttle:</color>
 Imperial figures on the Penthouse do not gain movement points.
 
 Instead, place all Imperial figures from the Penthouse on the Roof, evenly distributed between the ladder and the spaces before the elevator.

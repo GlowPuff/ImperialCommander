@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DeploymentGroupManager : MonoBehaviour
@@ -25,9 +26,11 @@ public class DeploymentGroupManager : MonoBehaviour
 		}
 
 		cd.isHealthy = true;
+		cd.heroHealth = HeroHealth.Healthy;
 		var go = Instantiate( hgPrefab, heroContainer );
 		go.GetComponent<HGPrefab>().Init( cd );
-		DataStore.deployedHeroes.Add( cd );
+		if ( !DataStore.deployedHeroes.Contains( cd ) )
+			DataStore.deployedHeroes.Add( cd );
 		sound.PlaySound( FX.Computer );
 	}
 
@@ -43,6 +46,27 @@ public class DeploymentGroupManager : MonoBehaviour
 		var rt = gridContainer.GetComponent<RectTransform>();
 		rt.localPosition = new Vector3( 20, -3000, 0 );
 		sound.PlaySound( FX.Deploy );
+	}
+
+	public void RestoreState()
+	{
+		//sound.PlaySound( FX.Deploy );
+		//restore enemy groups
+		for ( int i = 0; i < DataStore.deployedEnemies.Count; i++ )
+		{
+			var go = Instantiate( dgPrefab, gridContainer );
+			go.GetComponent<DGPrefab>().Init( DataStore.deployedEnemies[i] );
+			go.GetComponent<DGPrefab>().SetGroupSize( DataStore.deployedEnemies[i].currentSize );
+		}
+		var rt = gridContainer.GetComponent<RectTransform>();
+		rt.localPosition = new Vector3( 20, -3000, 0 );
+
+		//restore heroes and allies
+		for ( int i = 0; i < DataStore.deployedHeroes.Count; i++ )
+		{
+			var go = Instantiate( hgPrefab, heroContainer );
+			go.GetComponent<HGPrefab>().Init( DataStore.deployedHeroes[i] );
+		}
 	}
 
 	/// <summary>

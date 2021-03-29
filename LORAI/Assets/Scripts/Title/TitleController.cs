@@ -1,7 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using System.IO;
+using DG.Tweening;
+using Newtonsoft.Json;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TitleController : MonoBehaviour
@@ -13,6 +18,7 @@ public class TitleController : MonoBehaviour
 	public TitleText titleText;
 	public GameObject donateButton, versionInfo;
 	public VolumeProfile volume;
+	public Button continueButton;
 
 	private int m_OpenParameterId;
 	private int expID;
@@ -39,6 +45,10 @@ public class TitleController : MonoBehaviour
 			bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
 		if ( volume.TryGet<Vignette>( out var vig ) )
 			vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
+
+		//check if saved state exists
+		string path = Path.Combine( Application.persistentDataPath, "Session", "sessiondata.json" );
+		continueButton.interactable = File.Exists( path );
 
 		FindObjectOfType<Sound>().CheckMusic();
 	}
@@ -81,6 +91,30 @@ public class TitleController : MonoBehaviour
 
 		DataStore.StartNewSession();
 		newGameScreen.ActivateScreen();
+	}
+
+	public void OnContinueSession()
+	{
+		EventSystem.current.SetSelectedGameObject( null );
+		soundController.PlaySound( FX.Click );
+
+		SessionData session = LoadSession();
+		if ( session != null )
+		{
+			DataStore.sessionData = session;
+
+			animator.SetBool( m_OpenParameterId, false );
+			animator.SetBool( expID, false );
+			titleText.FlipOut();
+			donateButton.SetActive( false );
+			versionInfo.SetActive( false );
+			soundController.FadeOutMusic();
+			FadeOut( 1 );
+
+			float foo = 1;
+			DOTween.To( () => foo, x => foo = x, 0, 1 ).OnComplete( () =>
+			 SceneManager.LoadScene( "Main" ) );
+		}
 	}
 
 	//public void OnLoadGame()
@@ -139,5 +173,29 @@ public class TitleController : MonoBehaviour
 	public void OnDonate()
 	{
 		Application.OpenURL( "https://paypal.me/glowpuff" );
+	}
+
+	private SessionData LoadSession()
+	{
+		string basePath = Path.Combine( Application.persistentDataPath, "Session", "sessiondata.json" );
+
+		string json = "";
+
+		try
+		{
+			using ( StreamReader sr = new StreamReader( basePath ) )
+			{
+				json = sr.ReadToEnd();
+			}
+			SessionData session = JsonConvert.DeserializeObject<SessionData>( json );
+
+			return session;
+		}
+		catch ( Exception e )
+		{
+			Debug.Log( "***ERROR*** LoadSession:: " + e.Message );
+			File.WriteAllText( Path.Combine( Application.persistentDataPath, "Session", "error_log.txt" ), "RESTORE STATE TRACE:\r\n" + e.Message );
+			return null;
+		}
 	}
 }

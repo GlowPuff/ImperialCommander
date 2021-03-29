@@ -42,6 +42,6 @@ public class ReinforcePrefab : MonoBehaviour
 			if ( cd.name.Contains( "Elite" ) )
 				outline.effectColor = Color.red;
 		}
-		colorPip.color = cd.idColor;
+		colorPip.color = DataStore.pipColors[cd.colorIndex].ToColor();
 	}
 }

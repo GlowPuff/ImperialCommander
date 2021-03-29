@@ -29,7 +29,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		enemyName.text = "";
 		ignoreText.text = "";
 		spaceListen = true;
-		colorPip.color = cd.idColor;
+		colorPip.color = DataStore.pipColors[cd.colorIndex].ToColor();
 
 		cardDescriptor = cd;
 

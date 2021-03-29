@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
@@ -22,12 +23,20 @@ public static class DataStore
 	public static List<CardDescriptor>
 		deploymentHand,
 		manualDeploymentList,
-		deployedHeroes,
+		deployedHeroes,//contains deployed heroes AND allies
 		deployedEnemies;
-	//permDefeatedEnemies;//groups that cannot re-deploy
 	public static List<CardEvent> cardEvents;
 	public static List<CardInstruction> activationInstructions;
 	public static List<BonusEffect> bonusEffects;
+	public static Vector3[] pipColors = new Vector3[6]
+	{
+		(0.3301887f).ToVector3(),
+		new Vector3(0.6784314f,0,1),
+		new Vector3(0,0,0),
+		new Vector3(0,0.3294118f,1),
+		new Vector3(0,0.735849f,0.1056484f),
+		new Vector3(1,0,0)
+	};
 
 	private static List<CardDescriptor> villainsToManuallyAdd;
 
@@ -185,7 +194,7 @@ public static class DataStore
 		} );
 	}
 
-	public static List<CardDescriptor> CreateDeploymentHand()
+	public static void CreateDeploymentHand()
 	{
 		var available = deploymentCards.cards
 			.OwnedPlusOther()
@@ -242,7 +251,55 @@ public static class DataStore
 		//	Debug.Log( available.ElementAt( i ).name );
 		//}
 		deploymentHand = available.ToList();
-		return available.ToList();
+	}
+
+	public static bool LoadState()
+	{
+		string basePath = Path.Combine( Application.persistentDataPath, "Session" );
+
+		string json = "";
+		try
+		{
+			//deployment hand
+			string path = Path.Combine( basePath, "deploymenthand.json" );
+			using ( StreamReader sr = new StreamReader( path ) )
+			{
+				json = sr.ReadToEnd();
+			}
+			deploymentHand = JsonConvert.DeserializeObject<List<CardDescriptor>>( json );
+
+			//manual deployment deck
+			path = Path.Combine( basePath, "manualdeployment.json" );
+			using ( StreamReader sr = new StreamReader( path ) )
+			{
+				json = sr.ReadToEnd();
+			}
+			manualDeploymentList = JsonConvert.DeserializeObject<List<CardDescriptor>>( json );
+
+			//deployed enemies
+			path = Path.Combine( basePath, "deployedenemies.json" );
+			using ( StreamReader sr = new StreamReader( path ) )
+			{
+				json = sr.ReadToEnd();
+			}
+			deployedEnemies = JsonConvert.DeserializeObject<List<CardDescriptor>>( json );
+
+			//deployed heroes/allies
+			path = Path.Combine( basePath, "heroesallies.json" );
+			using ( StreamReader sr = new StreamReader( path ) )
+			{
+				json = sr.ReadToEnd();
+			}
+			deployedHeroes = JsonConvert.DeserializeObject<List<CardDescriptor>>( json );
+
+			return true;
+		}
+		catch ( Exception e )
+		{
+			Debug.Log( "***ERROR*** LoadState:: " + e.Message );
+			File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "RESTORE STATE TRACE:\r\n" + e.Message );
+			return false;
+		}
 	}
 
 	/// <summary>

@@ -15,8 +15,9 @@ public class EventPopup : MonoBehaviour
 
 	CardEvent cardEvent;
 	CardDescriptor allyToAdd, enemyToAdd, rebel1, rebel2;
+	Action callback;
 
-	public void Show( CardEvent ce )
+	public void Show( CardEvent ce, Action cb = null )
 	{
 		gameObject.SetActive( true );
 		fader.color = new Color( 0, 0, 0, 0 );
@@ -25,6 +26,7 @@ public class EventPopup : MonoBehaviour
 		transform.GetChild( 0 ).localScale = new Vector3( .85f, .85f, .85f );
 		transform.GetChild( 0 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
 
+		callback = cb;
 		cardEvent = ce;
 		eventTitle.text = ce.eventName.ToLower();
 		eventFlavor.text = ce.eventFlavor;
@@ -68,6 +70,8 @@ public class EventPopup : MonoBehaviour
 			}
 
 			gameObject.SetActive( false );
+
+			callback?.Invoke();
 		} );
 		cg.DOFade( 0, .2f );
 		transform.GetChild( 0 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );

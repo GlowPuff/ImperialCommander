@@ -30854,6 +30854,7 @@ MonoBehaviour:
     type: 3}
   hgPrefab: {fileID: 6144328464162206760, guid: 0a358318c8695bc4fb1df8d4ee28df78,
     type: 3}
+  rectTransform: {fileID: 557361433}
 --- !u!1 &1838625570
 GameObject:
   m_ObjectHideFlags: 0

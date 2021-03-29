@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
@@ -76,9 +77,20 @@ public class MainGameController : MonoBehaviour
 		if ( volume.TryGet<Vignette>( out var vig ) )
 			vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
 
-		DataStore.sessionData.InitGameVars();
-		ResetUI();
-		StartNewGame();
+		//see if it's a new game or restoring state
+		if ( DataStore.sessionData.gameVars.isNewGame )
+		{
+			Debug.Log( "STARTING NEW GAME" );
+			DataStore.sessionData.InitGameVars();
+			ResetUI();
+			StartNewGame();
+		}
+		else
+		{
+			Debug.Log( "CONTINUING GAME" );
+			ResetUI();
+			ContinueGame();
+		}
 	}
 
 	/// <summary>
@@ -87,7 +99,7 @@ public class MainGameController : MonoBehaviour
 	void StartNewGame()
 	{
 		//create deployment hand and manual deploy list
-		var dh = DataStore.CreateDeploymentHand();
+		DataStore.CreateDeploymentHand();
 		//foreach ( var d in dh )
 		//	Debug.Log( "DH: " + d.name );
 		DataStore.CreateManualDeployment();
@@ -102,6 +114,23 @@ public class MainGameController : MonoBehaviour
 		//perform option deployment if it's toggled
 		if ( DataStore.sessionData.optionalDeployment == YesNo.Yes )
 			GlowTimer.SetTimer( 1, () => deploymentPopup.Show( DeployMode.Landing, false, true ) );
+	}
+
+	void ContinueGame()
+	{
+		if ( DataStore.LoadState() )
+		{
+			//restore deployed enemies and heroes/allies
+			dgManager.RestoreState();
+
+			roundText.text = "round\r\n" + DataStore.sessionData.gameVars.round;
+
+			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "Game Session Restored" );
+		}
+		else
+		{
+			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "<color=\"red\">There was an error restoring state.</color>" );
+		}
 	}
 
 	void ResetUI()
@@ -195,19 +224,21 @@ public class MainGameController : MonoBehaviour
 
 		if ( DataStore.sessionData.gameVars.pauseDeployment && !DataStore.sessionData.gameVars.pauseThreatIncrease )
 		{
+			//session saved after deployment finishes
 			deploymentPopup.Show( DeployMode.Calm, false, false, DoEvent );
 		}
 		else if ( DataStore.sessionData.gameVars.pauseDeployment && DataStore.sessionData.gameVars.pauseThreatIncrease )
 		{
 			dgManager.ReadyAllGroups();
 			DoEvent();
+			DataStore.sessionData.SaveSession();//in case no event activates
 		}
 		else if ( !DataStore.sessionData.gameVars.pauseDeployment && DataStore.sessionData.gameVars.pauseThreatIncrease )
 		{
-			DoDeployment( true );
+			DoDeployment( true );//session saved after deployment finishes
 		}
 		else
-			DoDeployment( false );
+			DoDeployment( false );//session saved after deployment finishes
 
 		DataStore.sessionData.gameVars.round++;
 		roundText.text = "round\r\n" + DataStore.sessionData.gameVars.round.ToString();
@@ -268,7 +299,7 @@ public class MainGameController : MonoBehaviour
 			//remove it from the list of events so it won't activate again
 			DataStore.cardEvents.Remove( ev );
 			//activate it
-			eventPopup.Show( ev );
+			eventPopup.Show( ev, () => DataStore.sessionData.SaveSession() );
 		}
 	}
 

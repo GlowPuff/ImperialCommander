@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public enum FX { Click, CopyThat, Droid, Computer, Deploy, Drill, Trouble, Vader, SetBlasters, Restricted, DropWeapons, None }
 public enum Difficulty { NotSet, Easy, Medium, Hard }
@@ -11,6 +12,13 @@ public enum Expansion { Core, Twin, Hoth, Bespin, Jabba, Empire, Lothal, Other }
 public enum ChooserMode { DeploymentGroups, Missions, Hero, Ally, Villain }
 public enum DeployMode { Calm, Reinforcements, Landing, Onslaught }
 public enum SettingsCommand { Quit, ReturnTitles }
+public enum HeroHealth { Healthy, Wounded, Defeated }
+
+public class HealthState
+{
+	public List<int> enemySizes = new List<int>();
+	public List<HeroHealth> heroStates = new List<HeroHealth>();
+}
 
 public static class Extensions
 {
@@ -101,5 +109,10 @@ public static class Extensions
 		foreach ( var item in thisEnum )
 			return item;
 		return def;
+	}
+
+	public static Color ToColor( this Vector3 c )
+	{
+		return new Color( c.x, c.y, c.z, 1 );
 	}
 }

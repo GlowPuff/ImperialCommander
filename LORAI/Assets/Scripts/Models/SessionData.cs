@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Newtonsoft.Json;
+using System.IO;
 
+[JsonObject( MemberSerialization.OptOut )]
 public class SessionData
 {
+	public int stateManagementVersion = 1;
 	public Difficulty difficulty;
 	/// <summary>
 	/// Current threat in the game
@@ -23,22 +27,27 @@ public class SessionData
 	public CardDescriptor selectedAlly;
 	public GameVars gameVars;
 
+	[JsonIgnore]
 	public List<CardDescriptor> MissionStarting
 	{
 		get { return selectedDeploymentCards[0].cards; }
 	}
+	[JsonIgnore]
 	public List<CardDescriptor> MissionReserved
 	{
 		get { return selectedDeploymentCards[1].cards; }
 	}
+	[JsonIgnore]
 	public List<CardDescriptor> EarnedVillains
 	{
 		get { return selectedDeploymentCards[2].cards; }
 	}
+	[JsonIgnore]
 	public List<CardDescriptor> MissionIgnored
 	{
 		get { return selectedDeploymentCards[3].cards; }
 	}
+	[JsonIgnore]
 	public List<CardDescriptor> MissionHeroes
 	{
 		get { return selectedDeploymentCards[4].cards; }
@@ -53,6 +62,7 @@ public class SessionData
 		public bool vaderReducedCostBy5;
 		public bool pauseDeployment;
 		public bool pauseThreatIncrease;
+		public bool isNewGame = true;
 	}
 
 	public SessionData()
@@ -189,5 +199,65 @@ public class SessionData
 	{
 		gameVars.deploymentModifier = Math.Max( -2, gameVars.deploymentModifier + amount );
 		Debug.Log( "DeploymentModifier: " + gameVars.deploymentModifier );
+	}
+
+	public void SaveSession()
+	{
+		string basePath = Path.Combine( Application.persistentDataPath, "Session" );
+
+		try
+		{
+			if ( !Directory.Exists( basePath ) )
+				Directory.CreateDirectory( basePath );
+
+			//first save the session data
+			gameVars.isNewGame = false;//mark this as a saved session
+			string output = JsonConvert.SerializeObject( this, Formatting.Indented );
+			string outpath = Path.Combine( basePath, "sessiondata.json" );
+			using ( var stream = File.CreateText( outpath ) )
+			{
+				stream.Write( output );
+			}
+
+			//then save card lists
+			//deployment hand
+			outpath = Path.Combine( basePath, "deploymenthand.json" );
+			output = JsonConvert.SerializeObject( DataStore.deploymentHand, Formatting.Indented );
+			using ( var stream = File.CreateText( outpath ) )
+			{
+				stream.Write( output );
+			}
+
+			//manual deployment deck
+			outpath = Path.Combine( basePath, "manualdeployment.json" );
+			output = JsonConvert.SerializeObject( DataStore.manualDeploymentList, Formatting.Indented );
+			using ( var stream = File.CreateText( outpath ) )
+			{
+				stream.Write( output );
+			}
+
+			//deployed enemies
+			outpath = Path.Combine( basePath, "deployedenemies.json" );
+			output = JsonConvert.SerializeObject( DataStore.deployedEnemies, Formatting.Indented );
+			using ( var stream = File.CreateText( outpath ) )
+			{
+				stream.Write( output );
+			}
+
+			//deployed heroes/allies
+			outpath = Path.Combine( basePath, "heroesallies.json" );
+			output = JsonConvert.SerializeObject( DataStore.deployedHeroes, Formatting.Indented );
+			using ( var stream = File.CreateText( outpath ) )
+			{
+				stream.Write( output );
+			}
+
+			Debug.Log( "***SESSION SAVED***" );
+		}
+		catch ( Exception e )
+		{
+			Debug.Log( "***ERROR*** SaveSession:: " + e.Message );
+			File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "RESTORE STATE TRACE:\r\n" + e.Message );
+		}
 	}
 }

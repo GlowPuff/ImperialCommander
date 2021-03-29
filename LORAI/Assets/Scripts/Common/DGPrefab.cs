@@ -60,6 +60,8 @@ public class DGPrefab : MonoBehaviour
 		if ( cd.name.Contains( "Elite" ) )
 			outline.effectColor = eliteColor;
 
+		SetColorIndex();
+
 		Transform tf = transform.GetChild( 0 );
 		tf.localScale = Vector3.zero;
 		tf.DOScale( 1, 1f ).SetEase( Ease.OutBounce );
@@ -165,10 +167,10 @@ public class DGPrefab : MonoBehaviour
 
 	public void ToggleColor()
 	{
-		//red black purple blue
+		//red black purple blue green gray
 		colorIndex = colorIndex == 5 ? 0 : colorIndex + 1;
-		colorPip.color = colors[colorIndex];
-		cardDescriptor.idColor = colorPip.color;
+		colorPip.color = DataStore.pipColors[colorIndex].ToColor();
+		cardDescriptor.colorIndex = colorIndex;
 	}
 
 	public void OnClickSelf()
@@ -208,5 +210,29 @@ public class DGPrefab : MonoBehaviour
 			s = Resources.Load<Sprite>( $"Cards/Enemies/{cardDescriptor.expansion}/{cardDescriptor.id}" );
 		if ( s != null )
 			cardZoom.Show( s, cardDescriptor );
+	}
+
+	public void SetGroupSize( int size )
+	{
+		cardDescriptor.currentSize = size;
+		//disable pips so callback will bail out
+		for ( int i = 0; i < cardDescriptor.size; i++ )
+			countToggles[i].gameObject.SetActive( false );
+		for ( int i = 0; i < cardDescriptor.size; i++ )
+		{
+			if ( i < size )
+				countToggles[i].isOn = true;
+			else
+				countToggles[i].isOn = false;
+		}
+		//re-eneable pips
+		for ( int i = 0; i < cardDescriptor.size; i++ )
+			countToggles[i].gameObject.SetActive( true );
+	}
+
+	public void SetColorIndex()
+	{
+		colorIndex = cardDescriptor.colorIndex;
+		colorPip.color = DataStore.pipColors[colorIndex].ToColor();
 	}
 }

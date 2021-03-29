@@ -36,7 +36,7 @@ public class QuickMessage : MonoBehaviour
 			sequence
 				.Join( t1 )
 				.Join( t2 );
-			sequence.OnKill( () => { sequence = null; print( "KILL" ); } );
+			sequence.OnKill( () => { sequence = null; } );
 		}
 	}
 }
