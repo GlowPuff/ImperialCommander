@@ -4,5 +4,5 @@
  ## Download the latest release
  [Click here](https://github.com/GlowPuff/ImperialCommander/releases/latest).
 
-## Wiki Documentation
+## Documentation
 [Visit the Official Wiki for this project.](https://github.com/Noldorion/IA-Imperial-Commander/wiki)
