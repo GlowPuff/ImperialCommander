@@ -60,19 +60,27 @@ public class SettingsScreen : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
-		if ( t.name == "music Toggle" )
+		if ( t.name.ToLower() == "music toggle" )
 		{
 			if ( t.isOn )
 				sound.PlayMusic();
 			else
 				sound.StopMusic();
 		}
-		else if ( t.name == "bloom toggle" )
+		else if ( t.name.ToLower() == "sound toggle" )
+		{
+			if ( t.isOn )
+				sound.StartAmbientSound();
+			else
+				sound.StopAmbientSound();
+			PlayerPrefs.SetInt( "sound", soundToggle.isOn ? 1 : 0 );
+		}
+		else if ( t.name.ToLower() == "bloom toggle" )
 		{
 			if ( volume.TryGet<Bloom>( out var bloom ) )
 				bloom.active = t.isOn;
 		}
-		else if ( t.name == "vignette toggle" )
+		else if ( t.name.ToLower() == "vignette toggle" )
 			if ( volume.TryGet<Vignette>( out var vig ) )
 				vig.active = t.isOn;
 	}

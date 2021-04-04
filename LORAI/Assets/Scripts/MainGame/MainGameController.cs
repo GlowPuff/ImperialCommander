@@ -33,6 +33,8 @@ public class MainGameController : MonoBehaviour
 		System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 		System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
 
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
 		//DEBUG BOOTSTRAP A MISSION
 		/*
 #if DEBUG
@@ -71,7 +73,7 @@ public class MainGameController : MonoBehaviour
 
 		//apply settings
 		sound = FindObjectOfType<Sound>();
-		sound.CheckMusic();
+		sound.CheckAudio();
 		if ( volume.TryGet<Bloom>( out var bloom ) )
 			bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
 		if ( volume.TryGet<Vignette>( out var vig ) )
@@ -231,7 +233,7 @@ public class MainGameController : MonoBehaviour
 		{
 			dgManager.ReadyAllGroups();
 			DoEvent();
-			DataStore.sessionData.SaveSession();//in case no event activates
+			DataStore.sessionData.SaveSession( "Session" );//in case no event activates
 		}
 		else if ( !DataStore.sessionData.gameVars.pauseDeployment && DataStore.sessionData.gameVars.pauseThreatIncrease )
 		{
@@ -299,7 +301,7 @@ public class MainGameController : MonoBehaviour
 			//remove it from the list of events so it won't activate again
 			DataStore.cardEvents.Remove( ev );
 			//activate it
-			eventPopup.Show( ev, () => DataStore.sessionData.SaveSession() );
+			eventPopup.Show( ev, () => DataStore.sessionData.SaveSession( "Session" ) );
 		}
 	}
 

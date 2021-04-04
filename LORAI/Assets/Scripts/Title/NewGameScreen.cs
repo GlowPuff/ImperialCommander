@@ -1,21 +1,23 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.IO;
 using DG.Tweening;
-using UnityEngine.SceneManagement;
+using Newtonsoft.Json;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NewGameScreen : MonoBehaviour
 {
 	public MWheelHandler threatWheelHandler;
 	public MWheelHandler addtlThreatWheelHandler;
-	public Text difficultyText, deploymentText, selectedMissionText, threatCostText;
+	public Text difficultyText, deploymentText, selectedMissionText, threatCostText, defaultsText;
 	public Toggle imperialToggle, mercenaryToggle;
 	public TitleController titleController;
 	public CanvasGroup cg;
 	public CardZoomer cardZoomer;
 	public GroupChooserScreen groupChooser;
 	public GameObject addAllyButton;
-	public Button addHeroButton, startMissionButton, difficultyButton;
+	public Button addHeroButton, startMissionButton, difficultyButton, loadDefaultsButton;
 	public Image allyImage;
 	public Text[] enemyGroupText;
 	public HeroMeta[] heroMetas;
@@ -62,6 +64,11 @@ public class NewGameScreen : MonoBehaviour
 		cb = addHeroButton.colors;
 		cb.normalColor = new Color( 1, 0.1568628f, 0, 1 );
 		addHeroButton.colors = cb;
+		OnRemoveAlly();
+
+		//check for default state
+		string path = Path.Combine( Application.persistentDataPath, "Defaults", "sessiondata.json" );
+		loadDefaultsButton.interactable = File.Exists( path );
 
 		//aspect ratio adjustment
 		if ( GlowEngine.GetAspectRatio() >= 1.6f )//16:9 or greater
@@ -94,7 +101,7 @@ public class NewGameScreen : MonoBehaviour
 	public void OnMercenaries()
 	{
 		sound.PlaySound( FX.Click );
-		DataStore.sessionData.ToggleMercs( imperialToggle.isOn );
+		DataStore.sessionData.ToggleMercs( mercenaryToggle.isOn );
 	}
 
 	public void OnThreatCost()
@@ -263,6 +270,79 @@ public class NewGameScreen : MonoBehaviour
 		{
 			SceneManager.LoadScene( "Main" );
 		} );
+	}
+
+	public void SaveDefaults()
+	{
+		DataStore.sessionData.threatLevel = threatWheelHandler.wheelValue;
+		DataStore.sessionData.addtlThreat = addtlThreatWheelHandler.wheelValue;
+
+		defaultsText.color = new Color( 0, 1, 0.628047f, 1 );
+		if ( DataStore.sessionData.SaveDefaults() )
+		{
+			defaultsText.text = "saved";
+		}
+		else
+		{
+			defaultsText.color = new Color( 1, 0, 0, 1 );
+			defaultsText.text = "error";
+		}
+
+		string path = Path.Combine( Application.persistentDataPath, "Defaults", "sessiondata.json" );
+		loadDefaultsButton.interactable = File.Exists( path );
+
+		defaultsText.DOFade( 0, 2 ).SetDelay( 1 );
+	}
+
+	public void LoadDefaults()
+	{
+		defaultsText.color = new Color( 0, 1, 0.628047f, 1 );
+
+		string basePath = Path.Combine( Application.persistentDataPath, "Defaults", "sessiondata.json" );
+
+		string json = "";
+		try
+		{
+			using ( StreamReader sr = new StreamReader( basePath ) )
+			{
+				json = sr.ReadToEnd();
+			}
+			SessionData session = JsonConvert.DeserializeObject<SessionData>( json );
+
+			DataStore.sessionData = session;
+
+			//populate UI
+			if ( DataStore.sessionData.difficulty != Difficulty.NotSet )
+				difficultyText.text = DataStore.sessionData.difficulty.ToString().ToLower();
+			else
+				difficultyText.text = "difficulty";
+			threatCostText.text = DataStore.sessionData.allyThreatCost.ToString().ToLower();
+			deploymentText.text = DataStore.sessionData.optionalDeployment.ToString().ToLower();
+			mercenaryToggle.isOn = DataStore.sessionData.includeMercs;
+			imperialToggle.isOn = DataStore.sessionData.includeImperials;
+			threatWheelHandler.ResetWheeler( DataStore.sessionData.threatLevel );
+			addtlThreatWheelHandler.ResetWheeler( DataStore.sessionData.addtlThreat );
+			//heroes, ally, groups button text, mission
+			OnReturnTo();
+
+			if ( DataStore.sessionData.difficulty != Difficulty.NotSet )
+			{
+				ColorBlock cb = difficultyButton.colors;
+				cb.normalColor = new Color( 0, 0.6440244f, 1, 1 );
+				difficultyButton.colors = cb;
+			}
+
+			defaultsText.text = "loaded";
+		}
+		catch ( System.Exception e )
+		{
+			Debug.Log( "***ERROR*** LoadDefaults:: " + e.Message );
+			File.WriteAllText( Path.Combine( Application.persistentDataPath, "Defaults", "error_log.txt" ), "TRACE:\r\n" + e.Message );
+			defaultsText.color = new Color( 1, 0, 0, 1 );
+			defaultsText.text = "error";
+		}
+
+		defaultsText.DOFade( 0, 2 ).SetDelay( 1 );
 	}
 
 	private void Update()

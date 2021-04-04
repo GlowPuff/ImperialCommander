@@ -10,6 +10,8 @@ using UnityEngine;
 
 public static class DataStore
 {
+	public static string appVersion = "v.1.0.9";
+
 	public static Dictionary<string, List<Card>> missionCards;
 	/// <summary>
 	/// all enemies (excluding villains)
@@ -56,7 +58,6 @@ public static class DataStore
 		deployedHeroes = new List<CardDescriptor>();
 		deployedEnemies = new List<CardDescriptor>();
 		villainsToManuallyAdd = new List<CardDescriptor>();
-		//permDefeatedEnemies = new List<CardDescriptor>();
 
 		cardEvents = new List<CardEvent>();
 		activationInstructions = new List<CardInstruction>();
@@ -284,7 +285,7 @@ public static class DataStore
 			}
 			deployedEnemies = JsonConvert.DeserializeObject<List<CardDescriptor>>( json );
 
-			//deployed heroes/allies
+			//deployed heroes
 			path = Path.Combine( basePath, "heroesallies.json" );
 			using ( StreamReader sr = new StreamReader( path ) )
 			{

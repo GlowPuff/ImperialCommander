@@ -13,11 +13,17 @@ public enum ChooserMode { DeploymentGroups, Missions, Hero, Ally, Villain }
 public enum DeployMode { Calm, Reinforcements, Landing, Onslaught }
 public enum SettingsCommand { Quit, ReturnTitles }
 public enum HeroHealth { Healthy, Wounded, Defeated }
+public enum NetworkStatus { Busy, UpToDate, Error, WrongVersion }
 
 public class HealthState
 {
 	public List<int> enemySizes = new List<int>();
 	public List<HeroHealth> heroStates = new List<HeroHealth>();
+}
+
+public class GitHubResponse
+{
+	public string tag_name;
 }
 
 public static class Extensions

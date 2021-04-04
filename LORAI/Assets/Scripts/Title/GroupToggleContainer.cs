@@ -77,6 +77,7 @@ public class GroupToggleContainer : MonoBehaviour
 		{
 			c.gameObject.SetActive( false );
 			c.GetComponent<Toggle>().isOn = false;
+			c.GetComponent<Toggle>().interactable = true;
 		}
 
 		if ( groupIndex == 0 || groupIndex == 1 || groupIndex == 3 )
@@ -94,6 +95,11 @@ public class GroupToggleContainer : MonoBehaviour
 			if ( prevSelected.cards.Contains( enemyCards[i] ) )
 				buttonToggles[i].isOn = true;
 
+			//if an enemy is already in another group index (Initial, Reserved, etc), disable the toggle so the enemy can't be added to 2 different groups
+			//ie: can't put same enemy into both Initial and Reserved
+			if ( IsInGroup( enemyCards[i] ) )
+				buttonToggles[i].interactable = false;
+
 			var child = transform.GetChild( i );
 			child.gameObject.SetActive( true );
 			var label = child.Find( "Label" );
@@ -108,5 +114,21 @@ public class GroupToggleContainer : MonoBehaviour
 		groupIndex = dataGroupIndex;
 		transform.parent.parent.Find( "expansion selector container" ).Find( "Core" ).GetComponent<Toggle>().isOn = true;
 		OnChangeExpansion( "Core" );
+	}
+
+	public bool IsInGroup( CardDescriptor cd )
+	{
+		bool found = false;
+
+		for ( int i = 0; i < 5; i++ )
+		{
+			if ( groupIndex != i )
+			{
+				if ( DataStore.sessionData.selectedDeploymentCards[i].cards.Contains( cd ) )
+					found = true;
+			}
+		}
+
+		return found;
 	}
 }

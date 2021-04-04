@@ -120,7 +120,7 @@ public class SessionData
 		else
 			difficulty = Difficulty.Easy;
 
-		return difficulty.ToString();
+		return difficulty.ToString().ToLower();
 	}
 
 	public string ToggleRules()
@@ -132,7 +132,7 @@ public class SessionData
 		else
 			allyRules = AllyRules.Normal;
 
-		return allyRules.ToString();
+		return allyRules.ToString().ToLower();
 	}
 
 	public string ToggleDeployment()
@@ -142,7 +142,7 @@ public class SessionData
 		else
 			optionalDeployment = YesNo.Yes;
 
-		return optionalDeployment.ToString();
+		return optionalDeployment.ToString().ToLower();
 	}
 
 	public string ToggleThreatCost()
@@ -152,7 +152,7 @@ public class SessionData
 		else
 			allyThreatCost = YesNo.Yes;
 
-		return allyThreatCost.ToString();
+		return allyThreatCost.ToString().ToLower();
 	}
 
 	public void ToggleImperials( bool isOn )
@@ -201,9 +201,9 @@ public class SessionData
 		Debug.Log( "DeploymentModifier: " + gameVars.deploymentModifier );
 	}
 
-	public void SaveSession()
+	public void SaveSession( string baseFolder )
 	{
-		string basePath = Path.Combine( Application.persistentDataPath, "Session" );
+		string basePath = Path.Combine( Application.persistentDataPath, baseFolder );
 
 		try
 		{
@@ -244,7 +244,7 @@ public class SessionData
 				stream.Write( output );
 			}
 
-			//deployed heroes/allies
+			//deployed heroes
 			outpath = Path.Combine( basePath, "heroesallies.json" );
 			output = JsonConvert.SerializeObject( DataStore.deployedHeroes, Formatting.Indented );
 			using ( var stream = File.CreateText( outpath ) )
@@ -258,6 +258,32 @@ public class SessionData
 		{
 			Debug.Log( "***ERROR*** SaveSession:: " + e.Message );
 			File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "RESTORE STATE TRACE:\r\n" + e.Message );
+		}
+	}
+
+	public bool SaveDefaults()
+	{
+		string basePath = Path.Combine( Application.persistentDataPath, "Defaults" );
+
+		try
+		{
+			if ( !Directory.Exists( basePath ) )
+				Directory.CreateDirectory( basePath );
+
+			//save the session data
+			string output = JsonConvert.SerializeObject( this, Formatting.Indented );
+			string outpath = Path.Combine( basePath, "sessiondata.json" );
+			using ( var stream = File.CreateText( outpath ) )
+			{
+				stream.Write( output );
+			}
+			return true;
+		}
+		catch ( Exception e )
+		{
+			Debug.Log( "***ERROR*** SaveDefaults:: " + e.Message );
+			File.WriteAllText( Path.Combine( Application.persistentDataPath, "Defaults", "error_log.txt" ), "TRACE:\r\n" + e.Message );
+			return false;
 		}
 	}
 }

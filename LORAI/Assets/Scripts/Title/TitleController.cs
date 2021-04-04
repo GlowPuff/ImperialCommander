@@ -1,9 +1,16 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
 using System.IO;
+using System.Net;
+using System.Net.NetworkInformation;
 using DG.Tweening;
 using Newtonsoft.Json;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Networking;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
@@ -19,15 +26,21 @@ public class TitleController : MonoBehaviour
 	public GameObject donateButton, versionInfo;
 	public VolumeProfile volume;
 	public Button continueButton;
+	public Transform busyIconTF;
+	public TextMeshProUGUI versionText;
 
 	private int m_OpenParameterId;
 	private int expID;
+	private NetworkStatus networkStatus;
 
 	void Start()
 	{
 		System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 		System.Globalization.CultureInfo.DefaultThreadCurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 		System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
+
+		Screen.fullScreen = true;
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 		fader.UnFade( 2 );
 		DataStore.InitData();
@@ -46,11 +59,21 @@ public class TitleController : MonoBehaviour
 		if ( volume.TryGet<Vignette>( out var vig ) )
 			vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
 
-		//check if saved state exists
-		string path = Path.Combine( Application.persistentDataPath, "Session", "sessiondata.json" );
-		continueButton.interactable = File.Exists( path );
+		//check if saved state is valid
+		continueButton.interactable = IsSessionValid();
 
-		FindObjectOfType<Sound>().CheckMusic();
+		FindObjectOfType<Sound>().CheckAudio();
+
+		networkStatus = NetworkStatus.Busy;
+		versionText.text = "Version " + DataStore.appVersion;
+
+		if ( NetworkInterface.GetIsNetworkAvailable() )
+			StartCoroutine( StartVersionCheck() );
+		else
+		{
+			networkStatus = NetworkStatus.Error;
+			busyIconTF.GetComponent<Image>().color = new Color( 1, 0, 0 );
+		}
 	}
 
 	private void OnEnable()
@@ -175,6 +198,32 @@ public class TitleController : MonoBehaviour
 		Application.OpenURL( "https://paypal.me/glowpuff" );
 	}
 
+	private bool IsSessionValid()
+	{
+		string basePath = Path.Combine( Application.persistentDataPath, "Session", "sessiondata.json" );
+
+		if ( !File.Exists( basePath ) )
+			return false;
+
+		string json = "";
+		try
+		{
+			using ( StreamReader sr = new StreamReader( basePath ) )
+			{
+				json = sr.ReadToEnd();
+			}
+			SessionData session = JsonConvert.DeserializeObject<SessionData>( json );
+
+			return session.stateManagementVersion == 1;
+		}
+		catch ( Exception e )
+		{
+			Debug.Log( "***ERROR*** IsSessionValid:: " + e.Message );
+			File.WriteAllText( Path.Combine( Application.persistentDataPath, "Session", "error_log.txt" ), "TRACE:\r\n" + e.Message );
+			return false;
+		}
+	}
+
 	private SessionData LoadSession()
 	{
 		string basePath = Path.Combine( Application.persistentDataPath, "Session", "sessiondata.json" );
@@ -194,8 +243,67 @@ public class TitleController : MonoBehaviour
 		catch ( Exception e )
 		{
 			Debug.Log( "***ERROR*** LoadSession:: " + e.Message );
-			File.WriteAllText( Path.Combine( Application.persistentDataPath, "Session", "error_log.txt" ), "RESTORE STATE TRACE:\r\n" + e.Message );
+			File.WriteAllText( Path.Combine( Application.persistentDataPath, "Session", "error_log.txt" ), "TRACE:\r\n" + e.Message );
 			return null;
 		}
+	}
+
+	private void Update()
+	{
+		if ( networkStatus == NetworkStatus.Busy )
+			busyIconTF.Rotate( new Vector3( 0, 0, Time.deltaTime * 175f ) );
+
+		//pulse scale if network error or wrong version
+		if ( networkStatus == NetworkStatus.Error || networkStatus == NetworkStatus.WrongVersion )
+			busyIconTF.localScale = GlowEngine.SineAnimation( .9f, 1.1f, 15 ).ToVector3();
+	}
+
+	private IEnumerator CheckVersion()
+	{
+		// /repos/{owner}/{repo}/releases
+		var web = UnityWebRequest.Get( "https://api.github.com/repos/GlowPuff/ImperialCommander/releases" );
+		yield return web.SendWebRequest();
+		if ( web.isNetworkError )
+		{
+			Debug.Log( "network error" );
+			networkStatus = NetworkStatus.Error;
+			busyIconTF.GetComponent<Image>().color = new Color( 1, 0, 0 );
+		}
+		else
+		{
+			//parse JSON response
+			var version = JsonConvert.DeserializeObject<List<GitHubResponse>>( web.downloadHandler.text );
+			if ( version[0].tag_name == DataStore.appVersion )
+			{
+				networkStatus = NetworkStatus.UpToDate;
+				busyIconTF.GetComponent<Image>().color = new Color( 0, 1, 0 );
+			}
+			else
+			{
+				networkStatus = NetworkStatus.WrongVersion;
+				busyIconTF.GetComponent<Image>().color = new Color( 1, 0.5586207f, 0 );
+			}
+		}
+
+		yield return null;
+	}
+
+	private IEnumerator StartVersionCheck()
+	{
+		//first check if internet is available
+		var ping = new System.Net.NetworkInformation.Ping();
+		var reply = ping.Send( new IPAddress( new byte[] { 8, 8, 8, 8 } ), 5000 );
+		if ( reply.Status == IPStatus.Success )
+		{
+			//internet available, check for latest version
+			StartCoroutine( CheckVersion() );
+		}
+		else
+		{
+			networkStatus = NetworkStatus.Error;
+			busyIconTF.GetComponent<Image>().color = new Color( 1, 0, 0 );
+		}
+
+		yield return null;
 	}
 }

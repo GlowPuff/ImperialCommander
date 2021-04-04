@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 public class DeploymentCards
 {
 	public List<CardDescriptor> cards = new List<CardDescriptor>();
 }
 
-public class CardDescriptor
+public class CardDescriptor : IEquatable<CardDescriptor>
 {
 	public string name;
 	public string id;
@@ -21,6 +22,17 @@ public class CardDescriptor
 	public bool isHealthy;
 	public int colorIndex;
 	public HeroHealth heroHealth;
+
+	public bool Equals( CardDescriptor obj )
+	{
+		if ( obj == null )
+			return false;
+		CardDescriptor objAsPart = obj as CardDescriptor;
+		if ( objAsPart == null )
+			return false;
+		else
+			return id == objAsPart.id;
+	}
 }
 
 /*

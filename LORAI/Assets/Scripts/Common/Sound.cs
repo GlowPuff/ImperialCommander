@@ -5,6 +5,7 @@ public class Sound : MonoBehaviour
 {
 	public AudioSource source;
 	public AudioSource musicSource;
+	public AudioSource ambientSource;
 	public AudioClip[] clips;
 	public float maxMusicVolume = .5f;
 
@@ -17,11 +18,13 @@ public class Sound : MonoBehaviour
 	/// <summary>
 	/// call on screen Start() to check and play/not play music
 	/// </summary>
-	public void CheckMusic()
+	public void CheckAudio()
 	{
 		musicSource.volume = maxMusicVolume;
 		if ( PlayerPrefs.GetInt( "music" ) == 0 )
 			musicSource.Stop();
+		if ( PlayerPrefs.GetInt( "sound" ) == 0 )
+			ambientSource.Stop();
 	}
 
 	public void PlayMusic()
@@ -32,6 +35,16 @@ public class Sound : MonoBehaviour
 	public void StopMusic()
 	{
 		musicSource.Stop();
+	}
+
+	public void StartAmbientSound()
+	{
+		ambientSource.Play();
+	}
+
+	public void StopAmbientSound()
+	{
+		ambientSource.Stop();
 	}
 
 	public void FadeOutMusic()
