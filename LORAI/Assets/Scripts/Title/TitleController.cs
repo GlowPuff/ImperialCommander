@@ -1,12 +1,10 @@
-﻿using System;
+﻿using DG.Tweening;
+using Newtonsoft.Json;
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
-using DG.Tweening;
-using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -28,10 +26,12 @@ public class TitleController : MonoBehaviour
 	public Button continueButton;
 	public Transform busyIconTF;
 	public TextMeshProUGUI versionText;
+	public MissionTextBox versionPopup;
 
 	private int m_OpenParameterId;
 	private int expID;
 	private NetworkStatus networkStatus;
+	private GitHubResponse gitHubResponse = null;
 
 	void Start()
 	{
@@ -140,12 +140,6 @@ public class TitleController : MonoBehaviour
 		}
 	}
 
-	//public void OnLoadGame()
-	//{
-	//	soundController.PlaySound( FX.Click );
-
-	//}
-
 	public void OnExpansions()
 	{
 		EventSystem.current.SetSelectedGameObject( null );
@@ -198,6 +192,12 @@ public class TitleController : MonoBehaviour
 		Application.OpenURL( "https://paypal.me/glowpuff" );
 	}
 
+	public void OnVersionPopup()
+	{
+		if ( gitHubResponse != null )
+			versionPopup.Show( gitHubResponse.body );
+	}
+
 	private bool IsSessionValid()
 	{
 		string basePath = Path.Combine( Application.persistentDataPath, "Session", "sessiondata.json" );
@@ -214,7 +214,7 @@ public class TitleController : MonoBehaviour
 			}
 			SessionData session = JsonConvert.DeserializeObject<SessionData>( json );
 
-			return session.stateManagementVersion == 1;
+			return session.stateManagementVersion == 2;
 		}
 		catch ( Exception e )
 		{
@@ -261,19 +261,21 @@ public class TitleController : MonoBehaviour
 	private IEnumerator CheckVersion()
 	{
 		// /repos/{owner}/{repo}/releases
-		var web = UnityWebRequest.Get( "https://api.github.com/repos/GlowPuff/ImperialCommander/releases" );
+		var web = UnityWebRequest.Get( "https://api.github.com/repos/GlowPuff/ImperialCommander/releases/latest" );
 		yield return web.SendWebRequest();
-		if ( web.isNetworkError )
+		if ( web.result == UnityWebRequest.Result.ConnectionError )
 		{
 			Debug.Log( "network error" );
 			networkStatus = NetworkStatus.Error;
 			busyIconTF.GetComponent<Image>().color = new Color( 1, 0, 0 );
+			gitHubResponse = null;
 		}
 		else
 		{
 			//parse JSON response
-			var version = JsonConvert.DeserializeObject<List<GitHubResponse>>( web.downloadHandler.text );
-			if ( version[0].tag_name == DataStore.appVersion )
+			gitHubResponse = JsonConvert.DeserializeObject<GitHubResponse>( web.downloadHandler.text );
+
+			if ( gitHubResponse.tag_name == DataStore.appVersion )
 			{
 				networkStatus = NetworkStatus.UpToDate;
 				busyIconTF.GetComponent<Image>().color = new Color( 0, 1, 0 );
@@ -302,6 +304,7 @@ public class TitleController : MonoBehaviour
 		{
 			networkStatus = NetworkStatus.Error;
 			busyIconTF.GetComponent<Image>().color = new Color( 1, 0, 0 );
+			gitHubResponse = null;
 		}
 
 		yield return null;

@@ -29,4 +29,10 @@ public class DebugPopup : MonoBehaviour
 			Destroy( tf.gameObject );
 		gameObject.SetActive( false );
 	}
+
+	private void Update()
+	{
+		if ( Input.GetKeyDown( KeyCode.Space ) )
+			OnClose();
+	}
 }

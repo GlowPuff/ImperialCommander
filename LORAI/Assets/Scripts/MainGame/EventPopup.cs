@@ -1,6 +1,6 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Linq;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -130,9 +130,8 @@ public class EventPopup : MonoBehaviour
 			{
 				//add to deployment hand
 				DataStore.deploymentHand.Add( DataStore.villainCards.cards.Where( x => x.id == "DG072" ).First() );
-				DataStore.sessionData.gameVars.vaderReducedCostBy5 = true;
-				//reduce its cost by 5
-				DataStore.deploymentHand.Where( x => x.id == "DG072" ).First().cost -= 5;
+				//reduce its cost by 2
+				DataStore.deploymentHand.Where( x => x.id == "DG072" ).First().cost -= 2;
 			}
 		}
 		else if ( cardEvent.eventRule == "R18" && item.Contains( "{CR}" ) )
@@ -183,33 +182,39 @@ public class EventPopup : MonoBehaviour
 		/*•	If there is a villain in the deployment hand, choose that villain.
 		•	If there are any earned villains, select one of those villains randomly.
 		•	If there are no earned villains, select a villain randomly.
-		•	The villain is deployed no matter how much threat is left. However, after deployment, decrease threat by the villain’s threat cost, to a maximum of 7. (If the villain is cheaper than 7 threat, decrease threat by that amount.)
+		•	Threat cost for the villain may not be higher than the current threat amount plus 7.  After deployment, decrease threat by the villain’s threat cost, to a maximum of 7. (If the villain is cheaper than 7 threat, decrease threat by that amount.)
 		*/
+
 		//try from deployment hand, minus deployed
 		int[] rnd;
 		var v = DataStore.deploymentHand
 			.GetVillains()
-			.MinusDeployed();//shouldn't be necessary
+			.MinusDeployed()//shouldn't be necessary
+			.Where( x => x.cost <= DataStore.sessionData.threatLevel + 7 ).ToList();
 		if ( v.Count > 0 )
 		{
 			rnd = GlowEngine.GenerateRandomNumbers( v.Count );
 			return v[rnd[0]];
 		}
+
 		//try earned villains, minus deployed
 		v = DataStore.sessionData
 			.EarnedVillains
-			.MinusDeployed();
+			.MinusDeployed()
+			.Where( x => x.cost <= DataStore.sessionData.threatLevel + 7 ).ToList();
 		if ( v.Count > 0 )
 		{
 			rnd = GlowEngine.GenerateRandomNumbers( v.Count );
 			return v[rnd[0]];
 		}
+
 		//else random villain owned+other, minus deployed/ignored/faction
 		v = DataStore.villainCards.cards
 			.OwnedPlusOther()
 			.FilterByFaction()
 			.MinusIgnored()
-			.MinusDeployed();
+			.MinusDeployed()
+			.Where( x => x.cost <= DataStore.sessionData.threatLevel + 7 ).ToList();
 		if ( v.Count > 0 )
 		{
 			rnd = GlowEngine.GenerateRandomNumbers( v.Count );

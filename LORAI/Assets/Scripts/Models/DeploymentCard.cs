@@ -8,6 +8,7 @@ public class DeploymentCards
 
 public class CardDescriptor : IEquatable<CardDescriptor>
 {
+	//== data from JSON
 	public string name;
 	public string id;
 	public int tier;
@@ -16,8 +17,13 @@ public class CardDescriptor : IEquatable<CardDescriptor>
 	public int cost;
 	public int rcost;
 	public int size;
+	public int fame;
+	public int reimb;
 	public string expansion;
 	public string ignored;
+	//==
+
+	//upkeep properties
 	public int currentSize;
 	public bool isHealthy;
 	public int colorIndex;
@@ -44,6 +50,8 @@ public class CardDescriptor : IEquatable<CardDescriptor>
 			"cost": 6,
 			"rcost": 2,
 			"size": 3,
+			"fame": 6,
+			"reimb": 3,
 			"expansion": "Core",
 			"ignored": "Squad Training"
 */

@@ -11,7 +11,7 @@ public class NewGameScreen : MonoBehaviour
 	public MWheelHandler threatWheelHandler;
 	public MWheelHandler addtlThreatWheelHandler;
 	public Text difficultyText, deploymentText, selectedMissionText, threatCostText, defaultsText;
-	public Toggle imperialToggle, mercenaryToggle;
+	public Toggle imperialToggle, mercenaryToggle, adaptiveToggle;
 	public TitleController titleController;
 	public CanvasGroup cg;
 	public CardZoomer cardZoomer;
@@ -52,6 +52,7 @@ public class NewGameScreen : MonoBehaviour
 		deploymentText.text = "no";
 		imperialToggle.isOn = true;
 		mercenaryToggle.isOn = true;
+		adaptiveToggle.isOn = false;
 		threatWheelHandler.ResetWheeler();
 		addtlThreatWheelHandler.ResetWheeler();
 		for ( int i = 0; i < enemyGroupText.Length; i++ )
@@ -102,6 +103,11 @@ public class NewGameScreen : MonoBehaviour
 	{
 		sound.PlaySound( FX.Click );
 		DataStore.sessionData.ToggleMercs( mercenaryToggle.isOn );
+	}
+
+	public void OnAdaptiveDifficulty()
+	{
+		DataStore.sessionData.useAdaptiveDifficulty = adaptiveToggle.isOn;
 	}
 
 	public void OnThreatCost()
@@ -320,6 +326,7 @@ public class NewGameScreen : MonoBehaviour
 			deploymentText.text = DataStore.sessionData.optionalDeployment.ToString().ToLower();
 			mercenaryToggle.isOn = DataStore.sessionData.includeMercs;
 			imperialToggle.isOn = DataStore.sessionData.includeImperials;
+			adaptiveToggle.isOn = DataStore.sessionData.useAdaptiveDifficulty;
 			threatWheelHandler.ResetWheeler( DataStore.sessionData.threatLevel );
 			addtlThreatWheelHandler.ResetWheeler( DataStore.sessionData.addtlThreat );
 			//heroes, ally, groups button text, mission

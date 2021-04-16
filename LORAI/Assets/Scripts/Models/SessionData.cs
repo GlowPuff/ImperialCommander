@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using UnityEngine;
-using Newtonsoft.Json;
-using System.IO;
 
 [JsonObject( MemberSerialization.OptOut )]
 public class SessionData
 {
-	public int stateManagementVersion = 1;
+	public int stateManagementVersion = 2;
 	public Difficulty difficulty;
 	/// <summary>
 	/// Current threat in the game
@@ -26,6 +27,12 @@ public class SessionData
 	public DeploymentCards[] selectedDeploymentCards;
 	public CardDescriptor selectedAlly;
 	public GameVars gameVars;
+
+	//properties added after initial state saving release
+	//using a default value allows the older JSON state which is missing these values to deserialize properly, otherwise they would be NULL
+	[DefaultValue( false )]
+	[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
+	public bool useAdaptiveDifficulty;
 
 	[JsonIgnore]
 	public List<CardDescriptor> MissionStarting
@@ -59,7 +66,7 @@ public class SessionData
 		public int eventsTriggered;
 		public int currentThreat;
 		public int deploymentModifier;
-		public bool vaderReducedCostBy5;
+		public int fame;
 		public bool pauseDeployment;
 		public bool pauseThreatIncrease;
 		public bool isNewGame = true;
@@ -92,10 +99,9 @@ public class SessionData
 	{
 		gameVars.round = 1;
 		gameVars.eventsTriggered = 0;
+		gameVars.fame = 0;
 
 		gameVars.currentThreat = 0;
-		//if ( optionalDeployment == YesNo.Yes )
-		//	gameVars.currentThreat += threatLevel * 2;
 		if ( allyThreatCost == YesNo.Yes && selectedAlly != null )
 			gameVars.currentThreat += selectedAlly.cost;
 		gameVars.currentThreat += addtlThreat;
@@ -104,7 +110,6 @@ public class SessionData
 		if ( difficulty == Difficulty.Hard )
 			gameVars.deploymentModifier = 2;
 
-		gameVars.vaderReducedCostBy5 = false;
 		gameVars.pauseDeployment = false;
 		gameVars.pauseThreatIncrease = false;
 	}
@@ -247,6 +252,14 @@ public class SessionData
 			//deployed heroes
 			outpath = Path.Combine( basePath, "heroesallies.json" );
 			output = JsonConvert.SerializeObject( DataStore.deployedHeroes, Formatting.Indented );
+			using ( var stream = File.CreateText( outpath ) )
+			{
+				stream.Write( output );
+			}
+
+			//remaining events (so same events aren't triggered again when loading a session
+			outpath = Path.Combine( basePath, "events.json" );
+			output = JsonConvert.SerializeObject( DataStore.cardEvents, Formatting.Indented );
 			using ( var stream = File.CreateText( outpath ) )
 			{
 				stream.Write( output );

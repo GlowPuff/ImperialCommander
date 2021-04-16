@@ -22,8 +22,9 @@ public class MainGameController : MonoBehaviour
 	public EnemyActivationPopup enemyActivationPopup;
 	public DeploymentPopup deploymentPopup;
 	public RandomDeployPopup randomDeployPopup;
-	public Button activateImperialButton, endTurnButton;
+	public Button activateImperialButton, endTurnButton, fameButton;
 	public VolumeProfile volume;
+	public FamePopup famePopup;
 
 	Sound sound;
 
@@ -100,6 +101,7 @@ public class MainGameController : MonoBehaviour
 	/// </summary>
 	void StartNewGame()
 	{
+		fameButton.interactable = DataStore.sessionData.useAdaptiveDifficulty;
 		//create deployment hand and manual deploy list
 		DataStore.CreateDeploymentHand();
 		//foreach ( var d in dh )
@@ -270,7 +272,7 @@ public class MainGameController : MonoBehaviour
 		rnd = GlowEngine.GenerateRandomNumbers( 6 );
 		int roll2 = rnd[0] + 1;
 
-		Debug.Log( "ROLLED: " + ( roll1 + roll2 ).ToString() );
+		Debug.Log( "ROLLED: " + (roll1 + roll2).ToString() );
 		Debug.Log( "DEP MODIFIER: " + DataStore.sessionData.gameVars.deploymentModifier );
 
 		int total = roll1 + roll2 + DataStore.sessionData.gameVars.deploymentModifier;
@@ -289,7 +291,8 @@ public class MainGameController : MonoBehaviour
 	void DoEvent()
 	{
 		EventSystem.current.SetSelectedGameObject( null );
-		int[] rnd = GlowEngine.GenerateRandomNumbers( 6 );
+		//1 in 4 chance to do an event
+		int[] rnd = GlowEngine.GenerateRandomNumbers( 4 );
 		int roll1 = rnd[0] + 1;
 
 		if ( roll1 == 1 && DataStore.sessionData.gameVars.eventsTriggered < 3 )
@@ -406,7 +409,14 @@ public class MainGameController : MonoBehaviour
 
 	public void OnShowDebug()
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		GlowEngine.FindObjectsOfTypeSingle<DebugPopup>().Show();
+	}
+
+	public void OnShowFamePopup()
+	{
+		EventSystem.current.SetSelectedGameObject( null );
+		famePopup.Show();
 	}
 
 	private void Update()

@@ -81,6 +81,16 @@ public class HGPrefab : MonoBehaviour
 			cardDescriptor.heroHealth = HeroHealth.Defeated;
 	}
 
+	public void OnPointerClick()
+	{
+		CardZoom cardZoom = GlowEngine.FindObjectsOfTypeSingle<CardZoom>();
+		Sprite s = null;
+		if(cardDescriptor.id[0]=='A')
+			s= Resources.Load<Sprite>($"Cards/Allies/{cardDescriptor.id}");
+		if (s != null)
+			cardZoom.Show(s, cardDescriptor);
+	}
+
 	public void SetHealth( HeroHealth heroHealth )
 	{
 		cardDescriptor.heroHealth = heroHealth;

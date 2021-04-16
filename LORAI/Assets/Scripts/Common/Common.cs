@@ -24,6 +24,7 @@ public class HealthState
 public class GitHubResponse
 {
 	public string tag_name;
+	public string body;
 }
 
 public static class Extensions

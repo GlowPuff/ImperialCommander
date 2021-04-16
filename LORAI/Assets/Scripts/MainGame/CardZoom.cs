@@ -1,5 +1,5 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,8 +21,8 @@ public class CardZoom : MonoBehaviour
 
 		callback = action;
 		image.sprite = s;
-		image.transform.localScale = new Vector3( .85f, .85f, .85f );
-		image.transform.DOScale( 1, .5f ).SetEase( Ease.OutExpo );
+		image.transform.localScale = (.85f).ToVector3();
+		image.transform.DOScale( 1.25f, .5f ).SetEase( Ease.OutExpo );
 
 		if ( !string.IsNullOrEmpty( cd.ignored ) )
 		{

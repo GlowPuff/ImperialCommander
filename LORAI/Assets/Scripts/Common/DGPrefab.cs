@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using DG.Tweening;
+﻿using DG.Tweening;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -161,6 +161,17 @@ public class DGPrefab : MonoBehaviour
 				 DataStore.manualDeploymentList.Add( cardDescriptor );
 				 DataStore.SortManualDeployList();
 			 }
+
+			 if ( DataStore.sessionData.useAdaptiveDifficulty )
+			 {
+				 //add fame value
+				 DataStore.sessionData.gameVars.fame += cardDescriptor.fame;
+				 //reimburse some Threat
+				 DataStore.sessionData.ModifyThreat( cardDescriptor.reimb );
+				 //show fame popup
+				 GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( $"You have gained <color=\"red\">{cardDescriptor.fame} Fame.</color>" );
+			 }
+
 			 Object.Destroy( gameObject );
 		 } );
 	}

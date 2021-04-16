@@ -61,7 +61,7 @@ public class MissionToggleContainer : MonoBehaviour
 	public void OnToggle( int index )
 	{
 		//checking for Active makes sure this code does NOT run when the Toggle is INACTIVE
-		if ( !buttonToggles[index].gameObject.activeInHierarchy )
+		if ( !buttonToggles[index].gameObject.activeInHierarchy || missionCards.Count == 0 )
 			return;
 
 		sound.PlaySound( FX.Click );

@@ -248,5 +248,15 @@
 			],
 			"eventRule": ""
 		},
+		{
+			"eventName": "Priority Shift",
+			"eventID": "E27",
+			"eventFlavor": "Elsewhere, multiple displays shine pale light on the faces of the Imperial war council. 'This won’t do', the Imperial Admiral says. 'We need to change plans.' He turns towards his assistant. 'Execute the contingency plan.'",
+			"content": [
+				"Draw a card from the Imperial Side Mission Deck and put it into play.",
+				"If there is already an Imperial side mission or forced mission in play, ignore this event.",
+			],
+			"eventRule": ""
+		},		
 	]
 }

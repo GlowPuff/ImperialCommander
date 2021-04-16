@@ -1,16 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
-using Newtonsoft.Json;
-using UnityEditor;
 using UnityEngine;
 
 public static class DataStore
 {
-	public static string appVersion = "v.1.0.9";
+	public static string appVersion = "v.1.0.10";
 
 	public static Dictionary<string, List<Card>> missionCards;
 	/// <summary>
@@ -292,6 +289,14 @@ public static class DataStore
 				json = sr.ReadToEnd();
 			}
 			deployedHeroes = JsonConvert.DeserializeObject<List<CardDescriptor>>( json );
+
+			//remaining events
+			path = Path.Combine( basePath, "events.json" );
+			using ( StreamReader sr = new StreamReader( path ) )
+			{
+				json = sr.ReadToEnd();
+			}
+			cardEvents = JsonConvert.DeserializeObject<List<CardEvent>>( json );
 
 			return true;
 		}

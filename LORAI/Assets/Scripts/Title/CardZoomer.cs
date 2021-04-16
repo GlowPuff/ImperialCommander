@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using DG.Tweening;
-using UnityEngine.UI;
-using System;
+﻿using DG.Tweening;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CardZoomer : MonoBehaviour
 {
@@ -22,8 +21,7 @@ public class CardZoomer : MonoBehaviour
 	{
 		canvas.gameObject.SetActive( true );
 		image.sprite = sprite;
-		image.transform.DOScale( 0.22f, .5f ).SetEase( Ease.OutExpo ).OnComplete( () => button.SetActive( true ) );
-		//image.DOFade( 1, 1.5f );
+		image.transform.DOScale( 0.25f, .5f ).SetEase( Ease.OutExpo ).OnComplete( () => button.SetActive( true ) );
 		cg.DOFade( 1, .5f );
 
 		fader.gameObject.SetActive( true );
@@ -34,7 +32,6 @@ public class CardZoomer : MonoBehaviour
 	{
 		button.SetActive( false );
 		image.transform.DOScale( .187f, .5f ).SetEase( Ease.OutExpo );
-		//image.DOFade( 0, .25f );
 		cg.DOFade( 0, .2f );
 
 		fader.DOFade( 0, .5f ).OnComplete( () =>
