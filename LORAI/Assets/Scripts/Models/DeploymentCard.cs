@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 public class DeploymentCards
 {
@@ -21,6 +23,9 @@ public class CardDescriptor : IEquatable<CardDescriptor>
 	public int reimb;
 	public string expansion;
 	public string ignored;
+	[DefaultValue( false )]
+	[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
+	public bool isElite;
 	//==
 
 	//upkeep properties

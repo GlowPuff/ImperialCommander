@@ -24,6 +24,7 @@ public class NewGameScreen : MonoBehaviour
 	public MissionTextBox missionTextBox;
 	public HeroChooser heroChooser;
 	public GridLayoutGroup gridLayoutGroup;
+	public SetupLanguageController languageController;
 
 	Sound sound;
 
@@ -47,17 +48,17 @@ public class NewGameScreen : MonoBehaviour
 		addHeroButton.interactable = true;
 		selectedMissionText.transform.Find( "view Button" ).GetComponent<Button>().interactable = false;
 		selectedMissionText.transform.Find( "mission info button" ).GetComponent<Button>().interactable = false;
-		selectedMissionText.text = "Choose Mission";
-		difficultyText.text = "difficulty";
-		deploymentText.text = "no";
+		//selectedMissionText.text = "choose mission";
+		//difficultyText.text = "difficulty";
+		//deploymentText.text = "no";
 		imperialToggle.isOn = true;
 		mercenaryToggle.isOn = true;
 		adaptiveToggle.isOn = false;
 		threatWheelHandler.ResetWheeler();
 		addtlThreatWheelHandler.ResetWheeler();
 		for ( int i = 0; i < enemyGroupText.Length; i++ )
-			enemyGroupText[i].text = "choose";
-		enemyGroupText[3].text = "8 selected";
+			enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose;
+		enemyGroupText[3].text = "8 " + DataStore.uiLanguage.uiSetup.selected;
 		//button colors to red
 		ColorBlock cb = difficultyButton.colors;
 		cb.normalColor = new Color( 1, 0.1568628f, 0, 1 );
@@ -66,6 +67,9 @@ public class NewGameScreen : MonoBehaviour
 		cb.normalColor = new Color( 1, 0.1568628f, 0, 1 );
 		addHeroButton.colors = cb;
 		OnRemoveAlly();
+
+		//set the language strings into the UI
+		languageController.SetTranslatedUI();
 
 		//check for default state
 		string path = Path.Combine( Application.persistentDataPath, "Defaults", "sessiondata.json" );
@@ -144,9 +148,6 @@ public class NewGameScreen : MonoBehaviour
 	public void OnChooseMission()
 	{
 		sound.PlaySound( FX.Click );
-		//ColorBlock cb = chooseMissionButton.colors;
-		//cb.normalColor = new Color( 0, 0.6440244f, 1, 1 );
-		//chooseMissionButton.colors = cb;
 		cg.DOFade( 0, .5f );
 		groupChooser.ActivateScreen( ChooserMode.Missions );
 	}
@@ -155,7 +156,7 @@ public class NewGameScreen : MonoBehaviour
 	{
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
-		var txt = Resources.Load<TextAsset>( $"MissionText/{DataStore.sessionData.selectedMissionID}info" );
+		var txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}info" );
 		if ( txt != null )
 			missionTextBox.Show( txt.text );
 	}
@@ -218,9 +219,9 @@ public class NewGameScreen : MonoBehaviour
 			//index 4 contains heroes
 			DeploymentCards selectedCards = DataStore.sessionData.selectedDeploymentCards[i];
 			if ( selectedCards.cards.Count > 0 )
-				enemyGroupText[i].text = selectedCards.cards.Count + " selected";
+				enemyGroupText[i].text = selectedCards.cards.Count + " " + DataStore.uiLanguage.uiSetup.selected;
 			else
-				enemyGroupText[i].text = "choose";
+				enemyGroupText[i].text = DataStore.uiLanguage.uiSetup.choose;
 		}
 
 		//handle selected heroes
@@ -286,7 +287,7 @@ public class NewGameScreen : MonoBehaviour
 		defaultsText.color = new Color( 0, 1, 0.628047f, 1 );
 		if ( DataStore.sessionData.SaveDefaults() )
 		{
-			defaultsText.text = "saved";
+			defaultsText.text = DataStore.uiLanguage.uiSetup.saved;
 		}
 		else
 		{
@@ -319,16 +320,29 @@ public class NewGameScreen : MonoBehaviour
 
 			//populate UI
 			if ( DataStore.sessionData.difficulty != Difficulty.NotSet )
-				difficultyText.text = DataStore.sessionData.difficulty.ToString().ToLower();
+			{
+				if ( DataStore.sessionData.difficulty == Difficulty.Easy )
+					difficultyText.text = DataStore.uiLanguage.uiSetup.easy;
+				else if ( DataStore.sessionData.difficulty == Difficulty.Medium )
+					difficultyText.text = DataStore.uiLanguage.uiSetup.normal;
+				else
+					difficultyText.text = DataStore.uiLanguage.uiSetup.hard;
+			}
 			else
-				difficultyText.text = "difficulty";
-			threatCostText.text = DataStore.sessionData.allyThreatCost.ToString().ToLower();
-			deploymentText.text = DataStore.sessionData.optionalDeployment.ToString().ToLower();
+				difficultyText.text = DataStore.uiLanguage.uiSetup.difficulty;
+
+			threatCostText.text = DataStore.sessionData.allyThreatCost == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
+
+			deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
+
 			mercenaryToggle.isOn = DataStore.sessionData.includeMercs;
 			imperialToggle.isOn = DataStore.sessionData.includeImperials;
 			adaptiveToggle.isOn = DataStore.sessionData.useAdaptiveDifficulty;
+
 			threatWheelHandler.ResetWheeler( DataStore.sessionData.threatLevel );
+
 			addtlThreatWheelHandler.ResetWheeler( DataStore.sessionData.addtlThreat );
+
 			//heroes, ally, groups button text, mission
 			OnReturnTo();
 
@@ -339,7 +353,7 @@ public class NewGameScreen : MonoBehaviour
 				difficultyButton.colors = cb;
 			}
 
-			defaultsText.text = "loaded";
+			defaultsText.text = DataStore.uiLanguage.uiSetup.loaded;
 		}
 		catch ( System.Exception e )
 		{

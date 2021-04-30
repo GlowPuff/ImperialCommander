@@ -1,0 +1,53 @@
+{
+	"uiTitle": {
+		"menuHeading": "command",
+		"newGameBtn": "neues spiel",
+		"continueBtn": "weiter",
+		"campaignsBtn": "kampagnen",
+		"optionsBtn": "optionen",
+		"supportUC": "Willst du die App unterstützen?"
+	},
+	"uiSetup": {
+		"settingsHeading": "einsatz-einstellungen",
+		"chooseMission": "einsatz waehlen",
+		"viewCardBtn": "anzeigen",
+		"missionInfoBtn": "einsatz-info",
+		"threatLevelHeading": "bedrohungs-grad",
+		"addtlThreatHeading": "zusaetzliche bedrohung",
+		"deploymentHeading": "optionale aufstellung",
+		"yes": "ja",
+		"no": "nein",
+		"back": "zuruck",
+		"difficulty": "schwierigkeit",
+		"easy": "einfach",
+		"normal": "normal",
+		"hard": "schwer",
+		"imperials": "imperiale",
+		"mercenaries": "soeldner",
+		"adaptive": "adaptive schwierigkeit",
+		"groupsHeading": "gegnergruppen",
+		"choose": "auswaehlen",
+		"zoom": "zoomen",
+		"initialHeading": "start",
+		"reservedHeading": "reserve",
+		"villainsHeading": "verdiente schurken",
+		"ignoredHeading": "ignoriert",
+		"addHero": "helden",
+		"addAlly": "verbuendete",
+		"threatCostHeading": "bedrohung?",
+		"cancel": "abbrechen",
+		"continueBtn": "weiter",
+		"saved": "gespeichert",
+		"loaded": "geladen",
+		"selected": "ausgewaehlt",
+		"enemyChooser": "aufstellungsgruppen",
+		"missionChooser": "einsatz waehlen",
+		"heroAllyChooser": "choose one",
+		"adaptiveInfoUC": "Adaptive Schwierigkeit: Je mehr imperiale Gruppen du besiegen kannst, desto mehr bemüht sich das Imperium, dich aufzuhalten, aber desto besser sind deine Belohnungen."
+	},
+	"uiMainApp": {
+		"eliteUpgradeUC": "Eine oder mehr <color=\"green\">normale</color> Gruppen wurden zu <color=\"red\">Elite</color> aufgewertet.",
+		"eliteDowngradeUC": "Eine oder mehr <color=\"red\">Elite</color>-Gruppen wurden zu <color=\"green\">normalen</color> Gruppen abgewertet.",
+		
+	}
+}

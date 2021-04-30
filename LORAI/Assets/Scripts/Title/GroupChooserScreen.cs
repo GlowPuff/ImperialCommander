@@ -1,9 +1,9 @@
 ﻿using DG.Tweening;
-using UnityEngine;
-using UnityEngine.UI;
-using System.Linq;
 using System;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GroupChooserScreen : MonoBehaviour
 {
@@ -34,7 +34,7 @@ public class GroupChooserScreen : MonoBehaviour
 		this.mode = mode;
 
 		//reset expansion buttons except Core
-		Transform[] expButtons = ( from Transform x in transform.Find( "expansion selector container" ) select x ).ToArray();
+		Transform[] expButtons = (from Transform x in transform.Find( "expansion selector container" ) select x).ToArray();
 		for ( int i = 1; i < expButtons.Length; i++ )
 		{
 			if ( !DataStore.ownedExpansions.Contains( (Expansion)Enum.Parse( typeof( Expansion ), expButtons[i].name ) ) )
@@ -52,16 +52,16 @@ public class GroupChooserScreen : MonoBehaviour
 			switch ( dataGroupIndex )
 			{
 				case 0:
-					enemyGroupTitle.text = "initial";
+					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.initialHeading;
 					break;
 				case 1:
-					enemyGroupTitle.text = "reserved";
+					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.reservedHeading;
 					break;
 				case 2:
-					enemyGroupTitle.text = "villains";
+					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.villainsHeading;
 					break;
 				case 3:
-					enemyGroupTitle.text = "ignored";
+					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.ignoredHeading;
 					break;
 			}
 			groupToggleContainer.transform.parent.gameObject.SetActive( true );

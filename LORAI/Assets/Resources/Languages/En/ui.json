@@ -1,0 +1,53 @@
+{
+	"uiTitle": {
+		"menuHeading": "command",
+		"newGameBtn": "new game",
+		"continueBtn": "continue",
+		"campaignsBtn": "campaigns",
+		"optionsBtn": "options",
+		"supportUC": "Want to support the app?"
+	},
+	"uiSetup": {
+		"settingsHeading": "mission settings",
+		"chooseMission": "choose mission",
+		"viewCardBtn": "view",
+		"missionInfoBtn": "mission info",
+		"threatLevelHeading": "threat level",
+		"addtlThreatHeading": "additional threat",
+		"deploymentHeading": "optional deployment",
+		"yes": "yes",
+		"no": "no",
+		"back": "back",
+		"difficulty": "difficulty",
+		"easy": "easy",
+		"normal": "normal",
+		"hard": "hard",
+		"imperials": "imperials",
+		"mercenaries": "merecenaries",
+		"adaptive": "adaptive difficulty",
+		"groupsHeading": "enemy groups",
+		"choose": "choose",
+		"zoom": "zoom",
+		"initialHeading": "initial",
+		"reservedHeading": "reserved",
+		"villainsHeading": "earned villains",
+		"ignoredHeading": "ignored",
+		"addHero": "add hero",
+		"addAlly": "add ally",
+		"threatCostHeading": "threat cost?",
+		"cancel": "cancel",
+		"continueBtn": "continue",
+		"saved": "saved",
+		"loaded": "loaded",
+		"selected": "selected",
+		"enemyChooser": "deployment groups",
+		"missionChooser": "select a mission",
+		"heroAllyChooser": "choose one",
+		"adaptiveInfoUC": "Adaptive Difficulty: The more Imperial groups you manage to defeat, the harder the Empire tries to stop you, but the better your rewards."
+	},
+	"uiMainApp": {
+		"eliteUpgradeUC": "One or more <color=\"green\">Regular</color> Deployments have been upgraded to an <color=\"red\">Elite</color> Group.",
+		"eliteDowngradeUC": "One or more <color=\"red\">Elite</color> Deployments have been downgraded to a <color=\"green\">Regular</color> Group.",
+		
+	}
+}

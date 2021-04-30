@@ -7,7 +7,8 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static string appVersion = "v.1.0.10";
+	public static readonly string appVersion = "v.1.0.11";
+	public static readonly string[] languageCodeList = { "En", "De", "Ru" };
 
 	public static Dictionary<string, List<Card>> missionCards;
 	/// <summary>
@@ -36,6 +37,13 @@ public static class DataStore
 		new Vector3(0,0.735849f,0.1056484f),
 		new Vector3(1,0,0)
 	};
+	public static int languageCode;
+	public static UILanguage uiLanguage;
+	/* Things affected by language
+	 * UI strings
+	 * events, bonus effects, instructions
+	 * mission info/rules
+	 * */
 
 	private static List<CardDescriptor> villainsToManuallyAdd;
 
@@ -60,10 +68,21 @@ public static class DataStore
 		activationInstructions = new List<CardInstruction>();
 		bonusEffects = new List<BonusEffect>();
 
+		//setup language
+		//default language playerprefs key should be set by now, but just in case...
+		if ( PlayerPrefs.HasKey( "language" ) )
+			languageCode = PlayerPrefs.GetInt( "language" );
+		else
+		{
+			PlayerPrefs.SetInt( "language", 0 );
+			PlayerPrefs.Save();
+			languageCode = 0;
+		}
+
 		//load mission cards
 		foreach ( string expansion in expansions )
 		{
-			json = Resources.Load<TextAsset>( $"missions-{expansion}" );
+			json = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/missions-{expansion}" );
 			if ( json != null )
 			{
 				var cards = JsonConvert.DeserializeObject<MissionCard>( json.text );
@@ -71,16 +90,8 @@ public static class DataStore
 			}
 		}
 
-		//load cards
-		deploymentCards = LoadCards( "enemies" );
-		allyCards = LoadCards( "allies" );
-		villainCards = LoadCards( "villains" );
-		heroCards = LoadCards( "heroes" );
-
-		//load other data
-		cardEvents = LoadEvents();
-		activationInstructions = LoadInstructions();
-		bonusEffects = LoadBonusEffects();
+		//cards, events, activation instructions, bonus effects, ui
+		LoadTranslatedData();
 
 		//load settings from local storage
 		ownedExpansions = new List<Expansion>();
@@ -95,7 +106,40 @@ public static class DataStore
 					ownedExpansions.Add( (Expansion)Enum.Parse( typeof( Expansion ), expansions[i] ) );
 			}
 			else
+			{
 				PlayerPrefs.SetString( expansions[i], "false" );
+				PlayerPrefs.Save();
+			}
+		}
+	}
+
+	public static void LoadTranslatedData()
+	{
+		try
+		{
+			//load cards
+			deploymentCards = LoadCards( "enemies" );
+			allyCards = LoadCards( "allies" );
+			villainCards = LoadCards( "villains" );
+			heroCards = LoadCards( "heroes" );
+
+			//events, activation instructions, bonus effects
+			cardEvents = LoadEvents();
+			activationInstructions = LoadInstructions();
+			bonusEffects = LoadBonusEffects();
+			//ui
+			uiLanguage = LoadUILanguage();
+
+			Debug.Log( "Loaded Language: " + languageCodeList[languageCode] );
+		}
+		catch ( Exception e )
+		{
+			Debug.Log( "LoadTranslatedData() ERROR:\r\n" + e.Message );
+			//default to English so app loads correctly next time
+			languageCode = 0;
+			PlayerPrefs.SetInt( "language", 0 );
+			PlayerPrefs.Save();
+			LogError( e.Message );
 		}
 	}
 
@@ -109,31 +153,38 @@ public static class DataStore
 
 	static DeploymentCards LoadCards( string asset )
 	{
-		TextAsset json = Resources.Load<TextAsset>( $"DeploymentGroups/{asset}" );
+		TextAsset json = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/DeploymentGroups/{asset}" );
 		return JsonConvert.DeserializeObject<DeploymentCards>( json.text );
 	}
 
 	static List<CardEvent> LoadEvents()
 	{
-		TextAsset json = Resources.Load<TextAsset>( "events" );
+		TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/events" );
 		return JsonConvert.DeserializeObject<EventList>( json.text ).events;
 	}
 
 	static List<CardInstruction> LoadInstructions()
 	{
-		TextAsset json = Resources.Load<TextAsset>( "instructions" );
+		TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/instructions" );
 		return JsonConvert.DeserializeObject<List<CardInstruction>>( json.text );
 	}
 
 	static List<BonusEffect> LoadBonusEffects()
 	{
-		TextAsset json = Resources.Load<TextAsset>( "bonuseffects" );
+		TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/bonuseffects" );
 		return JsonConvert.DeserializeObject<List<BonusEffect>>( json.text );
+	}
+
+	static UILanguage LoadUILanguage()
+	{
+		TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/ui" );
+		return JsonConvert.DeserializeObject<UILanguage>( json.text );
 	}
 
 	public static void AddExpansion( string exp )
 	{
 		PlayerPrefs.SetString( exp, "true" );
+		PlayerPrefs.Save();
 		Expansion xp = (Expansion)Enum.Parse( typeof( Expansion ), exp );
 		if ( !ownedExpansions.Contains( xp ) )
 			ownedExpansions.Add( xp );
@@ -142,6 +193,7 @@ public static class DataStore
 	public static void RemoveExpansions( string exp )
 	{
 		PlayerPrefs.SetString( exp, "false" );
+		PlayerPrefs.Save();
 		Expansion xp = (Expansion)Enum.Parse( typeof( Expansion ), exp );
 		if ( ownedExpansions.Contains( xp ) )
 			ownedExpansions.Remove( xp );
@@ -308,6 +360,12 @@ public static class DataStore
 		}
 	}
 
+	public static void LogError( string error )
+	{
+		string basePath = Application.persistentDataPath;
+		File.WriteAllText( Path.Combine( basePath, "error_log.txt" ), "ERROR TRACE:\r\n" + error );
+	}
+
 	/// <summary>
 	/// Randomly gets the requested number of cards according to tier
 	/// </summary>
@@ -356,13 +414,14 @@ public static class DataStore
 	/// <summary>
 	/// CAN be in dep hand, minus deployed, minus reserved, minus ignored
 	/// </summary>
-	public static CardDescriptor GetNonEliteVersion( string name )
+	public static CardDescriptor GetNonEliteVersion( CardDescriptor elite )
 	{
 		//starting groups already deployed, no need to filter
-		int idx = name.IndexOf( "(Elite)" );
-		string nonEliteName = name.Substring( 0, idx ).Trim();
+		//1) filter to NON elites only
+		//2) the elite version of the card (passed into this method) will have the NON elite NAME in its name property
 		var valid = deploymentCards.cards
-			.Where( x => x.name == nonEliteName ).ToList()
+			.Where( x => !x.isElite )
+			.Where( x => elite.name.Contains( x.name ) ).ToList()
 			.MinusDeployed()
 			.MinusReserved()
 			.MinusIgnored();
@@ -372,12 +431,14 @@ public static class DataStore
 	/// <summary>
 	/// CAN be in dep hand, minus deployed, minus reserved, minus ignored
 	/// </summary>
-	public static CardDescriptor GetEliteVersion( string name )
+	public static CardDescriptor GetEliteVersion( CardDescriptor cd )
 	{
 		//starting groups already deployed, no need to filter
-		string eliteName = name + " (Elite)";
+		//1) filter to elites only
+		//2) the elite version of the card will have the NAME in its name property
 		var valid = deploymentCards.cards
-			.Where( x => x.name == eliteName ).ToList()
+			.Where( x => x.isElite )
+			.Where( x => x.name.Contains( cd.name ) ).ToList()
 			.MinusDeployed()
 			.MinusReserved()
 			.MinusIgnored();

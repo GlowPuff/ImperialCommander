@@ -9,7 +9,7 @@ using UnityEngine;
 [JsonObject( MemberSerialization.OptOut )]
 public class SessionData
 {
-	public int stateManagementVersion = 2;
+	public int stateManagementVersion = 3;
 	public Difficulty difficulty;
 	/// <summary>
 	/// Current threat in the game
@@ -125,9 +125,17 @@ public class SessionData
 		else
 			difficulty = Difficulty.Easy;
 
-		return difficulty.ToString().ToLower();
+		if ( difficulty == Difficulty.Easy )
+			return DataStore.uiLanguage.uiSetup.easy;
+		else if ( difficulty == Difficulty.Medium )
+			return DataStore.uiLanguage.uiSetup.normal;
+		else
+			return DataStore.uiLanguage.uiSetup.hard;
 	}
 
+	/// <summary>
+	/// Deprecated
+	/// </summary>
 	public string ToggleRules()
 	{
 		if ( allyRules == AllyRules.NotSet )
@@ -137,7 +145,7 @@ public class SessionData
 		else
 			allyRules = AllyRules.Normal;
 
-		return allyRules.ToString().ToLower();
+		return allyRules == AllyRules.Normal ? DataStore.uiLanguage.uiSetup.normal : "lothal";
 	}
 
 	public string ToggleDeployment()
@@ -147,7 +155,7 @@ public class SessionData
 		else
 			optionalDeployment = YesNo.Yes;
 
-		return optionalDeployment.ToString().ToLower();
+		return optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
 	}
 
 	public string ToggleThreatCost()
@@ -157,7 +165,7 @@ public class SessionData
 		else
 			allyThreatCost = YesNo.Yes;
 
-		return allyThreatCost.ToString().ToLower();
+		return allyThreatCost == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
 	}
 
 	public void ToggleImperials( bool isOn )

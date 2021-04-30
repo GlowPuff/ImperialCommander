@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using DG.Tweening;
+﻿using DG.Tweening;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class MissionTextBox : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class MissionTextBox : MonoBehaviour
 		fader.DOFade( .95f, 1 );
 		cg.DOFade( 1, .5f );
 
-		theText.transform.parent.localPosition = new Vector3( theText.transform.parent.localPosition.x, -500, 0 );
+		theText.transform.parent.localPosition = new Vector3( theText.transform.parent.localPosition.x, -3000, 0 );
 
 		transform.GetChild( 0 ).localScale = new Vector3( .85f, .85f, .85f );
 		transform.GetChild( 0 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );

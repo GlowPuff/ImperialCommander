@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class DeploymentGroupManager : MonoBehaviour
@@ -74,35 +73,36 @@ public class DeploymentGroupManager : MonoBehaviour
 	/// </summary>
 	public void DeployGroup( CardDescriptor cardDescriptor, bool skipEliteModify = false )
 	{
+		Debug.Log( cardDescriptor.isElite );
 		// EASY: Any time an Elite group is deployed, it has a 15% chance to be downgraded to a normal group without refunding of threat. ( If the respective normal group is still available.)
 		if ( DataStore.sessionData.difficulty == Difficulty.Easy &&
 			!skipEliteModify &&
-			cardDescriptor.name.Contains( "Elite" ) &&
+			cardDescriptor.isElite &&
 			GlowEngine.RandomBool( 15 ) )
 		{
 			//see if normal version exists, include dep hand
-			var nonE = DataStore.GetNonEliteVersion( cardDescriptor.name );
+			var nonE = DataStore.GetNonEliteVersion( cardDescriptor );
 			if ( nonE != null )
 			{
 				Debug.Log( "DeployGroup EASY mode Elite downgrade: " + nonE.name );
 				cardDescriptor = nonE;
-				GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "One or more <color=\"red\">Elite</color> Deployments have been downgraded to a <color=\"green\">Regular</color> Group." );
+				GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteDowngrade );
 			}
 		}
 
 		//Hard: Threat increase x1.3 Any time a normal group is deployed, it has a 15 % chance to be upgraded to an Elite group at no additional threat cost. ( If the respective normal group is still available.) Deployment Modifier starts at 2 instead of 0.
 		if ( DataStore.sessionData.difficulty == Difficulty.Hard &&
 			!skipEliteModify &&
-			!cardDescriptor.name.Contains( "Elite" ) &&
+			!cardDescriptor.isElite &&
 			GlowEngine.RandomBool( 15 ) )
 		{
 			//see if elite version exists, include dep hand
-			var elite = DataStore.GetEliteVersion( cardDescriptor.name );
+			var elite = DataStore.GetEliteVersion( cardDescriptor );
 			if ( elite != null )
 			{
 				Debug.Log( "DeployGroup HARD mode Elite upgrade: " + elite.name );
 				cardDescriptor = elite;
-				GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "One or more <color=\"green\">Regular</color> Deployments have been upgraded to an <color=\"red\">Elite</color> Group." );
+				GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteUpgrade );
 			}
 			else
 				Debug.Log( "SKIPPED: " + cardDescriptor.name );
@@ -120,7 +120,9 @@ public class DeploymentGroupManager : MonoBehaviour
 
 		//add it to deployed enemies
 		DataStore.deployedEnemies.Add( cardDescriptor );
-		//if it's FROM the dep hand, remove it (should have been already removed in DeploymentPopup)
+		//if it's FROM the dep hand, remove it
+		//should have already been removed *IF* it's from DeploymentPopup
+		//otherwise it just got (up/down)graded to/from Elite
 		DataStore.deploymentHand.Remove( cardDescriptor );
 
 		FX[] sounds = { FX.None, FX.Trouble, FX.Drill, FX.Droid, FX.SetBlasters, FX.Restricted, FX.DropWeapons };

@@ -27,11 +27,17 @@ public class TitleController : MonoBehaviour
 	public Transform busyIconTF;
 	public TextMeshProUGUI versionText;
 	public MissionTextBox versionPopup;
+	public TMP_Dropdown languageDropdown;
+	public TextMeshProUGUI donateText;
+
+	//UI objects using language translations
+	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignBtn, uiOptionsBtn;
 
 	private int m_OpenParameterId;
 	private int expID;
 	private NetworkStatus networkStatus;
 	private GitHubResponse gitHubResponse = null;
+	private bool skipDropdown = true;
 
 	void Start()
 	{
@@ -43,7 +49,6 @@ public class TitleController : MonoBehaviour
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 		fader.UnFade( 2 );
-		DataStore.InitData();
 		if ( !PlayerPrefs.HasKey( "music" ) )
 			PlayerPrefs.SetInt( "music", 1 );
 		if ( !PlayerPrefs.HasKey( "sound" ) )
@@ -52,7 +57,18 @@ public class TitleController : MonoBehaviour
 			PlayerPrefs.SetInt( "bloom", 1 );
 		if ( !PlayerPrefs.HasKey( "vignette" ) )
 			PlayerPrefs.SetInt( "vignette", 1 );
+		if ( !PlayerPrefs.HasKey( "language" ) )
+			PlayerPrefs.SetInt( "language", 0 );
+		//save defaults
 		PlayerPrefs.Save();
+
+		DataStore.InitData();
+
+		//set translated UI
+		SetTranslatedUI();
+
+		languageDropdown.value = PlayerPrefs.GetInt( "language" );
+		skipDropdown = false;
 
 		if ( volume.TryGet<Bloom>( out var bloom ) )
 			bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
@@ -98,6 +114,7 @@ public class TitleController : MonoBehaviour
 		titleText.FlipIn();
 		donateButton.SetActive( true );
 		versionInfo.SetActive( true );
+		languageDropdown.gameObject.SetActive( true );
 	}
 
 	public void OnNewGame()
@@ -111,6 +128,7 @@ public class TitleController : MonoBehaviour
 
 		donateButton.SetActive( false );
 		versionInfo.SetActive( false );
+		languageDropdown.gameObject.SetActive( false );
 
 		DataStore.StartNewSession();
 		newGameScreen.ActivateScreen();
@@ -131,6 +149,7 @@ public class TitleController : MonoBehaviour
 			titleText.FlipOut();
 			donateButton.SetActive( false );
 			versionInfo.SetActive( false );
+			languageDropdown.gameObject.SetActive( false );
 			soundController.FadeOutMusic();
 			FadeOut( 1 );
 
@@ -198,6 +217,36 @@ public class TitleController : MonoBehaviour
 			versionPopup.Show( gitHubResponse.body );
 	}
 
+	public void OnLanguageChange()
+	{
+		//setting the dropdown value fires this event - it does not need to fire upon app load
+		//skip it on app load, otherwise it fires twice on startup
+		//make sure NOT to skip it if language actually changes
+		if ( skipDropdown )
+		{
+			skipDropdown = false;
+			return;
+		}
+
+		DataStore.languageCode = languageDropdown.value;
+		PlayerPrefs.SetInt( "language", DataStore.languageCode );
+		//reload translated data
+		DataStore.LoadTranslatedData();
+
+		//update the translated title menu UI
+		SetTranslatedUI();
+	}
+
+	private void SetTranslatedUI()
+	{
+		uiMenuHeader.text = DataStore.uiLanguage.uiTitle.menuHeading;
+		uiNewGameBtn.text = DataStore.uiLanguage.uiTitle.newGameBtn;
+		uiContinueBtn.text = DataStore.uiLanguage.uiTitle.continueBtn;
+		uiCampaignBtn.text = DataStore.uiLanguage.uiTitle.campaignsBtn;
+		uiOptionsBtn.text = DataStore.uiLanguage.uiTitle.optionsBtn;
+		donateText.text = DataStore.uiLanguage.uiTitle.supportUC + " <color=#00A4FF>paypal.me/glowpuff</color>";
+	}
+
 	private bool IsSessionValid()
 	{
 		string basePath = Path.Combine( Application.persistentDataPath, "Session", "sessiondata.json" );
@@ -214,7 +263,7 @@ public class TitleController : MonoBehaviour
 			}
 			SessionData session = JsonConvert.DeserializeObject<SessionData>( json );
 
-			return session.stateManagementVersion == 2;
+			return session.stateManagementVersion == 3;
 		}
 		catch ( Exception e )
 		{
