@@ -262,7 +262,8 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Other",
-			"ignored": ""		
+			"ignored": "",
+			"isElite": true		
 		},
 		{
 			"name": "Wookiee-Krieger",
@@ -286,7 +287,8 @@
 			"rcost": 0,
 			"size": 2,
 			"expansion": "Other",
-			"ignored": ""		
+			"ignored": "",
+			"isElite": true		
 		},
 		{
 			"name": "Ranger der Rebellenallianz (Elite)",
@@ -298,7 +300,8 @@
 			"rcost": 0,
 			"size": 4,
 			"expansion": "Other",
-			"ignored": ""		
+			"ignored": "",
+			"isElite": true		
 		},
 		{
 			"name": "Truppen der Echo-Basis (Elite)",
@@ -310,7 +313,8 @@
 			"rcost": 0,
 			"size": 2,
 			"expansion": "Other",
-			"ignored": ""		
+			"ignored": "",
+			"isElite": true		
 		},
 		{
 			"name": "Rebellen-Saboteure (Elite)",
@@ -322,7 +326,8 @@
 			"rcost": 0,
 			"size": 2,
 			"expansion": "Other",
-			"ignored": ""		
+			"ignored": "",
+			"isElite": true		
 		},
 		{
 			"name": "Rebellentruppen (Elite)",
@@ -334,7 +339,8 @@
 			"rcost": 0,
 			"size": 3,
 			"expansion": "Other",
-			"ignored": ""		
+			"ignored": "",
+			"isElite": true		
 		}
 	]
 }

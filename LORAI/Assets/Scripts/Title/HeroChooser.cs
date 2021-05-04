@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using DG.Tweening;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class HeroChooser : MonoBehaviour
 	public Image fader;
 	public CanvasGroup cg;
 	public Transform container;
+	public TextMeshProUGUI heroNameText;
 
 	Sound sound;
 	List<CardDescriptor> selectedHeroes;
@@ -39,6 +41,8 @@ public class HeroChooser : MonoBehaviour
 		//	Debug.Log( cd.name );
 		//Debug.Log( "END SELECTED H" );
 
+		heroNameText.text = "";
+
 		//filter owned heroes
 		ownedHeroes = DataStore.heroCards.cards.Owned();
 		//Debug.Log( "OWNED H" );
@@ -46,12 +50,16 @@ public class HeroChooser : MonoBehaviour
 		//	Debug.Log( cd.name );
 		//Debug.Log( "END OWNED H" );
 
+		Sprite thumbNail = null;
+
 		//only show owned heroes, toggle if previously selected
 		for ( int i = 0; i < ownedHeroes.Count; i++ )
 		{
 			var child = container.GetChild( i );
-			var label = child.Find( "Label" );
-			label.GetComponent<Text>().text = ownedHeroes[i].name.ToLower();
+			thumbNail = Resources.Load<Sprite>( $"Cards/Heroes/{ownedHeroes[i].id}" );
+			var thumb = child.Find( "Image" );
+			thumb.GetComponent<Image>().sprite = thumbNail;
+
 			//toggle if already selected
 			if ( selectedHeroes.Contains( ownedHeroes[i] ) )
 				child.GetComponent<Toggle>().isOn = true;
@@ -84,9 +92,15 @@ public class HeroChooser : MonoBehaviour
 		//Debug.Log( idx );
 		CardDescriptor clicked = ownedHeroes[idx];
 		if ( t.isOn && !selectedHeroes.Contains( clicked ) )
+		{
 			selectedHeroes.Add( clicked );
+			heroNameText.text = clicked.name;
+		}
 		else if ( !t.isOn && selectedHeroes.Contains( clicked ) )
+		{
 			selectedHeroes.Remove( clicked );
+			heroNameText.text = "";
+		}
 
 		UpdateInteractable();
 		//foreach ( CardDescriptor cd in selectedHeroes )

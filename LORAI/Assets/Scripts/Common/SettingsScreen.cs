@@ -14,6 +14,7 @@ public class SettingsScreen : MonoBehaviour
 	public Sound sound;
 	public GameObject returnButton;
 	public VolumeProfile volume;
+	public SettingsLanguageController languageController;
 
 	Action<SettingsCommand> closeAction;
 
@@ -34,6 +35,9 @@ public class SettingsScreen : MonoBehaviour
 		soundToggle.isOn = PlayerPrefs.GetInt( "sound" ) == 1;
 		bloomToggle.isOn = PlayerPrefs.GetInt( "bloom" ) == 1;
 		vignetteToggle.isOn = PlayerPrefs.GetInt( "vignette" ) == 1;
+
+		//set the translated UI strings
+		languageController.SetTranslatedUI();
 	}
 
 	public void OnOK()

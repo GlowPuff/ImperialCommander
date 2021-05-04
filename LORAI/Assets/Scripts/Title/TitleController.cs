@@ -21,17 +21,17 @@ public class TitleController : MonoBehaviour
 	public Sound soundController;
 	public NewGameScreen newGameScreen;
 	public TitleText titleText;
-	public GameObject donateButton, versionInfo;
+	public GameObject donateButton, docsButton, versionButton;
 	public VolumeProfile volume;
 	public Button continueButton;
 	public Transform busyIconTF;
 	public TextMeshProUGUI versionText;
 	public MissionTextBox versionPopup;
 	public TMP_Dropdown languageDropdown;
-	public TextMeshProUGUI donateText;
+	public TextMeshProUGUI donateText, docsText;
 
 	//UI objects using language translations
-	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignBtn, uiOptionsBtn;
+	public Text uiMenuHeader, uiNewGameBtn, uiContinueBtn, uiCampaignBtn, uiOptionsBtn, bespinExp, hothExp, jabbaExp, empireExp, lothalExp, twinExp;
 
 	private int m_OpenParameterId;
 	private int expID;
@@ -81,7 +81,7 @@ public class TitleController : MonoBehaviour
 		FindObjectOfType<Sound>().CheckAudio();
 
 		networkStatus = NetworkStatus.Busy;
-		versionText.text = "Version " + DataStore.appVersion;
+		versionText.text = DataStore.appVersion;
 
 		if ( NetworkInterface.GetIsNetworkAvailable() )
 			StartCoroutine( StartVersionCheck() );
@@ -113,7 +113,8 @@ public class TitleController : MonoBehaviour
 		titleText.Show();
 		titleText.FlipIn();
 		donateButton.SetActive( true );
-		versionInfo.SetActive( true );
+		docsButton.SetActive( true );
+		versionButton.SetActive( true );
 		languageDropdown.gameObject.SetActive( true );
 	}
 
@@ -127,7 +128,8 @@ public class TitleController : MonoBehaviour
 		titleText.FlipOut();
 
 		donateButton.SetActive( false );
-		versionInfo.SetActive( false );
+		docsButton.SetActive( false );
+		versionButton.SetActive( false );
 		languageDropdown.gameObject.SetActive( false );
 
 		DataStore.StartNewSession();
@@ -148,7 +150,8 @@ public class TitleController : MonoBehaviour
 			animator.SetBool( expID, false );
 			titleText.FlipOut();
 			donateButton.SetActive( false );
-			versionInfo.SetActive( false );
+			docsButton.SetActive( false );
+			versionButton.SetActive( false );
 			languageDropdown.gameObject.SetActive( false );
 			soundController.FadeOutMusic();
 			FadeOut( 1 );
@@ -211,6 +214,11 @@ public class TitleController : MonoBehaviour
 		Application.OpenURL( "https://paypal.me/glowpuff" );
 	}
 
+	public void OnWikiDocs()
+	{
+		Application.OpenURL( "https://github.com/Noldorion/IA-Imperial-Commander/wiki" );
+	}
+
 	public void OnVersionPopup()
 	{
 		if ( gitHubResponse != null )
@@ -239,12 +247,23 @@ public class TitleController : MonoBehaviour
 
 	private void SetTranslatedUI()
 	{
-		uiMenuHeader.text = DataStore.uiLanguage.uiTitle.menuHeading;
-		uiNewGameBtn.text = DataStore.uiLanguage.uiTitle.newGameBtn;
-		uiContinueBtn.text = DataStore.uiLanguage.uiTitle.continueBtn;
-		uiCampaignBtn.text = DataStore.uiLanguage.uiTitle.campaignsBtn;
-		uiOptionsBtn.text = DataStore.uiLanguage.uiTitle.optionsBtn;
-		donateText.text = DataStore.uiLanguage.uiTitle.supportUC + " <color=#00A4FF>paypal.me/glowpuff</color>";
+		UITitle ui = DataStore.uiLanguage.uiTitle;
+		uiMenuHeader.text = ui.menuHeading;
+		uiNewGameBtn.text = ui.newGameBtn;
+		uiContinueBtn.text = ui.continueBtn;
+		uiCampaignBtn.text = ui.campaignsBtn;
+		uiOptionsBtn.text = ui.optionsBtn;
+		donateText.text = ui.supportUC;
+		docsText.text = ui.docsUC;
+
+		//expansion text
+		UIExpansions uie = DataStore.uiLanguage.uiExpansions;
+		bespinExp.text = uie.bespin;
+		hothExp.text = uie.hoth;
+		jabbaExp.text = uie.jabba;
+		empireExp.text = uie.empire;
+		lothalExp.text = uie.lothal;
+		twinExp.text = uie.twin;
 	}
 
 	private bool IsSessionValid()
@@ -301,6 +320,8 @@ public class TitleController : MonoBehaviour
 	{
 		if ( networkStatus == NetworkStatus.Busy )
 			busyIconTF.Rotate( new Vector3( 0, 0, Time.deltaTime * 175f ) );
+		else
+			busyIconTF.localRotation = Quaternion.Euler( 0, 0, 0 );
 
 		//pulse scale if network error or wrong version
 		if ( networkStatus == NetworkStatus.Error || networkStatus == NetworkStatus.WrongVersion )

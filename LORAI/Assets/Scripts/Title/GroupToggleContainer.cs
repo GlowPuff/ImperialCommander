@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ using UnityEngine.UI;
 public class GroupToggleContainer : MonoBehaviour
 {
 	public Image previewImage;
-	public GameObject previewButton;
+	public TextMeshProUGUI previewNameText;
 
 	DeploymentCards deploymentCards;
 	List<CardDescriptor> enemyCards;
@@ -36,7 +37,7 @@ public class GroupToggleContainer : MonoBehaviour
 
 		sound.PlaySound( FX.Click );
 		previewImage.gameObject.SetActive( true );
-		previewButton.gameObject.SetActive( true );
+		//previewButton.gameObject.SetActive( true );
 
 		Sprite texture = null;
 		//0=starting, 1=reserved, 2=villains, 3=ignored, 4=allies
@@ -50,12 +51,10 @@ public class GroupToggleContainer : MonoBehaviour
 			case 2:
 				texture = Resources.Load<Sprite>( $"Cards/Villains/{enemyCards[index].id}" );
 				break;
-				//case 4:
-				//	texture = Resources.Load<Sprite>( $"Cards/Allies/{enemyCards[index].id}" );
-				//	break;
 		}
 
 		previewImage.sprite = texture;
+		previewNameText.text = enemyCards[index].name;
 
 		if ( buttonToggles[index].isOn )
 		{
@@ -64,6 +63,8 @@ public class GroupToggleContainer : MonoBehaviour
 		else
 		{
 			DataStore.sessionData.selectedDeploymentCards[groupIndex].cards.Remove( enemyCards[index] );
+			previewImage.gameObject.SetActive( false );
+			previewNameText.text = "";
 		}
 	}
 
@@ -88,22 +89,40 @@ public class GroupToggleContainer : MonoBehaviour
 		enemyCards = deploymentCards.cards.Where( x => x.expansion == expansion ).ToList();
 		DeploymentCards prevSelected = DataStore.sessionData.selectedDeploymentCards[groupIndex];
 
+		Sprite thumbNail = null;
+
 		for ( int i = 0; i < enemyCards.Count; i++ )
 		{
+			var child = transform.GetChild( i );
 			//switch on if previously selected
 			//do it while Toggle is INACTIVE so OnToggle code doesn't run
 			if ( prevSelected.cards.Contains( enemyCards[i] ) )
 				buttonToggles[i].isOn = true;
+			child.gameObject.SetActive( true );//re-enable the Toggle
+
+			if ( groupIndex != 2 )//if NOT villains
+				thumbNail = Resources.Load<Sprite>( $"Cards/Enemies/{selectedExpansion}/{enemyCards[i].id.Replace( "DG", "M" )}" );
+			else//villain thumb directory
+				thumbNail = Resources.Load<Sprite>( $"Cards/Villains/{enemyCards[i].id.Replace( "DG", "M" )}" );
+
+			//set the thumbnail texture
+			var thumb = child.Find( "Image" );
+			thumb.GetComponent<Image>().sprite = thumbNail;
+			if ( !enemyCards[i].isElite )
+				thumb.GetComponent<Image>().color = new Color( 1, 1, 1, 1 );
+			else
+				thumb.GetComponent<Image>().color = new Color( 1, .5f, .5f, 1 );
 
 			//if an enemy is already in another group index (Initial, Reserved, etc), disable the toggle so the enemy can't be added to 2 different groups
 			//ie: can't put same enemy into both Initial and Reserved
 			if ( IsInGroup( enemyCards[i] ) )
+			{
 				buttonToggles[i].interactable = false;
-
-			var child = transform.GetChild( i );
-			child.gameObject.SetActive( true );
-			var label = child.Find( "Label" );
-			label.GetComponent<Text>().text = enemyCards[i].name.ToLower();
+				if ( !enemyCards[i].isElite )
+					thumb.GetComponent<Image>().color = new Color( 1, 1, 1, .35f );
+				else
+					thumb.GetComponent<Image>().color = new Color( 1, .5f, .5f, .35f );
+			}
 		}
 	}
 
@@ -112,7 +131,8 @@ public class GroupToggleContainer : MonoBehaviour
 		previewImage.gameObject.SetActive( false );
 		//0=starting, 1=reserved, 2=villains, 3=ignored, 4=heroes
 		groupIndex = dataGroupIndex;
-		transform.parent.parent.Find( "expansion selector container" ).Find( "Core" ).GetComponent<Toggle>().isOn = true;
+		previewNameText.text = "";
+		transform.parent.parent.parent.parent.Find( "expansion selector container" ).Find( "Core" ).GetComponent<Toggle>().isOn = true;
 		OnChangeExpansion( "Core" );
 	}
 

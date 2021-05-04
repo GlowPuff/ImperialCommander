@@ -14,7 +14,7 @@ public class GroupChooserScreen : MonoBehaviour
 	public MissionToggleContainer missionToggleContainer;
 	public HeroAllyToggleContainer heroAllyToggleContainer;
 	public Text enemyGroupTitle;
-	public GameObject previewButton;
+	public GameObject previewButton, enemyChooserPanel, missionChooserPanel, allyChooserPanel;
 
 	Sound sound;
 	ChooserMode mode;
@@ -64,17 +64,19 @@ public class GroupChooserScreen : MonoBehaviour
 					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.ignoredHeading;
 					break;
 			}
-			groupToggleContainer.transform.parent.gameObject.SetActive( true );
+			enemyChooserPanel.SetActive( true );
 			groupToggleContainer.ResetUI( dataGroupIndex );
 		}
 		else if ( mode == ChooserMode.Missions )
 		{
-			missionToggleContainer.transform.parent.gameObject.SetActive( true );
+			missionChooserPanel.SetActive( true );
 			missionToggleContainer.ResetUI();
 		}
 		else if ( mode == ChooserMode.Hero || mode == ChooserMode.Ally )
 		{
-			heroAllyToggleContainer.transform.parent.gameObject.SetActive( true );
+			//ChooserMode.Hero is DEPRECATED, not used
+			//The Hero Chooser has its own panel and code (HeroChooser)
+			allyChooserPanel.SetActive( true );
 			heroAllyToggleContainer.ResetUI( mode );
 		}
 	}
@@ -105,9 +107,9 @@ public class GroupChooserScreen : MonoBehaviour
 		cg.DOFade( 0, .5f ).OnComplete( () =>
 		{
 			gameObject.SetActive( false );
-			groupToggleContainer.transform.parent.gameObject.SetActive( false );
-			missionToggleContainer.transform.parent.gameObject.SetActive( false );
-			heroAllyToggleContainer.transform.parent.gameObject.SetActive( false );
+			enemyChooserPanel.SetActive( false );
+			missionChooserPanel.SetActive( false );
+			allyChooserPanel.SetActive( false );
 		} );
 		FindObjectOfType<NewGameScreen>().OnReturnTo();
 	}

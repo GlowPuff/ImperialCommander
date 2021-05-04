@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4863686dde59c094f905332db42f8fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continueButton: {fileID: 1282912118676780456}
   theText: {fileID: 1282912117672621203}
   fader: {fileID: 1282912117444310007}
   cg: {fileID: 1282912118127278870}
@@ -1219,7 +1220,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 50
   m_Viewport: {fileID: 1282912117271850767}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1282912119318421207}

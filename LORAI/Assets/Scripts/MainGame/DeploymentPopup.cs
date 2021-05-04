@@ -1,6 +1,6 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections.Generic;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -70,24 +70,24 @@ public class DeploymentPopup : MonoBehaviour
 		{
 			case DeployMode.Calm:
 				calmPanel.SetActive( true );
-				depTypeText.text = "calm";
+				depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeCalm;
 				HandleCalm();
 				break;
 			case DeployMode.Reinforcements:
 				reinforcePanel.SetActive( true );
-				depTypeText.text = "reinforcements";
+				depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeReinforcements;
 				HandleReinforcements();
 				break;
 			case DeployMode.Landing:
 				landingPanel.SetActive( true );
-				depTypeText.text = "landing";
+				depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeLanding;
 				if ( isOptionalDeployment )
-					depTypeText.text = "optional deployment";
+					depTypeText.text = DataStore.uiLanguage.uiSetup.deploymentHeading;
 				HandleLanding( skipThreatIncrease, isOptionalDeployment );
 				break;
 			case DeployMode.Onslaught:
 				onslaughtPanel.SetActive( true );
-				depTypeText.text = "onslaught";
+				depTypeText.text = DataStore.uiLanguage.uiMainApp.deployModeOnslaught;
 				HandleOnslaught( skipThreatIncrease );
 				break;
 		}
@@ -164,7 +164,7 @@ public class DeploymentPopup : MonoBehaviour
 		if ( r1 == null && r2 == null )
 		{
 			warning.gameObject.SetActive( true );
-			warning.text = "There are either no Enemy Groups to reinforce, or the current Threat is too low to reinforce any Groups.";
+			warning.text = DataStore.uiLanguage.uiMainApp.reinforceWarningUC;
 		}
 	}
 
@@ -212,7 +212,7 @@ public class DeploymentPopup : MonoBehaviour
 		if ( d1 == null && d2 == null )
 		{
 			warning.gameObject.SetActive( true );
-			warning.text = "There are either no Enemy Groups to deploy, or the current Threat is too low to deploy any Groups.";
+			warning.text = DataStore.uiLanguage.uiMainApp.deploymentWarningUC;
 		}
 	}
 
@@ -247,7 +247,7 @@ public class DeploymentPopup : MonoBehaviour
 			on1R1.Init( r1 );
 			on1R2.Init( r1, 1 );
 			r1.currentSize += 1;
-			DataStore.sessionData.ModifyThreat( -( Mathf.Max( 1, r1.rcost - 1 ) ) );
+			DataStore.sessionData.ModifyThreat( -(Mathf.Max( 1, r1.rcost - 1 )) );
 		}
 
 		CardDescriptor r2 = DataStore.GetReinforcement( true );
@@ -257,7 +257,7 @@ public class DeploymentPopup : MonoBehaviour
 			on2R1.Init( r2 );
 			on2R2.Init( r2, 1 );
 			r2.currentSize += 1;
-			DataStore.sessionData.ModifyThreat( -( Mathf.Max( 1, r2.rcost - 1 ) ) );
+			DataStore.sessionData.ModifyThreat( -(Mathf.Max( 1, r2.rcost - 1 )) );
 		}
 
 		if ( r1 == null && r2 == null )
@@ -281,9 +281,9 @@ public class DeploymentPopup : MonoBehaviour
 				if ( dep.tier == 1 )
 					DataStore.sessionData.ModifyThreat( -dep.cost );
 				else if ( dep.tier == 2 )
-					DataStore.sessionData.ModifyThreat( -( dep.cost - 1 ) );
+					DataStore.sessionData.ModifyThreat( -(dep.cost - 1) );
 				else
-					DataStore.sessionData.ModifyThreat( -( dep.cost - 2 ) );
+					DataStore.sessionData.ModifyThreat( -(dep.cost - 2) );
 			}
 		}
 		while ( dep != null );

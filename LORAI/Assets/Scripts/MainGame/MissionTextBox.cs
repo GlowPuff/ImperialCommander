@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MissionTextBox : MonoBehaviour
 {
+	public Text continueButton;
 	public TextMeshProUGUI theText;
 	public Image fader;
 	public CanvasGroup cg;
@@ -16,6 +17,8 @@ public class MissionTextBox : MonoBehaviour
 		fader.color = new Color( 0, 0, 0, 0 );
 		fader.DOFade( .95f, 1 );
 		cg.DOFade( 1, .5f );
+
+		continueButton.text = DataStore.uiLanguage.uiMainApp.continueBtn;
 
 		theText.transform.parent.localPosition = new Vector3( theText.transform.parent.localPosition.x, -3000, 0 );
 

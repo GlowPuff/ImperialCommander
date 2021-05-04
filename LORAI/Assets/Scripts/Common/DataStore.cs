@@ -7,8 +7,8 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.1.0.11";
-	public static readonly string[] languageCodeList = { "En", "De", "Ru" };
+	public static readonly string appVersion = "v.1.0.11-beta";
+	public static readonly string[] languageCodeList = { "En", "De" };
 
 	public static Dictionary<string, List<Card>> missionCards;
 	/// <summary>
@@ -55,7 +55,6 @@ public static class DataStore
 	public static void InitData()
 	{
 		string[] expansions = Enum.GetNames( typeof( Expansion ) );
-		TextAsset json;
 
 		missionCards = new Dictionary<string, List<Card>>();
 		deploymentHand = new List<CardDescriptor>();
@@ -77,17 +76,6 @@ public static class DataStore
 			PlayerPrefs.SetInt( "language", 0 );
 			PlayerPrefs.Save();
 			languageCode = 0;
-		}
-
-		//load mission cards
-		foreach ( string expansion in expansions )
-		{
-			json = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/missions-{expansion}" );
-			if ( json != null )
-			{
-				var cards = JsonConvert.DeserializeObject<MissionCard>( json.text );
-				missionCards.Add( expansion, cards.story.Concat( cards.side ).ToList() );
-			}
 		}
 
 		//cards, events, activation instructions, bonus effects, ui
@@ -117,6 +105,20 @@ public static class DataStore
 	{
 		try
 		{
+			string[] expansions = Enum.GetNames( typeof( Expansion ) );
+			TextAsset json;
+			missionCards = new Dictionary<string, List<Card>>();
+			//load mission cards
+			foreach ( string expansion in expansions )
+			{
+				json = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/missions-{expansion}" );
+				if ( json != null )
+				{
+					var cards = JsonConvert.DeserializeObject<MissionCard>( json.text );
+					missionCards.Add( expansion, cards.story.Concat( cards.side ).ToList() );
+				}
+			}
+
 			//load cards
 			deploymentCards = LoadCards( "enemies" );
 			allyCards = LoadCards( "allies" );

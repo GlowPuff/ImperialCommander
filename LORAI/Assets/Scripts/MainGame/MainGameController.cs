@@ -24,6 +24,7 @@ public class MainGameController : MonoBehaviour
 	public Button activateImperialButton, endTurnButton, fameButton;
 	public VolumeProfile volume;
 	public FamePopup famePopup;
+	public MainLanguageController languageController;
 
 	Sound sound;
 
@@ -36,8 +37,37 @@ public class MainGameController : MonoBehaviour
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
 		//DEBUG BOOTSTRAP A MISSION
-		/*
-#if DEBUG
+		//debugBootstrap();
+
+		//apply settings
+		sound = FindObjectOfType<Sound>();
+		sound.CheckAudio();
+		if ( volume.TryGet<Bloom>( out var bloom ) )
+			bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
+		if ( volume.TryGet<Vignette>( out var vig ) )
+			vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
+
+		//set translated UI
+		languageController.SetTranslatedUI();
+
+		//see if it's a new game or restoring state
+		if ( DataStore.sessionData.gameVars.isNewGame )
+		{
+			Debug.Log( "STARTING NEW GAME" );
+			DataStore.sessionData.InitGameVars();
+			ResetUI();
+			StartNewGame();
+		}
+		else
+		{
+			Debug.Log( "CONTINUING GAME" );
+			ResetUI();
+			ContinueGame();
+		}
+	}
+
+	private void debugBootstrap()
+	{
 		DataStore.InitData();
 		DataStore.StartNewSession();
 		DataStore.sessionData.selectedMissionExpansion = Expansion.Core;
@@ -68,31 +98,6 @@ public class MainGameController : MonoBehaviour
 
 		//bootstrap earned villains
 		DataStore.sessionData.EarnedVillains.Add( DataStore.villainCards.cards.Where( x => x.id == "DG072" ).FirstOrDefault() );//darth vader
-#endif
-		*/
-
-		//apply settings
-		sound = FindObjectOfType<Sound>();
-		sound.CheckAudio();
-		if ( volume.TryGet<Bloom>( out var bloom ) )
-			bloom.active = PlayerPrefs.GetInt( "bloom" ) == 1;
-		if ( volume.TryGet<Vignette>( out var vig ) )
-			vig.active = PlayerPrefs.GetInt( "vignette" ) == 1;
-
-		//see if it's a new game or restoring state
-		if ( DataStore.sessionData.gameVars.isNewGame )
-		{
-			Debug.Log( "STARTING NEW GAME" );
-			DataStore.sessionData.InitGameVars();
-			ResetUI();
-			StartNewGame();
-		}
-		else
-		{
-			Debug.Log( "CONTINUING GAME" );
-			ResetUI();
-			ContinueGame();
-		}
 	}
 
 	/// <summary>
@@ -126,13 +131,13 @@ public class MainGameController : MonoBehaviour
 			//restore deployed enemies and heroes/allies
 			dgManager.RestoreState();
 
-			roundText.text = "round\r\n" + DataStore.sessionData.gameVars.round;
+			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sessionData.gameVars.round;
 
-			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "Game Session Restored" );
+			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.restoredMsgUC );
 		}
 		else
 		{
-			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "<color=\"red\">There was an error restoring state.</color>" );
+			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.restoreErrorMsgUC );
 		}
 	}
 
@@ -140,23 +145,23 @@ public class MainGameController : MonoBehaviour
 	{
 		faderOverlay.gameObject.SetActive( true );
 		faderOverlay.DOFade( 0, 1 ).OnComplete( () => faderOverlay.gameObject.SetActive( false ) );
-		roundText.text = "round\r\n1";
+		roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n1";
 	}
 
 	public void OnPauseThreat( Toggle t )
 	{
 		sound.PlaySound( FX.Click );
 		DataStore.sessionData.gameVars.pauseThreatIncrease = t.isOn;
-		string s = t.isOn ? "PAUSED" : "UNPAUSED";
-		GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( $"Threat Increase is <color=\"red\">{s}</color>." );
+		string s = t.isOn ? DataStore.uiLanguage.uiMainApp.pauseThreatMsgUC : DataStore.uiLanguage.uiMainApp.UnPauseThreatMsgUC;
+		GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( s );
 	}
 
 	public void OnPauseDeploy( Toggle t )
 	{
 		sound.PlaySound( FX.Click );
 		DataStore.sessionData.gameVars.pauseDeployment = t.isOn;
-		string s = t.isOn ? "PAUSED" : "UNPAUSED";
-		GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( $"Imperial Deployment is <color=\"red\">{s}</color>." );
+		string s = t.isOn ? DataStore.uiLanguage.uiMainApp.pauseDepMsgUC : DataStore.uiLanguage.uiMainApp.unPauseDepMsgUC;
+		GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( s );
 	}
 
 	public void OnActivateImperial()
@@ -196,7 +201,7 @@ public class MainGameController : MonoBehaviour
 		if ( txt != null )
 			missionTextBox.Show( txt.text );
 		else
-			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "Coult not find Mission Rules: " + DataStore.sessionData.selectedMissionID );
+			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "Could not find Mission Rules: " + DataStore.sessionData.selectedMissionID );
 	}
 
 	public void OnMissionInfo()
@@ -207,7 +212,7 @@ public class MainGameController : MonoBehaviour
 		if ( txt != null )
 			missionTextBox.Show( txt.text );
 		else
-			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "Coult not find Mission Info: " + DataStore.sessionData.selectedMissionID );
+			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "Could not find Mission Info: " + DataStore.sessionData.selectedMissionID );
 	}
 
 	public void OnOptionalDeploy()
@@ -244,7 +249,7 @@ public class MainGameController : MonoBehaviour
 			DoDeployment( false );//session saved after deployment finishes
 
 		DataStore.sessionData.gameVars.round++;
-		roundText.text = "round\r\n" + DataStore.sessionData.gameVars.round.ToString();
+		roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sessionData.gameVars.round.ToString();
 		dgManager.ReadyAllGroups();
 
 		//debug stuff

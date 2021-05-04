@@ -10,13 +10,14 @@ public class FamePopup : MonoBehaviour
 
 	public void Show()
 	{
-		fameText.text = DataStore.sessionData.gameVars.fame.ToString();
+		fameText.text = "<color=#00A4FF>" + DataStore.uiLanguage.uiMainApp.fameHeading + "</color> <color=#00FFA0>" + DataStore.sessionData.gameVars.fame.ToString() + "</color>";
+
 		//AWARD value based on FAME divided by 12, rounded down (for every 12 Fame you earn, you gain 1 Reward
 		int awards = Mathf.FloorToInt( DataStore.sessionData.gameVars.fame / 12 );
 		//reset to 0 at round 8+
 		if ( DataStore.sessionData.gameVars.round >= 8 )
 			awards = 0;
-		awardText.text = awards.ToString();
+		awardText.text = "<color=#00A4FF>" + DataStore.uiLanguage.uiMainApp.awardsHeading + "</color> <color=#00FFA0>" + awards.ToString() + "</color>";
 
 		gameObject.SetActive( true );
 		fader.color = new Color( 0, 0, 0, 0 );

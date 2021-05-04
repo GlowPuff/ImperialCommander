@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class HeroAllyToggleContainer : MonoBehaviour
 {
 	[HideInInspector]
 	public CardDescriptor selectedHero;
+	public TextMeshProUGUI enemyNameText;
 
 	List<CardDescriptor> heroCards = new List<CardDescriptor>();
 	Toggle[] buttonToggles;
@@ -33,15 +35,20 @@ public class HeroAllyToggleContainer : MonoBehaviour
 			DataStore.sessionData.selectedAlly = null;
 
 		selectedHero = null;
+		enemyNameText.text = "";
 
 		//reset to show Core expansion
-		transform.parent.parent.Find( "expansion selector container" ).Find( "Core" ).GetComponent<Toggle>().isOn = true;
+		transform.parent.parent.parent.parent.Find( "expansion selector container" ).Find( "Core" ).GetComponent<Toggle>().isOn = true;
 		OnChangeExpansion( "Core" );
 	}
 
 	public void OnChangeExpansion( string expansion )
 	{
 		EventSystem.current.SetSelectedGameObject( null );
+
+		selectedHero = null;
+		enemyNameText.text = "";
+
 		//disable all toggle buttons
 		foreach ( Transform c in transform )
 		{
@@ -55,13 +62,21 @@ public class HeroAllyToggleContainer : MonoBehaviour
 		else if ( chooserMode == ChooserMode.Ally )
 			heroCards = DataStore.allyCards.cards.Where( x => x.expansion == expansion ).ToList();
 
+		Sprite thumbNail = null;
+
 		//activate toggle btns and change label for each card in list
 		for ( int i = 0; i < heroCards.Count; i++ )
 		{
 			var child = transform.GetChild( i );
 			child.gameObject.SetActive( true );
-			var label = child.Find( "Label" );
-			label.GetComponent<Text>().text = heroCards[i].name.ToLower();
+
+			thumbNail = Resources.Load<Sprite>( $"Cards/Allies/{heroCards[i].id.Replace( heroCards[i].id[0], 'M' )}" );
+			var thumb = child.Find( "Image" );
+			thumb.GetComponent<Image>().sprite = thumbNail;
+			if ( !heroCards[i].isElite )
+				thumb.GetComponent<Image>().color = new Color( 1, 1, 1, 1 );
+			else
+				thumb.GetComponent<Image>().color = new Color( 1, .5f, .5f, 1 );
 		}
 	}
 
@@ -77,6 +92,7 @@ public class HeroAllyToggleContainer : MonoBehaviour
 		if ( buttonToggles[index].isOn )
 		{
 			selectedHero = heroCards[index];
+			enemyNameText.text = heroCards[index].name;
 		}
 		else
 		{

@@ -11,8 +11,8 @@ public class DebugPopup : MonoBehaviour
 	{
 		gameObject.SetActive( true );
 
-		threat.text = "Current Threat: " + DataStore.sessionData.gameVars.currentThreat.ToString();
-		modifier.text = "Deployment Modifier: " + DataStore.sessionData.gameVars.deploymentModifier.ToString();
+		threat.text = DataStore.uiLanguage.uiMainApp.debugThreatUC + ": " + DataStore.sessionData.gameVars.currentThreat.ToString();
+		modifier.text = DataStore.uiLanguage.uiMainApp.debugDepModUC + ": " + DataStore.sessionData.gameVars.deploymentModifier.ToString();
 
 		foreach ( var cd in DataStore.deploymentHand )
 		{

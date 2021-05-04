@@ -73,7 +73,6 @@ public class DeploymentGroupManager : MonoBehaviour
 	/// </summary>
 	public void DeployGroup( CardDescriptor cardDescriptor, bool skipEliteModify = false )
 	{
-		Debug.Log( cardDescriptor.isElite );
 		// EASY: Any time an Elite group is deployed, it has a 15% chance to be downgraded to a normal group without refunding of threat. ( If the respective normal group is still available.)
 		if ( DataStore.sessionData.difficulty == Difficulty.Easy &&
 			!skipEliteModify &&
@@ -86,7 +85,7 @@ public class DeploymentGroupManager : MonoBehaviour
 			{
 				Debug.Log( "DeployGroup EASY mode Elite downgrade: " + nonE.name );
 				cardDescriptor = nonE;
-				GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteDowngrade );
+				GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteDowngradeMsgUC );
 			}
 		}
 
@@ -102,7 +101,7 @@ public class DeploymentGroupManager : MonoBehaviour
 			{
 				Debug.Log( "DeployGroup HARD mode Elite upgrade: " + elite.name );
 				cardDescriptor = elite;
-				GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteUpgrade );
+				GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.eliteUpgradeMsgUC );
 			}
 			else
 				Debug.Log( "SKIPPED: " + cardDescriptor.name );

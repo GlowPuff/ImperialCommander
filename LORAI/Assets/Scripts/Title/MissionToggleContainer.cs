@@ -25,7 +25,7 @@ public class MissionToggleContainer : MonoBehaviour
 	{
 		missionCards = DataStore.missionCards[DataStore.sessionData.selectedMissionExpansion.ToString()];
 		//for missions, select expansion of currently selected mission
-		transform.parent.parent.Find( "expansion selector container" ).Find( DataStore.sessionData.selectedMissionExpansion.ToString() ).GetComponent<Toggle>().isOn = true;
+		transform.parent.parent.parent.parent.Find( "expansion selector container" ).Find( DataStore.sessionData.selectedMissionExpansion.ToString() ).GetComponent<Toggle>().isOn = true;
 		//...and show data for that expansion
 		OnChangeExpansion( DataStore.sessionData.selectedMissionExpansion.ToString() );
 	}

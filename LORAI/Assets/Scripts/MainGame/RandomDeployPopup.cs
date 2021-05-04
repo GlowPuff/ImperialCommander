@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class RandomDeployPopup : MonoBehaviour
 {
@@ -66,8 +66,9 @@ public class RandomDeployPopup : MonoBehaviour
 		foreach ( var card in list )
 			FindObjectOfType<DeploymentGroupManager>().DeployGroup( card, true );
 
+		string s = DataStore.uiLanguage.uiMainApp.noRandomMatchesUC.Replace( "{d}", mWheelHandler.wheelValue.ToString() );
 		if ( list.Count == 0 )
-			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "<color=\"orange\">No matching Groups with cost " + mWheelHandler.wheelValue + " or less.</color>" );
+			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( $"<color=\"orange\">{s}</color>" );
 
 		OnCancel();
 	}

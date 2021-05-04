@@ -48,9 +48,6 @@ public class NewGameScreen : MonoBehaviour
 		addHeroButton.interactable = true;
 		selectedMissionText.transform.Find( "view Button" ).GetComponent<Button>().interactable = false;
 		selectedMissionText.transform.Find( "mission info button" ).GetComponent<Button>().interactable = false;
-		//selectedMissionText.text = "choose mission";
-		//difficultyText.text = "difficulty";
-		//deploymentText.text = "no";
 		imperialToggle.isOn = true;
 		mercenaryToggle.isOn = true;
 		adaptiveToggle.isOn = false;

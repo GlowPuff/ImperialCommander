@@ -262,7 +262,8 @@
 			"rcost": 0,
 			"size": 1,
 			"expansion": "Other",
-			"ignored": ""		
+			"ignored": "",
+			"isElite": true
 		},
 		{
 			"name": "Wookiee Warrior",
@@ -286,7 +287,8 @@
 			"rcost": 0,
 			"size": 2,
 			"expansion": "Other",
-			"ignored": ""		
+			"ignored": "",
+			"isElite": true		
 		},
 		{
 			"name": "Alliance Ranger (Elite)",
@@ -298,7 +300,8 @@
 			"rcost": 0,
 			"size": 4,
 			"expansion": "Other",
-			"ignored": ""		
+			"ignored": "",
+			"isElite": true		
 		},
 		{
 			"name": "Echo Base Trooper (Elite)",
@@ -310,7 +313,8 @@
 			"rcost": 0,
 			"size": 2,
 			"expansion": "Other",
-			"ignored": ""		
+			"ignored": "",
+			"isElite": true		
 		},
 		{
 			"name": "Rebel Saboteur (Elite)",
@@ -334,7 +338,8 @@
 			"rcost": 0,
 			"size": 3,
 			"expansion": "Other",
-			"ignored": ""		
+			"ignored": "",
+			"isElite": true		
 		}
 	]
 }
