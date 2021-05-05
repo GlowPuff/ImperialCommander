@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class SetupLanguageController : MonoBehaviour
 {
-	public Text settingsHeader, chooseMissionBtn, viewCardBtn, missionInfoBtn, threatLevel, addtlThreat, deploymentHeader, opdepBtn, difficultyBtn, imperialsHeader, mercenariesHeader, adaptiveHeader, groupsHeading, initialBtn, reservedBtn, villainsBtn, ignoredBtn, initialHeading, reservedHeading, villainsHeading, ignoredHeading, addHeroBtn, addAllyBtn, threatCostHeading, threatCostBtn, cancelBtn, continueBtn, prefsStatus, enemyChooserHeading, missionChooserHeading, heroAllyChooserHeading, enemyBackBtn, missionBackBtn, heroAllyBackBtn, zoomBackBtn, enemyZoomBtn, chooseHeroesHeading, heroBackBtn;
+	public Text settingsHeader, chooseMissionBtn, viewCardBtn, missionInfoBtn, threatLevel, addtlThreat, deploymentHeader, opdepBtn, difficultyBtn, imperialsHeader, mercenariesHeader, adaptiveHeader, groupsHeading, initialBtn, reservedBtn, villainsBtn, ignoredBtn, initialHeading, reservedHeading, villainsHeading, ignoredHeading, addHeroBtn, addAllyBtn, threatCostHeading, threatCostBtn, cancelBtn, continueBtn, prefsStatus, enemyChooserHeading, missionChooserHeading, enemyBackBtn, missionBackBtn, heroAllyBackBtn, zoomBackBtn, enemyZoomBtn, chooseHeroesHeading, heroBackBtn, coreHeading, twinHeading, hothHeading, bespinHeading, jabbaHeading, empireHeading, lothalHeading, otherHeading;
 
 	public TextMeshProUGUI adaptiveInfo;
 
@@ -45,7 +45,6 @@ public class SetupLanguageController : MonoBehaviour
 		adaptiveInfo.text = ui.adaptiveInfoUC;
 		enemyChooserHeading.text = ui.enemyChooser;
 		missionChooserHeading.text = ui.missionChooser;
-		//heroAllyChooserHeading.text = ui.heroAllyChooser;
 		enemyBackBtn.text = ui.back;
 		missionBackBtn.text = ui.back;
 		heroAllyBackBtn.text = ui.back;
@@ -53,5 +52,15 @@ public class SetupLanguageController : MonoBehaviour
 		enemyZoomBtn.text = ui.zoom;
 		chooseHeroesHeading.text = ui.chooseHeroesHeading;
 		heroBackBtn.text = ui.back;
+
+		UIExpansions uie = DataStore.uiLanguage.uiExpansions;
+		coreHeading.text = uie.core;
+		twinHeading.text = uie.twin;
+		hothHeading.text = uie.hoth;
+		bespinHeading.text = uie.bespin;
+		jabbaHeading.text = uie.jabba;
+		empireHeading.text = uie.empire;
+		lothalHeading.text = uie.lothal;
+		otherHeading.text = uie.other;
 	}
 }

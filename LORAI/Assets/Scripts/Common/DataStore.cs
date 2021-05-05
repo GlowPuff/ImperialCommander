@@ -7,7 +7,7 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.1.0.11-beta";
+	public static readonly string appVersion = "v.1.0.11";
 	public static readonly string[] languageCodeList = { "En", "De" };
 
 	public static Dictionary<string, List<Card>> missionCards;
@@ -146,7 +146,7 @@ public static class DataStore
 	}
 
 	/// <summary>
-	/// Creates new SessionData
+	/// Creates new SessionData, always called AFTER InitData
 	/// </summary>
 	public static void StartNewSession()
 	{

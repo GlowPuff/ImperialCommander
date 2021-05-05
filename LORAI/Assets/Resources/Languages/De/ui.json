@@ -5,7 +5,7 @@
 		"continueBtn": "weiter",
 		"campaignsBtn": "kampagnen",
 		"optionsBtn": "optionen",
-		"supportUC": "Unterstützen Sie die App",
+		"supportUC": "Unterstütze die App",
 		"docsUC": "Wiki-Dokumentation"	
 	},
 	"uiSetup": {
@@ -18,7 +18,7 @@
 		"deploymentHeading": "optionale aufstellung",
 		"yes": "ja",
 		"no": "nein",
-		"back": "zuruck",
+		"back": "zurück",
 		"difficulty": "schwierigkeit",
 		"easy": "einfach",
 		"normal": "normal",
@@ -43,9 +43,9 @@
 		"selected": "ausgewählt",
 		"enemyChooser": "aufstellungsgruppen",
 		"missionChooser": "einsatz wählen",
-		"heroAllyChooser": "wähle ein",
+		"heroAllyChooser": "wähle einen",
 		"adaptiveInfoUC": "Adaptive Schwierigkeit: Je mehr imperiale Gruppen du besiegen kannst, desto mehr bemüht sich das Imperium, dich aufzuhalten, aber desto besser sind deine Belohnungen.",
-		"chooseHeroesHeading": "wähle deine helden"
+		"chooseHeroesHeading": "wähle eure helden"
 	},
 	"uiMainApp": {
 		"eliteUpgradeUC": "Eine oder mehr <color=\"green\">normale</color> Gruppen wurden zu <color=\"red\">Elite</color> aufgewertet.",
@@ -65,6 +65,7 @@
 		"applyBtn": "ok",
 		"roundHeading": "runde",
 		"depTypeHeading": "aufstellungstyp",
+		"depCostUC": "Aufstellungskosten",
 		"eventHeading": "ereignis",
 		"randomHeading": "zufällige aufstellung",
 		"maxThreatHeading": "maximale bedrohung",
@@ -81,8 +82,8 @@
 		"debugDepHandUC": "Aufstellungshand",
 		"tooltipRulesUC": "Einsatzregeln",
 		"tooltipInfoUC": "Einsatzinformationen",
-		"tooltipPauseDepUC": "Aufstellung Pausieren",
-		"tooltipPauseThreatUC": "Bedrohung Pausieren",
+		"tooltipPauseDepUC": "Aufstellung pausieren",
+		"tooltipPauseThreatUC": "Bedrohung pausieren",
 		"tooltipOpDepUC": "Optionale Aufstellung",
 		"tooltipSettingsUC": "Einstellungen",
 		"tooltipImpHandUC": "Imperiale Hand",
@@ -91,7 +92,7 @@
 		"confirm": "ok",
 		"cancel": "abbrechen",
 		"deploy": "aufstellen",
-		"close": "schliessen",
+		"close": "schließen",
 		"threatIncreasedUC": "Die <color=\"orange\">Bedrohung</color> hat sich <color=\"red\">erhöht</color>.",
 		"reinforceWarningUC": "Es gibt entweder keine gegnerischen Gruppen zum Verstärken, oder die aktuelle Bedrohung ist zu gering, um Gruppen zu verstärken.",
 		"deploymentWarningUC": "Es gibt entweder keine gegnerischen Gruppen zum Aufstellen, oder die aktuelle Bedrohung ist zu gering, um Gruppen aufzustellen.",
@@ -100,7 +101,7 @@
 		"deployModeReinforcements": "verstärkungen",
 		"deployModeLanding": "truppenlandung",
 		"deployModeOnslaught": "ansturm",		
-		"fameIncreasedUC": "Du hast Ruhm erlangt",
+		"fameIncreasedUC": "Ruhm erhalten",
 		"noRandomMatchesUC": "Keine passenden Gruppen mit Kosten von {d} oder weniger."
 	},
 	"uiSettings": {
@@ -120,6 +121,7 @@
 		"jabba": "jabbas reich",
 		"empire": "im herzen des imperiums",
 		"lothal": "tyrannen von lothal",
-		"twin": "zwillingssonnen"
+		"twin": "zwillingssonnen",
+		"other": "andere"
 	}	
 }

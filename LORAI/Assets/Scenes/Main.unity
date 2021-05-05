@@ -342,6 +342,14 @@ MonoBehaviour:
   zoomCloseBtn: {fileID: 523768279}
   activateContinueBtn: {fileID: 1180784791}
   eventContinueBtn: {fileID: 462216968}
+  coreHeading: {fileID: 1362434118}
+  twinHeading: {fileID: 70821570}
+  hothHeading: {fileID: 1236916380}
+  bespinHeading: {fileID: 1473590772}
+  jabbaHeading: {fileID: 1746036856}
+  empireHeading: {fileID: 1468937539}
+  lothalHeading: {fileID: 457014219}
+  otherHeading: {fileID: 813583036}
 --- !u!4 &3448048
 Transform:
   m_ObjectHideFlags: 0
@@ -16531,7 +16539,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1770626648}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.5989705
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -23716,7 +23724,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3.555}
+  m_AnchoredPosition: {x: 0, y: -3.5550003}
   m_SizeDelta: {x: 0, y: -21.009}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1218591404
@@ -36320,7 +36328,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 100}
+  m_CellSize: {x: 275, y: 100}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2

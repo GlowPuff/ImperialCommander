@@ -806,7 +806,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.6
   m_Text: core
 --- !u!222 &19781831
 CanvasRenderer:
@@ -3156,7 +3156,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.6
   m_Text: heart of the empire
 --- !u!222 &115822574
 CanvasRenderer:
@@ -7862,7 +7862,6 @@ RectTransform:
   - {fileID: 1975507218}
   - {fileID: 1252577638}
   - {fileID: 1812589535}
-  - {fileID: 2016438867}
   m_Father: {fileID: 1260626407}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9401,7 +9400,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.6
   m_Text: the bespin gambit
 --- !u!222 &302416455
 CanvasRenderer:
@@ -17081,7 +17080,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.6
   m_Text: jabba's realm
 --- !u!222 &594078007
 CanvasRenderer:
@@ -17241,8 +17240,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -218.3, y: -68.3}
-  m_SizeDelta: {x: 159.2, y: 45}
+  m_AnchoredPosition: {x: -210.215, y: -60.000015}
+  m_SizeDelta: {x: 135.335, y: 64}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &608478088
 MonoBehaviour:
@@ -17268,7 +17267,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 9616bf40cd7857b449153e7c56a89184, type: 3}
     m_FontSize: 28
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 4
@@ -17276,7 +17275,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
+    m_LineSpacing: 0.6
   m_Text: restored
 --- !u!222 &608478089
 CanvasRenderer:
@@ -17827,7 +17826,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.6
   m_Text: twin shadows
 --- !u!222 &636996082
 CanvasRenderer:
@@ -24013,7 +24012,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.6
   m_Text: tyrants of lothal
 --- !u!222 &859911603
 CanvasRenderer:
@@ -31942,7 +31941,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.6
   m_Text: other
 --- !u!222 &1142750988
 CanvasRenderer:
@@ -56061,12 +56060,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016438866}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.0674019, y: 0.0674019, z: 0.0674019}
   m_Children: []
-  m_Father: {fileID: 249057595}
-  m_RootOrder: 10
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -56115,7 +56114,6 @@ MonoBehaviour:
   prefsStatus: {fileID: 608478088}
   enemyChooserHeading: {fileID: 826069883}
   missionChooserHeading: {fileID: 1325601926}
-  heroAllyChooserHeading: {fileID: 0}
   enemyBackBtn: {fileID: 1479906157}
   missionBackBtn: {fileID: 1518833411}
   heroAllyBackBtn: {fileID: 1208461214}
@@ -56123,6 +56121,14 @@ MonoBehaviour:
   enemyZoomBtn: {fileID: 1162168869}
   chooseHeroesHeading: {fileID: 1354458975}
   heroBackBtn: {fileID: 1953297124}
+  coreHeading: {fileID: 19781830}
+  twinHeading: {fileID: 636996081}
+  hothHeading: {fileID: 2047882389}
+  bespinHeading: {fileID: 302416454}
+  jabbaHeading: {fileID: 594078006}
+  empireHeading: {fileID: 115822573}
+  lothalHeading: {fileID: 859911602}
+  otherHeading: {fileID: 1142750987}
   adaptiveInfo: {fileID: 1812589536}
 --- !u!1 &2017688606
 GameObject:
@@ -56525,7 +56531,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 80}
+  m_CellSize: {x: 300, y: 80}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -57300,7 +57306,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.6
   m_Text: return to hoth
 --- !u!222 &2047882390
 CanvasRenderer:
@@ -59054,7 +59060,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.6
   m_Text: choose mission
 --- !u!222 &2107572138
 CanvasRenderer:

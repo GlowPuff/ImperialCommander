@@ -1,6 +1,7 @@
-﻿using System.IO;
-using DG.Tweening;
+﻿using DG.Tweening;
 using Newtonsoft.Json;
+using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -204,8 +205,29 @@ public class NewGameScreen : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		cg.DOFade( 1, .5f );
 
-		//handle selected mission
-		selectedMissionText.text = DataStore.sessionData.selectedMissionName.ToLower();
+		//if we just restored a saved default, make sure the expansion from the saved mission is still "owned" (excluding "Other" expansion)
+		if ( DataStore.sessionData.selectedMissionExpansion == Expansion.Other || DataStore.ownedExpansions.Contains( DataStore.sessionData.selectedMissionExpansion ) )
+		{
+			//handle selected mission
+			string n = DataStore.sessionData.selectedMissionID;
+			//restoring defaults calls this method
+			//langauge may have been changed since saving the defaults
+			//instead of relying on the saved mission NAME (possibly wrong language), lookup current translated name using the saved id
+			var c = DataStore.missionCards[DataStore.sessionData.selectedMissionExpansion.ToString()].Where( x => x.id == n ).FirstOr( new Card { name = "" } );
+
+			selectedMissionText.text = c.name.ToLower();
+		}
+		else
+		{
+			//loaded expansions is no longer in OWNED list, reset to core1, mission 1
+			DataStore.sessionData.selectedMissionID = "core1";
+			DataStore.sessionData.selectedMissionName = DataStore.missionCards["Core"][0].name;
+			DataStore.sessionData.selectedMissionExpansion = Expansion.Core;
+
+			var c = DataStore.missionCards["Core"][0];
+			selectedMissionText.text = c.name.ToLower();
+		}
+
 		selectedMissionText.transform.Find( "view Button" ).GetComponent<Button>().interactable = true;
 		selectedMissionText.transform.Find( "mission info button" ).GetComponent<Button>().interactable = true;
 

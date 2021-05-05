@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class DebugObject : MonoBehaviour
 {
 	public Image thumb;
-	public TextMeshProUGUI cardName, cardCost;
+	public TextMeshProUGUI cardName, cardCost, cardCostHeading;
 
 	CardDescriptor cardDescriptor;
 
@@ -20,6 +20,7 @@ public class DebugObject : MonoBehaviour
 
 		cardName.text = cd.name;
 		cardCost.text = cd.cost.ToString();
+		cardCostHeading.text = DataStore.uiLanguage.uiMainApp.depCostUC + ":";
 	}
 
 	public void OnRemove()

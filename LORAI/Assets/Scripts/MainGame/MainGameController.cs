@@ -70,6 +70,7 @@ public class MainGameController : MonoBehaviour
 	{
 		DataStore.InitData();
 		DataStore.StartNewSession();
+		DataStore.sessionData.selectedMissionName = "";
 		DataStore.sessionData.selectedMissionExpansion = Expansion.Core;
 		DataStore.sessionData.selectedMissionID = "core3";
 		//optional dep

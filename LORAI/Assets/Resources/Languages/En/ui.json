@@ -24,7 +24,7 @@
 		"normal": "normal",
 		"hard": "hard",
 		"imperials": "imperials",
-		"mercenaries": "merecenaries",
+		"mercenaries": "mercenaries",
 		"adaptive": "adaptive difficulty",
 		"groupsHeading": "enemy groups",
 		"choose": "choose",
@@ -65,6 +65,7 @@
 		"applyBtn": "apply",
 		"roundHeading": "round",
 		"depTypeHeading": "deployment type",
+		"depCostUC": "Deployment Cost",
 		"eventHeading": "event",
 		"randomHeading": "random deployment",
 		"maxThreatHeading": "maximum total threat",
@@ -114,12 +115,13 @@
 		"ok": "ok"
 	},
 	"uiExpansions": {
-		"core": "basis",
-		"bespin": "falsches spiel auf bespin",
-		"hoth": "rückkehr nach hoth",
-		"jabba": "jabbas reich",
-		"empire": "imperium",
-		"lothal": "tyrannen von lothal",
-		"twin": "zwillingssonnen"
+		"core": "core",
+		"bespin": "the bespin gambit",
+		"hoth": "return to hoth",
+		"jabba": "jabba's realm",
+		"empire": "heart of the empire",
+		"lothal": "tyrants of lothal",
+		"twin": "twin shadows",
+		"other": "other"
 	}
 }

@@ -74,6 +74,7 @@ public class SessionData
 
 	public SessionData()
 	{
+		//DataStore.InitData() has already been called at this point to load data
 		difficulty = Difficulty.NotSet;
 		threatLevel = addtlThreat = 0;
 		allyRules = AllyRules.Normal;
@@ -81,7 +82,7 @@ public class SessionData
 		allyThreatCost = YesNo.No;
 		selectedMissionExpansion = Expansion.Core;
 		selectedMissionID = "core1";
-		selectedMissionName = "A New Threat";
+		selectedMissionName = DataStore.missionCards["Core"][0].name;
 		includeImperials = true;
 		includeMercs = true;
 

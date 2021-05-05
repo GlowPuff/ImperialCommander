@@ -23,11 +23,11 @@ public class MissionToggleContainer : MonoBehaviour
 
 	public void ResetUI()
 	{
-		missionCards = DataStore.missionCards[DataStore.sessionData.selectedMissionExpansion.ToString()];
-		//for missions, select expansion of currently selected mission
-		transform.parent.parent.parent.parent.Find( "expansion selector container" ).Find( DataStore.sessionData.selectedMissionExpansion.ToString() ).GetComponent<Toggle>().isOn = true;
+		//reset to core expansion by default
+		missionCards = DataStore.missionCards["Core"];
+		transform.parent.parent.parent.parent.Find( "expansion selector container" ).Find( "Core" ).GetComponent<Toggle>().isOn = true;
 		//...and show data for that expansion
-		OnChangeExpansion( DataStore.sessionData.selectedMissionExpansion.ToString() );
+		OnChangeExpansion( "Core" );
 	}
 
 	public void OnChangeExpansion( string expansion )
@@ -36,24 +36,30 @@ public class MissionToggleContainer : MonoBehaviour
 
 		if ( DataStore.missionCards.TryGetValue( expansion, out missionCards ) )
 		{
-			foreach ( Transform c in transform )
+			//foreach ( Transform c in transform )
+			//default select first in group
+			transform.GetChild( 0 ).GetComponent<Toggle>().isOn = true;
+			for ( int i = 1; i < transform.childCount; i++ )
 			{
-				c.gameObject.SetActive( false );
-				c.GetComponent<Toggle>().isOn = false;
+				transform.GetChild( i ).gameObject.SetActive( false );
+				transform.GetChild( i ).GetComponent<Toggle>().isOn = false;
 			}
 
 			for ( int i = 0; i < missionCards.Count(); i++ )
 			{
 				//switch on if previously selected
 				//do it while Toggle is INACTIVE so OnToggle code doesn't run
-				if ( DataStore.sessionData.selectedMissionName == missionCards[i].name )
+				if ( DataStore.sessionData.selectedMissionName.ToLower() == missionCards[i].name.ToLower() )
+				{
 					buttonToggles[i].isOn = true;
+				}
 
 				var child = transform.GetChild( i );
-				child.gameObject.SetActive( true );
 				child.GetComponent<Toggle>().isOn = false;
 				var label = child.Find( "Label" );
 				label.GetComponent<Text>().text = missionCards[i].name.ToLower();
+
+				child.gameObject.SetActive( true );
 			}
 		}
 	}
@@ -66,8 +72,17 @@ public class MissionToggleContainer : MonoBehaviour
 
 		sound.PlaySound( FX.Click );
 
-		DataStore.sessionData.selectedMissionID = missionCards[index].id;
-		DataStore.sessionData.selectedMissionName = missionCards[index].name;
-		DataStore.sessionData.selectedMissionExpansion = selectedExpansion;
+		if ( buttonToggles[index].isOn )
+		{
+			DataStore.sessionData.selectedMissionID = missionCards[index].id;
+			DataStore.sessionData.selectedMissionName = missionCards[index].name;
+			DataStore.sessionData.selectedMissionExpansion = selectedExpansion;
+		}
+		else//if nothing selected, reset to core1, mission 1
+		{
+			DataStore.sessionData.selectedMissionID = "core1";
+			DataStore.sessionData.selectedMissionName = DataStore.missionCards["Core"][0].name;
+			DataStore.sessionData.selectedMissionExpansion = Expansion.Core;
+		}
 	}
 }
