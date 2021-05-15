@@ -5,7 +5,7 @@ Each option may only be chosen once. Use the following order.
 Choose option 3.
 
 <b>If there are at least two heroes within 3 spaces of the door:</b>
-Choose option 3.
+Choose option 1.
 
 <b>If none of the above apply:</b>
 Choose option 4.

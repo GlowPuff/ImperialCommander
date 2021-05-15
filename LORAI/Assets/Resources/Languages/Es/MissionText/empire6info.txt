@@ -1,0 +1,22 @@
+<b>Objetivo de reposicionamiento:</b>
+Antes de que 4 terminales hayan sido reclamados: Bloquea el acceso a los terminales.
+Después de que 4 terminales hayan sido reclamados: Bloquea el acceso a la Celda.
+Despúes de que todos los prisioneros han sido reclamados: Bloquea el acceso a casillas exteriores. 
+
+<b>Victoria Rebelde:</b>
+Los Héroes son evacuados.
+
+<b>Victoria Imperial:</b>
+Al final de la Ronda 8, o todos los Héroes están heridos.
+
+<b>Al final de la Ronda 1:</b> <color="red">Refuerzos</color>
+ 
+<b>Cuando la Sala de interrogatorios se revela:</b> <color="red">Sala de interrogatorios</color>
+
+<b>Cuando el Pasillo se revela:</b> <color="red">Pasillo</color>
+ 
+<b>Cuando el Centro de mando se revela:</b> <color="red">Centro de mando</color>
+ 
+<b>Cuando el Corredor se revela:</b> <color="red">Corredor</color>
+ 
+<b>Cuando la puerta de la Celda se abre:</b> <color="red">Alarmas</color>

@@ -95,13 +95,13 @@ public class EventPopup : MonoBehaviour
 		item = item.Replace( "{C}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">C</font></color>" );
 		item = item.Replace( "{J}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">J</font></color>" );
 		item = item.Replace( "{K}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">K</font></color>" );
+		item = item.Replace( "{B}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">B</font></color>" );
 
 		//add bullets
 		if ( item.Contains( "{-}" ) )
 		{
 			nt.color = new Color( 0, 0.6440244f, 1, 1 );
 			nt.margin = new Vector4( 25, 0, 0, 0 );
-			//item = item.Replace( "{-}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">U</font></color> " );
 			item = item.Replace( "{-}", " ■ " );
 		}
 		//handle rebels

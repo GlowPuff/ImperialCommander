@@ -17,4 +17,4 @@ At the end of Round 6 if the heroes have not triggered <color="red">The Dark Lor
  
 <b>When the second hiding place is searched:</b> <color="red">Booby Trap</color>
  
-<b>When the second hiding place is searched:</b> <color="red">The Dark Lord</color> (see mission rules)
+<b>When the fourth hiding place is searched:</b> <color="red">The Dark Lord</color> (see mission rules)

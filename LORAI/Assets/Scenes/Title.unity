@@ -18278,6 +18278,8 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: German
       m_Image: {fileID: 0}
+    - m_Text: Spanish
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -53134,11 +53136,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282912119128334251, guid: c1290983fab467d4b862df0f57304caf,
-        type: 3}
-      propertyPath: m_ScrollSensitivity
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1290983fab467d4b862df0f57304caf, type: 3}

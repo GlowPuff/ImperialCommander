@@ -15,4 +15,4 @@ Deploy <color="red">Thrawn</color>, but set his figure aside. When he activates,
 Insight can not be discarded to remove attack dice. Instead, all heros with at least 1 insight on their hero sheets apply -1 <font="ImperialAssaultSymbols SDF">H</font> to each attack.
 
 <color="red">No More Games:</color>
-Deploy <color="red">Thrawn's set-aside figure to the Trophy Room. <color="red">Thrawn</color> now activates with his usual instructions.
+Deploy <color="red">Thrawn's</color> set-aside figure to the Trophy Room. <color="red">Thrawn</color> now activates with his usual instructions.
