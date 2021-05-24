@@ -124,10 +124,11 @@ public class DeploymentGroupManager : MonoBehaviour
 		//otherwise it just got (up/down)graded to/from Elite
 		DataStore.deploymentHand.Remove( cardDescriptor );
 
-		FX[] sounds = { FX.None, FX.Trouble, FX.Drill, FX.Droid, FX.SetBlasters, FX.Restricted, FX.DropWeapons };
-		int[] rnd = GlowEngine.GenerateRandomNumbers( sounds.Length );
-		if ( sounds[rnd[0]] != FX.None )
-			sound.PlaySound( sounds[rnd[0]] );
+		//FX[] sounds = { FX.None, FX.Trouble, FX.Drill, FX.Droid, FX.SetBlasters, FX.Restricted, FX.DropWeapons };
+		//int[] rnd = GlowEngine.GenerateRandomNumbers( sounds.Length );
+		//if ( sounds[rnd[0]] != FX.None )
+		//	sound.PlaySound( sounds[rnd[0]] );
+		sound.playDeploymentSound( cardDescriptor.id );
 
 		//var rt = gridContainer.GetComponent<RectTransform>();
 		//rt.localPosition = new Vector3( 20, -3000, 0 );

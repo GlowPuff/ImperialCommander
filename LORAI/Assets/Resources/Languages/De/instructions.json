@@ -869,7 +869,7 @@
 				{
 					"instruction": [
 						"{-} Figuren blockieren nicht die Sichtlinie dieser Figur.",
-						"{Q} IM VORBEIFLUG: Bewegung 4, um {R1} anzugreifen. If this figure is innerhalb von 2 Feldern of the target, add 1 blauen Würfel to the attack pool.",
+						"{Q} IM VORBEIFLUG: Bewegung 4, um {R1} anzugreifen. Falls sich diese Figur innerhalb von 2 Feldern zum Ziel befindet, füge 1 blauen Würfel zum Angriffspool hinzu.",
 						"{Q} Bewegung 4, um {R1} anzugreifen.",
 						"{A} Bewegung 3, um in Position 4 zu gelangen.",
 						"{A} Bewegung 5, um in Position 4 zu gelangen.",

@@ -7,7 +7,7 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.1.0.12";
+	public static readonly string appVersion = "v.1.0.13";
 	public static readonly string[] languageCodeList = { "En", "De", "Es" };
 
 	public static Dictionary<string, List<Card>> missionCards;
@@ -28,6 +28,7 @@ public static class DataStore
 	public static List<CardEvent> cardEvents;
 	public static List<CardInstruction> activationInstructions;
 	public static List<BonusEffect> bonusEffects;
+	public static List<DeploymentSound> deploymentSounds;
 	public static Vector3[] pipColors = new Vector3[6]
 	{
 		(0.3301887f).ToVector3(),
@@ -62,10 +63,14 @@ public static class DataStore
 		deployedHeroes = new List<CardDescriptor>();
 		deployedEnemies = new List<CardDescriptor>();
 		villainsToManuallyAdd = new List<CardDescriptor>();
+		deploymentSounds = new List<DeploymentSound>();
 
 		cardEvents = new List<CardEvent>();
 		activationInstructions = new List<CardInstruction>();
 		bonusEffects = new List<BonusEffect>();
+
+		//load deployment sound lookup
+		deploymentSounds = LoadDeploymentSounds();
 
 		//setup language
 		//default language playerprefs key should be set by now, but just in case...
@@ -175,6 +180,12 @@ public static class DataStore
 	{
 		TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/bonuseffects" );
 		return JsonConvert.DeserializeObject<List<BonusEffect>>( json.text );
+	}
+
+	static List<DeploymentSound> LoadDeploymentSounds()
+	{
+		TextAsset json = Resources.Load<TextAsset>( "sounds" );
+		return JsonConvert.DeserializeObject<List<DeploymentSound>>( json.text );
 	}
 
 	static UILanguage LoadUILanguage()

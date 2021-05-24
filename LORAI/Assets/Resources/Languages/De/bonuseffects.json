@@ -501,7 +501,7 @@
 		"effects": [
 			"VERBESSERTE DURCHDRINGUNG: Jede Figur in dieser Gruppe erhält Durchschlagen 1.",
 			"LAUERN: Am Ende der Aktivierung jeder Figur dieser Gruppe wird diese Figur Versteckt.",
-			"ANGRIFF VON HINTEN: Jede Figur in dieser Gruppe erhält Durchschlagen 1. Falls sich ein schwarzer Würfel im Verteidigungspool befindet, erhält sie stattdessen Pierce 2.",
+			"ANGRIFF VON HINTEN: Jede Figur in dieser Gruppe erhält Durchschlagen 1. Falls sich ein schwarzer Würfel im Verteidigungspool befindet, erhält sie stattdessen Durchschlagen 2.",
 		]
 	},
 	{

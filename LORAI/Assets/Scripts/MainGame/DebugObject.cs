@@ -27,8 +27,11 @@ public class DebugObject : MonoBehaviour
 	{
 		DataStore.deploymentHand.Remove( cardDescriptor );
 		//add card into manual deployment list, then sort list
-		DataStore.manualDeploymentList.Add( cardDescriptor );
-		DataStore.SortManualDeployList();
+		if ( !DataStore.manualDeploymentList.Contains( cardDescriptor ) )
+		{
+			DataStore.manualDeploymentList.Add( cardDescriptor );
+			DataStore.SortManualDeployList();
+		}
 
 		Destroy( gameObject );
 	}
