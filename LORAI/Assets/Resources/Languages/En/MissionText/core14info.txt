@@ -8,7 +8,7 @@ Refer to the mission rules for instructions for <color="red">Darth Vader</color>
 <color="red">Darth Vader</color>, once all heroes are wounded: Be adjacent to the sabotage site.
 
 <b>Rebel Victory:</b>
-<color="red">Darth Vader</color> is defeated.
+At the end of Round 6, or <color="red">Darth Vader</color> is defeated.
 
 <b>Imperial Victory:</b>
 <color="red">Darth Vader</color> locates Luke.

@@ -901,7 +901,7 @@
 						"{Q} POUNCE: Place this figure in an empty space within 6 spaces and adjacent to {R1}. Then, attack {R1}.",
 						"{A} Move 2 to reposition 3.",
 						"{A} Move 6 to reposition 3.",
-						"{-} FRESH CATCH: This figure gains 1 {g}.",
+						"{-} RAT CATCHER: This figure gains 1 {g}.",
 					]
 				},
 			],
@@ -915,7 +915,7 @@
 						"{Q} POUNCE: Place this figure in an empty space within 6 spaces and adjacent to {R1}. Then, attack {R1}.",
 						"{A} Move 3 to reposition 3.",
 						"{A} Move 7 to reposition 3.",
-						"{-} RAT CATCHER: This figure gains 1 {g} and 1 {h}.",
+						"{-} FRESH CATCH: This figure gains 1 {g} and 1 {h}.",
 					]
 				},
 			],

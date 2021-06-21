@@ -308,7 +308,7 @@
 		"effects": [
 			"CLEAR THE AREA: After each of this group's figure's attacks, if the target suffered any {H}, push the target 1 space away from this figure.",
 			"TELESCOPIC BATONS: Each figure in this group gains Reach.",
-			"DEFENDER: At the end of this figure's activation, each figure in this group moves 2 to engage as many non-Guardian Imperial figures as possible (minimum 1). Then, each adjacent non-Guardian Imperial figure gains 1 {g}.",
+			"DEFENDER: At the end of this group's activation, each figure in this group moves 2 to engage as many non-Guardian Imperial figures as possible (minimum 1). Then, each adjacent non-Guardian Imperial figure gains 1 {g}.",
 		]
 	},
 	{
@@ -316,7 +316,7 @@
 		"effects": [
 			"CLEAR THE AREA: After each of this group's figure's attacks, if the target suffered any {H}, push the target 1 space away from this figure.",
 			"TELESCOPIC BATONS: Each figure in this group gains Reach.",
-			"DEFENDER: At the end of this figure's activation, each figure in this group moves 2 to engage as many non-Guardian Imperial figures as possible (minimum 1). Then, each adjacent non-Guardian Imperial figure gains 1 {g}.",
+			"DEFENDER: At the end of this group's activation, each figure in this group moves 2 to engage as many non-Guardian Imperial figures as possible (minimum 1). Then, each adjacent non-Guardian Imperial figure gains 1 {g}.",
 		]
 	},
 	{
@@ -324,7 +324,7 @@
 		"effects": [
 			"CLEAR THE AREA: After each of this group's figure's attacks, if the target suffered any {H}, push the target 1 space away from this figure.",
 			"TELESCOPIC BATONS: Each figure in this group gains Reach.",
-			"DEFENDER: At the end of this figure's activation, each figure in this group moves 2 to engage as many non-Guardian Imperial figures as possible (minimum 1). Then, each adjacent non-Guardian Imperial figure gains 1 {g}.",
+			"DEFENDER: At the end of this group's activation, each figure in this group moves 2 to engage as many non-Guardian Imperial figures as possible (minimum 1). Then, each adjacent non-Guardian Imperial figure gains 1 {g}.",
 			"DOMINATION: While attacking a Weakened figure, the attack gains Stun.",
 		]
 	},
@@ -600,7 +600,7 @@
 		"bonusID": "DG078",
 		"effects": [
 			"MORTAR: At the start of this activation, each hero may test {K}. If a hero is in an exterior space, it may test {J} instead. Each hero that does not pass becomes Weakened.",
-			"IMPROVED PENETEATION: Gain Pierce 1.",
+			"IMPROVED PENETRATION: Gain Pierce 1.",
 			"FOCUS: At the start of this activation, this figure becomes Focused.",
 		]
 	},
@@ -626,7 +626,7 @@
 		"bonusID": "DG086",
 		"effects": [
 			"ULTERIOR MOTIVE: At the start of this activation, if there is a crate on the map or if a hero has a supply card, this figure becomes Focused.",
-			"DOUBLE OR NOTHING: At the start of this activation, if this figure has suffered any {H}, it recovers 2 {H}. Otherwise, it becomse Focused.",
+			"DOUBLE OR NOTHING: At the start of this activation, if this figure has suffered any {H}, it recovers 2 {H}. Otherwise, it becomes Focused.",
 		]
 	},
 	{

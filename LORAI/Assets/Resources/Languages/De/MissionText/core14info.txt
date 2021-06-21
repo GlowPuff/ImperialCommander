@@ -8,7 +8,7 @@ In den Einsatzregeln finden Sie Anweisungen für <color="red">Darth Vader</color
 <color="red">Darth Vader</color>, sobald alle Helden verwundet sind: Sei benachbart zum Sabotageziel.
 
 <b>Sieg der Rebellen:</b>
-<color="red">Darth Vader</color> wird besiegt.
+Am Ende von Runde 6, oder <color="red">Darth Vader</color> wird besiegt.
 
 <b>Sieg des Imperiums:</b>
 <color="red">Darth Vader</color> spürt Luke auf.

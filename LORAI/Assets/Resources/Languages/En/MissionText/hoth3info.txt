@@ -14,4 +14,4 @@ All heroes are wounded.
 
 <b>Each time a door opens:</b> <color="red">Within the Facility</color>. Choose options in the order 2, 1, 3.
 
-<b>(Colored) terminal is claimed:</b> <color="red">(Colored) Terminal</color>>
+<b>(Colored) terminal is claimed:</b> <color="red">(Colored) Terminal</color>

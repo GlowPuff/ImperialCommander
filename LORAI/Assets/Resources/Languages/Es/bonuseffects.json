@@ -308,7 +308,7 @@
 		"effects": [
 			"DESPEJAD EL AREA: Después de cada ataque de las figuras de este grupo. Si el objetivo ha sufrido algún {H}, empuja al objetivo a 1 casilla de distancia de esta figura.",
 			"PORRAS TELESCOPICAS. Cada figura en este grupo gana Gran alcance.",
-			"DEFENSOR: Al final de la activación de esta figura cada figura en este grupo mueve 2 para confrontar al maximo de figuras del bando Imperial no guardianes como sea posible (minimo 1). Después cada figura del bando Imperial no guardian gana 1 {g}.",
+			"DEFENSOR: Al final de la activación de este grupo cada figura en este grupo mueve 2 para confrontar al maximo de figuras del bando Imperial no guardianes como sea posible (minimo 1). Después cada figura del bando Imperial no guardian gana 1 {g}.",
 		]
 	},
 	{
@@ -316,7 +316,7 @@
 		"effects": [
 			"DESPEJAD EL AREA: Después de cada ataque de las figuras de este grupo. Si el objetivo ha sufrido algún {H}, empuja al objetivo a 1 casilla de distancia de esta figura.",
 			"PORRAS TELESCOPICAS. Cada figura en este grupo gana Gran alcance.",
-			"DEFENSOR: Al final de la activación de esta figura cada figura en este grupo mueve 2 para confrontar al maximo de figuras del bando Imperial no guardianes como sea posible (minimo 1). Después cada figura del bando Imperial no guardian gana 1 {g}.",
+			"DEFENSOR: Al final de la activación de este grupo cada figura en este grupo mueve 2 para confrontar al maximo de figuras del bando Imperial no guardianes como sea posible (minimo 1). Después cada figura del bando Imperial no guardian gana 1 {g}.",
 		]
 	},
 	{
@@ -324,7 +324,7 @@
 		"effects": [
 			"DESPEJAD EL AREA: Después de cada ataque de las figuras de este grupo. Si el objetivo ha sufrido algún {H}, empuja al objetivo a 1 casilla de distancia de esta figura.",
 			"PORRAS TELESCOPICAS. Cada figura en este grupo gana Gran alcance.",
-			"DEFENSOR: Al final de la activación de esta figura cada figura en este grupo mueve 2 para confrontar al maximo de figuras del bando Imperial no guardianes como sea posible (minimo 1). Después cada figura del bando Imperial no guardian gana 1 {g}.",
+			"DEFENSOR: Al final de la activación de este grupo cada figura en este grupo mueve 2 para confrontar al maximo de figuras del bando Imperial no guardianes como sea posible (minimo 1). Después cada figura del bando Imperial no guardian gana 1 {g}.",
 			"DOMINACION: Mientras ataca a una figura con Debilidad, el ataque gana Aturdir.",
 		]
 	},

@@ -78,6 +78,10 @@ public class NewGameScreen : MonoBehaviour
 			gridLayoutGroup.cellSize = new Vector2( 413, 400 );
 		else if ( GlowEngine.GetAspectRatio() >= 1.33f )//4:3, 5:4
 			gridLayoutGroup.cellSize = new Vector2( 313, 400 );
+
+		//load preset for core1, the default mission
+		LoadMissionPreset();
+		OnReturnTo();
 	}
 
 	public void OnDifficulty()
@@ -198,6 +202,43 @@ public class NewGameScreen : MonoBehaviour
 		addAllyButton.SetActive( true );
 		allyImage.gameObject.SetActive( false );
 		DataStore.sessionData.selectedAlly = null;
+	}
+
+	public void LoadMissionPreset()
+	{
+		var presets = DataStore.missionPresets[DataStore.sessionData.selectedMissionExpansion.ToString().ToLower()];
+		var mp = presets.Where( x => x.id == DataStore.sessionData.selectedMissionID ).FirstOr( null );
+		if ( mp != null )
+		{
+			//update UI with preset values
+			DataStore.sessionData.threatLevel = mp.defaultThreat;
+			threatWheelHandler.ResetWheeler( DataStore.sessionData.threatLevel );
+
+			DataStore.sessionData.optionalDeployment = mp.optionalDeployment == "yes" ? YesNo.Yes : YesNo.No;
+			deploymentText.text = DataStore.sessionData.optionalDeployment == YesNo.Yes ? DataStore.uiLanguage.uiSetup.yes : DataStore.uiLanguage.uiSetup.no;
+
+			DataStore.sessionData.includeMercs = mp.factionMerc == "yes" ? true : false;
+			DataStore.sessionData.includeImperials = mp.factionImp == "yes" ? true : false;
+			mercenaryToggle.isOn = DataStore.sessionData.includeMercs;
+			imperialToggle.isOn = DataStore.sessionData.includeImperials;
+
+			var allCards = DataStore.deploymentCards.cards.Concat( DataStore.villainCards.cards );
+
+			DataStore.sessionData.MissionStarting.Clear();
+			foreach ( var card in mp.initialGroups )
+			{
+				DataStore.sessionData.MissionStarting.Add( allCards.Where( x => x.id == card ).First() );
+			}
+			DataStore.sessionData.MissionReserved.Clear();
+			foreach ( var card in mp.reserveGroups )
+			{
+				DataStore.sessionData.MissionReserved.Add( allCards.Where( x => x.id == card ).First() );
+			}
+			if ( mp.allyGroups.Count > 0 )
+				DataStore.sessionData.selectedAlly = DataStore.allyCards.cards.Where( x => x.id == mp.allyGroups[0] ).First();
+			else
+				DataStore.sessionData.selectedAlly = null;
+		}
 	}
 
 	public void OnReturnTo()

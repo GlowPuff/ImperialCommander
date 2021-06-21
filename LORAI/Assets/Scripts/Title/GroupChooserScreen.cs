@@ -15,6 +15,7 @@ public class GroupChooserScreen : MonoBehaviour
 	public HeroAllyToggleContainer heroAllyToggleContainer;
 	public Text enemyGroupTitle;
 	public GameObject previewButton, enemyChooserPanel, missionChooserPanel, allyChooserPanel;
+	public ExpansionController expansionController;
 
 	Sound sound;
 	ChooserMode mode;
@@ -46,6 +47,7 @@ public class GroupChooserScreen : MonoBehaviour
 		expButtons[7].gameObject.SetActive( true );//Other is always active
 
 		//reset UI
+		expansionController.ResetText();
 		previewButton.gameObject.SetActive( false );
 		if ( mode == ChooserMode.DeploymentGroups )
 		{
@@ -63,6 +65,11 @@ public class GroupChooserScreen : MonoBehaviour
 				case 3:
 					enemyGroupTitle.text = DataStore.uiLanguage.uiSetup.ignoredHeading;
 					break;
+			}
+			//update the expansion tabs so they display their card counts
+			for ( int i = 0; i < 8; i++ )
+			{
+				expansionController.UpdateText( i, DataStore.sessionData.selectedDeploymentCards[dataGroupIndex].cards.Count( x => x.expansion.ToLower() == ((Expansion)i).ToString().ToLower() ) );
 			}
 			enemyChooserPanel.SetActive( true );
 			groupToggleContainer.ResetUI( dataGroupIndex );
@@ -111,6 +118,8 @@ public class GroupChooserScreen : MonoBehaviour
 			missionChooserPanel.SetActive( false );
 			allyChooserPanel.SetActive( false );
 		} );
+		if ( mode == ChooserMode.Missions )
+			FindObjectOfType<NewGameScreen>().LoadMissionPreset();
 		FindObjectOfType<NewGameScreen>().OnReturnTo();
 	}
 

@@ -8,7 +8,7 @@ Referirse a las Reglas de misión para <color="red">Darth Vader</color>.
 <color="red">Darth Vader</color>, una vez que todos los Héroes están heridos: Estar adyacente al lugar del sabotaje.
 
 <b>Victoria Rebelde:</b>
-<color="red">Darth Vader</color> es derrotado.
+Al final de la Ronda 6, o <color="red">Darth Vader</color> es derrotado.
 
 <b>Victoria Imperial:</b>
 <color="red">Darth Vader</color> localiza a Luke.

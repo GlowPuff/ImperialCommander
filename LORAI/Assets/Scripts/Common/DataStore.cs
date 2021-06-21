@@ -7,8 +7,8 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.1.0.13";
-	public static readonly string[] languageCodeList = { "En", "De", "Es" };
+	public static readonly string appVersion = "v.1.0.14";
+	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr" };
 
 	public static Dictionary<string, List<Card>> missionCards;
 	/// <summary>
@@ -29,6 +29,7 @@ public static class DataStore
 	public static List<CardInstruction> activationInstructions;
 	public static List<BonusEffect> bonusEffects;
 	public static List<DeploymentSound> deploymentSounds;
+	public static Dictionary<string, List<MissionPreset>> missionPresets;
 	public static Vector3[] pipColors = new Vector3[6]
 	{
 		(0.3301887f).ToVector3(),
@@ -64,6 +65,7 @@ public static class DataStore
 		deployedEnemies = new List<CardDescriptor>();
 		villainsToManuallyAdd = new List<CardDescriptor>();
 		deploymentSounds = new List<DeploymentSound>();
+		missionPresets = new Dictionary<string, List<MissionPreset>>();
 
 		cardEvents = new List<CardEvent>();
 		activationInstructions = new List<CardInstruction>();
@@ -71,6 +73,8 @@ public static class DataStore
 
 		//load deployment sound lookup
 		deploymentSounds = LoadDeploymentSounds();
+		//load mission presets
+		LoadMissionPresets();
 
 		//setup language
 		//default language playerprefs key should be set by now, but just in case...
@@ -186,6 +190,17 @@ public static class DataStore
 	{
 		TextAsset json = Resources.Load<TextAsset>( "sounds" );
 		return JsonConvert.DeserializeObject<List<DeploymentSound>>( json.text );
+	}
+
+	static void LoadMissionPresets()
+	{
+		//Core, Twin, Hoth, Bespin, Jabba, Empire, Lothal, Other
+		string[] e = Enum.GetNames( typeof( Expansion ) );
+		for ( int i = 0; i < e.Length; i++ )
+		{
+			TextAsset json = Resources.Load<TextAsset>( $"MissionPresets/{e[i]}" );
+			missionPresets.Add( e[i].ToLower(), JsonConvert.DeserializeObject<List<MissionPreset>>( json.text ) );
+		}
 	}
 
 	static UILanguage LoadUILanguage()

@@ -29,5 +29,5 @@ public class UIMainApp
 
 public class UIExpansions
 {
-	public string core, bespin, hoth, jabba, empire, lothal, twin, other;
+	public string core, twin, hoth, bespin, jabba, empire, lothal, other;
 }

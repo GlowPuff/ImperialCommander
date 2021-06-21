@@ -308,7 +308,7 @@
 		"effects": [
 			"BEREICH RÄUMEN: Nach jedem Angriff einer Figur dieser Gruppe, falls das Ziel {H} erlitten hat, stoße das Ziel 1 Feld von dieser Figur weg.",
 			"TELESKOPSTÖCKE: Jede Figur in dieser Gruppe erhält Weitreichend.",
-			"VERTEIDIGER: Am Ende der Aktivierung dieser Figur bewegt sich jede Figur in dieser Gruppe um 2, um so viele imperiale Nicht-Wächter-Figuren wie möglich zu berühren (mindestens 1). Dann erhält jede benachbarte imperiale Nicht-Wächter-Figur 1 {g}.",
+			"VERTEIDIGER: Am Ende der Aktivierung dieser Gruppe bewegt sich jede Figur in dieser Gruppe um 2, um so viele imperiale Nicht-Wächter-Figuren wie möglich zu berühren (mindestens 1). Dann erhält jede benachbarte imperiale Nicht-Wächter-Figur 1 {g}.",
 		]
 	},
 	{
@@ -316,7 +316,7 @@
 		"effects": [
 			"BEREICH RÄUMEN: Nach jedem Angriff einer Figur dieser Gruppe, falls das Ziel {H} erlitten hat, stoße das Ziel 1 Feld von dieser Figur weg.",
 			"TELESKOPSTÖCKE: Jede Figur in dieser Gruppe erhält Weitreichend.",
-			"VERTEIDIGER: Am Ende der Aktivierung dieser Figur bewegt sich jede Figur in dieser Gruppe um 2, um so viele imperiale Nicht-Wächter-Figuren wie möglich zu berühren (mindestens 1). Dann erhält jede benachbarte imperiale Nicht-Wächter-Figur 1 {g}.",
+			"VERTEIDIGER: Am Ende der Aktivierung dieser Gruppe bewegt sich jede Figur in dieser Gruppe um 2, um so viele imperiale Nicht-Wächter-Figuren wie möglich zu berühren (mindestens 1). Dann erhält jede benachbarte imperiale Nicht-Wächter-Figur 1 {g}.",
 		]
 	},
 	{
@@ -324,7 +324,7 @@
 		"effects": [
 			"BEREICH RÄUMEN: Nach jedem Angriff einer Figur dieser Gruppe, falls das Ziel {H} erlitten hat, stoße das Ziel 1 Feld von dieser Figur weg.",
 			"TELESKOPSTÖCKE: Jede Figur in dieser Gruppe erhält Weitreichend.",
-			"VERTEIDIGER: Am Ende der Aktivierung dieser Figur bewegt sich jede Figur in dieser Gruppe um 2, um so viele imperiale Nicht-Wächter-Figuren wie möglich zu berühren (mindestens 1). Dann erhält jede benachbarte imperiale Nicht-Wächter-Figur 1 {g}.",
+			"VERTEIDIGER: Am Ende der Aktivierung dieser Gruppe bewegt sich jede Figur in dieser Gruppe um 2, um so viele imperiale Nicht-Wächter-Figuren wie möglich zu berühren (mindestens 1). Dann erhält jede benachbarte imperiale Nicht-Wächter-Figur 1 {g}.",
 			"DOMINIEREN: Beim Angriff auf eine Geschwächte Figur erhält der Angriff Betäuben.",
 		]
 	},

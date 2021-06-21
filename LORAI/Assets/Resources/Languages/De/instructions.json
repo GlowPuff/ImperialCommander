@@ -901,7 +901,7 @@
 						"{Q} SPRUNGANGRIFF: Platziere diese Figur auf ein leeres Feld innerhalb von 6 Feldern und benachbart zu {R1}. Dann Angriff auf {R1}.",
 						"{A} Bewegung 2, um in Position 3 zu gelangen.",
 						"{A} Bewegung 6, um in Position 3 zu gelangen.",
-						"{-} FRISCHER FANG: Diese Figur erhält 1 {g}.",
+						"{-} RATTENFÄNGER: Diese Figur erhält 1 {g}.",
 					]
 				},
 			],
@@ -915,7 +915,7 @@
 						"{Q} SPRUNGANGRIFF: Platziere diese Figur auf ein leeres Feld innerhalb von 6 Feldern und benachbart zu {R1}. Dann Angriff auf {R1}.",
 						"{A} Bewegung 2, um in Position 3 zu gelangen.",
 						"{A} Bewegung 6, um in Position 3 zu gelangen.",
-						"{-} RATTENFÄNGER: Diese Figur erhält 1 {g} und 1 {h}.",
+						"{-} FRISCHER FANG: Diese Figur erhält 1 {g} und 1 {h}.",
 					]
 				},
 			],
