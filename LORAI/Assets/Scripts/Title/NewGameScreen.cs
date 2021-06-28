@@ -222,7 +222,10 @@ public class NewGameScreen : MonoBehaviour
 			mercenaryToggle.isOn = DataStore.sessionData.includeMercs;
 			imperialToggle.isOn = DataStore.sessionData.includeImperials;
 
-			var allCards = DataStore.deploymentCards.cards.Concat( DataStore.villainCards.cards );
+			CardDescriptor custom = new CardDescriptor() { cost = 0, expansion = "Other", name = "Custom Group", faction = "None", id = "DG070", ignored = "", priority = 2, rcost = 0, size = 1, tier = 1 };
+
+			var allCards = DataStore.deploymentCards.cards.Concat( DataStore.villainCards.cards ).ToList();
+			allCards.Add( custom );
 
 			DataStore.sessionData.MissionStarting.Clear();
 			foreach ( var card in mp.initialGroups )

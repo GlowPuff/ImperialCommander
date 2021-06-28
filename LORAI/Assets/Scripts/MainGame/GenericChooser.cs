@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using DG.Tweening;
+﻿using DG.Tweening;
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GenericChooser : MonoBehaviour
 {
@@ -47,10 +47,10 @@ public class GenericChooser : MonoBehaviour
 		chooserMode = mode;
 
 		//add custom group IF mode != ally/hero
-		CardDescriptor custom = new CardDescriptor() { cost = 0, expansion = "Other", name = "Custom Group", faction = "None", id = "DG1000", ignored = "", priority = 2, rcost = 0, size = 1, tier = 1 };
+		CardDescriptor custom = new CardDescriptor() { cost = 0, expansion = "Other", name = "Custom Group", faction = "None", id = "DG070", ignored = "", priority = 2, rcost = 0, size = 1, tier = 1 };
 
 		cardDescriptors = new List<CardDescriptor>( cards );
-		if ( mode == ChooserMode.DeploymentGroups )
+		if ( mode == ChooserMode.DeploymentGroups && !cardDescriptors.Any( x => x.id == "DG070" ) )
 			cardDescriptors.Add( custom );
 
 		OnChangeExpansion( "Core" );

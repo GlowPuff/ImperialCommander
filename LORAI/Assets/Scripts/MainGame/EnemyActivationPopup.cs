@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using DG.Tweening;
-using TMPro;
+﻿using DG.Tweening;
 using System.Linq;
+using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class EnemyActivationPopup : MonoBehaviour
 {

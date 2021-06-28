@@ -47,9 +47,9 @@ public class DGPrefab : MonoBehaviour
 			iconImage.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
 			outline.effectColor = eliteColor;
 		}
-		else if ( cd.id == "DG1000" )//handle custom group
+		else if ( cd.id == "DG070" )//handle custom group
 		{
-			iconImage.sprite = Resources.Load<Sprite>( "Cards/Enemies/Other/M1000" );
+			iconImage.sprite = Resources.Load<Sprite>( "Cards/Enemies/Other/M070" );
 		}
 		else//otherwise it's an ally
 		{
@@ -151,7 +151,7 @@ public class DGPrefab : MonoBehaviour
 		 {
 			 //add card back to dep hand ONLY IF IT'S NOT THE CUSTOM GROUP
 			 //AND if it's NOT a villain
-			 if ( cardDescriptor.id != "DG1000" && !DataStore.villainCards.cards.Contains( cardDescriptor ) )
+			 if ( cardDescriptor.id != "DG070" && !DataStore.villainCards.cards.Contains( cardDescriptor ) )
 				 DataStore.deploymentHand.Add( cardDescriptor );
 			 //remove it from deployed list
 			 DataStore.deployedEnemies.Remove( cardDescriptor );

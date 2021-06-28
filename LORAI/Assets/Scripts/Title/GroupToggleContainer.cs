@@ -48,6 +48,9 @@ public class GroupToggleContainer : MonoBehaviour
 		else
 			previewImage.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{selectedExpansion}/{enemyCards[index].id}" );
 
+		if ( enemyCards[index].id == "DG070" )
+			previewImage.gameObject.SetActive( false );
+
 		previewNameText.text = enemyCards[index].name;
 
 		if ( buttonToggles[index].isOn )
@@ -87,7 +90,11 @@ public class GroupToggleContainer : MonoBehaviour
 		else if ( groupIndex == 3 )
 			deploymentCards = DataStore.deploymentCards;
 
+		CardDescriptor custom = new CardDescriptor() { cost = 0, expansion = "Other", name = "Custom Group", faction = "None", id = "DG070", ignored = "", priority = 2, rcost = 0, size = 1, tier = 1 };
+
 		enemyCards = deploymentCards.cards.Where( x => x.expansion == expansion ).ToList();
+		if ( expansion == "Other" )
+			enemyCards.Add( custom );
 		DeploymentCards prevSelected = DataStore.sessionData.selectedDeploymentCards[groupIndex];
 
 		Sprite thumbNail = null;
@@ -102,7 +109,7 @@ public class GroupToggleContainer : MonoBehaviour
 			child.gameObject.SetActive( true );//re-enable the Toggle
 
 			var id = int.Parse( enemyCards[i].id.Substring( 2 ).TrimStart( '0' ) );
-			if ( id <= 69 )//groupIndex != 2 )//if NOT villains
+			if ( id <= 70 )//groupIndex != 2 )//if NOT villains
 				thumbNail = Resources.Load<Sprite>( $"Cards/Enemies/{selectedExpansion}/{enemyCards[i].id.Replace( "DG", "M" )}" );
 			else//villain thumb directory
 				thumbNail = Resources.Load<Sprite>( $"Cards/Villains/{enemyCards[i].id.Replace( "DG", "M" )}" );
@@ -110,7 +117,7 @@ public class GroupToggleContainer : MonoBehaviour
 			//set the thumbnail texture
 			var thumb = child.Find( "Image" );
 			thumb.GetComponent<Image>().sprite = thumbNail;
-			if ( enemyCards[i].isElite || id > 69 )
+			if ( enemyCards[i].isElite || id > 70 )
 				thumb.GetComponent<Image>().color = new Color( 1, .5f, .5f, 1 );
 			else
 				thumb.GetComponent<Image>().color = new Color( 1, 1, 1, 1 );
