@@ -246,7 +246,7 @@ public class MainGameController : MonoBehaviour
 		{
 			DoDeployment( true );//session saved after deployment finishes
 		}
-		else
+		else//normal deployment
 			DoDeployment( false );//session saved after deployment finishes
 
 		DataStore.sessionData.gameVars.round++;

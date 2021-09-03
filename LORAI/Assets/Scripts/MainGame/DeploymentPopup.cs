@@ -235,9 +235,11 @@ public class DeploymentPopup : MonoBehaviour
 		else
 		{
 			DataStore.sessionData.ModifyThreat( DataStore.sessionData.threatLevel + 2 );
-			DataStore.sessionData.UpdateDeploymentModifier( -2 );
 			onslaughtMessage.SetActive( true );
 		}
+
+		//set deployment modifier to -2, regardless of skipThreatIncrease
+		DataStore.sessionData.SetDeploymentModifier( -2 );
 
 		CardDescriptor r1 = DataStore.GetReinforcement( true );
 		if ( r1 != null )

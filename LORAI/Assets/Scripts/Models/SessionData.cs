@@ -211,8 +211,14 @@ public class SessionData
 
 	public void UpdateDeploymentModifier( int amount )
 	{
-		gameVars.deploymentModifier = Math.Max( -2, gameVars.deploymentModifier + amount );
-		Debug.Log( "DeploymentModifier: " + gameVars.deploymentModifier );
+		gameVars.deploymentModifier += amount;
+		Debug.Log( "Update DeploymentModifier: " + gameVars.deploymentModifier );
+	}
+
+	public void SetDeploymentModifier( int amount )
+	{
+		gameVars.deploymentModifier = amount;
+		Debug.Log( "Set DeploymentModifier: " + gameVars.deploymentModifier );
 	}
 
 	public void SaveSession( string baseFolder )
