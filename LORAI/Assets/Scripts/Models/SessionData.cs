@@ -230,7 +230,7 @@ public class SessionData
 			if ( !Directory.Exists( basePath ) )
 				Directory.CreateDirectory( basePath );
 
-			//first save the session data
+			//save the session data
 			gameVars.isNewGame = false;//mark this as a saved session
 			string output = JsonConvert.SerializeObject( this, Formatting.Indented );
 			string outpath = Path.Combine( basePath, "sessiondata.json" );
@@ -239,7 +239,7 @@ public class SessionData
 				stream.Write( output );
 			}
 
-			//then save card lists
+			//==save card lists
 			//deployment hand
 			outpath = Path.Combine( basePath, "deploymenthand.json" );
 			output = JsonConvert.SerializeObject( DataStore.deploymentHand, Formatting.Indented );

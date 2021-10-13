@@ -1,3 +1,6 @@
+<b>Mission Target:</b>
+<color="red">Luke Skywalker</color>
+
 <b>Repositioning Target:</b>
 Block access to the T-16 Skyhopper.
 

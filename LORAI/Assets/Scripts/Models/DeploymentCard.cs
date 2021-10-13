@@ -28,11 +28,18 @@ public class CardDescriptor : IEquatable<CardDescriptor>
 	public bool isElite;
 	//==
 
-	//upkeep properties
+	//==upkeep properties
 	public int currentSize;
 	public bool isHealthy;
 	public int colorIndex;
 	public HeroHealth heroHealth;
+	//start v.1.0.17 additions
+	[DefaultValue( false )]
+	[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
+	public bool hasActivated;
+	public string bonusName, bonusText, rebelName;
+	public InstructionOption instructionOption;
+	//==end v.1.0.17 additions
 
 	public bool Equals( CardDescriptor obj )
 	{

@@ -19,7 +19,7 @@ public class Sound : MonoBehaviour
 	public void playDeploymentSound( string id )
 	{
 		var depsnd = DataStore.deploymentSounds.Where( x => x.idMatch.Contains( id ) ).FirstOr( null );
-		if ( depsnd != null )
+		if ( depsnd != null && PlayerPrefs.GetInt( "sound" ) == 1 )
 		{
 			var snd = depsnd.sounds[Random.Range( 0, depsnd.sounds.Length )];
 			var clip = Resources.Load<AudioClip>( "sounds/" + snd );

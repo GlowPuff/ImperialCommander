@@ -1,3 +1,6 @@
+<b>Einsatzziel:</b>
+<color="red">Luke Skywalker</color>
+
 <b>Positionierungsziel:</b>
 Blockiere den Zugang zum T-16-Lufthüpfer.
 

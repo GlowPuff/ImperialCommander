@@ -1,3 +1,6 @@
+<b>Objetivo de misión:</b>
+<color="red">Luke Skywalker</color>
+
 <b>Objetivo de reposicionamiento:</b>
 Bloquea el acceso al T-16 Skyhopper.
 

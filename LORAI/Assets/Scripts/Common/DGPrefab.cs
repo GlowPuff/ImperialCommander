@@ -36,14 +36,14 @@ public class DGPrefab : MonoBehaviour
 			countToggles[i].gameObject.SetActive( true );
 		selfButton.interactable = true;
 
+		ToggleExhausted( cd.hasActivated );
+
 		if ( DataStore.deploymentCards.cards.Any( x => x.id == cd.id ) )
 		{
-			//Debug.Log( "enemy" );
 			iconImage.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
 		}
 		else if ( DataStore.villainCards.cards.Any( x => x.id == cd.id ) )
 		{
-			//Debug.Log( "villain: " + $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
 			iconImage.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
 			outline.effectColor = eliteColor;
 		}
@@ -187,12 +187,13 @@ public class DGPrefab : MonoBehaviour
 	public void OnClickSelf()
 	{
 		exhaustedOverlay.SetActive( !exhaustedOverlay.activeInHierarchy );
+		cardDescriptor.hasActivated = exhaustedOverlay.activeInHierarchy;
 	}
 
 	public void OnActivateSelf()
 	{
-		if ( !exhaustedOverlay.activeInHierarchy )
-			FindObjectOfType<MainGameController>().ActivateEnemy( cardDescriptor );
+		//if ( !exhaustedOverlay.activeInHierarchy )
+		FindObjectOfType<MainGameController>().ActivateEnemy( cardDescriptor );
 	}
 
 	public void UpdateCount()
@@ -208,6 +209,9 @@ public class DGPrefab : MonoBehaviour
 
 	public void ToggleExhausted( bool isExhausted )
 	{
+		//mark as NOT activated for this turn so it rolls up new Activation data
+		if ( !isExhausted )
+			cardDescriptor.hasActivated = false;
 		exhaustedOverlay.SetActive( isExhausted );
 	}
 

@@ -329,6 +329,9 @@ public class MainGameController : MonoBehaviour
 
 	void OnSettingsClose( SettingsCommand c )
 	{
+		//save the state on exit
+		DataStore.sessionData.SaveSession( "Session" );
+
 		if ( c == SettingsCommand.ReturnTitles )
 		{
 			sound.FadeOutMusic();

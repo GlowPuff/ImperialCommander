@@ -38,6 +38,7 @@ public class DeploymentGroupManager : MonoBehaviour
 		foreach ( var cd in DataStore.sessionData.MissionStarting )
 		{
 			cd.currentSize = cd.size;
+			cd.hasActivated = false;
 			var go = Instantiate( dgPrefab, gridContainer );
 			go.GetComponent<DGPrefab>().Init( cd );
 			DataStore.deployedEnemies.Add( cd );
@@ -49,7 +50,6 @@ public class DeploymentGroupManager : MonoBehaviour
 
 	public void RestoreState()
 	{
-		//sound.PlaySound( FX.Deploy );
 		//restore enemy groups
 		for ( int i = 0; i < DataStore.deployedEnemies.Count; i++ )
 		{
@@ -73,6 +73,7 @@ public class DeploymentGroupManager : MonoBehaviour
 	/// </summary>
 	public void DeployGroup( CardDescriptor cardDescriptor, bool skipEliteModify = false )
 	{
+		cardDescriptor.hasActivated = false;
 		// EASY: Any time an Elite group is deployed, it has a 15% chance to be downgraded to a normal group without refunding of threat. ( If the respective normal group is still available.)
 		if ( DataStore.sessionData.difficulty == Difficulty.Easy &&
 			!skipEliteModify &&
@@ -124,10 +125,6 @@ public class DeploymentGroupManager : MonoBehaviour
 		//otherwise it just got (up/down)graded to/from Elite
 		DataStore.deploymentHand.Remove( cardDescriptor );
 
-		//FX[] sounds = { FX.None, FX.Trouble, FX.Drill, FX.Droid, FX.SetBlasters, FX.Restricted, FX.DropWeapons };
-		//int[] rnd = GlowEngine.GenerateRandomNumbers( sounds.Length );
-		//if ( sounds[rnd[0]] != FX.None )
-		//	sound.PlaySound( sounds[rnd[0]] );
 		sound.playDeploymentSound( cardDescriptor.id );
 
 		//var rt = gridContainer.GetComponent<RectTransform>();

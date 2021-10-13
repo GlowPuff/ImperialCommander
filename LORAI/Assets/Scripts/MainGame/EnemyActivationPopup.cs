@@ -16,7 +16,7 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	CardInstruction cardInstruction;
 	CardDescriptor cardDescriptor;
-	CardDescriptor rebel1;
+	string rebel1;
 	bool spaceListen;
 
 	public void Show( CardDescriptor cd )
@@ -41,22 +41,23 @@ public class EnemyActivationPopup : MonoBehaviour
 			return;
 		}
 
-		if ( cardInstruction == null )
-		{
-			//not all elites have their own instruction, resulting in null found, so get its regular version instruction set by name instead
-			int idx = cd.name.IndexOf( '(' );
-			if ( idx > 0 )
-			{
-				string nonelite = cd.name.Substring( 0, idx ).Trim();
-				cardInstruction = DataStore.activationInstructions.Where( x => x.instName == nonelite ).FirstOr( null );
-				Debug.Log( "TRYING REGULAR INSTRUCTION" );
-				if ( cardInstruction == null )
-				{
-					Debug.Log( "CAN'T FIND INSTRUCTION FOR: " + cd.id + "/" + nonelite );
-					return;
-				}
-			}
-		}
+		//== no longer an issue
+		//if ( cardInstruction == null )
+		//{
+		//	//not all elites have their own instruction, resulting in null found, so get its regular version instruction set by name instead
+		//	int idx = cd.name.IndexOf( '(' );
+		//	if ( idx > 0 )
+		//	{
+		//		string nonelite = cd.name.Substring( 0, idx ).Trim();
+		//		cardInstruction = DataStore.activationInstructions.Where( x => x.instName == nonelite ).FirstOr( null );
+		//		Debug.Log( "TRYING REGULAR INSTRUCTION" );
+		//		if ( cardInstruction == null )
+		//		{
+		//			Debug.Log( "CAN'T FIND INSTRUCTION FOR: " + cd.id + "/" + nonelite );
+		//			return;
+		//		}
+		//	}
+		//}
 
 		gameObject.SetActive( true );
 		fader.color = new Color( 0, 0, 0, 0 );
@@ -71,13 +72,49 @@ public class EnemyActivationPopup : MonoBehaviour
 			ignoreText.text = $"<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">F</font></color>" + cd.ignored;
 		else
 			ignoreText.text = "";
-		//if multiple card instructions, pick 1
-		int[] rnd = GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count );
 
-		rebel1 = FindRebel();
+		if ( !cardDescriptor.hasActivated )
+		{
+			//if multiple card instructions, pick 1
+			int[] rnd = GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count );
+			InstructionOption io = cardInstruction.content[rnd[0]];
 
-		ParseInstructions( cardInstruction.content[rnd[0]] );
-		ParseBonus( cd.id );
+			rebel1 = FindRebel().name;
+
+			ParseInstructions( io );
+			ParseBonus( cd.id );
+
+			//save this card's activation state
+			cardDescriptor.hasActivated = true;
+			cardDescriptor.rebelName = rebel1;
+			cardDescriptor.instructionOption = io;
+			cardDescriptor.bonusName = bonusNameText.text;
+			cardDescriptor.bonusText = bonusText.text;
+		}
+		else
+		{
+			rebel1 = cardDescriptor.rebelName ?? FindRebel().name;
+			if ( cardDescriptor.instructionOption != null )
+				ParseInstructions( cardDescriptor.instructionOption );
+			else
+			{
+				InstructionOption io = cardInstruction.content[GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count )[0]];
+				ParseInstructions( io );
+				cardDescriptor.instructionOption = io;
+			}
+
+			if ( cardDescriptor.bonusName != null && cardDescriptor.bonusText != null )
+			{
+				bonusNameText.text = cardDescriptor.bonusName;
+				bonusText.text = cardDescriptor.bonusText;
+			}
+			else
+			{
+				ParseBonus( cd.id );
+				cardDescriptor.bonusName = bonusNameText.text;
+				cardDescriptor.bonusText = bonusText.text;
+			}
+		}
 	}
 
 	void SetThumbnail( CardDescriptor cd )
@@ -183,7 +220,7 @@ public class EnemyActivationPopup : MonoBehaviour
 
 		if ( item.Contains( "{R1}" ) )
 		{
-			item = item.Replace( "{R1}", "<color=#00A4FF>" + rebel1.name + "</color>" );
+			item = item.Replace( "{R1}", "<color=#00A4FF>" + rebel1 + "</color>" );
 		}
 
 		return item;

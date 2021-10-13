@@ -7,8 +7,8 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.1.0.16";
-	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr" };
+	public static readonly string appVersion = "v.1.0.17";
+	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
 
 	public static Dictionary<string, List<Card>> missionCards;
 	/// <summary>
@@ -143,14 +143,12 @@ public static class DataStore
 
 			Debug.Log( "Loaded Language: " + languageCodeList[languageCode] );
 		}
-		catch ( Exception e )
+		catch ( Exception )
 		{
-			Debug.Log( "LoadTranslatedData() ERROR:\r\n" + e.Message );
 			//default to English so app loads correctly next time
 			languageCode = 0;
 			PlayerPrefs.SetInt( "language", 0 );
 			PlayerPrefs.Save();
-			LogError( e.Message );
 		}
 	}
 
@@ -164,26 +162,66 @@ public static class DataStore
 
 	static DeploymentCards LoadCards( string asset )
 	{
-		TextAsset json = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/DeploymentGroups/{asset}" );
-		return JsonConvert.DeserializeObject<DeploymentCards>( json.text );
+		try
+		{
+			TextAsset json = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/DeploymentGroups/{asset}" );
+			return JsonConvert.DeserializeObject<DeploymentCards>( json.text );
+		}
+		catch ( JsonReaderException e )
+		{
+			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing {asset}.json" );
+			Debug.Log( e.Message );
+			LogError( e.Message );
+			throw new Exception();
+		}
 	}
 
 	static List<CardEvent> LoadEvents()
 	{
-		TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/events" );
-		return JsonConvert.DeserializeObject<EventList>( json.text ).events;
+		try
+		{
+			TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/events" );
+			return JsonConvert.DeserializeObject<EventList>( json.text ).events;
+		}
+		catch ( JsonReaderException e )
+		{
+			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing Events" );
+			Debug.Log( e.Message );
+			LogError( e.Message );
+			throw new Exception();
+		}
 	}
 
 	static List<CardInstruction> LoadInstructions()
 	{
-		TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/instructions" );
-		return JsonConvert.DeserializeObject<List<CardInstruction>>( json.text );
+		try
+		{
+			TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/instructions" );
+			return JsonConvert.DeserializeObject<List<CardInstruction>>( json.text );
+		}
+		catch ( JsonReaderException e )
+		{
+			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing Instructions" );
+			Debug.Log( e.Message );
+			LogError( e.Message );
+			throw new Exception();
+		}
 	}
 
 	static List<BonusEffect> LoadBonusEffects()
 	{
-		TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/bonuseffects" );
-		return JsonConvert.DeserializeObject<List<BonusEffect>>( json.text );
+		try
+		{
+			TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/bonuseffects" );
+			return JsonConvert.DeserializeObject<List<BonusEffect>>( json.text );
+		}
+		catch ( JsonReaderException e )
+		{
+			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing Bonus Effects" );
+			Debug.Log( e.Message );
+			LogError( e.Message );
+			throw new Exception();
+		}
 	}
 
 	static List<DeploymentSound> LoadDeploymentSounds()
@@ -205,8 +243,18 @@ public static class DataStore
 
 	static UILanguage LoadUILanguage()
 	{
-		TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/ui" );
-		return JsonConvert.DeserializeObject<UILanguage>( json.text );
+		try
+		{
+			TextAsset json = Resources.Load<TextAsset>( "Languages/" + languageCodeList[languageCode] + "/ui" );
+			return JsonConvert.DeserializeObject<UILanguage>( json.text );
+		}
+		catch ( JsonReaderException e )
+		{
+			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing UI Language" );
+			Debug.Log( e.Message );
+			LogError( e.Message );
+			throw new Exception();
+		}
 	}
 
 	public static void AddExpansion( string exp )
