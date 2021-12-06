@@ -15,4 +15,4 @@ Al final de la Ronda 8.
 
 <b>Al final de la Ronda 5:</b> <color="red">Especialistas</color>. Si hay 2 o más Héroes en una loseta exterior, elije la opción 1. Despliega el <color="red">AT-ST</color> en el punto amarillo más cercano al mayor número de Rebeldes. De lo contrario, realiza un despliegue aleatorio con un coste de amenaza máximo de 8.
 
-<b>Al final de la Ronda 4:</b> <color="red">Oleada 3</color>
+<b>Al final de la Ronda 6:</b> <color="red">Oleada 3</color>

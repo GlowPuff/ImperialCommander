@@ -15,4 +15,4 @@ Am Ende von Runde 8.
 
 <b>Am Ende von Runde 5:</b> <color="red">Spezialisten</color>. Falls sich 2 oder mehr Helden auf Außenfeldern befinden, wähle Option 1. Platziere den <color="red">AT-ST</color> auf den gelben Punkt, der am nächsten zu den meisten Helden liegt. Andernfalls führe eine zufällige Aufstellung mit maximalen Bedrohungskosten von 8 durch.
 
-<b>Am Ende von Runde 4:</b> <color="red">Welle 3</color>
+<b>Am Ende von Runde 6:</b> <color="red">Welle 3</color>

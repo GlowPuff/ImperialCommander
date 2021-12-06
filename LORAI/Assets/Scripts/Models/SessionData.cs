@@ -190,16 +190,20 @@ public class SessionData
 	/// </summary>
 	public void ModifyThreat( int amount, bool force = false )
 	{
-		if ( amount > 0 )
+		//the only time ModifyThreat has "force=true" is when the user applies a custom amount of threat
+		//in that case, do NOT apply the difficulty modifier - apply the direct amount requested
+		if ( amount > 0 && !force )
 		{
 			if ( difficulty == Difficulty.Easy )
 				amount = (int)Math.Floor( amount * .7f );
 			else if ( difficulty == Difficulty.Hard )
 				amount = (int)Math.Floor( amount * 1.3f );
 		}
-
 		//Debug.Log( "UpdateThreat() amount: " + amount );
-		if ( gameVars.pauseThreatIncrease && !force )
+
+		//only pause modification of threat when "amount" is POSITIVE
+		//threat COSTS (negative) should ALWAYS modify (subtract) threat
+		if ( amount > 0 && gameVars.pauseThreatIncrease && !force )
 		{
 			Debug.Log( "THREAT PAUSED" );
 			return;

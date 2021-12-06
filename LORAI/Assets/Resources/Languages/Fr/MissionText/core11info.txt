@@ -15,4 +15,4 @@ Quand 4 points stratégiques ont été capturés, ou quand tous les héros se re
 
 <b>A la fin du round 5:</b> <color="red">Spécialistes</color>. Si au moins 2 héros sont sur des tuiles exterieures, choisir l'option 1. Déployer le <color="red">TR-TT</color> sur le point jaune le plus proche du plus de héros. Sinon, effectuer un déploiement aléatoire avec une coût de 8 au maximum.
 
-<b>A la fin du round 4:</b> <color="red">Vague 3</color>
+<b>A la fin du round 6:</b> <color="red">Vague 3</color>

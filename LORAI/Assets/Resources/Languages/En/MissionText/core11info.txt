@@ -15,4 +15,4 @@ At the end of Round 8.
 
 <b>At the end of Round 5:</b> <color="red">Specialists</color>. If there are 2 or more heroes on outdoor map tiles, choose option 1. Deploy the <color="red">AT-ST</color> to the yellow point closest to the most number of heroes. Otherwise, perform a random deployment with a maximum threat cost of 8.
 
-<b>At the end of Round 4:</b> <color="red">Wave 3</color>
+<b>At the end of Round 6:</b> <color="red">Wave 3</color>
