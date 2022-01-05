@@ -25,6 +25,7 @@ public class MainGameController : MonoBehaviour
 	public VolumeProfile volume;
 	public FamePopup famePopup;
 	public MainLanguageController languageController;
+	public Toggle pauseThreatToggle, pauseDeploymentToggle;
 
 	Sound sound;
 
@@ -132,7 +133,14 @@ public class MainGameController : MonoBehaviour
 			//restore deployed enemies and heroes/allies
 			dgManager.RestoreState();
 
+			//update UI with loaded state
+			//round #
 			roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n" + DataStore.sessionData.gameVars.round;
+			//toggle pause threat/deployment buttons
+			if ( DataStore.sessionData.gameVars.pauseThreatIncrease )
+				pauseThreatToggle.isOn = true;
+			if ( DataStore.sessionData.gameVars.pauseDeployment )
+				pauseDeploymentToggle.isOn = true;
 
 			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.restoredMsgUC );
 		}
