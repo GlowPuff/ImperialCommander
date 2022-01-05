@@ -35,12 +35,21 @@ public class EventPopup : MonoBehaviour
 
 		//pick 2 rebels/allies
 		var hlist = DataStore.deployedHeroes.GetHealthy();
-		int[] rnd = GlowEngine.GenerateRandomNumbers( hlist.Count() );
-		rebel1 = hlist[rnd[0]];
-		if ( hlist.Count > 1 )
-			rebel2 = hlist[rnd[1]];
+		//make sure there are valid heroes/allies to target
+		if ( hlist != null && hlist.Count > 0 )
+		{
+			int[] rnd = GlowEngine.GenerateRandomNumbers( hlist.Count() );
+			rebel1 = hlist[rnd[0]];
+			if ( hlist.Count > 1 )
+				rebel2 = hlist[rnd[1]];
+			else
+				rebel2 = rebel1;
+		}
 		else
+		{
+			rebel1 = new CardDescriptor() { name = "None" };
 			rebel2 = rebel1;
+		}
 
 		foreach ( var s in ce.content )
 			ParseCard( s );
