@@ -30,9 +30,7 @@ public class CardDescriptor : IEquatable<CardDescriptor>
 
 	//==upkeep properties
 	public int currentSize;
-	public bool isHealthy;
 	public int colorIndex;
-	public HeroHealth heroHealth;
 	//start v.1.0.17 additions
 	[DefaultValue( false )]
 	[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
@@ -40,6 +38,11 @@ public class CardDescriptor : IEquatable<CardDescriptor>
 	public string bonusName, bonusText, rebelName;
 	public InstructionOption instructionOption;
 	//==end v.1.0.17 additions
+
+	//start v.1.0.20 additions
+	public bool isDummy;
+	public HeroState heroState;
+	//==end v.1.0.20 additions
 
 	public bool Equals( CardDescriptor obj )
 	{

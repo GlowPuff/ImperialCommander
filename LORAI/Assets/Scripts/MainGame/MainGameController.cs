@@ -116,6 +116,11 @@ public class MainGameController : MonoBehaviour
 		//deploy heroes
 		for ( int i = 0; i < DataStore.sessionData.MissionHeroes.Count; i++ )
 			dgManager.DeployHeroAlly( DataStore.sessionData.MissionHeroes[i] );
+		if ( DataStore.sessionData.MissionHeroes.Count == 3 )
+		{
+			Debug.Log( "Creating dummy hero" );
+			dgManager.DeployHeroAlly( new CardDescriptor() { isDummy = true } );
+		}
 		//deploy ally
 		if ( DataStore.sessionData.selectedAlly != null )
 			dgManager.DeployHeroAlly( DataStore.sessionData.selectedAlly );
@@ -155,6 +160,7 @@ public class MainGameController : MonoBehaviour
 		faderOverlay.gameObject.SetActive( true );
 		faderOverlay.DOFade( 0, 1 ).OnComplete( () => faderOverlay.gameObject.SetActive( false ) );
 		roundText.text = DataStore.uiLanguage.uiMainApp.roundHeading + "\r\n1";
+
 	}
 
 	public void OnPauseThreat( Toggle t )

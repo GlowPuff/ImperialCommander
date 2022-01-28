@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Linq;
 using DG.Tweening;
-using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class HGPrefab : MonoBehaviour
 {
-	public Toggle woundToggle;
+	public Toggle woundToggle, activationToggle1, activationToggle2;
 	public Image iconImage;
 	public Outline outline;
 	public Color eliteColor;
@@ -24,19 +24,34 @@ public class HGPrefab : MonoBehaviour
 		Debug.Log( "DEPLOYED: " + cd.name );
 		cardDescriptor = cd;
 
-		if ( DataStore.heroCards.cards.Any( x => x.id == cd.id ) )
+		if ( !cd.isDummy )
 		{
-			iconImage.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{cd.id}" );
+			if ( DataStore.heroCards.cards.Any( x => x.id == cd.id ) )
+			{
+				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{cd.id}" );
+			}
+			else if ( DataStore.allyCards.cards.Any( x => x.id == cd.id ) )
+			{
+				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
+			}
+
+			if ( cd.id[0] == 'A' )
+				outline.effectColor = eliteColor;
 		}
-		else if ( DataStore.allyCards.cards.Any( x => x.id == cd.id ) )
+		else
 		{
-			iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
+			iconImage.sprite = Resources.Load<Sprite>( "Cards/Heroes/bonus" );
+			woundToggle.gameObject.SetActive( false );
 		}
 
-		if ( cd.id[0] == 'A' )
-			outline.effectColor = eliteColor;
+		if ( cd.heroState == null )
+		{
+			cd.heroState = new HeroState();
+			cd.heroState.Init( DataStore.sessionData.MissionHeroes.Count );
+		}
 
-		SetHealth( cd.heroHealth );
+		SetHealth( cd.heroState.heroHealth );
+		SetActivation();
 
 		Transform tf = transform.GetChild( 0 );
 		tf.localScale = Vector3.zero;
@@ -48,26 +63,40 @@ public class HGPrefab : MonoBehaviour
 		if ( !woundToggle.gameObject.activeInHierarchy )
 			return;
 
-		cardDescriptor.isHealthy = t.isOn;
-		if ( cardDescriptor.isHealthy )
+		cardDescriptor.heroState.isHealthy = t.isOn;
+		if ( cardDescriptor.heroState.isHealthy )
 		{
-			cardDescriptor.heroHealth = HeroHealth.Healthy;
+			cardDescriptor.heroState.heroHealth = HeroHealth.Healthy;
 			exhaustedOverlay.SetActive( false );
 		}
 		else
-			cardDescriptor.heroHealth = HeroHealth.Wounded;
+			cardDescriptor.heroState.heroHealth = HeroHealth.Wounded;
 
 		if ( exhaustedOverlay.activeInHierarchy )
-			cardDescriptor.heroHealth = HeroHealth.Defeated;
+			cardDescriptor.heroState.heroHealth = HeroHealth.Defeated;
 
 		//if it's an ally, mark it defeated
 		if ( cardDescriptor.id[0] == 'A' )
 		{
-			exhaustedOverlay.SetActive( !cardDescriptor.isHealthy );
-			cardDescriptor.heroHealth = HeroHealth.Defeated;
+			exhaustedOverlay.SetActive( !cardDescriptor.heroState.isHealthy );
+			cardDescriptor.heroState.heroHealth = HeroHealth.Defeated;
 		}
 
 		//Debug.Log( "HEALTHY: " + cardDescriptor.isHealthy );
+	}
+
+	public void OnActivation1()
+	{
+		if ( !activationToggle1.gameObject.activeInHierarchy )
+			return;
+		cardDescriptor.heroState.hasActivated[0] = activationToggle1.isOn;
+	}
+
+	public void OnActivation2()
+	{
+		if ( !activationToggle2.gameObject.activeInHierarchy )
+			return;
+		cardDescriptor.heroState.hasActivated[1] = activationToggle2.isOn;
 	}
 
 	/// <summary>
@@ -75,34 +104,61 @@ public class HGPrefab : MonoBehaviour
 	/// </summary>
 	public void OnClickSelf()
 	{
+		if ( cardDescriptor.isDummy )
+			return;
 		exhaustedOverlay.SetActive( !exhaustedOverlay.activeInHierarchy );
 		woundToggle.isOn = !exhaustedOverlay.activeInHierarchy;
 		if ( exhaustedOverlay.activeInHierarchy )
-			cardDescriptor.heroHealth = HeroHealth.Defeated;
+			cardDescriptor.heroState.heroHealth = HeroHealth.Defeated;
 	}
 
 	public void OnPointerClick()
 	{
+		if ( cardDescriptor.isDummy )
+			return;
 		CardZoom cardZoom = GlowEngine.FindObjectsOfTypeSingle<CardZoom>();
 		Sprite s = null;
-		if(cardDescriptor.id[0]=='A')
-			s= Resources.Load<Sprite>($"Cards/Allies/{cardDescriptor.id}");
-		if (s != null)
-			cardZoom.Show(s, cardDescriptor);
+		if ( cardDescriptor.id[0] == 'A' )
+			s = Resources.Load<Sprite>( $"Cards/Allies/{cardDescriptor.id}" );
+		if ( s != null )
+			cardZoom.Show( s, cardDescriptor );
 	}
 
 	public void SetHealth( HeroHealth heroHealth )
 	{
-		cardDescriptor.heroHealth = heroHealth;
+		if ( cardDescriptor.isDummy )
+			return;
+
+		cardDescriptor.heroState.heroHealth = heroHealth;
 		woundToggle.gameObject.SetActive( false );//skip callback
 
 		if ( heroHealth == HeroHealth.Wounded || heroHealth == HeroHealth.Defeated )
 		{
 			woundToggle.isOn = false;
 		}
-		if ( cardDescriptor.heroHealth == HeroHealth.Defeated )
+		if ( cardDescriptor.heroState.heroHealth == HeroHealth.Defeated )
 			exhaustedOverlay.SetActive( true );
 
 		woundToggle.gameObject.SetActive( true );
+	}
+
+	public void SetActivation()
+	{
+		//skip callbacks
+		activationToggle1.gameObject.SetActive( false );
+		activationToggle2.gameObject.SetActive( false );
+
+		if ( DataStore.sessionData.MissionHeroes.Count <= 2 )
+		{
+			activationToggle1.isOn = cardDescriptor.heroState.hasActivated[0];
+			activationToggle2.isOn = cardDescriptor.heroState.hasActivated[1];
+			activationToggle1.gameObject.SetActive( true );
+			activationToggle2.gameObject.SetActive( true );
+		}
+		else
+		{
+			activationToggle1.isOn = cardDescriptor.heroState.hasActivated[0];
+			activationToggle1.gameObject.SetActive( true );
+		}
 	}
 }

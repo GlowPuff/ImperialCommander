@@ -24,8 +24,10 @@ public class DeploymentGroupManager : MonoBehaviour
 			return;
 		}
 
-		cd.isHealthy = true;
-		cd.heroHealth = HeroHealth.Healthy;
+		//a new healthy hero/ally
+		cd.heroState = new HeroState();
+		cd.heroState.Init( DataStore.sessionData.MissionHeroes.Count );
+
 		var go = Instantiate( hgPrefab, heroContainer );
 		go.GetComponent<HGPrefab>().Init( cd );
 		if ( !DataStore.deployedHeroes.Contains( cd ) )
