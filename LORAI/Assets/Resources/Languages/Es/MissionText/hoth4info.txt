@@ -11,6 +11,6 @@ Todos los Héroes están heridos.
 
 <b>Cuando todos los terminales son destruidos, y <color="red">General Sorin</color> es derrotado por primera vez:</b> <color="red">Aterrizaje forzoso</color>
 
-<b>La primera vez que una figura del bando Rebelde entra en el Centro de mando:</b> <color="red">Una trampa se activa</color>
+<b>La primera vez que una figura del bando Rebelde entra en el centro de mando:</b> <color="red">Una trampa se activa</color>
 
 <b>Cuando se activan los escudos:</b> <color="red">El enfrentamiento final</color> (ver Reglas de misión)

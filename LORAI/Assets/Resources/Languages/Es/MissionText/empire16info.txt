@@ -7,8 +7,8 @@ Cuando todos los terminales están destruidos.
 <b>Victoria Imperial:</b>
 Al final de la Ronda 6, o todos los Héroes están heridos.
 
-<b>Cuando la puerta del Puesto de guardia se abre:</b> <color="red">Bien vigilados</color>
+<b>Cuando la puerta del puesto de guardia se abre:</b> <color="red">Bien vigilados</color>
 
-<b>Cuando la puerta del Comedor se abre:</b> <color="red">Se acabó el descanso</color>
+<b>Cuando la puerta del comedor se abre:</b> <color="red">Se acabó el descanso</color>
 
-<b>Cuando la puerta del Centro de control se abre:</b> <color="red">Ataque al corazón</color>
+<b>Cuando la puerta del centro de control se abre:</b> <color="red">Ataque al corazón</color>

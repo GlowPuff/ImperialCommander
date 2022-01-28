@@ -1,5 +1,5 @@
 <color="red">El enfrentamiento final:</color>
-Aplica +2 Health al <color="red"> General Sorin</color>.
+Aplica +2 de Vida al <color="red"> General Sorin</color>.
 El <b>Tanque de clase Sorin</b> gana +1 <font="ImperialAssaultSymbols SDF">G</font>.
 El <b>Tanque de clase Sorin</b> aplica +1 <font="ImperialAssaultSymbols SDF">H</font> a cada ataque.
 

@@ -1,5 +1,5 @@
 <b>Objetivo de reposicionamiento:</b>
-Enter the Safe Room and block the Rebel's access to it.
+Entra en la sala de seguridad y bloquea el acceso de los Rebeldes.
 
 <b>Victoria Rebelde:</b>
 Todos los ciudadanos estan en la Sala de Seguridad, no hay ninguna figura del bando Imperial en la Sala de Seguridad, y todas las puertas están cerradas.

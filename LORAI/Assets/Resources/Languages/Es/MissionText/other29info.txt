@@ -12,4 +12,4 @@ Al final de la Ronda 6, o todos los Héroes están heridos.
 
 <b>Cuando la puerta del Atrio se abre:</b> <color="red">Guardia interior</color>
 
-<b>Cuando la puerta de la celda se abre:</b> <color="red">Chopper</color>. Cambia "Ganar amenaza" a off.
+<b>Cuando la puerta de la celda se abre:</b> <color="red">CHOOPER</color>. Cambia "Ganar amenaza" a off.

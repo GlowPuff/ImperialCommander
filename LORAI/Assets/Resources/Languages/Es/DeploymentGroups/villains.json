@@ -26,7 +26,7 @@
 			"fame": 18,
 			"reimb": 7,
 			"expansion": "Core",
-			"ignored": "Brutalidad, Estrangular con la fuerza, Premonicion"		
+			"ignored": "Brutalidad, Estrangular con la fuerza, Premonición"		
 		},
 		{
 			"name": "General Weiss",
@@ -40,7 +40,7 @@
 			"fame": 16,
 			"reimb": 6,
 			"expansion": "Core",
-			"ignored": "Ordenes del general, Arsenal epico"		
+			"ignored": "Órdenes del general, Arsenal épico"		
 		},
 		{
 			"name": "Campeon de la Guardia Real",
@@ -68,7 +68,7 @@
 			"fame": 10,
 			"reimb": 4,
 			"expansion": "Twin",
-			"ignored": "Peloton de fusilamiento, Ordenes de peloton"		
+			"ignored": "Pelotón de fusilamiento, Ordenes de pelotón"		
 		},
 		{
 			"name": "Boba Fett",
@@ -152,10 +152,10 @@
 			"fame": 6,
 			"reimb": 3,
 			"expansion": "Jabba",
-			"ignored": "Intimidar, Orden de ejecucion, Incentivo financiero, Conspirar, Sindicato criminal hutt"		
+			"ignored": "Intimidar, Orden de ejecución, Incentivo financiero, Conspirar, Sindicato criminal hutt"		
 		},
 		{
-			"name": "Capitan Terro",
+			"name": "Capitán Terro",
 			"id": "DG082",
 			"tier": 2,
 			"faction": "Imperial",
@@ -208,7 +208,7 @@
 			"fame": 6,
 			"reimb": 3,
 			"expansion": "Lothal",
-			"ignored": "Prediccion, Paciencia"		
+			"ignored": "Predicción, Paciencia"		
 		},
 		{
 			"name": "Hondo Ohnaka",

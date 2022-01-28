@@ -9,4 +9,4 @@ Todos los refugiados son destruidos.
 
 <b>Al final de las Rondas 2, 4, y 5:</b> <color="red">Bombardeo</color> (ver Reglas de misión)
 
-<b>Cuando la Barricade es destruida:</b> <color="red">El asalto</color>
+<b>Cuando la barricada es destruida:</b> <color="red">El asalto</color>

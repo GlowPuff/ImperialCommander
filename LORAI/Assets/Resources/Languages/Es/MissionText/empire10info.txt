@@ -14,4 +14,4 @@ Al final de la Ronda 7, o todos los Héroes están heridos.
 
 <b>La primera vez que una puerta se abre:</b> <color="red">Sistemas interiores</color>. Elige la opción 1.
 
-<b>Cuando la puerta del Bosque se abre:</b> <color="red">Arrinconados</color> (ver Reglas de misión)
+<b>Cuando la puerta del bosque se abre:</b> <color="red">Arrinconados</color> (ver Reglas de misión)

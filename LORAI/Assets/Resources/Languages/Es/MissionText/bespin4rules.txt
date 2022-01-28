@@ -3,7 +3,7 @@ Intenta resolver todas las opciones en el siguiente orden:
 
 1. Elige la opción 2. Selecciona como objetivo la figura del bando Rebelde con menos Salud restante.
 
-2. Elige la opción 1. Move the citizens away from the Safe Room.
+2. Elige la opción 1. Aleja a los ciudadanos de la sala de seguridad.
 
 3. Elige la opción 3. 
 

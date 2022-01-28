@@ -5,4 +5,4 @@ Si hay 8 fichas de tensión en el área de juego Imperial, retíralos, reduce <f
 
 El contador de Ronda es la Ronda actual más el número de fichas de misión Imperiales en la zona de juego Imperial.
 
-Estas reglas se aplican hasta que <color="red">The Ambush</color> sea resuelto.
+Estas reglas se aplican hasta que <color="red">Emboscada</color> sea resuelto.

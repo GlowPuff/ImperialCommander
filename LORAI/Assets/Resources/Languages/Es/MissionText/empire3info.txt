@@ -5,7 +5,7 @@ Todas las figuras excepto <color="red">Maul</color> y <b>Zaaryn</b>: Manifestant
 Bloquea el acceso a pistas y terminales.
 
 <b>Victoria Rebelde:</b>
-El Escondrifo es saboteado.
+El escondrijo es saboteado.
 
 <b>Victoria Imperial:</b>
 Al final de la Ronda 8, o todos los Héroes están heridos.
@@ -14,4 +14,4 @@ Al final de la Ronda 8, o todos los Héroes están heridos.
 
 <b>Al comienzo de la Fase de Estatus, si tanto <color="red">Maul</color> como Zaaryn han sido derrotados:</b> <color="red">Dispersión</color>
 
-<b>Cuando el Escondrijo es revelado:</b> <color="red">Perseguidos</color> (ver Reglas de misión)
+<b>Cuando el escondrijo es revelado:</b> <color="red">Perseguidos</color> (ver Reglas de misión)

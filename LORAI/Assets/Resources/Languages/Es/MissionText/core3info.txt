@@ -3,7 +3,7 @@ Referirse a las Reglas de misión para las instrucciones de misión para <b>Weis
 
 <b>Objetivo de reposicionamiento:</b>
 Droides Sonda, Oficiales Imperiales: Estar adyacente a un terminal.
-All others: Block access to <b>Weiss</b>.
+Todos los demás: Bloquear el acceso a <b>Weiss</b>.
 
 <b>Victoria Rebelde:</b>
 <b>Weiss</b> es derrotado, o <color="red">General Weiss</color> es derrotado.

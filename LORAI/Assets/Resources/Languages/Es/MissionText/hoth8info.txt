@@ -2,7 +2,7 @@
 No prepares las oleadas de refuerzo. En su lugar, realiza despliegues aleatorios. (Ver la información de evento más abajo.)
 
 <b>Objetivo de misión:</b>
-Punto de control defensivo y Muro de asedio
+Punto de control defensivo y muro de asedio
 
 <b>Victoria Rebelde:</b>
 Al final de la Ronda 7.

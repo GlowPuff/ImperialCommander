@@ -15,6 +15,6 @@ Los Héroes son evacuados.
 <b>Victoria Imperial:</b>
 Al final de la Ronda 8, o todos los Héroes están heridos.
 
-<b>Cuando la puerta del Templo se abre:</b> <color="red">Here to Help</color>. Retira a los Oficiales Imperiales de la mano de despliegue una vez derrotados.
+<b>Cuando la puerta del Templo se abre:</b> <color="red">Estamos para ayudar</color>. Retira a los Oficiales Imperiales de la mano de despliegue una vez derrotados.
 
-<b>Cuando la puerta del Despacho se abre:</b> <color="red">El poder del Lado Oscuro</color> (ver Reglas de misión para instrucciones)
+<b>Cuando la puerta del despacho se abre:</b> <color="red">El poder del Lado Oscuro</color> (ver Reglas de misión para instrucciones)

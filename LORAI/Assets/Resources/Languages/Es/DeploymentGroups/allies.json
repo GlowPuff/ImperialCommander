@@ -1,7 +1,7 @@
 {
 	"cards": [
 		{
-			"name": "Luke Skywalker (Heroe)",
+			"name": "Luke Skywalker (Héroe)",
 			"id": "A001",
 			"tier": 0,
 			"faction": "Alliance",
@@ -253,7 +253,7 @@
 			"ignored": ""		
 		},
 		{
-			"name": "Contrabandista de la Alianza (Elite)",
+			"name": "Contrabandista de la Alianza (Élite)",
 			"id": "A022",
 			"tier": 0,
 			"faction": "Alliance",
@@ -277,7 +277,7 @@
 			"ignored": ""		
 		},
 		{
-			"name": "Guerrero wookiee (Elite)",
+			"name": "Guerrero wookiee (Élite)",
 			"id": "A024",
 			"tier": 0,
 			"faction": "Alliance",
@@ -289,7 +289,7 @@
 			"ignored": ""		
 		},
 		{
-			"name": "Guarda de la Alianza (Elite)",
+			"name": "Guarda de la Alianza (Élite)",
 			"id": "A025",
 			"tier": 0,
 			"faction": "Alliance",
@@ -301,7 +301,7 @@
 			"ignored": ""		
 		},
 		{
-			"name": "Soldado de la Base Eco (Elite)",
+			"name": "Soldado de la Base Eco (Élite)",
 			"id": "A026",
 			"tier": 0,
 			"faction": "Alliance",
@@ -313,7 +313,7 @@
 			"ignored": ""		
 		},
 		{
-			"name": "Saboteador rebelde (Elite)",
+			"name": "Saboteador rebelde (Élite)",
 			"id": "A027",
 			"tier": 0,
 			"faction": "Alliance",
@@ -325,7 +325,7 @@
 			"ignored": ""		
 		},
 		{
-			"name": "Soldado rebelde (Elite)",
+			"name": "Soldado rebelde (Élite)",
 			"id": "A028",
 			"tier": 0,
 			"faction": "Alliance",

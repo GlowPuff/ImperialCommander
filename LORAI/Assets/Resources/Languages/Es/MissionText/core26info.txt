@@ -5,7 +5,7 @@ Coloca las fichas recuperads aleatoriamente debajo de los <color="red">Cazadores
 <color="red">Chewbacca</color>
 
 <b>Objetivo de reposicionamiento:</b>
-Bloquea el acceso a barriles de especia.
+Bloquea el acceso a lod barriles de especia.
 
 <b>Victoria Rebelde:</b>
 Toda la especia ha sido reclamada.

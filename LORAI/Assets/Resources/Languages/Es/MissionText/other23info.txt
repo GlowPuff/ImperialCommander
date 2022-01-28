@@ -1,6 +1,6 @@
 <b>Objetivo de reposicionamiento:</b>
 Bloquea el acceso a los Wookiees y la Zona de evacuación.
-El <b>Sentry Trooper</b> always tries to stay in la Zona de evacuación. 
+El <b>Droide centinela</b> siempre trata de mantenerse en la Zona de evacuación. 
 
 <b>Victoria Rebelde:</b>
 Los Héroes son evacuados.

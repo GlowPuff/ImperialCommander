@@ -14,4 +14,4 @@ Al final de la Ronda 6, o cuando <color="red">Leia Organa</color> es derrotada.
 
 <b>Al final de la Ronda 3:</b> <color="red">La emboscada del Wampa</color>
 
-<b>La primera vez que una figura del bando Rebelde entra en una casiila que contenga un montículo de nieve:</b> <color="red">Casi hemos llegado</color>
+<b>La primera vez que una figura del bando Rebelde entra en una casilla que contenga un montículo de nieve:</b> <color="red">Casi hemos llegado</color>

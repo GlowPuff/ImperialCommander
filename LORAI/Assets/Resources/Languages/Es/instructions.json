@@ -17,7 +17,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{Q} PALMA CONMOCIONADORA: Mueve 4 para atacar a {R1}. Depués de este ataque, si el defensor ha sufrido menos de 2 {H}, adquiere Aturdimiento.",
+						"{Q} PALMA CONMOCIONADORA: Mueve 4 para atacar a {R1}. Después de este ataque, si el defensor ha sufrido menos de 2 {H}, adquiere Aturdimiento.",
 						"{A} Mueve 3 para confrontar a tantos Rebeldes como sea posible (mínimo 1).",
 						"{A} Mueve 3 hacia el Rebelde más cercano.",
 						"{A} Mueve 5 hacia el Rebelde más cercano.",
@@ -36,8 +36,8 @@
 						"{Q} Mueve 3 para atacar a {R1}.",
 						"{A} Mueve 3 para reposicionar a 4.",
 						"{A} Mueve 5 para reposicionar a 4.",
-						"{-} INTERROGATORIO: Un Rebelde prueba {K}. Cada uno de los otros Héroes sufre {C} igual a 2 menos el número de éxitos.",
-						"{-} AMENAZAR: Un Rebelde prueba {J}. Ese Héroe sufre {C} igual a 3 menos el número de éxitos.",
+						"{-} INTERROGATORIO: Un Rebelde hace una prueba de {K}. Cada uno de los otros Héroes sufre {C} igual a 2 menos el número de éxitos.",
+						"{-} AMENAZAR: Un Rebelde hace una prueba de {J}. Ese Héroe sufre {C} igual a 3 menos el número de éxitos.",
 					]
 				},
 			],
@@ -64,7 +64,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{-} COMPUTADORA DE SELECCION DE BLANCOS: Gana +1 {H} y +2 Precisión.",
+						"{-} COMPUTADORA DE SELECCIÓN DE BLANCOS: Gana +1 {H} y +2 Precisión.",
 						"{Q} Ataca {R1}.",
 						"{A} Mueve 5 para reposicionar a 2.",
 						"{Q} Ataca {R1}.",
@@ -79,7 +79,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{-} Cuando se mueva, esta figura termina su movimiento en tantos Rebeldes como sea posible.",
+						"{-} Cuando se mueva, esta figura termina su movimiento adyacente a tantos Rebeldes como sea posible.",
 						"{A} PISOTEAR: Mueve 5 para confrontar a tantos Rebeldes como sea posible (mínimo 1), después lanza 1 dado rojo. Cada Rebelde adyacente sufre {H} igual a los resultados {H}",
 						"{Q} Si esta figura no ejecutó PISOTEAR, mueve 5 para atacar a {R1}.",
 						"{A} Mueve 10 hacia el Rebelde más cercano.",
@@ -150,7 +150,7 @@
 					"instruction": [
 						"{Q} Mueve 3 para atacar al Rebelde sin Debilidad más cercano.",
 						"{Q}{A} Mueve 8 para atacar al Rebelde sin Debilidad más cercano.",
-						"{A} LANZALLAMAS: Los 2 Rebeldes más cercanos a 2 casillas de esta figura sufre cada uno 1 {H} y 1 {C}, después prueba {J}. Cada Rebelde que no la pasa adquiere Debilidad.",
+						"{A} LANZALLAMAS: Los 2 Rebeldes más cercanos a 2 casillas de esta figura sufre cada uno 1 {H} y 1 {C}, después hace una prueba de {J}. Cada Rebelde que no la pasa adquiere Debilidad.",
 						"{A} Mueve 5 para reposicionar a 2.",
 						"{A} Mueve 5 para reposicionar a 2.",
 					],
@@ -158,7 +158,7 @@
 				{
 					"instruction": [
 						"{-} Mueve 3 hacia {R1}",
-						"{A} LANZALLAMAS: Los 2 Rebeldes más cercanos a 2 casillas de esta figura sufre cada uno 1 {H} y 1 {C}, después prueba {J}. Cada Rebelde que no la pasa adquiere Debilidad.",
+						"{A} LANZALLAMAS: Los 2 Rebeldes más cercanos a 2 casillas de esta figura sufre cada uno 1 {H} y 1 {C}, después hace una prueba de {J}. Cada Rebelde que no la pasa adquiere Debilidad.",
 						"{Q} Si esta figura no ejecutó LANZALLAMAS, mueve 6 para atacar a {R1}.",
 						"{Q} Ataca {R1}",
 						"{A} Mueve 2 para reposicionar a 2.",
@@ -174,13 +174,13 @@
 				{
 					"instruction": [
 						"{-} EXPLORADOR: Al comienzo de esta activación, gana la carta de forma de EXPLORADOR.",
-						"{-} EMBOSCADA: Mientras ataca a un Rebelde que esta a 4 casillas o más o no tiene línea de visión a esta figura, adquiere Perforante 2.",
+						"{-} EMBOSCADA: Mientras ataca a un Rebelde que está a 4 casillas o más o no tiene línea de visión a esta figura, adquiere Perforante 2.",
 						"{-} FUSILERO: Cuando declaras un ataque, reemplaza 1 dado rojo en tu reserva de ataque por 1 dado azul.",
 						"{-} OBJETIVO PRIORITARIO: Las figuras no bloquean la línea de visión de tus ataques.",
 						"{Q} Mueve 3 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 4.",
 						"{A} Mueve 6 para reposicionar a 4.",
-						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo todavia en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
+						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo todavía en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
 					],
 				},
 				{
@@ -190,16 +190,16 @@
 						"{-} LA HOJA DEL ASESINO: Mueve 2 para confrontar al Rebelde más cercano. Si lo confronta, lanza 1 dado rojo. Ese Rebelde sufre {H} igual a los resultados {H}.",
 						"{A} Mueve 2 para reposicionar a 4.",
 						"{A} Mueve 6 para reposicionar a 4.",
-						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo Imperial todavia en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
+						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo Imperial todavía en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
 					],
 				},
 				{
 					"instruction": [
 						"{-} SENADOR: Al comienzo de esta activación, gana la carta de forma de SENADOR",
 						"{A} Mueve 2 para reposicionar a 4.",
-						"{-} CONFABULAR: Tira la reserva de dados de ataque de esta figura más 1 dado amarillo. Casa figura del bando Imperial a X casillas gana 1 {g}, donde X es el número de resultaods {B}.",
+						"{-} CONFABULAR: Tira la reserva de dados de ataque de esta figura más 1 dado amarillo. Casa figura del bando Imperial a X casillas gana 1 {g}, donde X es el número de resultados {B}.",
 						"{A} Mueve 6 para reposicionar a 4.",
-						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo Imperial todavia en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
+						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo Imperial todavía en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
 					]
 				},
 			],
@@ -211,13 +211,13 @@
 				{
 					"instruction": [
 						"{-} EXPLORADOR: Al comienzo de esta activación, gana la carta de forma de EXPLORADOR.",
-						"{-} EMBOSCADA: Mientras ataca a un Rebelde que esta a 4 casillas o más o no tiene línea de visión a esta figura, adquiere Perforante 2.",
+						"{-} EMBOSCADA: Mientras ataca a un Rebelde que está a 4 casillas o más o no tiene línea de visión a esta figura, adquiere Perforante 2.",
 						"{-} FUSILERO: Cuando declaras un ataque, reemplaza 1 dado rojo en tu reserva de ataque por 1 dado azul.",
 						"{-} OBJETIVO PRIORITARIO: Las figuras no bloquean la línea de visión de tus ataques.",
 						"{Q} Mueve 3 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 4.",
 						"{A} Mueve 6 para reposicionar a 4.",
-						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo todavia en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
+						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo todavía en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
 					],
 				},
 				{
@@ -227,16 +227,16 @@
 						"{-} LA HOJA DEL ASESINO: Mueve 2 para confrontar al Rebelde más cercano. Si lo confronta, lanza 1 dado rojo. Ese Rebelde sufre {H} igual a los resultados {H}.",
 						"{A} Mueve 2 para reposicionar a 4.",
 						"{A} Mueve 6 para reposicionar a 4.",
-						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo Imperial todavia en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
+						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo Imperial todavía en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
 					],
 				},
 				{
 					"instruction": [
 						"{-} SENADOR: Al comienzo de esta activación, gana la carta de forma de SENADOR",
 						"{A} Mueve 2 para reposicionar a 4.",
-						"{-} CONFABULAR: Tira la reserva de dados de ataque de esta figura más 1 dado amarillo. Casa figura del bando Imperial a X casillas gana 1 {g}, donde X es el número de resultaods {B}.",
+						"{-} CONFABULAR: Tira la reserva de dados de ataque de esta figura más 1 dado amarillo. Casa figura del bando Imperial a X casillas gana 1 {g}, donde X es el número de resultados {B}.",
 						"{A} Mueve 6 para reposicionar a 4.",
-						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo Imperial todavia en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
+						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo Imperial todavía en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
 					]
 				},
 			],
@@ -248,13 +248,13 @@
 				{
 					"instruction": [
 						"{-} EXPLORADOR: Al comienzo de esta activación, gana la carta de forma de EXPLORADOR.",
-						"{-} EMBOSCADA: Mientras ataca a un Rebelde que esta a 4 casillas o más o no tiene línea de visión a esta figura, adquiere Perforante 2.",
+						"{-} EMBOSCADA: Mientras ataca a un Rebelde que está a 4 casillas o más o no tiene línea de visión a esta figura, adquiere Perforante 2.",
 						"{-} FUSILERO: Cuando declaras un ataque, reemplaza 1 dado rojo en tu reserva de ataque por 1 dado azul.",
 						"{-} OBJETIVO PRIORITARIO: Las figuras no bloquean la línea de visión de tus ataques.",
 						"{Q} Mueve 3 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 4.",
 						"{A} Mueve 6 para reposicionar a 4.",
-						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo todavia en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
+						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo todavía en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
 					],
 				},
 				{
@@ -264,16 +264,16 @@
 						"{-} LA HOJA DEL ASESINO: Mueve 2 para confrontar al Rebelde más cercano. Si lo confronta, lanza 1 dado rojo. Ese Rebelde sufre {H} igual a los resultados {H}.",
 						"{A} Mueve 2 para reposicionar a 4.",
 						"{A} Mueve 6 para reposicionar a 4.",
-						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo Imperial todavia en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
+						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo Imperial todavía en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
 					],
 				},
 				{
 					"instruction": [
 						"{-} SENADOR: Al comienzo de esta activación, gana la carta de forma de SENADOR",
 						"{A} Mueve 2 para reposicionar a 4.",
-						"{-} CONFABULAR: Tira la reserva de dados de ataque de esta figura más 1 dado amarillo. Casa figura del bando Imperial a X casillas gana 1 {g}, donde X es el número de resultaods {B}.",
+						"{-} CONFABULAR: Tira la reserva de dados de ataque de esta figura más 1 dado amarillo. Casa figura del bando Imperial a X casillas gana 1 {g}, donde X es el número de resultados {B}.",
 						"{A} Mueve 6 para reposicionar a 4.",
-						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo Imperial todavia en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
+						"{-} CAMBIAFORMAS: Si no hay figura en la carta de despliegue de esta carta, coge la figura derrotada con el mayor coste de figura de un grupo Imperial todavía en el tablero y colócala sobre la carta de despliegue de esta figura. Cuando el grupo de esta figura se active, activa esta figura como si fuera una figura en ese grupo, utilizando los dados de ataque de ese grupo, prioridad de incrementos e instrucciones. Cuando la figura en la carta de despliegue de este grupo es redesplegada o este grupo es derrotado, retira la figura de esta carta de despliegue.",
 					]
 				},
 			],
@@ -302,7 +302,7 @@
 						"{Q} Mueve 4 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 3.",
 						"{A} Mueve 6 para reposicionar a 3.",
-						"{-} TACTICAS AVANZADAS: La figura con el mayor coste de figura sin Concentración adquiere Concentración.",
+						"{-} TÁCTICAS AVANZADAS: La figura con el mayor coste de figura sin Concentración adquiere Concentración.",
 					]
 				},
 			],
@@ -316,7 +316,7 @@
 						"{Q} Mueve 4 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 3.",
 						"{A} Mueve 6 para reposicionar a 3.",
-						"{-} TACTICAS AVANZADAS: La figura con el mayor coste de figura sin Concentración adquiere Concentración.",
+						"{-} TÁCTICAS AVANZADAS: La figura con el mayor coste de figura sin Concentración adquiere Concentración.",
 					]
 				},
 			],
@@ -330,7 +330,7 @@
 						"{Q} Mueve 4 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 3.",
 						"{A} Mueve 6 para reposicionar a 3.",
-						"{-} TACTICAS AVANZADAS: La figura con el mayor coste de figura sin Concentración adquiere Concentración y gana 1 {g}.",
+						"{-} TÁCTICAS AVANZADAS: La figura con el mayor coste de figura sin Concentración adquiere Concentración y gana 1 {g}.",
 					]
 				},
 			],
@@ -344,7 +344,7 @@
 						"{Q} Mueve 4 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 3.",
 						"{A} Mueve 6 para reposicionar a 3.",
-						"{-} TACTICAS AVANZADAS: La figura con el mayor coste de figura sin Concentración adquiere Concentración y gana 1 {g}.",
+						"{-} TÁCTICAS AVANZADAS: La figura con el mayor coste de figura sin Concentración adquiere Concentración y gana 1 {g}.",
 					]
 				},
 			],
@@ -355,7 +355,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{Q} CASTIGO: Mueve 4 para atacar a {R1}. Depués de este ataque, por cada {B} sin gastar, el defensor debe gana 1 efecto Perjudicial de su elección que todavía no posea.",
+						"{Q} CASTIGO: Mueve 4 para atacar a {R1}. Después de este ataque, por cada {B} sin gastar, el defensor debe gana 1 efecto Perjudicial de su elección que todavía no posea.",
 						"{A} Mueve 3 para reposicionar a 3.",
 						"{A} Mueve 5 para reposicionar a 3.",
 					]
@@ -615,7 +615,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{-} ARMAMENTO VERSATIL: Durante el ataque, el defensor debe volver a lanzar cada dado de defensa que muestre un resultado {E} o 3 resultados {G}.",
+						"{-} ARMAMENTO VERSÁTIL: Durante el ataque, el defensor debe volver a lanzar cada dado de defensa que muestre un resultado {E} o 3 resultados {G}.",
 						"{Q} Ataca {R1}. Aplica +1 {H} y +2 Precisión al resultado del ataque.",
 						"{Q} Mueve 3 para atacar a {R1}.",
 						"{A} Mueve 3 para reposicionar a 5.",
@@ -630,7 +630,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{-} ARMAMENTO VERSATIL: Durante el ataque, el defensor debe volver a lanzar cada dado de defensa que muestre un resultado {E} o 3 resultados {G}.",
+						"{-} ARMAMENTO VERSÁTIL: Durante el ataque, el defensor debe volver a lanzar cada dado de defensa que muestre un resultado {E} o 3 resultados {G}.",
 						"{Q} Ataca {R1}. Aplica +1 {H} y +2 Precisión al resultado del ataque.",
 						"{Q} Mueve 4 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 5.",
@@ -724,7 +724,7 @@
 						"{Q} Mueve 1 para atacar a {R1}.",
 						"{A} Mueve 3 para confrontar a la otra figura del bando Imperial con más puntos de salud restantes.",
 						"{A} Si esta figura no está adyacente a otra figura del bando Imperial, mueve 4 para reposicionar a 5.",
-						"{-} AGAZAPARSE: Si esta adyacente a otra figural Imperial, recupera 1 {H}. La figura del bando Imperial adyacente sin Concentración con el coste de figura más alto adquiere Concentración.",
+						"{-} AGAZAPARSE: Si esta adyacente a otra figura Imperial, recupera 1 {H}. La figura del bando Imperial adyacente sin Concentración con el coste de figura más alto adquiere Concentración.",
 					]
 				},
 			],
@@ -740,7 +740,7 @@
 						"{Q} Mueve 1 para atacar a {R1}.",
 						"{A} Mueve 3 para confrontar a la otra figura del bando Imperial con más puntos de salud restantes.",
 						"{A} Si esta figura no está adyacente a otra figura del bando Imperial, mueve 4 para reposicionar a 5.",
-						"{-} AGAZAPARSE: Si esta adyacente a otra figural Imperial, recupera 1 {H}. La figura del bando Imperial adyacente sin Concentración con el coste de figura más alto adquiere Concentración.",
+						"{-} AGAZAPARSE: Si esta adyacente a otra figura Imperial, recupera 1 {H}. La figura del bando Imperial adyacente sin Concentración con el coste de figura más alto adquiere Concentración.",
 					]
 				},
 			],
@@ -756,7 +756,7 @@
 						"{Q} Mueve 1 para atacar a {R1}.",
 						"{A} Mueve 3 para confrontar a la otra figura del bando Imperial con más puntos de salud restantes",
 						"{A} Si esta figura no está adyacente a otra figura del bando Imperial, mueve 4 para reposicionar a 5.",
-						"{-} AGAZAPARSE: Si esta adyacente a otra figural Imperial, recupera 2 {H}. La figura del bando Imperial adyacente sin Concentración con el coste de figura más alto adquiere Concentración.",
+						"{-} AGAZAPARSE: Si esta adyacente a otra figura Imperial, recupera 2 {H}. La figura del bando Imperial adyacente sin Concentración con el coste de figura más alto adquiere Concentración.",
 					]
 				},
 			],
@@ -797,9 +797,9 @@
 				{
 					"instruction": [
 						"{-} INTIMIDAR: Un Rebelde a 3 casillas sufre 3 {C}.",
-						"{A} ORDEN DE EJECUCION: La otra figura del bando Imperial con el coste de figura más alto que pueda atacar, ataca a {R1}.",
+						"{A} ORDEN DE EJECUCIÓN: La otra figura del bando Imperial con el coste de figura más alto que pueda atacar, ataca a {R1}.",
 						"{Q} Ataca a {R1}.",
-						"{A} Si hay un REbelde a 3 casillas de esta figura, mueve 2 para reposicionar a 5.",
+						"{A} Si hay un Rebelde a 3 casillas de esta figura, mueve 2 para reposicionar a 5.",
 						"{-} Si Salacious B. Crumb está en juego, mueve 4 a través de tantas casillas que contengan Rebeldes como sea posible (mínimo 1). Si no puede entrar en ninguna casilla con un Rebelde, en su lugar mueve 4 hacia {R1}.",
 					]
 				},
@@ -883,8 +883,8 @@
 			"content": [
 				{
 					"instruction": [
-						"{-} ORDENES DE PELOTON: La otra figura del bando Imperial más cercana que no tenga Concentración adquiere Concentración.",
-						"{A} PELOTON DE FUSILAMIENTO: La otra figura del bando Imperial más cercana que pueda atacar ataca {R1}. Si más de 1 figura del bando Imperial tiene línea de visión al objetivo, agrega 1 dado azul a la reserva de ataque.",
+						"{-} ORDENES DE PELOTÓN: La otra figura del bando Imperial más cercana que no tenga Concentración adquiere Concentración.",
+						"{A} PELOTÓN DE FUSILAMIENTO: La otra figura del bando Imperial más cercana que pueda atacar ataca {R1}. Si más de 1 figura del bando Imperial tiene línea de visión al objetivo, agrega 1 dado azul a la reserva de ataque.",
 						"{Q} Mueve 4 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 3.",
 						"{A} Mueve 6 para reposicionar a 3.",
@@ -915,7 +915,7 @@
 						"{Q} ABALANZARSE: Coloca esta figura en una casilla vacía a 6 casillas y adyacente a {R1}. Después, ataca a {R1}.",
 						"{A} Mueve 3 para reposicionar a 3.",
 						"{A} Mueve 7 para reposicionar a 3.",
-						"{-} RECIEN CAZADO: Esta figura gana 1 {g} y 1 {h}.",
+						"{-} RECIÉN CAZADO: Esta figura gana 1 {g} y 1 {h}.",
 					]
 				},
 			],
@@ -1000,7 +1000,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{-} COMPUTADORA DE SELECCION DE BLANCOS: Gana +1 {H} y +2 Precisión.",
+						"{-} COMPUTADORA DE SELECCIÓN DE BLANCOS: Gana +1 {H} y +2 Precisión.",
 						"{Q} Mueve 3 para atacar a {R1}.",
 						"{A} Mueve 2 para confrontar a tantos Rebeldes como sea posible (mínimo 1).",
 						"Si está adyacente a un Rebelde, termina esta activación.",
@@ -1044,7 +1044,7 @@
 				{
 					"instruction": [
 						"{-} PROFESIONAL: Gana +1 {H}.",
-						"{Q} Mueve 4 para atacar a {R1}. Depués de este ataque, si el objetivo ha sufrido algún {H}, hace una prueba de {K}. Si no la pasa, sufre 1 {C}.",
+						"{Q} Mueve 4 para atacar a {R1}. Después de este ataque, si el objetivo ha sufrido algún {H}, hace una prueba de {K}. Si no la pasa, sufre 1 {C}.",
 						"{A} Mueve 2 para reposicionar a 2.",
 						"{A} Mueve 6 para reposicionar a 2",
 						"{-} Si esta figura no atacó, gana 2 {g}.",
@@ -1059,7 +1059,7 @@
 				{
 					"instruction": [
 						"{-} PROFESIONAL: Gana +1 {H}.",
-						"{Q} Mueve 4 para atacar a {R1}. Depués de este ataque, si el objetivo ha sufrido algún {H}, hace una prueba de {K}. Si no la pasa, sufre 1 {C}.",
+						"{Q} Mueve 4 para atacar a {R1}. Después de este ataque, si el objetivo ha sufrido algún {H}, hace una prueba de {K}. Si no la pasa, sufre 1 {C}.",
 						"{A} Mueve 2 para reposicionar a 2.",
 						"{A} Mueve 6 para reposicionar a 2",
 						"{-} Si esta figura no atacó, gana 2 {g}.",
@@ -1074,11 +1074,11 @@
 				{
 					"instruction": [
 						"{-} PROFESIONAL: Gana +1 {H}.",
-						"{Q} Mueve 4 para atacar a {R1}. Depués de este ataque, si el objetivo ha sufrido algún {H}, sufre 1 {C}.",
+						"{Q} Mueve 4 para atacar a {R1}. Después de este ataque, si el objetivo ha sufrido algún {H}, sufre 1 {C}.",
 						"{A} Mueve 2 para reposicionar a 2",
 						"{A} Mueve 6 para reposicionar a 2",
 						"{-} Si esta figura no atacó, gana 2 {g}",
-						"{-} DEFENDER: Al final de la activación de esta figura, mueve 2 para confrontar tantas figuras del bando Imperial no Guardian como sea posible (mínimo 1). Después, cada figura del bando Imperial no Guardian adyacente gana 1 {g}.",
+						"{-} DEFENDER: Al final de la activación de esta figura, mueve 2 para confrontar tantas figuras del bando Imperial no Guardián como sea posible (mínimo 1). Después, cada figura del bando Imperial no Guardián adyacente gana 1 {g}.",
 					]
 				},
 			],
@@ -1090,8 +1090,8 @@
 				{
 					"instruction": [
 						"{Q} Mueve 5 para atacar a {R1}.",
-						"{A} Mueve 2 para confrontar a tantas figuras del bando Imperial no Guardian como sea posible (mínimo 1).",
-						"{-} Si esta figura está adyacente a una figura del bando Imperial no Guardian, termina esta activación.",
+						"{A} Mueve 2 para confrontar a tantas figuras del bando Imperial no Guardián como sea posible (mínimo 1).",
+						"{-} Si esta figura está adyacente a una figura del bando Imperial no Guardián, termina esta activación.",
 						"{A} Mueve 2 hacia {R1}.",
 						"{A} Mueve 8 hacia {R1}.",
 					]
@@ -1105,8 +1105,8 @@
 				{
 					"instruction": [
 						"{Q} Mueve 5 para atacar a {R1}.",
-						"{A} Mueve 3 para confrontar a tantas figuras del bando Imperial no Guardian como sea posible (mínimo 1).",
-						"{-} Si esta figura está adyacente a una figura del bando Imperial no Guardian, termina esta activación.",
+						"{A} Mueve 3 para confrontar a tantas figuras del bando Imperial no Guardián como sea posible (mínimo 1).",
+						"{-} Si esta figura está adyacente a una figura del bando Imperial no Guardián, termina esta activación.",
 						"{A} Mueve 2 hacia {R1}.",
 						"{A} Mueve 8 hacia {R1}.",
 					]
@@ -1151,7 +1151,7 @@
 					"instruction": [
 						"{-} DISPARO CONCENTRADO: Gana +1 {H} y +3 Precisión. Las figuras no bloquean la línea de visión de esta figura.",
 						"{Q} Mueve 2 para atacar a {R1}.",
-						"{-} DISPARO MULTIPLE: Mueve 1 para atacar a un Rebelde que esta figura haya atacado durante esta activación. Aplica -2 {H} a los resultados de este ataque.",
+						"{-} DISPARO MÚLTIPLE: Mueve 1 para atacar a un Rebelde que esta figura haya atacado durante esta activación. Aplica -2 {H} a los resultados de este ataque.",
 						"{A} Mueve 2 para reposicionar a 4.",
 						"{A} Mueve 6 para reposicionar a 4.",
 						"{-} Si esta figura ha atacado más de una vez, gana 1 {h}.",
@@ -1167,7 +1167,7 @@
 					"instruction": [
 						"{-} DISPARO CONCENTRADO: Gana +1 {H} y +3 Precisión. Las figuras no bloquean la línea de visión de esta figura.",
 						"{Q} Mueve 2 para atacar a {R1}.",
-						"{-} DISPARO MULTIPLE: Mueve 1 para atacar a un Rebelde que esta figura haya atacado durante esta activación. Aplica -2 {H} a los resultados de este ataque.",
+						"{-} DISPARO MÚLTIPLE: Mueve 1 para atacar a un Rebelde que esta figura haya atacado durante esta activación. Aplica -2 {H} a los resultados de este ataque.",
 						"{A} Mueve 2 para reposicionar a 4.",
 						"{A} Mueve 6 para reposicionar a 4.",
 						"{-} Si esta figura ha atacado más de una vez, gana 1 {h}.",
@@ -1181,9 +1181,9 @@
 			"content": [
 				{
 					"instruction": [
-						"{-} DISPARO CONCENTRADO: Gana +1 {H} and +4 Precisión. Las figuras no bloquean la línea de visión de esta figura.",
+						"{-} DISPARO CONCENTRADO: Gana +1 {H} y +4 Precisión. Las figuras no bloquean la línea de visión de esta figura.",
 						"{Q} Mueve 2 para atacar a {R1}.",
-						"{-} DISPARO MULTIPLE: Mueve 1 para atacar a un Rebelde que esta figura haya atacado durante esta activación. Aplica -2 {H} a los resultados de este ataque.",
+						"{-} DISPARO MÚLTIPLE: Mueve 1 para atacar a un Rebelde que esta figura haya atacado durante esta activación. Aplica -2 {H} a los resultados de este ataque.",
 						"{A} Mueve 2 para reposicionar a 4.",
 						"{A} Mueve 6 para reposicionar a 4.",
 						"{-} Si esta figura ha atacado más de una vez, gana 1 {h}.",
@@ -1199,7 +1199,7 @@
 					"instruction": [
 						"{Q} Mueve 4 para atacar a {R1}.",
 						"{A} Mueve 3 para confrontar a la figura del bando Imperial más cercana que haya sufrido {H}.",
-						"{-} EQUIPO DE RECUPERACION AMBIENTAL: Cada figura del bando Imperial a 2 casillas recupera 1 {H}.",
+						"{-} EQUIPO DE RECUPERACIÓN AMBIENTAL: Cada figura del bando Imperial a 2 casillas recupera 1 {H}.",
 						"{A} Mueve 2 para reposicionar a 3.",
 						"{A} Mueve 6 para reposicionar a 3.",
 					]
@@ -1214,7 +1214,7 @@
 					"instruction": [
 						"{Q} Mueve 4 para atacar a {R1}.",
 						"{A} Mueve 3 para confrontar a la figura del bando Imperial más cercana que haya sufrido {H}.",
-						"{-} EQUIPO DE RECUPERACION AMBIENTAL: Cada figura del bando Imperial a 2 casillas recupera 2 {H}.",
+						"{-} EQUIPO DE RECUPERACIÓN AMBIENTAL: Cada figura del bando Imperial a 2 casillas recupera 2 {H}.",
 						"{A} Mueve 2 para reposicionar a 3.",
 						"{A} Mueve 6 para reposicionar a 3.",
 					]
@@ -1253,7 +1253,7 @@
 			"content": [
 				{
 					"instruction": [
-						"{-} RESISTENCIA TENAZ: Si hay menos de 3 figuras en este grupo, adquiere Concentración. Límite una vez por grupo activation.",
+						"{-} RESISTENCIA TENAZ: Si hay menos de 3 figuras en este grupo, adquiere Concentración. Límite una vez por activación del grupo.",
 						"{Q} Mueve 4 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 4.",
 						"{A} Mueve 6 para reposicionar a 4.",
@@ -1269,14 +1269,14 @@
 					"instruction": [
 						"{Q} Mueve 3 para atacar a {R1}.",
 						"{A} Mueve 3 hacia la figura del bando Imperial más cercana.",
-						"{-} PACIENCIA: Esta figura y la otra figura del bando Imperial de mayor coste de figura a X casillas ganan 1 {h} y 1 {g}. X es igual al numero de tokens de activación Rebeldes ya activados.",
+						"{-} PACIENCIA: Esta figura y la otra figura del bando Imperial de mayor coste de figura a X casillas ganan 1 {h} y 1 {g}. X es igual al número de fichas de activación Rebeldes ya activados.",
 						"{A} Mueve 5 para reposicionar a 3.",
 					]
 				},
 			],
 		},
 		{
-			"instName": "Cazador trandosano",
+			"instName": "Cazador trandosHano",
 			"instID": "DG015",
 			"content": [
 				{
@@ -1289,7 +1289,7 @@
 			],
 		},
 		{
-			"instName": "Cazador trandosano (Elite)",
+			"instName": "Cazador trandosHano (Elite)",
 			"instID": "DG016",
 			"content": [
 				{
@@ -1447,7 +1447,7 @@
 			],
 		},
 		{
-			"instName": "Guardia alada",
+			"instName": "Guardia Alada",
 			"instID": "DG033",
 			"content": [
 				{
@@ -1455,13 +1455,13 @@
 						"{Q} Mueve 3 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 3.",
 						"{A} Mueve 6 para reposicionar a 3.",
-						"{-} MANTENER LA PAZ: Si esta figura está adyacente a una o más figuras del bando Imperial no Guardian, un Rebelde en línea de visión sufre 1 {C}. Límite una vez por Rebelde.",
+						"{-} MANTENER LA PAZ: Si esta figura está adyacente a una o más figuras del bando Imperial no Guardián, un Rebelde en línea de visión sufre 1 {C}. Límite una vez por Rebelde.",
 					]
 				},
 			],
 		},
 		{
-			"instName": "Guardia alada",
+			"instName": "Guardia Alada",
 			"instID": "DG034",
 			"content": [
 				{
@@ -1469,13 +1469,13 @@
 						"{Q} Mueve 3 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 3.",
 						"{A} Mueve 6 para reposicionar a 3.",
-						"{-} MANTENER LA PAZ: Si esta figura está adyacente a una o más figuras del bando Imperial no Guardian, un Rebelde en línea de visión sufre 1 {C}. Límite una vez por Rebelde.",
+						"{-} MANTENER LA PAZ: Si esta figura está adyacente a una o más figuras del bando Imperial no Guardián, un Rebelde en línea de visión sufre 1 {C}. Límite una vez por Rebelde.",
 					]
 				},
 			],
 		},
 		{
-			"instName": "Guardia alada (Elite)",
+			"instName": "Guardia Alada (Elite)",
 			"instID": "DG035",
 			"content": [
 				{
@@ -1483,7 +1483,7 @@
 						"{Q} Mueve 4 para atacar a {R1}.",
 						"{A} Mueve 2 para reposicionar a 3.",
 						"{A} Mueve 6 para reposicionar a 3.",
-						"{-} MANTENER LA PAZ: Si esta figura está adyacente a una o más figuras del bando Imperial no Guardian, un Rebelde en línea de visión sufre 1 {C}. Límite una vez por Rebelde.",
+						"{-} MANTENER LA PAZ: Si esta figura está adyacente a una o más figuras del bando Imperial no Guardián, un Rebelde en línea de visión sufre 1 {C}. Límite una vez por Rebelde.",
 					]
 				},
 			],

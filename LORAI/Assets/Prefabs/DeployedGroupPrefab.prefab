@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3734764380053158899}
   - component: {fileID: 3734764380053158900}
   - component: {fileID: 3734764380053158901}
-  - component: {fileID: 3734764380053158898}
+  - component: {fileID: 2155415565478965945}
   m_Layer: 5
   m_Name: outline
   m_TagString: Untagged
@@ -73,8 +73,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3734764380053158898
+--- !u!114 &2155415565478965945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,7 +350,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3734764380663410856}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   - {fileID: 3734764380694939047}
   colorPip: {fileID: 3734764381956926554}
   iconImage: {fileID: 3734764380663410861}
-  outline: {fileID: 3734764380053158898}
+  outline: {fileID: 2155415565478965945}
   eliteColor: {r: 1, g: 0, b: 0, a: 1}
   colors:
   - {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}

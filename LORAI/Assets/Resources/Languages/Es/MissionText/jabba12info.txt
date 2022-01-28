@@ -1,5 +1,5 @@
 <b>Reglas Especiales:</b>
-El <color="red">Rancor</color> puede salir del Pantano.
+El <color="red">Rancor</color> puede salir del pantano.
 
 <b>Objetivo de reposicionamiento:</b>
 Bloquea el acceso a los soportes estructurales.
@@ -14,6 +14,6 @@ Al final de la Ronda 7, o todos los Héroes están heridos.
 
 <b>Al final de la Ronda 1:</b> <color="red">¡Retirada!</color>
 
-<b>La primera vez que una figura del bando Rebelde entra en el Pantano:</b> <color="red">Cuidado con el Rancor</color>
+<b>La primera vez que una figura del bando Rebelde entra en el pantano:</b> <color="red">Cuidado con el Rancor</color>
 
 <b>Cuando la puerta es destruido:</b> <color="red">El mundo es un pañuelo</color>

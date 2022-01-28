@@ -11,6 +11,6 @@ Al final de la Ronda 6 si no todos los Héroes se han marchado, o todos los Hér
  
 <b>La primera y la segunda vez que un Héroe interactúa con un terminal:</b> <color="red">Acorralados</color>
  
-<b>La primera vez que los Rebeldes claim a terminal:</b> <color="red">¡Roger, Roger!</color>
+<b>La primera vez que los Rebeldes reclamen un terminal:</b> <color="red">¡Roger, Roger!</color>
  
 <b>Cuando la puerta se abre:</b> <color="red">Extracción</color>

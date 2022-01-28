@@ -16,4 +16,4 @@ Al final de la Ronda 6, o todos los Héroes están heridos.
 
 <b>La primera vez que una puerta se abre:</b> <color="red">Guarnición</color> (ver Reglas de misión)
 
-<b>Cuando la Cafetería está despejada:</b> <color="red">Grabado</color>
+<b>Cuando la cafetería está despejada:</b> <color="red">Grabado</color>

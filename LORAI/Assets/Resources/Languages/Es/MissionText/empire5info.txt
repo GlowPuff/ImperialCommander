@@ -3,7 +3,7 @@ Referirse a las Reglas de misión para <color="red">Darth Vader</color>
 
 <b>Objetivo de reposicionamiento:</b>
 Bloquea el acceso a los escondites.
-<color="red">Darth Vader</color>: Mueve hacia el fragmento / la Entrada
+<color="red">Darth Vader</color>: Mueve hacia el fragmento / la entrada
 
 <b>Victoria Rebelde:</b>
 <color="red">Darth Vader</color> es derrotado.

@@ -1,5 +1,5 @@
 <b>Reglas de misión:</b>
-Cuando se derrote a un <color="red">Asesino a sueldo</color> figure, no lo marques como derrotado para prevenir que vuelva a ser desplegado. Cuando la última figura es derrotada, agota el grupo hasta que sea desplegado de nuevo.
+Cuando se derrote a una figura <color="red">Asesino a sueldo</color>, no lo marques como derrotado para prevenir que vuelva a ser desplegado. Cuando la última figura es derrotada, agota el grupo hasta que sea desplegado de nuevo.
 
 <b>Objetivo de reposicionamiento:</b>
 Bloquea el acceso a la Trastienda.

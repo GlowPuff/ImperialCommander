@@ -12,7 +12,7 @@
 			"fame": 6,
 			"reimb": 3,
 			"expansion": "Core",
-			"ignored": "Formacion de peloton"
+			"ignored": "Formación de pelotón"
 		},
 		{
 			"name": "Soldado de asalto",
@@ -26,7 +26,7 @@
 			"fame": 6,
 			"reimb": 3,
 			"expansion": "Core",
-			"ignored": "Formacion de peloton"
+			"ignored": "Formación de pelotón"
 		},
 		{
 			"name": "Soldado de asalto (Elite)",
@@ -40,7 +40,7 @@
 			"fame": 9,
 			"reimb": 4,
 			"expansion": "Core",
-			"ignored": "Formacion de peloton, Resistencia tenaz",
+			"ignored": "Formación de pelotón, Resistencia tenaz",
 			"isElite": true
 		},
 		{
@@ -98,7 +98,7 @@
 			"fame": 6,
 			"reimb": 3,
 			"expansion": "Core",
-			"ignored": "Tripode"
+			"ignored": "Trípode"
 		},
 		{
 			"name": "Ingeniero de E-Web (Elite)",
@@ -112,7 +112,7 @@
 			"fame": 8,
 			"reimb": 4,
 			"expansion": "Core",
-			"ignored": "Tripode",
+			"ignored": "Trípode",
 			"isElite": true
 		},
 		{
@@ -156,7 +156,7 @@
 			"fame": 3,
 			"reimb": 1,
 			"expansion": "Core",
-			"ignored": "Autodestruccion"
+			"ignored": "Autodestrucción"
 		},
 		{
 			"name": "Droide sonda",
@@ -170,7 +170,7 @@
 			"fame": 3,
 			"reimb": 1,
 			"expansion": "Core",
-			"ignored": "Autodestruccion"
+			"ignored": "Autodestrucción"
 		},
 		{
 			"name": "Droide sonda (Elite)",
@@ -184,7 +184,7 @@
 			"fame": 5,
 			"reimb": 3,
 			"expansion": "Core",
-			"ignored": "Computadora de seleccion de blancos, Autodestruccion",
+			"ignored": "Computadora de selección de blancos, Autodestrucción",
 			"isElite": true
 		},
 		{
@@ -199,10 +199,10 @@
 			"fame": 14,
 			"reimb": 6,
 			"expansion": "Core",
-			"ignored": "Computadora de seleccion de blancos"
+			"ignored": "Computadora de selección de blancos"
 		},
 		{
-			"name": "Cazador trandosano",
+			"name": "Cazador trandoshano",
 			"id": "DG015",
 			"tier": 2,
 			"faction": "Mercenary",
@@ -216,7 +216,7 @@
 			"ignored": ""
 		},
 		{
-			"name": "Cazador trandosano (Elite)",
+			"name": "Cazador trandoshano (Elite)",
 			"id": "DG016",
 			"tier": 3,
 			"faction": "Mercenary",
@@ -329,7 +329,7 @@
 			"fame": 7,
 			"reimb": 4,
 			"expansion": "Hoth",
-			"ignored": "Equipo de recuperacion ambiental"
+			"ignored": "Equipo de recuperación ambiental"
 		},		
 		{
 			"name": "Soldado de las nieves (Elite)",
@@ -343,7 +343,7 @@
 			"fame": 10,
 			"reimb": 5,
 			"expansion": "Hoth",
-			"ignored": "Equipo de recuperacion ambiental",
+			"ignored": "Equipo de recuperación ambiental",
 			"isElite": true
 		},		
 		{
@@ -372,7 +372,7 @@
 			"fame": 8,
 			"reimb": 4,
 			"expansion": "Hoth",
-			"ignored": "Armamento versatil, Computadora de seleccion de blancos"
+			"ignored": "Armamento versátil, Computadora de selección de blancos"
 		},		
 		{
 			"name": "Asesino droide HK (Elite)",
@@ -386,7 +386,7 @@
 			"fame": 11,
 			"reimb": 5,
 			"expansion": "Hoth",
-			"ignored": "Armamento versatil, Computadora de seleccion de blancos",
+			"ignored": "Armamento versátil, Computadora de selección de blancos",
 			"isElite": true
 		},		
 		{
@@ -501,7 +501,7 @@
 			"fame": 9,
 			"reimb": 4,
 			"expansion": "Bespin",
-			"ignored": "Mantener la paz, Formacion de peloton",
+			"ignored": "Mantener la paz, Formación de pelotón",
 			"isElite": true
 		},		
 		{
@@ -516,7 +516,7 @@
 			"fame": 4,
 			"reimb": 2,
 			"expansion": "Jabba",
-			"ignored": "Agil, Propulsores"
+			"ignored": "Ágil, Propulsores"
 		},		
 		{
 			"name": "Soldado con mochila propulsora",
@@ -530,7 +530,7 @@
 			"fame": 4,
 			"reimb": 2,
 			"expansion": "Jabba",
-			"ignored": "Agil, Propulsores"
+			"ignored": "Ágil, Propulsores"
 		},		
 		{
 			"name": "Soldado con mochila propulsora (Elite)",
@@ -544,7 +544,7 @@
 			"fame": 7,
 			"reimb": 4,
 			"expansion": "Jabba",
-			"ignored": "Agil, Sobrevolar",
+			"ignored": "Ágil, Sobrevolar",
 			"isElite": true
 		},		
 		{
@@ -716,7 +716,7 @@
 			"fame": 6,
 			"reimb": 3,
 			"expansion": "Empire",
-			"ignored": "Disparo multiple, Disparo concentrado, Computadora de seleccion de blancos"
+			"ignored": "Disparo múltiple, Disparo concentrado, Computadora de selección de blancos"
 		},		
 		{
 			"name": "Droide centinela",
@@ -730,7 +730,7 @@
 			"fame": 6,
 			"reimb": 3,
 			"expansion": "Empire",
-			"ignored": "Disparo multiple, Disparo concentrado, Computadora de seleccion de blancos"
+			"ignored": "Disparo múltiple, Disparo concentrado, Computadora de selección de blancos"
 		},		
 		{
 			"name": "Droide centinela (Elite)",
@@ -744,7 +744,7 @@
 			"fame": 10,
 			"reimb": 5,
 			"expansion": "Empire",
-			"ignored": "Disparo multiple, Disparo concentrado, Computadora de seleccion de blancos",
+			"ignored": "Disparo múltiple, Disparo concentrado, Computadora de selección de blancos",
 			"isElite": true
 		},		
 		{
@@ -802,7 +802,7 @@
 			"fame": 3,
 			"reimb": 1,
 			"expansion": "Lothal",
-			"ignored": "Cuerpo de seguridad, Comunicaciones tacticas"
+			"ignored": "Cuerpo de seguridad, Comunicaciones tácticas"
 		},		
 		{
 			"name": "Soldado de la muerte",
@@ -816,7 +816,7 @@
 			"fame": 3,
 			"reimb": 1,
 			"expansion": "Lothal",
-			"ignored": "Cuerpo de seguridad, Comunicaciones tacticas"
+			"ignored": "Cuerpo de seguridad, Comunicaciones tácticas"
 		},		
 		{
 			"name": "Soldado de la muerte (Elite)",
@@ -830,7 +830,7 @@
 			"fame": 4,
 			"reimb": 2,
 			"expansion": "Lothal",
-			"ignored": "Capitan de peloton, Comunicaciones tacticas",
+			"ignored": "Capitán de pelotón, Comunicaciones tácticas",
 			"isElite": true
 		},		
 		{
@@ -845,7 +845,7 @@
 			"fame": 4,
 			"reimb": 2,
 			"expansion": "Lothal",
-			"ignored": "Capitan de peloton, Comunicaciones tacticas",
+			"ignored": "Capitán de pelotón, Comunicaciones tácticas",
 			"isElite": true
 		},		
 		{
@@ -874,7 +874,7 @@
 			"fame": 6,
 			"reimb": 3,
 			"expansion": "Lothal",
-			"ignored": "Abalanzarse, Recien cazado",
+			"ignored": "Abalanzarse, Recién cazado",
 			"isElite": true
 		},		
 		{

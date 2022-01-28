@@ -2,7 +2,7 @@
 Despliega <color="red">IG-88</color> como un Grupo Inicial, pero deja aparte a su figura.
 
 <b>Reglas Especiales:</b>
-Cuando <color="red">IG-88</color> se activa, él y all of his copies se activan al mismo tiempo, comenzando con el <color="red">IG-88</color> real, después con la copia más cercana a los Rebeldes, después con la segunda copia. Las copian usan las instrucciones de <color="red">IG-88's</color>, pero no tienen la habilidad "Asalto".
+Cuando <color="red">IG-88</color> se activa, él y sus copias se activan al mismo tiempo, comenzando con el <color="red">IG-88</color> real, después con la copia más cercana a los Rebeldes, después con la segunda copia. Las copias usan las instrucciones de <color="red">IG-88's</color>, pero no tienen la habilidad "Asalto".
 
 <b>Objetivo de reposicionamiento:</b>
 Bloquea el acceso a las puertas.

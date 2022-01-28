@@ -1,7 +1,7 @@
 <b>Reglas de misión(añadir al <color="red">comienzo</color> de la lista de instrucciones):</b>
 All <b>Oficiales Imperiales</b> and <b>Droides Sonda</b> gain:
 
-■ Interactua con una terminal para incrementar <font="ImperialAssaultSymbols SDF">D</font> por 2 (solo una vez por ronda por terminal).
+■ Interactua con un terminal para incrementar <font="ImperialAssaultSymbols SDF">D</font> en 2 (solo una vez por ronda por terminal).
 
 Mientras la puerta esté cerrada, <b>Weiss</b> gana:
 
@@ -15,7 +15,7 @@ Cuando la puerta está abierta, <b>Weiss</b> gana en su lugar:
 <font="ImperialAssaultSymbols SDF">A</font> Mueve 6 hacia el AT-ST inactivo.
 
 <b><color="red">Vulnerable:</color></b>
-Ignira las dos opciones. En su lugar:
+Ignora las dos opciones. En su lugar:
 
 <b>Si la puerta todavía está abierta:</b> Weiss recupera 5 <font="ImperialAssaultSymbols SDF">H</font> e interrumpe para atacar <<al Rebelde sano más cercano>>.
 <b>Si la puerta todavía está cerrada, o Weiss no ha sufrido ningún</b> <font="ImperialAssaultSymbols SDF">H</font> <b>y no está en línea de visión de un Rebelde:</b> Abre la puerta. Weiss mueve 3 hacia el AT-ST.

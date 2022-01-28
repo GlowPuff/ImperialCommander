@@ -13,6 +13,6 @@ La lanzadera despega.
 <b>Victoria Imperial:</b>
 Al final de la Ronda 6, o todos los Héroes están heridos.
 
-<b>Cuando la puerta del Pasillo se abre:</b> <color="red">Guardias a sueldo</color>
+<b>Cuando la puerta del pasillo se abre:</b> <color="red">Guardias a sueldo</color>
 
-<b>La puerta de la Celda se abre:</b> <color="red">Subid a la nave</color>
+<b>La puerta de la celda se abre:</b> <color="red">Subid a la nave</color>
