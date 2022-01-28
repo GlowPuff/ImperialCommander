@@ -70,26 +70,11 @@ public class SessionData
 		public bool pauseDeployment;
 		public bool pauseThreatIncrease;
 		public bool isNewGame = true;
-		//public HeroState[] heroStates;
 
 		public GameVars()
 		{
 
 		}
-
-		/// <summary>
-		/// Init player array to hold activation status for de/serialization
-		/// </summary>
-		//public void InitPlayers( int playerCount )
-		//{
-		//	Debug.Log( $"Initializing {playerCount} players" );
-		//	heroStates = new HeroState[playerCount];
-		//	for ( int i = 0; i < heroStates.Length; i++ )
-		//	{
-		//		heroStates[i] = new HeroState();
-		//		heroStates[i].Init( playerCount );
-		//	}
-		//}
 	}
 
 	public SessionData()
@@ -136,13 +121,6 @@ public class SessionData
 
 		gameVars.pauseDeployment = false;
 		gameVars.pauseThreatIncrease = false;
-
-		//for 3 players, add the dummy hero for activation
-		//if ( MissionHeroes.Count == 3 )
-		//{
-		//	Debug.Log( "Creating dummy hero" );
-		//	DataStore.deployedHeroes.Add( new CardDescriptor() { isDummy = true } );
-		//}
 	}
 
 	public string ToggleDifficulty()
