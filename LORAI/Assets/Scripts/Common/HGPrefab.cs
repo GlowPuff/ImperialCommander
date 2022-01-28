@@ -12,6 +12,7 @@ public class HGPrefab : MonoBehaviour
 	public GameObject exhaustedOverlay;
 
 	CardDescriptor cardDescriptor;
+	bool isAlly = false;
 
 	private void Awake()
 	{
@@ -28,10 +29,12 @@ public class HGPrefab : MonoBehaviour
 		{
 			if ( DataStore.heroCards.cards.Any( x => x.id == cd.id ) )
 			{
+				isAlly = false;
 				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{cd.id}" );
 			}
 			else if ( DataStore.allyCards.cards.Any( x => x.id == cd.id ) )
 			{
+				isAlly = true;
 				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
 			}
 
@@ -148,7 +151,7 @@ public class HGPrefab : MonoBehaviour
 		activationToggle1.gameObject.SetActive( false );
 		activationToggle2.gameObject.SetActive( false );
 
-		if ( DataStore.sessionData.MissionHeroes.Count <= 2 )
+		if ( DataStore.sessionData.MissionHeroes.Count <= 2 && !isAlly )
 		{
 			activationToggle1.isOn = cardDescriptor.heroState.hasActivated[0];
 			activationToggle2.isOn = cardDescriptor.heroState.hasActivated[1];
