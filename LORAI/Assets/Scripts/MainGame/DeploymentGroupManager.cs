@@ -176,5 +176,10 @@ public class DeploymentGroupManager : MonoBehaviour
 			var pf = c.GetComponent<DGPrefab>();
 			pf.ToggleExhausted( false );
 		}
+		foreach ( Transform c in heroContainer )
+		{
+			var pf = c.GetComponent<HGPrefab>();
+			pf.ResetActivation();
+		}
 	}
 }

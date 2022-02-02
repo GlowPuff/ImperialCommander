@@ -145,7 +145,7 @@ public class HGPrefab : MonoBehaviour
 		woundToggle.gameObject.SetActive( true );
 	}
 
-	public void SetActivation()
+	private void SetActivation()
 	{
 		//skip callbacks
 		activationToggle1.gameObject.SetActive( false );
@@ -162,6 +162,24 @@ public class HGPrefab : MonoBehaviour
 		{
 			activationToggle1.isOn = cardDescriptor.heroState.hasActivated[0];
 			activationToggle1.gameObject.SetActive( true );
+		}
+	}
+
+	public void ResetActivation()
+	{
+		//skip callbacks
+		activationToggle1.gameObject.SetActive( false );
+		activationToggle2.gameObject.SetActive( false );
+
+		activationToggle1.isOn = false;
+		cardDescriptor.heroState.hasActivated[0] = false;
+		activationToggle1.gameObject.SetActive( true );
+
+		if ( DataStore.sessionData.MissionHeroes.Count <= 2 && !isAlly )
+		{
+			activationToggle2.isOn = false;
+			cardDescriptor.heroState.hasActivated[1] = false;
+			activationToggle2.gameObject.SetActive( true );
 		}
 	}
 }

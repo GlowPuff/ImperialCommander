@@ -147,6 +147,8 @@ public class MainGameController : MonoBehaviour
 			if ( DataStore.sessionData.gameVars.pauseDeployment )
 				pauseDeploymentToggle.isOn = true;
 
+			fameButton.interactable = DataStore.sessionData.useAdaptiveDifficulty;
+
 			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( DataStore.uiLanguage.uiMainApp.restoredMsgUC );
 		}
 		else
