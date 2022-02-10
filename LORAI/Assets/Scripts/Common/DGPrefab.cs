@@ -217,14 +217,17 @@ public class DGPrefab : MonoBehaviour
 
 	public void OnPointerClick()
 	{
-		CardZoom cardZoom = GlowEngine.FindObjectsOfTypeSingle<CardZoom>();
-		Sprite s = null;
-		if ( DataStore.villainCards.cards.Contains( cardDescriptor ) )
-			s = Resources.Load<Sprite>( $"Cards/Villains/{cardDescriptor.id}" );
-		else
-			s = Resources.Load<Sprite>( $"Cards/Enemies/{cardDescriptor.expansion}/{cardDescriptor.id}" );
-		if ( s != null )
-			cardZoom.Show( s, cardDescriptor );
+		CardViewPopup cardViewPopup = GlowEngine.FindObjectsOfTypeSingle<CardViewPopup>();
+		cardViewPopup.Show( cardDescriptor );
+
+		//CardZoom cardZoom = GlowEngine.FindObjectsOfTypeSingle<CardZoom>();
+		//Sprite s = null;
+		//if ( DataStore.villainCards.cards.Contains( cardDescriptor ) )
+		//	s = Resources.Load<Sprite>( $"Cards/Villains/{cardDescriptor.id}" );
+		//else
+		//	s = Resources.Load<Sprite>( $"Cards/Enemies/{cardDescriptor.expansion}/{cardDescriptor.id}" );
+		//if ( s != null )
+		//	cardZoom.Show( s, cardDescriptor );
 	}
 
 	public void SetGroupSize( int size )

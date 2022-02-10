@@ -27,6 +27,19 @@ public class CardDescriptor : IEquatable<CardDescriptor>
 	[JsonProperty( DefaultValueHandling = DefaultValueHandling.Populate )]
 	public bool isElite;
 	//==
+	//start v.1.0.21 additions
+	public string subname;
+	public int health;
+	public int speed;
+	public string[] traits;
+	public string[] surges;
+	public string[] keywords;
+	public GroupAbility[] abilities;
+	public DiceColor[] defense;
+	public DiceColor[] attacks;
+	public AttackType attackType;
+	//==end v.1.0.21 additions
+
 
 	//==upkeep properties
 	public int currentSize;
@@ -54,6 +67,12 @@ public class CardDescriptor : IEquatable<CardDescriptor>
 		else
 			return id == objAsPart.id;
 	}
+}
+
+public class GroupAbility
+{
+	public string name;
+	public string text;
 }
 
 /*

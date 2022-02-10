@@ -14,6 +14,8 @@ public enum DeployMode { Calm, Reinforcements, Landing, Onslaught }
 public enum SettingsCommand { Quit, ReturnTitles }
 public enum HeroHealth { Healthy, Wounded, Defeated }
 public enum NetworkStatus { Busy, UpToDate, Error, WrongVersion }
+public enum DiceColor { White, Black, Yellow, Red, Green, Blue, Grey }
+public enum AttackType { Ranged, Melee, None }
 
 public class HealthState
 {

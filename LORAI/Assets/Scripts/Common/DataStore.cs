@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.1.0.20";
+	public static readonly string appVersion = "v.1.0.21";
 	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
 
 	public static Dictionary<string, List<Card>> missionCards;
@@ -145,6 +146,7 @@ public static class DataStore
 		}
 		catch ( Exception )
 		{
+			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing data" );
 			//default to English so app loads correctly next time
 			languageCode = 0;
 			PlayerPrefs.SetInt( "language", 0 );
@@ -167,9 +169,9 @@ public static class DataStore
 			TextAsset json = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/DeploymentGroups/{asset}" );
 			return JsonConvert.DeserializeObject<DeploymentCards>( json.text );
 		}
-		catch ( JsonReaderException e )
+		catch ( JsonException e )
 		{
-			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing {asset}.json" );
+			Debug.Log( $"LoadCards() ERROR:\r\nError parsing {asset}.json" );
 			Debug.Log( e.Message );
 			LogError( e.Message );
 			throw new Exception();

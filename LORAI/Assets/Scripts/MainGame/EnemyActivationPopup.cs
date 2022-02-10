@@ -13,6 +13,7 @@ public class EnemyActivationPopup : MonoBehaviour
 	public Text enemyName;
 	public Image thumbnail, colorPip;
 	public CardZoom cardZoom;
+	public DynamicCardPrefab cardPrefab;
 
 	CardInstruction cardInstruction;
 	CardDescriptor cardDescriptor;
@@ -40,6 +41,8 @@ public class EnemyActivationPopup : MonoBehaviour
 			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "EnemyActivationPopup: cardInstruction is NULL: " + cd.id );
 			return;
 		}
+
+		cardPrefab.InitCard( cd );
 
 		//== no longer an issue
 		//if ( cardInstruction == null )
@@ -217,6 +220,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		item = item.Replace( "{B}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">B</font></color>" );
 		item = item.Replace( "{I}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">I</font></color>" );
 		item = item.Replace( "{P}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">P</font></color>" );
+		item = item.Replace( "{F}", "<color=\"red\"><font=\"ImperialAssaultSymbols SDF\">F</font></color>" );
 
 		if ( item.Contains( "{R1}" ) )
 		{
@@ -252,13 +256,9 @@ public class EnemyActivationPopup : MonoBehaviour
 	{
 		spaceListen = false;
 		EventSystem.current.SetSelectedGameObject( null );
-		Sprite s = null;
-		if ( DataStore.villainCards.cards.Contains( cardDescriptor ) )
-			s = Resources.Load<Sprite>( $"Cards/Villains/{cardDescriptor.id}" );
-		else
-			s = Resources.Load<Sprite>( $"Cards/Enemies/{cardDescriptor.expansion}/{cardDescriptor.id}" );
-		if ( s != null )
-			cardZoom.Show( s, cardDescriptor, OnReturn );
+
+		CardViewPopup cardViewPopup = GlowEngine.FindObjectsOfTypeSingle<CardViewPopup>();
+		cardViewPopup.Show( cardDescriptor, OnReturn );
 	}
 
 	void OnReturn()
