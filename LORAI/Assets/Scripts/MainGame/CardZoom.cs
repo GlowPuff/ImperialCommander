@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// DEPRECATED
+/// </summary>
 public class CardZoom : MonoBehaviour
 {
 	public Image fader, image;

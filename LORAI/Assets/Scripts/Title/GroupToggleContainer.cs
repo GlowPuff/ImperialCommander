@@ -9,9 +9,10 @@ using UnityEngine.UI;
 //Handle toggling ENEMY GROUPS and VILLAINS ONLY
 public class GroupToggleContainer : MonoBehaviour
 {
-	public Image previewImage;
-	public TextMeshProUGUI previewNameText;
+	//public Image previewImage;
+	//public TextMeshProUGUI previewNameText;
 	public ExpansionController expansionController;
+	public DynamicCardPrefab cardPrefab;
 
 	DeploymentCards deploymentCards;
 	List<CardDescriptor> enemyCards;
@@ -39,29 +40,29 @@ public class GroupToggleContainer : MonoBehaviour
 			return;
 
 		sound.PlaySound( FX.Click );
-		previewImage.gameObject.SetActive( true );
+		//previewImage.gameObject.SetActive( true );
+		cardPrefab.gameObject.SetActive( true );
 
 		var id = int.Parse( enemyCards[index].id.Substring( 2 ).TrimStart( '0' ) );
 
-		if ( id > 69 )
-			previewImage.sprite = Resources.Load<Sprite>( $"Cards/Villains/{enemyCards[index].id}" );
-		else
-			previewImage.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{selectedExpansion}/{enemyCards[index].id}" );
+		//if ( id > 69 )
+		//	previewImage.sprite = Resources.Load<Sprite>( $"Cards/Villains/{enemyCards[index].id}" );
+		//else
+		//	previewImage.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{selectedExpansion}/{enemyCards[index].id}" );
 
 		if ( enemyCards[index].id == "DG070" )
-			previewImage.gameObject.SetActive( false );
+			cardPrefab.gameObject.SetActive( false );
 
-		previewNameText.text = enemyCards[index].name;
 
 		if ( buttonToggles[index].isOn )
 		{
 			DataStore.sessionData.selectedDeploymentCards[groupIndex].cards.Add( enemyCards[index] );
+			cardPrefab.InitCard( enemyCards[index] );
 		}
 		else
 		{
 			DataStore.sessionData.selectedDeploymentCards[groupIndex].cards.Remove( enemyCards[index] );
-			previewImage.gameObject.SetActive( false );
-			previewNameText.text = "";
+			cardPrefab.gameObject.SetActive( false );
 		}
 
 		expansionController.UpdateText( (int)selectedExpansion, buttonToggles.Count( x => x.isOn ) );
@@ -72,7 +73,7 @@ public class GroupToggleContainer : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		Enum.TryParse( expansion, out selectedExpansion );
 
-		previewImage.gameObject.SetActive( false );
+		cardPrefab.gameObject.SetActive( false );
 		foreach ( Transform c in transform )
 		{
 			c.gameObject.SetActive( false );
@@ -139,10 +140,9 @@ public class GroupToggleContainer : MonoBehaviour
 
 	public void ResetUI( int dataGroupIndex )
 	{
-		previewImage.gameObject.SetActive( false );
+		cardPrefab.gameObject.SetActive( false );
 		//0=starting, 1=reserved, 2=villains, 3=ignored, 4=heroes
 		groupIndex = dataGroupIndex;
-		previewNameText.text = "";
 		transform.parent.parent.parent.parent.Find( "expansion selector container" ).Find( "Core" ).GetComponent<Toggle>().isOn = true;
 		OnChangeExpansion( "Core" );
 	}

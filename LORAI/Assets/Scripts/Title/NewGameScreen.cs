@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
@@ -378,6 +379,14 @@ public class NewGameScreen : MonoBehaviour
 				json = sr.ReadToEnd();
 			}
 			SessionData session = JsonConvert.DeserializeObject<SessionData>( json );
+
+			//set card translation text
+			for ( int i = 0; i < session.selectedDeploymentCards.Length; i++ )
+			{
+				DataStore.SetCardTranslations( session.selectedDeploymentCards[i].cards );
+			}
+			if ( session.selectedAlly != null )
+				DataStore.SetCardTranslations( new List<CardDescriptor>() { session.selectedAlly } );
 
 			DataStore.sessionData = session;
 

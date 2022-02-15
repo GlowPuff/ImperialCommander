@@ -68,6 +68,10 @@ public class DynamicCardPrefab : MonoBehaviour
 			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{cd.expansion}/{cd.id.Replace( "DG", "M" )}" );
 		else if ( DataStore.villainCards.cards.Any( x => x.id == cd.id ) )
 			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Villains/{cd.id.Replace( "DG", "M" )}" );
+		else if ( DataStore.allyCards.cards.Any( x => x.id == cd.id ) )
+			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "A", "M" )}" );
+		else if ( DataStore.heroCards.cards.Any( x => x.id == cd.id ) )
+			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{cd.id}" );
 		else if ( cd.id == "DG070" )//handle custom group
 		{
 			mugshot.sprite = Resources.Load<Sprite>( $"Cards/Enemies/Other/M070" );
@@ -112,15 +116,18 @@ public class DynamicCardPrefab : MonoBehaviour
 			go.transform.SetParent( surgeBox.transform );
 			go.transform.localScale = Vector3.one;
 			go.transform.localEulerAngles = Vector3.zero;
+			go.transform.localPosition = Vector3.zero;
 
 			TextMeshProUGUI nt = go.AddComponent<TextMeshProUGUI>();
 			nt.color = new Color( 1, 201f / 255f, 0 );
 			nt.verticalAlignment = VerticalAlignmentOptions.Middle;
+			nt.enableAutoSizing = true;
+			nt.margin = new Vector4( 0, 2, 0, 2 );
 
 			//replace glyphs
 			string item = ReplaceGlyphs( card.surges[i] );
 
-			nt.text = $"<size=25><color=#00A4FF>{i + 1 })</color> {item}</size>";
+			nt.text = $"<color=#00A4FF>{i + 1 })</color> {item}";
 		}
 	}
 
@@ -144,7 +151,7 @@ public class DynamicCardPrefab : MonoBehaviour
 
 		if ( card.keywords == null || card.keywords.Length == 0 )
 		{
-			keywords.text = "No Keywords";
+			keywords.text = DataStore.uiLanguage.uiMainApp.noKeywordsUC;
 			return;
 		}
 
@@ -168,10 +175,11 @@ public class DynamicCardPrefab : MonoBehaviour
 			gon.transform.SetParent( abilityContainer.transform );
 			gon.transform.localScale = Vector3.one;
 			gon.transform.localEulerAngles = Vector3.zero;
+			gon.transform.localPosition = Vector3.zero;
 
 			TextMeshProUGUI nt = gon.AddComponent<TextMeshProUGUI>();
 			nt.color = new Color( 137f / 255f, 164f / 255f, 1 );
-			nt.text = "<size=25><b>No Abilities</b></size>";
+			nt.text = $"<size=25><b>{DataStore.uiLanguage.uiMainApp.noAbilitiesUC}</b></size>";
 		}
 
 		if ( card.abilities != null )
@@ -183,6 +191,7 @@ public class DynamicCardPrefab : MonoBehaviour
 				goa.transform.SetParent( abilityContainer.transform );
 				goa.transform.localScale = Vector3.one;
 				goa.transform.localEulerAngles = Vector3.zero;
+				goa.transform.localPosition = Vector3.zero;
 
 				TextMeshProUGUI ntt = goa.AddComponent<TextMeshProUGUI>();
 				ntt.color = new Color( 137f / 255f, 164f / 255f, 1 );
@@ -201,10 +210,11 @@ public class DynamicCardPrefab : MonoBehaviour
 		g.transform.SetParent( abilityContainer.transform );
 		g.transform.localScale = Vector3.one;
 		g.transform.localEulerAngles = Vector3.zero;
+		g.transform.localPosition = Vector3.zero;
 
 		TextMeshProUGUI tt = g.AddComponent<TextMeshProUGUI>();
 		tt.color = new Color( 137f / 255f, 164f / 255f, 1 );
-		tt.text = $"<size=25><b><color=red>Ignored Abilities:</color></b><br>";
+		tt.text = $"<size=25><b><color=red>{DataStore.uiLanguage.uiMainApp.ignoredAbilitiesUC}:</color></b><br>";
 
 		//ignored abilities
 		GameObject go = new GameObject( "ability" );
@@ -212,9 +222,10 @@ public class DynamicCardPrefab : MonoBehaviour
 		go.transform.SetParent( abilityContainer.transform );
 		go.transform.localScale = Vector3.one;
 		go.transform.localEulerAngles = Vector3.zero;
+		go.transform.localPosition = Vector3.zero;
 		if ( card.ignored.Length == 0 )
 		{
-			tt.text += "None";
+			tt.text += DataStore.uiLanguage.uiMainApp.noneUC;
 		}
 		for ( int i = 0; i < card.ignored.Length; i++ )
 		{
@@ -244,6 +255,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			var d = Instantiate( dicePipPrefab, defenseContainer.transform );
 			d.transform.localScale = Vector3.one;
 			d.transform.localEulerAngles = Vector3.zero;
+			d.transform.localPosition = Vector3.zero;
 			d.GetComponent<DicePip>().image.color = dc == DiceColor.Black ? Color.black : Color.white;
 		}
 	}
@@ -265,6 +277,7 @@ public class DynamicCardPrefab : MonoBehaviour
 			var d = Instantiate( dicePipPrefab, attackContainer.transform );
 			d.transform.localScale = Vector3.one;
 			d.transform.localEulerAngles = Vector3.zero;
+			d.transform.localPosition = Vector3.zero;
 
 			switch ( dc )
 			{

@@ -10,10 +10,11 @@ public class EnemyActivationPopup : MonoBehaviour
 	public Image fader;
 	public CanvasGroup cg;
 	public TextMeshProUGUI bonusNameText, bonusText, ignoreText;
-	public Text enemyName;
+	public Text enemyName, continueText;
 	public Image thumbnail, colorPip;
 	public CardZoom cardZoom;
 	public DynamicCardPrefab cardPrefab;
+	public DiceRoller diceRoller;
 
 	CardInstruction cardInstruction;
 	CardDescriptor cardDescriptor;
@@ -22,6 +23,7 @@ public class EnemyActivationPopup : MonoBehaviour
 
 	public void Show( CardDescriptor cd )
 	{
+		EventSystem.current.SetSelectedGameObject( null );
 		//Debug.Log( "Showing: " + cd.name + " / " + cd.id );
 		//clear values
 		thumbnail.color = new Color( 1, 1, 1, 0 );
@@ -31,6 +33,7 @@ public class EnemyActivationPopup : MonoBehaviour
 		ignoreText.text = "";
 		spaceListen = true;
 		colorPip.color = DataStore.pipColors[cd.colorIndex].ToColor();
+		continueText.text = DataStore.uiLanguage.uiSetup.continueBtn;
 
 		cardDescriptor = cd;
 
@@ -66,8 +69,8 @@ public class EnemyActivationPopup : MonoBehaviour
 		fader.color = new Color( 0, 0, 0, 0 );
 		fader.DOFade( .95f, 1 );
 		cg.DOFade( 1, .5f );
-		transform.GetChild( 0 ).localScale = new Vector3( .85f, .85f, .85f );
-		transform.GetChild( 0 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
+		transform.GetChild( 1 ).localScale = new Vector3( .85f, .85f, .85f );
+		transform.GetChild( 1 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
 
 		SetThumbnail( cd );
 		enemyName.text = cd.name.ToLower();
@@ -82,7 +85,11 @@ public class EnemyActivationPopup : MonoBehaviour
 			int[] rnd = GlowEngine.GenerateRandomNumbers( cardInstruction.content.Count );
 			InstructionOption io = cardInstruction.content[rnd[0]];
 
-			rebel1 = FindRebel().name;
+			CardDescriptor potentialRebel = FindRebel();
+			if ( potentialRebel != null )
+				rebel1 = potentialRebel.name;
+			else
+				rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
 
 			ParseInstructions( io );
 			ParseBonus( cd.id );
@@ -96,7 +103,14 @@ public class EnemyActivationPopup : MonoBehaviour
 		}
 		else
 		{
-			rebel1 = cardDescriptor.rebelName ?? FindRebel().name;
+			CardDescriptor potentialRebel = FindRebel();
+			if ( cardDescriptor.rebelName != null )
+				rebel1 = cardDescriptor.rebelName;
+			else if ( potentialRebel != null )
+				rebel1 = potentialRebel.name;
+			else
+				rebel1 = DataStore.uiLanguage.uiMainApp.noneUC;
+
 			if ( cardDescriptor.instructionOption != null )
 				ParseInstructions( cardDescriptor.instructionOption );
 			else
@@ -234,7 +248,7 @@ public class EnemyActivationPopup : MonoBehaviour
 	{
 		var hlist = DataStore.deployedHeroes.GetHealthy();
 		var ulist = DataStore.deployedHeroes.GetUnhealthy();
-		CardDescriptor r = new CardDescriptor() { name = "None" };
+		CardDescriptor r = null;
 
 		if ( hlist != null )
 		{
@@ -277,12 +291,34 @@ public class EnemyActivationPopup : MonoBehaviour
 			gameObject.SetActive( false );
 		} );
 		cg.DOFade( 0, .2f );
-		transform.GetChild( 0 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
+		transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 	}
 
 	private void Update()
 	{
 		if ( spaceListen && Input.GetKeyDown( KeyCode.Space ) )
 			OnClose();
+	}
+
+	public void OnRollAttackDice()
+	{
+		if ( cardDescriptor.attacks == null )
+			return;
+
+		FindObjectOfType<Sound>().PlaySound( FX.Click );
+		spaceListen = false;
+		EventSystem.current.SetSelectedGameObject( null );
+		diceRoller.Show( cardDescriptor, true, OnReturn );
+	}
+
+	public void OnRollDefenseDice()
+	{
+		if ( cardDescriptor.defense == null )
+			return;
+
+		FindObjectOfType<Sound>().PlaySound( FX.Click );
+		spaceListen = false;
+		EventSystem.current.SetSelectedGameObject( null );
+		diceRoller.Show( cardDescriptor, false, OnReturn );
 	}
 }

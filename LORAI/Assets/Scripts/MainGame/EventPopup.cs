@@ -127,11 +127,13 @@ public class EventPopup : MonoBehaviour
 		if ( cardEvent.eventRule == "R8" && item.Contains( "{V}" ) )
 		{
 			enemyToAdd = HandleR8();
-			item = item.Replace( "{V}", enemyToAdd.name );
-			if ( enemyToAdd.name.Contains( "None" ) )
-				enemyToAdd = null;
-			else
+			if ( enemyToAdd != null )
+			{
+				item = item.Replace( "{V}", enemyToAdd.name );
 				DataStore.sessionData.ModifyThreat( -Math.Min( 7, enemyToAdd.cost ) );
+			}
+			else
+				item = item.Replace( "{V}", $"<color=red>{DataStore.uiLanguage.uiMainApp.noneUC}</color>" );
 		}
 		else if ( cardEvent.eventRule == "R13" )
 		{
@@ -146,20 +148,24 @@ public class EventPopup : MonoBehaviour
 		else if ( cardEvent.eventRule == "R18" && item.Contains( "{CR}" ) )
 		{
 			enemyToAdd = HandleR18();
-			item = item.Replace( "{CR}", enemyToAdd.name );
-			if ( enemyToAdd.name.Contains( "None" ) )
-				enemyToAdd = null;
-			else
+			if ( enemyToAdd != null )
+			{
+				item = item.Replace( "{CR}", enemyToAdd.name );
 				DataStore.sessionData.ModifyThreat( -Math.Min( 5, enemyToAdd.cost ) );
+			}
+			else
+				item = item.Replace( "{CR}", $"<color=red>{DataStore.uiLanguage.uiMainApp.noneUC}</color>" );
 		}
 		else if ( cardEvent.eventRule == "R23" )
 		{
 			allyToAdd = HandleR23();
-			item = item.Replace( "{A}", "<color=#00A4FF>" + allyToAdd.name );
-			if ( allyToAdd.name.Contains( "None" ) )
-				allyToAdd = null;
-			else
+			if ( allyToAdd != null )
+			{
+				item = item.Replace( "{A}", "<color=#00A4FF>" + allyToAdd.name );
 				DataStore.sessionData.ModifyThreat( allyToAdd.cost / 2 );
+			}
+			else
+				item = item.Replace( "{A}", $"<color=red>{DataStore.uiLanguage.uiMainApp.noneUC}</color>" );
 		}
 
 		nt.text = item;
@@ -177,7 +183,7 @@ public class EventPopup : MonoBehaviour
 		//sanity check for empty list
 		if ( alist.Count() == 0 )
 		{
-			return new CardDescriptor() { name = "<color=\"red\">None</color>" };
+			return null;
 		}
 		else
 		{
@@ -232,7 +238,7 @@ public class EventPopup : MonoBehaviour
 			return v[rnd[0]];
 		}
 		//bust
-		return new CardDescriptor() { name = "<color=\"red\">None</color>" };
+		return null;
 	}
 
 	CardDescriptor HandleR18()
@@ -260,7 +266,7 @@ public class EventPopup : MonoBehaviour
 			return clist[rnd[0]];
 		}
 		else
-			return new CardDescriptor() { name = "<color=\"red\">None</color>" };
+			return null;
 	}
 
 	private void Update()

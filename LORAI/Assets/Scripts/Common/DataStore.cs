@@ -1,9 +1,8 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using UnityEditor.VersionControl;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public static class DataStore
@@ -46,6 +45,7 @@ public static class DataStore
 	 * UI strings
 	 * events, bonus effects, instructions
 	 * mission info/rules
+	 * card text
 	 * */
 
 	private static List<CardDescriptor> villainsToManuallyAdd;
@@ -141,6 +141,13 @@ public static class DataStore
 			bonusEffects = LoadBonusEffects();
 			//ui
 			uiLanguage = LoadUILanguage();
+			uiLanguage.uiDeploymentGroups = LoadCardTranslations();
+
+			//assign translations to card data
+			SetCardTranslations( deploymentCards.cards );
+			SetCardTranslations( allyCards.cards );
+			SetCardTranslations( villainCards.cards );
+			SetCardTranslations( heroCards.cards );
 
 			Debug.Log( "Loaded Language: " + languageCodeList[languageCode] );
 		}
@@ -166,7 +173,7 @@ public static class DataStore
 	{
 		try
 		{
-			TextAsset json = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/DeploymentGroups/{asset}" );
+			TextAsset json = Resources.Load<TextAsset>( $"CardData/{asset}" );
 			return JsonConvert.DeserializeObject<DeploymentCards>( json.text );
 		}
 		catch ( JsonException e )
@@ -253,6 +260,61 @@ public static class DataStore
 		catch ( JsonReaderException e )
 		{
 			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing UI Language" );
+			Debug.Log( e.Message );
+			LogError( e.Message );
+			throw new Exception();
+		}
+	}
+
+	static UIDeploymentGroups LoadCardTranslations()
+	{
+		try
+		{
+			TextAsset enemies = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/DeploymentGroups/enemies" );
+			TextAsset allies = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/DeploymentGroups/allies" );
+			TextAsset villains = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/DeploymentGroups/villains" );
+			TextAsset heroes = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/DeploymentGroups/heroes" );
+
+			List<CardLanguage> enemyCards = JsonConvert.DeserializeObject<List<CardLanguage>>( enemies.text );
+			List<CardLanguage> allyCards = JsonConvert.DeserializeObject<List<CardLanguage>>( allies.text );
+			List<CardLanguage> villainCards = JsonConvert.DeserializeObject<List<CardLanguage>>( villains.text );
+			List<CardLanguage> heroCards = JsonConvert.DeserializeObject<List<CardLanguage>>( heroes.text );
+
+			return new UIDeploymentGroups() { allyCards = allyCards, villainCards = villainCards, heroCards = heroCards, enemyCards = enemyCards };
+		}
+		catch ( JsonReaderException e )
+		{
+			Debug.Log( $"LoadCardTranslations() ERROR:\r\nError parsing Card Languages" );
+			Debug.Log( e.Message );
+			LogError( e.Message );
+			throw new Exception();
+		}
+	}
+
+	public static void SetCardTranslations( List<CardDescriptor> toCards )
+	{
+		try
+		{
+			var langCards = uiLanguage.uiDeploymentGroups.enemyCards;
+			langCards = langCards.Concat( uiLanguage.uiDeploymentGroups.heroCards ).ToList();
+			langCards = langCards.Concat( uiLanguage.uiDeploymentGroups.villainCards ).ToList();
+			langCards = langCards.Concat( uiLanguage.uiDeploymentGroups.allyCards ).ToList();
+
+			for ( int i = 0; i < toCards.Count; i++ )
+			{
+				var langcard = langCards.Where( x => x.id == toCards[i].id ).First();
+				toCards[i].name = langcard.name;
+				toCards[i].subname = langcard.subname;
+				toCards[i].ignored = langcard.ignored;
+				toCards[i].traits = langcard.traits;
+				toCards[i].surges = langcard.surges;
+				toCards[i].keywords = langcard.keywords;
+				toCards[i].abilities = langcard.abilities;
+			}
+		}
+		catch ( Exception e )
+		{
+			Debug.Log( $"SetCardTranslations() ERROR:\r\nError parsing card data" );
 			Debug.Log( e.Message );
 			LogError( e.Message );
 			throw new Exception();
@@ -427,6 +489,12 @@ public static class DataStore
 				json = sr.ReadToEnd();
 			}
 			cardEvents = JsonConvert.DeserializeObject<List<CardEvent>>( json );
+
+			//set card text translations
+			SetCardTranslations( deploymentHand );
+			SetCardTranslations( manualDeploymentList );
+			SetCardTranslations( deployedEnemies );
+			SetCardTranslations( deployedHeroes );
 
 			return true;
 		}
@@ -640,4 +708,9 @@ public static class DataStore
 		//finally try to return the tier1/2 group, even if it's null
 		return validEnemy;
 	}
+
+	//public static CardLanguage CardTextFromID( string id )
+	//{
+	//	return uiLanguage.uiDeploymentGroups.cardLanguages.Where( x => x.id == id ).FirstOr( null );
+	//}
 }

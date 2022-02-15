@@ -22,8 +22,8 @@ public class MissionTextBox : MonoBehaviour
 
 		theText.transform.parent.localPosition = new Vector3( theText.transform.parent.localPosition.x, -3000, 0 );
 
-		transform.GetChild( 0 ).localScale = new Vector3( .85f, .85f, .85f );
-		transform.GetChild( 0 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
+		transform.GetChild( 1 ).localScale = new Vector3( .85f, .85f, .85f );
+		transform.GetChild( 1 ).DOScale( 1, .5f ).SetEase( Ease.OutExpo );
 	}
 
 	public void OnClose()
@@ -31,7 +31,7 @@ public class MissionTextBox : MonoBehaviour
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
 		fader.DOFade( 0, .5f ).OnComplete( () => gameObject.SetActive( false ) );
 		cg.DOFade( 0, .2f );
-		transform.GetChild( 0 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
+		transform.GetChild( 1 ).DOScale( .85f, .5f ).SetEase( Ease.OutExpo );
 	}
 
 	private void Update()

@@ -102,7 +102,11 @@
 		"deployModeLanding": "landing",
 		"deployModeOnslaught": "onslaught",
 		"fameIncreasedUC": "You have gained fame",
-		"noRandomMatchesUC": "No matching groups with cost {d} or less."
+		"noRandomMatchesUC": "No matching groups with cost {d} or less.",
+		"noAbilitiesUC": "No Abilities",
+		"ignoredAbilitiesUC": "Ignored Abilities",
+		"noKeywordsUC": "No Keywords",
+		"noneUC": "None"
 	},
 	"uiSettings": {
 		"settingsHeading": "settings",
@@ -123,5 +127,8 @@
 		"lothal": "tyrants of lothal",
 		"twin": "twin shadows",
 		"other": "other"
+	},
+	"uiDeploymentGroups": {
+		"cardLanguages": []
 	}
 }

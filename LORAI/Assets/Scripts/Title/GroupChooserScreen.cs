@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class GroupChooserScreen : MonoBehaviour
 {
-	public CardZoomer cardZoomer;
 	public Image previewImage, fader;
 	public CanvasGroup cg;
 	public GroupToggleContainer groupToggleContainer;
@@ -88,13 +87,6 @@ public class GroupChooserScreen : MonoBehaviour
 		}
 	}
 
-	public void OnViewCard()
-	{
-		sound.PlaySound( FX.Click );
-		EventSystem.current.SetSelectedGameObject( null );
-		cardZoomer.ZoomIn( previewImage.sprite );
-	}
-
 	public void OnChangeExpansion( string expansion )
 	{
 		sound.PlaySound( FX.Click );
@@ -125,7 +117,7 @@ public class GroupChooserScreen : MonoBehaviour
 
 	private void Update()
 	{
-		if ( Input.GetKeyDown( KeyCode.Space ) && !cardZoomer.gameObject.activeInHierarchy )
+		if ( Input.GetKeyDown( KeyCode.Space ) )
 			OnBack();
 	}
 }

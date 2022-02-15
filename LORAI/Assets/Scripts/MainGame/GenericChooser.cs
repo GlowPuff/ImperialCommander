@@ -14,6 +14,7 @@ public class GenericChooser : MonoBehaviour
 	public Sound sound;
 	public CardDescriptor selectedCard;
 	public TextMeshProUGUI nameText;
+	public Text closeText;
 
 	Image[] images;
 	string imagePath;
@@ -30,6 +31,8 @@ public class GenericChooser : MonoBehaviour
 		fader.DOFade( .95f, 1 );
 		cg.alpha = 0;
 		cg.DOFade( 1, .5f );
+
+		closeText.text = DataStore.uiLanguage.uiMainApp.close;
 
 		//hide expansion buttons not owned, skipping Core and Other
 		Transform exp = transform.Find( "Panel/expansion selector container" );
@@ -132,7 +135,7 @@ public class GenericChooser : MonoBehaviour
 
 			images[i] = grid.GetChild( i ).Find( "Image" ).GetComponent<Image>();
 			images[i].sprite = Resources.Load<Sprite>( imagePath );
-			if ( cardSet[i].name.Contains( "Elite" ) )
+			if ( cardSet[i].isElite )
 				images[i].color = new Color( 1, .29f, .29f, 1 );
 			else
 				images[i].color = Color.white;

@@ -331,14 +331,14 @@
 	{
 		"bonusID": "DG009",
 		"effects": [
-			"HARD HITTER: When the first figure in this group declares and attack, add 1 blue die to the attack pool.",
+			"HARD HITTER: When the first figure in this group declares an attack, add 1 blue die to the attack pool.",
 			"ON THE SPOT: Add 1 to each Move value during this activation.",
 		]
 	},
 	{
 		"bonusID": "DG010",
 		"effects": [
-			"HARD HITTER: When the first figure in this group declares and attack, add 1 blue die to the attack pool.",
+			"HARD HITTER: When the first figure in this group declares an attack, add 1 blue die to the attack pool.",
 			"ON THE SPOT: Add 1 to each Move value during this activation.",
 		]
 	},

@@ -287,7 +287,7 @@
 						"{-} This figure discards each Harmful condition, then suffers 1 {H} for each condition discarded. If this figure would be defeated, it is not defeated until the end of this activation.",
 						"{Q}{A} BRUTALITY: Move 4 to engage 2 or more Rebels. Then, attack each adjacent Rebel.",
 						"{Q} Move 4 to attack {R1}.",
-						"{A} Force choke: Move 2 toward {R1}. Then that figure suffers 2 {H} and 1 {C}.",
+						"{A} FORCE CHOKE: Move 2 toward {R1}. Then that figure suffers 2 {H} and 1 {C}.",
 						"{A} Move 6 toward {R1}.",
 					]
 				},
@@ -492,7 +492,7 @@
 						"{A} Roll 1 blue die. A Rebel within 5 spaces and each other Rebel within 2 spaces of it suffers {H} equal to the {H} results. Target the Rebel within 2 spaces of the most other Rebels.",
 						"{A} Move 2 to reposition 2",
 						"{A} Move 6 to reposition 2.",
-						"{-} GENERAL’S ORDERS: The two other highest-cost Imperial figures move 2 towards the Rebels and become Focused.",
+						"{-} GENERAL’S ORDERS: The two other highest-cost Imperial figures move 2 towards the closest Rebel and become Focused.",
 					],
 				},
 				{
@@ -501,7 +501,7 @@
 						"{A} Roll 1 green die. A Rebel within 4 spaces suffers {H} equal to the {H} results. Target the healthy Rebel who has suffered the most {H}. If a {B} was rolled, become Focused.",
 						"{A} Move 2 to reposition 2.",
 						"{A} Move 6 to reposition 2.",
-						"{-} GENERAL’S ORDERS: The two other highest-cost Imperial figures move 2 towards the Rebels and become Focused.",
+						"{-} GENERAL’S ORDERS: The two other highest-cost Imperial figures move 2 towards the closest Rebel and become Focused.",
 					],
 				},
 				{
@@ -510,7 +510,7 @@
 						"{A} Roll 1 red die. A Rebel within 2 spaces suffers {H} equal to the {H} results. Target the healthy Rebel who has suffered the most {H}.",
 						"{A} Move 2 to reposition 2.",
 						"{A} Move 6 to reposition 2.",
-						"{-} GENERAL’S ORDERS: The two other highest-cost Imperial figures move 2 towards the Rebels and become Focused.",
+						"{-} GENERAL’S ORDERS: The two other highest-cost Imperial figures move 2 towards the closest Rebel and become Focused.",
 					],
 				},
 				{
@@ -519,7 +519,7 @@
 						"{A} Roll 1 yellow die. A Rebel within 3 spaces suffers {H} equal to the {H} results and {C} equal to the {C} results. Target the hero who has suffered the least {C}.",
 						"{A} Move 2 to reposition 2.",
 						"{A} Move 6 to reposition 2.",
-						"{-} GENERAL’S ORDERS: The two other highest-cost Imperial figures move 2 towards the Rebels and become Focused.",
+						"{-} GENERAL’S ORDERS: The two other highest-cost Imperial figures move 2 towards the closest Rebel and become Focused.",
 					],
 				},
 			],

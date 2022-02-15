@@ -57,7 +57,7 @@ public class DGPrefab : MonoBehaviour
 			iconImage.sprite = Resources.Load<Sprite>( $"Cards/Allies/{cd.id.Replace( "DG", "M" )}" );
 		}
 
-		if ( cd.name.Contains( "Elite" ) )
+		if ( cd.isElite )
 			outline.effectColor = eliteColor;
 
 		SetColorIndex();
@@ -219,15 +219,6 @@ public class DGPrefab : MonoBehaviour
 	{
 		CardViewPopup cardViewPopup = GlowEngine.FindObjectsOfTypeSingle<CardViewPopup>();
 		cardViewPopup.Show( cardDescriptor );
-
-		//CardZoom cardZoom = GlowEngine.FindObjectsOfTypeSingle<CardZoom>();
-		//Sprite s = null;
-		//if ( DataStore.villainCards.cards.Contains( cardDescriptor ) )
-		//	s = Resources.Load<Sprite>( $"Cards/Villains/{cardDescriptor.id}" );
-		//else
-		//	s = Resources.Load<Sprite>( $"Cards/Enemies/{cardDescriptor.expansion}/{cardDescriptor.id}" );
-		//if ( s != null )
-		//	cardZoom.Show( s, cardDescriptor );
 	}
 
 	public void SetGroupSize( int size )

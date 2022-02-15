@@ -119,12 +119,8 @@ public class HGPrefab : MonoBehaviour
 	{
 		if ( cardDescriptor.isDummy )
 			return;
-		CardZoom cardZoom = GlowEngine.FindObjectsOfTypeSingle<CardZoom>();
-		Sprite s = null;
-		if ( cardDescriptor.id[0] == 'A' )
-			s = Resources.Load<Sprite>( $"Cards/Allies/{cardDescriptor.id}" );
-		if ( s != null )
-			cardZoom.Show( s, cardDescriptor );
+		CardViewPopup cardViewPopup = GlowEngine.FindObjectsOfTypeSingle<CardViewPopup>();
+		cardViewPopup.Show( cardDescriptor );
 	}
 
 	public void SetHealth( HeroHealth heroHealth )

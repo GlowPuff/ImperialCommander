@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// DEPRECATED
+/// </summary>
 public class CardZoomer : MonoBehaviour
 {
 	public Image image, fader;
