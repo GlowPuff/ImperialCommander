@@ -1296,9 +1296,14 @@
 		"surges": [
 			"{B}: +2 Accuracy",
 			"{B}: +2 {H}",
-			"{B}: After the attack resolves, if it did not miss, the defender suffers 1 {C}.",
+			"{B}: Harass (see below)",
+        ],
+		"abilities": [
+			{
+				"name": "Harass",
+				"text": "{B}: After the attack resolves, if it did not miss, the defender suffers 1 {C}."
+			}
 		],
-		"abilities": [],
 	},		
 	{
 		"name": "Jawa Scavenger (Elite)",

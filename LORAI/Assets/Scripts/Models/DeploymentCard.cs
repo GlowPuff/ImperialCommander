@@ -44,6 +44,7 @@ public class CardDescriptor : IEquatable<CardDescriptor>
 	public DiceColor[] attacks;
 	public AttackType attackType;
 	public FigureSize miniSize;
+	public GroupTraits[] groupTraits;
 	//==end v.1.0.21 additions
 	//==
 

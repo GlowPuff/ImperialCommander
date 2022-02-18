@@ -17,6 +17,7 @@ public enum NetworkStatus { Busy, UpToDate, Error, WrongVersion }
 public enum DiceColor { White, Black, Yellow, Red, Green, Blue, Grey }
 public enum AttackType { Ranged, Melee, None }
 public enum FigureSize { Small1x1, Medium1x2, Large2x2, Huge2x3 }
+public enum GroupTraits { Trooper, Leader, HeavyWeapon, Guardian, Brawler, Droid, Vehicle, Hunter, Creature, Smuggler, Spy, ForceUser, Wookiee, Hero }
 
 public class HealthState
 {

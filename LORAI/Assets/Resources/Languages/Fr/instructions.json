@@ -492,7 +492,7 @@
 						"{A} Lancer 1 dé bleu. Un Rebelle à 5 cases ou moins et tous les Rebelles à 2 cases ou moins du premier subissent {H} égal aux résultats {H} obtenus. Cibler le Rebelle à 2 cases ou moins du plus de Rebelles.",
 						"{A} Déplacement de 2 pour se positionner à 2.",
 						"{A} Déplacement de 6 pour se positionner à 2.",
-						"{-} ORDRES DU GENERAL: Les 2 autres figurines ayant le coût le plus élevé se déplacent de 2 vers les Rebelles et deviennent Concentré.",
+						"{-} ORDRES DU GENERAL: Les 2 autres figurines ayant le coût le plus élevé se déplacent de 2 vers le Rebelle le plus proche et deviennent Concentré.",
 					],
 				},
 				{
@@ -501,7 +501,7 @@
 						"{A} Lancer 1 dé vert. Un Rebelle à 4 cases ou moins subit {H} égal aux résultats {H} obtenus. Cibler le Rebelle indemne qui a subi le plus de {H}. Si un {B} a été obtenu, devenir Concentré.",
 						"{A} Déplacement de 2 pour se positionner à 2.",
 						"{A} Déplacement de 6 pour se positionner à 2.",
-						"{-} ORDRES DU GENERAL: Les 2 autres figurines ayant le coût le plus élevé se déplacent de 2 vers les Rebelles et deviennent Concentré.",
+						"{-} ORDRES DU GENERAL: Les 2 autres figurines ayant le coût le plus élevé se déplacent de 2 vers le Rebelle le plus proche et deviennent Concentré.",
 					],
 				},
 				{
@@ -510,7 +510,7 @@
 						"{A} Lancer 1 dé rouge. Un Rebelle à 2 cases ou moins subit {H} égal aux résultats {H} obtenus. Cibler le Rebelle indemne qui a subi le plus de {H}.",
 						"{A} Déplacement de 2 pour se positionner à 2.",
 						"{A} Déplacement de 6 pour se positionner à 2.",
-						"{-} ORDRES DU GENERAL: Les 2 autres figurines ayant le coût le plus élevé se déplacent de 2 vers les Rebelles et deviennent Concentré.",
+						"{-} ORDRES DU GENERAL: Les 2 autres figurines ayant le coût le plus élevé se déplacent de 2 vers le Rebelle le plus proche et deviennent Concentré.",
 					],
 				},
 				{
@@ -519,7 +519,7 @@
 						"{A} Lancer 1 dé jaune. Un Rebelle à 3 cases ou moins subit {H} égal aux résultats {H} obtenus et subit aussi {C} égal aux résultats {C} obtenus. Cibler le Rebelle indemne qui a subi le moins de {C}.",
 						"{A} Déplacement de 2 pour se positionner à 2.",
 						"{A} Déplacement de 6 pour se positionner à 2.",
-						"{-} ORDRES DU GENERAL: Les 2 autres figurines ayant le coût le plus élevé se déplacent de 2 vers les Rebelles et deviennent Concentré.",
+						"{-} ORDRES DU GENERAL: Les 2 autres figurines ayant le coût le plus élevé se déplacent de 2 vers le Rebelle le plus proche et deviennent Concentré.",
 					],
 				},
 			],

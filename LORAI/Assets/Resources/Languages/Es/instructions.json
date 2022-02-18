@@ -492,7 +492,7 @@
 						"{A} Lanza 1 dado azul. Un Rebelde a 5 casillas y todo Rebelde a 2 casillas sufren {H} igual a los resultados {H}. Objetivo el Rebelde a 2 casillas del máximo de Rebeldes.",
 						"{A} Mueve 2 para reposicionar a 2",
 						"{A} Mueve 6 para reposicionar a 2.",
-						"{-} ORDENES DEL GENERAL: Las 2 otras figuras del bando Imperial con el mayor coste de figura mueve 2 hacia los Rebeldes y adquieren Concentración.",
+						"{-} ORDENES DEL GENERAL: Las otras dos figuras Imperiales de mayor coste mueven 2 hacia el Rebelde más cercano y adquieren Concentración.",
 					],
 				},
 				{
@@ -501,7 +501,7 @@
 						"{A} Lanza 1 dado verde. Un Rebelde a 4 casillas sufres {H} igual a los resultados {H}. Objetivo el Rebelde sano que haya sufrido más {H}. Si sale un {B}, adquiere Concentración.",
 						"{A} Mueve 2 para reposicionar a 2.",
 						"{A} Mueve 6 para reposicionar a 2.",
-						"{-} ORDENES DEL GENERAL: Las 2 otras figuras del bando Imperial con el mayor coste de figura mueve 2 hacia los Rebeldes y adquieren Concentración.",
+						"{-} ORDENES DEL GENERAL: Las otras dos figuras Imperiales de mayor coste mueven 2 hacia el Rebelde más cercano y adquieren Concentración.",
 					],
 				},
 				{
@@ -510,7 +510,7 @@
 						"{A} Lanza 1 dado rojo. Un Rebelde a 2 casillas sufres {H} igual a los resultados {H}. Objetivo el Rebelde sano que haya sufrido más {H}.",
 						"{A} Mueve 2 para reposicionar a 2.",
 						"{A} Mueve 6 para reposicionar a 2.",
-						"{-} ORDENES DEL GENERAL: Las 2 otras figuras del bando Imperial con el mayor coste de figura mueve 2 hacia los Rebeldes y adquieren Concentración.",
+						"{-} ORDENES DEL GENERAL: Las otras dos figuras Imperiales de mayor coste mueven 2 hacia el Rebelde más cercano y adquieren Concentración.",
 					],
 				},
 				{
@@ -519,7 +519,7 @@
 						"{A} Lanza 1 dado amarillo. Un Rebelde a 3 casillas sufres {H} igual a los resultados {H} y {C} igual a los resultados {C}. Objetivo el Héroe que haya sufrido menos {C}.",
 						"{A} Mueve 2 para reposicionar a 2.",
 						"{A} Mueve 6 para reposicionar a 2.",
-						"{-} ORDENES DEL GENERAL: Las 2 otras figuras del bando Imperial con el mayor coste de figura mueve 2 hacia los Rebeldes y adquieren Concentración.",
+						"{-} ORDENES DEL GENERAL: Las otras dos figuras Imperiales de mayor coste mueven 2 hacia el Rebelde más cercano y adquieren Concentración.",
 					],
 				},
 			],

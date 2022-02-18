@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,8 +8,6 @@ using UnityEngine.UI;
 //Handle toggling ENEMY GROUPS and VILLAINS ONLY
 public class GroupToggleContainer : MonoBehaviour
 {
-	//public Image previewImage;
-	//public TextMeshProUGUI previewNameText;
 	public ExpansionController expansionController;
 	public DynamicCardPrefab cardPrefab;
 
@@ -40,15 +37,9 @@ public class GroupToggleContainer : MonoBehaviour
 			return;
 
 		sound.PlaySound( FX.Click );
-		//previewImage.gameObject.SetActive( true );
 		cardPrefab.gameObject.SetActive( true );
 
 		var id = int.Parse( enemyCards[index].id.Substring( 2 ).TrimStart( '0' ) );
-
-		//if ( id > 69 )
-		//	previewImage.sprite = Resources.Load<Sprite>( $"Cards/Villains/{enemyCards[index].id}" );
-		//else
-		//	previewImage.sprite = Resources.Load<Sprite>( $"Cards/Enemies/{selectedExpansion}/{enemyCards[index].id}" );
 
 		if ( enemyCards[index].id == "DG070" )
 			cardPrefab.gameObject.SetActive( false );
