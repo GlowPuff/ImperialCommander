@@ -104,9 +104,11 @@
 		"fameIncreasedUC": "You have gained fame",
 		"noRandomMatchesUC": "No matching groups with cost {d} or less.",
 		"noAbilitiesUC": "No Abilities",
-		"ignoredAbilitiesUC": "Ignored Abilities",
-		"noKeywordsUC": "No Keywords",
-		"noneUC": "None"
+		"ignoredAbilitiesUC": "Ignored Card Abilities",
+		"noKeywordsUC": "None",
+		"noneUC": "None",
+		"rewardUC": "Reward",
+		"pageUC": "Page"
 	},
 	"uiSettings": {
 		"settingsHeading": "settings",

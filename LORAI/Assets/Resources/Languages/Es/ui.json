@@ -102,7 +102,13 @@
 		"deployModeLanding": "aterrizaje",
 		"deployModeOnslaught": "embate",
 		"fameIncreasedUC": "Has ganado fama",
-		"noRandomMatchesUC": "No se encuentran grupos con coste {d} o menos."
+		"noRandomMatchesUC": "No se encuentran grupos con coste {d} o menos.",
+		"noAbilitiesUC": "Sin Abilities",
+		"ignoredAbilitiesUC": "Abilities Ignoradas",
+		"noKeywordsUC": "No Keywords",
+		"noneUC": "Ninguna",
+		"rewardUC": "Recompensa",
+		"pageUC": "Página"		
 	},
 	"uiSettings": {
 		"settingsHeading": "opciones",

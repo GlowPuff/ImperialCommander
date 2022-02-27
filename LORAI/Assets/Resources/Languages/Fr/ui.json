@@ -102,7 +102,13 @@
 		"deployModeLanding": "attérissage",
 		"deployModeOnslaught": "assaut",
 		"fameIncreasedUC": "Vous avez gagné de la gloire",
-		"noRandomMatchesUC": "Aucun groupe correspondant ayant un coût de {d} ou moins."
+		"noRandomMatchesUC": "Aucun groupe correspondant ayant un coût de {d} ou moins.",
+		"noAbilitiesUC": "Aucune Capacité",
+		"ignoredAbilitiesUC": "Capacité(s) Ignorée(s)",
+		"noKeywordsUC": "Aucune",
+		"noneUC": "Aucune",
+		"rewardUC": "Récompense",
+		"pageUC": "Page"
 	},
 	"uiSettings": {
 		"settingsHeading": "paramètres",

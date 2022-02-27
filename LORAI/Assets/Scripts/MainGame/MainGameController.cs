@@ -1,6 +1,6 @@
-﻿using DG.Tweening;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
@@ -216,7 +216,11 @@ public class MainGameController : MonoBehaviour
 		sound.PlaySound( FX.Click );
 		var txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}rules" );
 		if ( txt != null )
-			missionTextBox.Show( txt.text );
+		{
+			if ( GlowEngine.FindObjectsOfTypeSingle<EnemyActivationPopup>().gameObject.activeInHierarchy )
+				GlowEngine.FindObjectsOfTypeSingle<EnemyActivationPopup>().OnReturn( false );
+			missionTextBox.Show( txt.text, OnReturn );
+		}
 		else
 			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "Could not find Mission Rules: " + DataStore.sessionData.selectedMissionID );
 	}
@@ -227,9 +231,19 @@ public class MainGameController : MonoBehaviour
 		sound.PlaySound( FX.Click );
 		var txt = Resources.Load<TextAsset>( $"Languages/{DataStore.languageCodeList[DataStore.languageCode]}/MissionText/{DataStore.sessionData.selectedMissionID}info" );
 		if ( txt != null )
-			missionTextBox.Show( txt.text );
+		{
+			if ( GlowEngine.FindObjectsOfTypeSingle<EnemyActivationPopup>().gameObject.activeInHierarchy )
+				GlowEngine.FindObjectsOfTypeSingle<EnemyActivationPopup>().OnReturn( false );
+			missionTextBox.Show( txt.text, OnReturn );
+		}
 		else
 			GlowEngine.FindObjectsOfTypeSingle<QuickMessage>().Show( "Could not find Mission Info: " + DataStore.sessionData.selectedMissionID );
+	}
+
+	private void OnReturn()
+	{
+		if ( GlowEngine.FindObjectsOfTypeSingle<EnemyActivationPopup>().gameObject.activeInHierarchy )
+			GlowEngine.FindObjectsOfTypeSingle<EnemyActivationPopup>().OnReturn();
 	}
 
 	public void OnOptionalDeploy()

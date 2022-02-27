@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,8 +11,12 @@ public class MissionTextBox : MonoBehaviour
 	public Image fader;
 	public CanvasGroup cg;
 
-	public void Show( string text )
+	Action callback;
+
+	public void Show( string text, Action action = null )
 	{
+		callback = action;
+
 		gameObject.SetActive( true );
 		theText.text = text;
 		fader.color = new Color( 0, 0, 0, 0 );
@@ -28,6 +33,7 @@ public class MissionTextBox : MonoBehaviour
 
 	public void OnClose()
 	{
+		callback?.Invoke();
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
 		fader.DOFade( 0, .5f ).OnComplete( () => gameObject.SetActive( false ) );
 		cg.DOFade( 0, .2f );

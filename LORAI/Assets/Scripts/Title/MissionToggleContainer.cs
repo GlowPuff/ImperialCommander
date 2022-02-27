@@ -7,7 +7,7 @@ using UnityEngine.UI;
 //Handle toggling MISSIONS ONLY
 public class MissionToggleContainer : MonoBehaviour
 {
-	List<Card> missionCards = new List<Card>();
+	List<MissionCard> missionCards = new List<MissionCard>();
 	Toggle[] buttonToggles;
 	Expansion selectedExpansion;
 	Sound sound;

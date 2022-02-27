@@ -1,8 +1,8 @@
-﻿using DG.Tweening;
-using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using DG.Tweening;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -27,6 +27,7 @@ public class NewGameScreen : MonoBehaviour
 	public HeroChooser heroChooser;
 	public GridLayoutGroup gridLayoutGroup;
 	public SetupLanguageController languageController;
+	public CardViewPopup cardViewPopup;
 
 	Sound sound;
 
@@ -128,8 +129,8 @@ public class NewGameScreen : MonoBehaviour
 		EventSystem.current.SetSelectedGameObject( null );
 		sound.PlaySound( FX.Click );
 
-		Sprite sprite = Resources.Load<Sprite>( $"Cards/Missions/{DataStore.sessionData.selectedMissionExpansion}/{DataStore.sessionData.selectedMissionID}" );
-		cardZoomer.ZoomIn( sprite );
+		var mc = DataStore.missionCards[DataStore.sessionData.selectedMissionExpansion.ToString()].Where( x => x.id.ToLower() == DataStore.sessionData.selectedMissionID.ToLower() ).First();
+		cardViewPopup.ShowMissionCard( mc );
 	}
 
 	public void OnBack()
@@ -258,7 +259,7 @@ public class NewGameScreen : MonoBehaviour
 			//restoring defaults calls this method
 			//langauge may have been changed since saving the defaults
 			//instead of relying on the saved mission NAME (possibly wrong language), lookup current translated name using the saved id
-			var c = DataStore.missionCards[DataStore.sessionData.selectedMissionExpansion.ToString()].Where( x => x.id == n ).FirstOr( new Card { name = "" } );
+			var c = DataStore.missionCards[DataStore.sessionData.selectedMissionExpansion.ToString()].Where( x => x.id.ToLower() == n.ToLower() ).FirstOr( new MissionCard { name = "" } );
 
 			selectedMissionText.text = c.name.ToLower();
 		}

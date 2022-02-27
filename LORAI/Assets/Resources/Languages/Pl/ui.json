@@ -102,7 +102,13 @@
 		"deployModeLanding": "desant",
 		"deployModeOnslaught": "inwazja",
 		"fameIncreasedUC": "Zdobywasz sławę",
-		"noRandomMatchesUC": "Nie ma grup o koszcie {d} lub mniejszym."
+		"noRandomMatchesUC": "Nie ma grup o koszcie {d} lub mniejszym.",
+		"noAbilitiesUC": "Brak Zdolności",
+		"ignoredAbilitiesUC": "Ignorowane Zdolności",
+		"noKeywordsUC": "Brak słów kluczowych",
+		"noneUC": "Brak",
+		"rewardUC": "Nagroda",
+		"pageUC": "Strona"	
 	},
 	"uiSettings": {
 		"settingsHeading": "ustawienia",
@@ -115,7 +121,7 @@
 		"ok": "ok"
 	},
 	"uiExpansions": {
-		"core": "core",
+		"core": "imperium atakuje",
 		"bespin": "bespiński gambit",
 		"hoth": "powrót na hoth",
 		"jabba": "królestwo jabby",

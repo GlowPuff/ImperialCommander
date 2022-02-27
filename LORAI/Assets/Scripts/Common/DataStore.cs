@@ -10,7 +10,7 @@ public static class DataStore
 	public static readonly string appVersion = "v.1.0.21";
 	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
 
-	public static Dictionary<string, List<Card>> missionCards;
+	public static Dictionary<string, List<MissionCard>> missionCards;
 	/// <summary>
 	/// all enemies (excluding villains)
 	/// </summary>
@@ -59,7 +59,7 @@ public static class DataStore
 	{
 		string[] expansions = Enum.GetNames( typeof( Expansion ) );
 
-		missionCards = new Dictionary<string, List<Card>>();
+		missionCards = new Dictionary<string, List<MissionCard>>();
 		deploymentHand = new List<CardDescriptor>();
 		manualDeploymentList = new List<CardDescriptor>();
 		deployedHeroes = new List<CardDescriptor>();
@@ -117,19 +117,19 @@ public static class DataStore
 		{
 			string[] expansions = Enum.GetNames( typeof( Expansion ) );
 			TextAsset json;
-			missionCards = new Dictionary<string, List<Card>>();
-			//load mission cards
+			missionCards = new Dictionary<string, List<MissionCard>>();
+			//load mission card DATA
 			foreach ( string expansion in expansions )
 			{
-				json = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/missions-{expansion}" );
+				json = Resources.Load<TextAsset>( $"MissionData/{expansion}" );
 				if ( json != null )
 				{
-					var cards = JsonConvert.DeserializeObject<MissionCard>( json.text );
-					missionCards.Add( expansion, cards.story.Concat( cards.side ).ToList() );
+					var cards = JsonConvert.DeserializeObject<List<MissionCard>>( json.text );
+					missionCards.Add( expansion, cards );
 				}
 			}
 
-			//load cards
+			//load card DATA
 			deploymentCards = LoadCards( "enemies" );
 			allyCards = LoadCards( "allies" );
 			villainCards = LoadCards( "villains" );
@@ -141,7 +141,8 @@ public static class DataStore
 			bonusEffects = LoadBonusEffects();
 			//ui
 			uiLanguage = LoadUILanguage();
-			uiLanguage.uiDeploymentGroups = LoadCardTranslations();
+			uiLanguage.uiDeploymentGroups = LoadDeploymentCardTranslations();
+			LoadMissionCardTranslations();
 
 			//assign translations to card data
 			SetCardTranslations( deploymentCards.cards );
@@ -151,9 +152,10 @@ public static class DataStore
 
 			Debug.Log( "Loaded Language: " + languageCodeList[languageCode] );
 		}
-		catch ( Exception )
+		catch ( Exception e )
 		{
 			Debug.Log( $"LoadTranslatedData() ERROR:\r\nError parsing data" );
+			Debug.Log( e );
 			//default to English so app loads correctly next time
 			languageCode = 0;
 			PlayerPrefs.SetInt( "language", 0 );
@@ -266,8 +268,9 @@ public static class DataStore
 		}
 	}
 
-	static UIDeploymentGroups LoadCardTranslations()
+	static UIDeploymentGroups LoadDeploymentCardTranslations()
 	{
+		string asset = "";
 		try
 		{
 			TextAsset enemies = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/DeploymentGroups/enemies" );
@@ -275,16 +278,57 @@ public static class DataStore
 			TextAsset villains = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/DeploymentGroups/villains" );
 			TextAsset heroes = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/DeploymentGroups/heroes" );
 
+			asset = "enemies";
 			List<CardLanguage> enemyCards = JsonConvert.DeserializeObject<List<CardLanguage>>( enemies.text );
+			asset = "allies";
 			List<CardLanguage> allyCards = JsonConvert.DeserializeObject<List<CardLanguage>>( allies.text );
+			asset = "villains";
 			List<CardLanguage> villainCards = JsonConvert.DeserializeObject<List<CardLanguage>>( villains.text );
+			asset = "heroes";
 			List<CardLanguage> heroCards = JsonConvert.DeserializeObject<List<CardLanguage>>( heroes.text );
 
 			return new UIDeploymentGroups() { allyCards = allyCards, villainCards = villainCards, heroCards = heroCards, enemyCards = enemyCards };
 		}
 		catch ( JsonReaderException e )
 		{
-			Debug.Log( $"LoadCardTranslations() ERROR:\r\nError parsing Card Languages" );
+			Debug.Log( $"LoadCardTranslations({asset}) ERROR:\r\nError parsing Card Languages" );
+			Debug.Log( e.Message );
+			LogError( e.Message );
+			throw new Exception();
+		}
+	}
+
+	/// <summary>
+	/// loads translations for ALL expansions
+	/// </summary>
+	static void LoadMissionCardTranslations()
+	{
+		try
+		{
+			for ( int i = 0; i < Enum.GetNames( typeof( Expansion ) ).Length; i++ )
+			{
+				TextAsset missions = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/MissionCardText/{(Expansion)i}" );
+				var cards = JsonConvert.DeserializeObject<List<MissionCard>>( missions.text );
+				//set translation data ONLY
+				for ( int e = 0; e < cards.Count; e++ )
+				{
+					missionCards[((Expansion)i).ToString()][e].expansion = (Expansion)i;
+					missionCards[((Expansion)i).ToString()][e].name = cards[e].name;
+					missionCards[((Expansion)i).ToString()][e].descriptionText = cards[e].descriptionText;
+					missionCards[((Expansion)i).ToString()][e].bonusText = cards[e].bonusText;
+					missionCards[((Expansion)i).ToString()][e].heroText = cards[e].heroText;
+					missionCards[((Expansion)i).ToString()][e].allyText = cards[e].allyText;
+					missionCards[((Expansion)i).ToString()][e].villainText = cards[e].villainText;
+					missionCards[((Expansion)i).ToString()][e].tagsText = cards[e].tagsText;
+					missionCards[((Expansion)i).ToString()][e].expansionText = cards[e].expansionText;
+					missionCards[((Expansion)i).ToString()][e].rebelRewardText = cards[e].rebelRewardText;
+					missionCards[((Expansion)i).ToString()][e].imperialRewardText = cards[e].imperialRewardText;
+				}
+			}
+		}
+		catch ( JsonReaderException e )
+		{
+			Debug.Log( $"LoadMissionCardTranslations() ERROR:\r\nError parsing Card Languages" );
 			Debug.Log( e.Message );
 			LogError( e.Message );
 			throw new Exception();
@@ -315,7 +359,7 @@ public static class DataStore
 		catch ( Exception e )
 		{
 			Debug.Log( $"SetCardTranslations() ERROR:\r\nError parsing card data" );
-			Debug.Log( e.Message );
+			Debug.Log( e );
 			LogError( e.Message );
 			throw new Exception();
 		}
@@ -708,9 +752,4 @@ public static class DataStore
 		//finally try to return the tier1/2 group, even if it's null
 		return validEnemy;
 	}
-
-	//public static CardLanguage CardTextFromID( string id )
-	//{
-	//	return uiLanguage.uiDeploymentGroups.cardLanguages.Where( x => x.id == id ).FirstOr( null );
-	//}
 }

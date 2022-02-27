@@ -102,7 +102,13 @@
 		"deployModeLanding": "dispiegamento",
 		"deployModeOnslaught": "assalto",
 		"fameIncreasedUC": "Hai guadagnato fama",
-		"noRandomMatchesUC": "Nessun gruppo corrispondente che costa {d} o meno."
+		"noRandomMatchesUC": "Nessun gruppo corrispondente che costa {d} o meno.",
+		"noAbilitiesUC": "Nessuna abilità",
+		"ignoredAbilitiesUC": "Abilità delle carte ignorate",
+		"noKeywordsUC": "Nessuno",
+		"noneUC": "Nessuno",
+		"rewardUC": "Ricompensa",
+		"pageUC": "Pagina"		
 	},
 	"uiSettings": {
 		"settingsHeading": "Impostazioni",

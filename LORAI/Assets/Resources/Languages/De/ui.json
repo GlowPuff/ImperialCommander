@@ -73,7 +73,7 @@
 		"fameHeading": "ruhm",
 		"awardsHeading": "auszeichnungen",
 		"fame1UC": "Falls ihr den Einsatz vor dem Ende von Runde 7 abschließt, beansprucht ihr die angezeigte Anzahl an Auszeichnungen.\n\nNach dem Einsatz können Auszeichnungen verwendet werden, um:",
-		"fameItem1UC": "• Während der Phase \"Aufrüstung der Rebellen\" eine zusätzliche Ausrüstungskarte von einem beliebigen Ausrüstungsstapel zu ziehen (Kosten: 1 Auszeichnung pro Karte).",
+		"fameItem1UC": "• Während der Phase \"AufrüBetäubeng der Rebellen\" eine zusätzliche AusrüBetäubengskarte von einem beliebigen AusrüBetäubengsstapel zu ziehen (Kosten: 1 Auszeichnung pro Karte).",
 		"fameItem2UC": "• Eine zusätzliche Nebeneinsatzkarte zu ziehen und sie als aktiven Einsatz ins Spiel zu bringen (Kosten: 2 Auszeichnungen pro Karte, maximal 2 Karten).",
 		"fame2UC": "Sobald der Rundenzähler 8 erreicht, werden die Einsatzauszeichnungen auf 0 gesetzt.",
 		"continueBtn": "weiter",
@@ -102,7 +102,13 @@
 		"deployModeLanding": "truppenlandung",
 		"deployModeOnslaught": "ansturm",		
 		"fameIncreasedUC": "Ruhm erhalten",
-		"noRandomMatchesUC": "Keine passenden Gruppen mit Kosten von {d} oder weniger."
+		"noRandomMatchesUC": "Keine passenden Gruppen mit Kosten von {d} oder weniger.",
+		"noAbilitiesUC": "Keine Fähigkeiten",
+		"ignoredAbilitiesUC": "Ignorierte Kartenfähigkeiten",
+		"noKeywordsUC": "Keine",
+		"noneUC": "Keine",
+		"rewardUC": "Belohnung",
+		"pageUC": "Seite"
 	},
 	"uiSettings": {
 		"settingsHeading": "einstellungen",

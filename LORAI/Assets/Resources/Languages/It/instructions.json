@@ -492,7 +492,7 @@
 						"{A} Tira 1 dado blu. Un Ribelle entro 5 caselle e ogni altro Ribelle entro 2 caselle da esso subisce {H} pari al risultato di {H}. Prendi di mira il Ribelle entro 2 caselle dalla maggior parte degli altri Ribelli.",
 						"{A} Muovi di 2 per riposizionare 2.",
 						"{A} Muovi di 6 per riposizionare 2.",
-						"{-} ORDINI DEL GENERALE: 2 miniature con il costo di schieramento più alto muovono di 2 verso i Ribelli e diventano Concentrate.",
+						"{-} ORDINI DEL GENERALE: Le altre due miniature Imperiali dal costo di schieramento più alto si spostano di 2 caselle verso il Ribelle più vicino e diventano Concentrate.",
 					],
 				},
 				{
@@ -501,7 +501,7 @@
 						"{A} Tira 1 dado verde. Un Ribelle entro 4 caselle subisce {H} pari al risultato di {H}. Prendi di mira il ribelle illeso che ha subito più {H}. Se è stato ottenuto un {B}, diventa Concentrato.",
 						"{A} Muovi di 2 per riposizionare 2.",
 						"{A} Muovi di 6 per riposizionare 2.",
-						"{-} ORDINI DEL GENERALE: 2 miniature con il costo di schieramento più alto muovono di 2 verso i Ribelli e diventano Concentrate.",
+						"{-} ORDINI DEL GENERALE: Le altre due miniature Imperiali dal costo di schieramento più alto si spostano di 2 caselle verso il Ribelle più vicino e diventano Concentrate.",
 					],
 				},
 				{
@@ -510,7 +510,7 @@
 						"{A} Tira 1 dado rosso. Un Ribelle entro 2 caselle subisce {H} pari al risultato di {H}. Prendi di mira il ribelle illeso che ha subito più {H}.",
 						"{A} Muovi di 2 per riposizionare 2.",
 						"{A} Muovi di 6 per riposizionare 2.",
-						"{-} ORDINI DEL GENERALE: 2 miniature con il costo di schieramento più alto muovono di 2 verso i Ribelli e diventano Concentrate.",
+						"{-} ORDINI DEL GENERALE: Le altre due miniature Imperiali dal costo di schieramento più alto si spostano di 2 caselle verso il Ribelle più vicino e diventano Concentrate.",
 					],
 				},
 				{
@@ -519,7 +519,7 @@
 						"{A} Tira 1 dado giallo. Un Ribelle entro 3 caselle subisce {H} pari al risultato {H} e {C} uguale al risultato {C}. Scegli come bersaglio l'eroe che ha subito meno {C}.",
 						"{A} Muovi di 2 per riposizionare 2.",
 						"{A} Muovi di 6 per riposizionare 2.",
-						"{-} ORDINI DEL GENERALE: 2 miniature con il costo di schieramento più alto muovono di 2 verso i Ribelli e diventano Concentrate.",
+						"{-} ORDINI DEL GENERALE: Le altre due miniature Imperiali dal costo di schieramento più alto si spostano di 2 caselle verso il Ribelle più vicino e diventano Concentrate.",
 					],
 				},
 			],

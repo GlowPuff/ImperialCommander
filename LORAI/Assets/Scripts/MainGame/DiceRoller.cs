@@ -13,10 +13,10 @@ public class DiceRoller : MonoBehaviour
 	public DynamicCardPrefab dynamicCard;
 
 	CardDescriptor card;
-	Action callback;
+	Action<bool> callback;
 	GridLayoutGroup gridLayout;
 
-	public void Show( CardDescriptor cd, bool isAttack, Action ac )
+	public void Show( CardDescriptor cd, bool isAttack, Action<bool> ac )
 	{
 		callback = ac;
 		okBtn.text = DataStore.uiLanguage.uiSettings.ok;
@@ -88,7 +88,7 @@ public class DiceRoller : MonoBehaviour
 		FindObjectOfType<Sound>().PlaySound( FX.Click );
 		fader.DOFade( 0, .5f ).OnComplete( () =>
 		{
-			callback?.Invoke();
+			callback?.Invoke( true );
 			gameObject.SetActive( false );
 		} );
 		cg.DOFade( 0, .2f );

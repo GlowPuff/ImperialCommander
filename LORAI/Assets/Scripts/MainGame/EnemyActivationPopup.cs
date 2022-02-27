@@ -1,5 +1,5 @@
-﻿using DG.Tweening;
-using System.Linq;
+﻿using System.Linq;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -275,9 +275,9 @@ public class EnemyActivationPopup : MonoBehaviour
 		cardViewPopup.Show( cardDescriptor, OnReturn );
 	}
 
-	void OnReturn()
+	public void OnReturn( bool value = true )
 	{
-		spaceListen = true;
+		spaceListen = value;
 	}
 
 	public void OnClose()
