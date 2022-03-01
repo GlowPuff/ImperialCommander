@@ -197,9 +197,10 @@ public class DynamicCardPrefab : MonoBehaviour
 				ntt.color = new Color( 137f / 255f, 164f / 255f, 1 );
 
 				//replace glyphs
+				string aName = ReplaceGlyphs( card.abilities[i].name );
 				string item = ReplaceGlyphs( card.abilities[i].text );
 
-				ntt.text = $"<size=25><b><color=orange>{card.abilities[i].name}:</color></b> ";
+				ntt.text = $"<size=25><b><color=orange>{aName}:</color></b> ";
 				ntt.text += item + "</size>";
 			}
 		}

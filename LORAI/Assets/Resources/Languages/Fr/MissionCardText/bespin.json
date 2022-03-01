@@ -1,98 +1,98 @@
 [
 	{
 		"id": "Bespin1",
-		"name": "Cloud City's Secret",
-		"descriptionText": "<i>An agent obtained some Imperial codes before going silent. Whether he is captured or in hiding is unknown, but he was very clear that the information needed to be recovered from a dead drop in Cloud City. The end of his report reads: \n\"Intel seems of great importance. He is hunting it.\"</i>",
+		"name": "Le secret de la Cité des Nuages",
+		"descriptionText": "<i>Un agent a récupéré des codes Impériaux avant de disparaître. Difficile de dire s'il a été capturé ou s'il se terre. En tout cas, l'information a dû être récupérée dans une boîte aux lettres morte de la Cité des Nuages. Voici la fin du message:\n\"Le renseignement semble d'importance vitale. Il le cherche.\"</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Bespin",
-			"Outskirts"
+			"Abords"
 			],
-		"expansionText": "The Bespin Gambit",
-		"rebelRewardText": "\"Under the Radar\" Reward Card",
+		"expansionText": "Le Gambit de Bespin",
+		"rebelRewardText": "Carte récompense \"Sous couvert\"",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Bespin2",
-		"name": "Freedom Fighters",
-		"descriptionText": "<i>Lower-class citizens of Cloud City have been disappearing lately. Alliance Command received a distress message from the city's former computer-liaison officer, Lobot: \n\"Trandoshan slavers operating in Cloud City. Rescue teams missing. Please send reinforcements. I will be targeted.\"</i>",
+		"name": "Combattants de la liberté",
+		"descriptionText": "<i>Des habitants des classes populaires de la Cité des Nuages ont commencé à disparaître. Le Commandant de l'Alliance a reçu un message de détresse de Lobot, l'ancien officier en charge de l'administration de la ville:\n\"Esclavagistes trandosiens en opération dans la Cité des Nuages. Disparition d'équipes de sauvetage. Veuillez envoyer renforts. Vais être pris pour cible.\"</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Bespin",
-			"Outskirts"
+			"Abords"
 			],
-		"expansionText": "The Bespin Gambit",
-		"rebelRewardText": "\"Lobot's Favor\" Reward Card",
+		"expansionText": "Le Gambit de Bespin",
+		"rebelRewardText": "Carte récompense \"Faveurs de Lobot\"",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Bespin3",
-		"name": "Hostile Takeover",
-		"descriptionText": "<i>In an attempt to claim control of Cloud City's tibanna reserves, a nefarious ISB agent and the bounty hunter Bossk have joined forces. They have captured the local resistance leader, and Command wants him rescued. Intelligence indicates they are holding the leader for questioning and plan to transport him in carbonite to an unknown facility.</i>",
+		"name": "Manoeuvre hostile",
+		"descriptionText": "<i>Pour prendre le contrôle des réserves de Tibana de la Cité des Nuages, un vil agent du BSI et le chasseur de primes Bossk ont réuni leurs forces. Ils ont capturé le chef de la résistance locale, et le Commandement veut qu'il soit délivré. Le renseignement indique qu'ils détiennent le chef pour l'interroger et comptent le transporter dans la carbonite vers un complexe inconnu.</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Bespin",
-			"Facility"
+			"Complexe"
 			],
-		"expansionText": "The Bespin Gambit",
-		"rebelRewardText": "\"Relief Effort\" Reward Card",
+		"expansionText": "Le Gambit de Bespin",
+		"rebelRewardText": "Carte récompense \"Soulagement\"",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Bespin4",
-		"name": "Panic in the Streets",
-		"descriptionText": "<i>Clashes on Cloud City have taken their toll on the populace. People have begun blaming Rebels for the violence, preferring relative stability, even under Imperial banners. Fearing the loss of support for her guerrillas, Murne organizes a relief mission. She vows to help the people of Cloud City, and to win back their support.</i>",
+		"name": "Panique dans les rues",
+		"descriptionText": "<i>Les affrontements sur la Cité des Nuages ont coûté cher à la population. Les gens commencent à accuser les Rebelles d'être à l'origine des violences, car ils préfèrent la stabilité, aussi relative soit-elle, dussent-ils vivre sous le joug de l'Empire. Craignant la disparition de ses guérilleros, Murne planifie une mission d'apaisement. Elle jure d'aider les habitants de la Cité des Nuages et de regagner leur soutien.</i>",
 		"bonusText": "",
 		"heroText": "Murne Rin",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Bespin",
-			"Outskirts"
+			"Abords"
 			],
-		"expansionText": "The Bespin Gambit",
-		"rebelRewardText": "\"Cam Droid\" Reward Card",
+		"expansionText": "Le Gambit de Bespin",
+		"rebelRewardText": "Carte récompense \"Droïde vidéo\"",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Bespin5",
-		"name": "Reclamation",
-		"descriptionText": "<i>Lando Calrissian needs to sneak back into Cloud City to recover critical documents he left behind. The catch, he reveals, is that the local ISB have installed additional surveillance. Lando requests an elite team to escort him through the city on foot.</i>",
+		"name": "Récupération",
+		"descriptionText": "<i>Lando Calrissian doit retourner dans la Cité des Nuages pour y récupérer des documents de premier plan qu'il y a laissés. Le problème, affirme-t-il, c'est que le BSI y a accru sa surveillance. Lando demande à être escorté par une unité d'élite lorsqu'il parcourra la ville.</i>",
 		"bonusText": "",
 		"heroText": "",
-		"allyText": "Lando Calrissian (Charming Gambler)",
+		"allyText": "\"Lando Calrissian (Joueur Galant)\"",
 		"villainText": "",
 		"tagsText": [
 			"Bespin",
-			"Outskirts"
+			"Abords"
 			],
-		"expansionText": "The Bespin Gambit",
-		"rebelRewardText": "\"Lando Calrissian (Charming Gambler)\" ally",
+		"expansionText": "Le Gambit de Bespin",
+		"rebelRewardText": "Allié \"Lando Calrissian (Joueur Galant)\"",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Bespin6",
-		"name": "Reclassified",
-		"descriptionText": "<i>Rumors suggest that a trusted source has been selling information to the Empire for years. Digging further, Davith discovers that the traitor is his former handler, known enigmatically as \"The Duke\".\nHawkbat heads to a private compound to resecure everything his mentor has compromised.</i>",
+		"name": "Reclassifié",
+		"descriptionText": "<i>Selon les rumeurs, une source de confiance vendrait des renseignements à l'Empire depuis des années. En creusant un peu, Davith a découvert que le traître est son ancien maitre, connu sous le nom énigmatique du \"Duc\".\nHawkbat se dirige vers un complexe privé pour mettre la main sur tout ce que son mentor a pu compromettre.</i>",
 		"bonusText": "",
 		"heroText": "Davith Elso",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Bespin",
-			"Facility"
+			"Complexe"
 			],
-		"expansionText": "The Bespin Gambit",
-		"rebelRewardText": "\"Radiant Holocron\" Reward Card",
+		"expansionText": "Le Gambit de Bespin",
+		"rebelRewardText": "Carte récompense \"Holocron radiant\"",
 		"imperialRewardText": ""
 	}
 ]

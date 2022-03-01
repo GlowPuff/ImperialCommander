@@ -108,7 +108,7 @@
 		"noKeywordsUC": "Brak słów kluczowych",
 		"noneUC": "Brak",
 		"rewardUC": "Nagroda",
-		"pageUC": "Strona"	
+		"pageUC": "Strona"
 	},
 	"uiSettings": {
 		"settingsHeading": "ustawienia",
@@ -121,7 +121,7 @@
 		"ok": "ok"
 	},
 	"uiExpansions": {
-		"core": "imperium atakuje",
+		"core": "zestaw podstawowy",
 		"bespin": "bespiński gambit",
 		"hoth": "powrót na hoth",
 		"jabba": "królestwo jabby",

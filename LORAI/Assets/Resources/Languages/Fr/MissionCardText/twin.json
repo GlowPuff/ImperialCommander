@@ -1,8 +1,8 @@
 [
 	{
 		"id": "Twin1",
-		"name": "Canyon Run",
-		"descriptionText": "<i>The Empire's work on Tatooine has taken a turn for the worse. Intelligence indicates that they have established a base in the Jundland Wastes, using the forbidding presence of the Tusken Raiders as a natural defense.\nThis base needs to be infiltrated and its operations data stolen before it's too late...</i>",
+		"name": "Accrochage au canyon",
+		"descriptionText": "<i>La situation s'aggrave sur Tatooine suite aux opérations Impériales. Selon certains espions, les Impériaux se sont alliés aux Pillards Tusken de la région et ces deux groupes travaillent main dans la main au fin fond du désert du Jundland.\nIl faut absolument s'infiltrer dans cette base et dérober ses données avant qu'il ne soit trop tard...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
@@ -10,33 +10,33 @@
 		"tagsText":
 			[
 			"Tatooine",
-			"Wastes"
+			"Désolations"
 			],
-		"expansionText": "Twin Shadows",
-		"rebelRewardText": "\"Counterparts\" Reward Card",
+		"expansionText": "Ombres Jumelles",
+		"rebelRewardText": "Carte récompense \"Homologues\"",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Twin2",
-		"name": "Hunted Down",
-		"descriptionText": "<i>In response to a growing Imperial threat on Tatooine, Han Solo recently took on a mission to investigate the Rim planet. But now that communication with Solo has been lost for weeks, Command has become concerned that his past may have finally caught up with him...</i>",
+		"name": "Traqués",
+		"descriptionText": "<i>L'influence Impériale se renforce sur Tatooine. Han Solo est récemment parti enquêter sur la gravité de la menace pesant sur cette planète de la Bordure. Mais on a perdu le contact avec lui depuis des semaines et le Haut Commandement craint que son passé ne l'ait rattrapé...</i>",
 		"bonusText": "",
 		"heroText": "",
-		"allyText": "Han Solo (Scoundrel)",
+		"allyText": "Han Solo (Vaurien)",
 		"villainText": "",
 		"tagsText":
 			[
 			"Tatooine",
-			"Outskirts"
+			"Abords"
 			],
-		"expansionText": "Twin Shadows",
-		"rebelRewardText": "\"Han Solo (Scoundrel)\" ally",
+		"expansionText": "Ombres Jumelles",
+		"rebelRewardText": "Allié \"Han Solo (Vaurien)\"",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Twin3",
-		"name": "Past Life Enemies",
-		"descriptionText": "<i>No one in the Rebellion seems to know the origin of Biv Bodhrik's vengeful hatred for stormtroopers, just that he is the most ruthless and efficient stormtrooper killer available. So, when operatives lost contact with C-3PO during recon of a potential stormtrooper outpost on Tatooine, Biv was on the top of the list to complete the mission...</i>",
+		"name": "Ennemis d'une vie antérieure",
+		"descriptionText": "<i>Aucun Rebelle ne semble connaître la raison de cette haine viscérale que voue Biv Bodhrik aux stormtroopers, mais chacun sait qu'il n'a pas son pareil pour les abattre sans pitié. Par conséquent, lorsqu'on a perdu le contact avec C-3P0 lors d'une mission de reconnaissance destinée à explorer une base de stormtroopers sur Tatooine, Biv faisait partie des premiers noms sur la liste des agents à envoyer...</i>",
 		"bonusText": "",
 		"heroText": "Biv Bodhrik",
 		"allyText": "",
@@ -44,16 +44,16 @@
 		"tagsText":
 			[
 			"Tatooine",
-			"Outskirts"
+			"Abords"
 			],
-		"expansionText": "Twin Shadows",
-		"rebelRewardText": "\"Hunt them Down\" Reward Card",
+		"expansionText": "Ombres Jumelles",
+		"rebelRewardText": "Carte récompense \"Traquez-les\"",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Twin4",
-		"name": "Shady Dealings",
-		"descriptionText": "<i>Saska Teft's black market gadgeteering trade may have its shady side, but it also comes with the fringe benefit of many underworld contacts. When it comes to information brokering, she is as efficient as R2-D2 is with a computer terminal. It only makes sense that Command wants them both to investigate Imperial rumors on Tatooine, Saska's home turf...</i>",
+		"name": "Douteuses tractations",
+		"descriptionText": "<i>En vendant ses gadgets au marché noir, Saska Teft s'est impliquée dans des milieux louches, ce qui n'a pas que des inconvénients. Quand il s'agit de glaner des informations auprès de la pègre, elle se révèle aussi efficace que R2-D2 avec un terminal informatique. Il paraît donc logique que le Haut Commandement les envoie tous deux enquêter sur des rumeurs faisant état d'une présence Impériale sur Tatooine, foyer de Saska...</i>",
 		"bonusText": "",
 		"heroText": "Saska Teft",
 		"allyText": "",
@@ -61,44 +61,44 @@
 		"tagsText":
 			[
 			"Tatooine",
-			"Outskirts"
+			"Abords"
 			],
-		"expansionText": "Twin Shadows",
-		"rebelRewardText": "\"Tech Goggles\" Reward Card",
+		"expansionText": "Ombres Jumelles",
+		"rebelRewardText": "Carte récompense \"Lunettes de mécano\"",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Twin5",
-		"name": "Fire in the Sky",
-		"descriptionText": "<i>A Star Destroyer orbiting Tatooine foreshadows strong operations against the Rebels. The recent arrival of </i>Slave I<i> has made a Rebel mission against this ship almost imperative...</i>",
-		"bonusText": "After the heroes resolve any other side mission, discard this card and the Empire receives the listed reward. If the heroes lose this mission, increase the threat level of the next mission by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+		"name": "Opération Ciel embrasé",
+		"descriptionText": "<i>Un Destroyer Stellaire en orbite autour de Tatooine ne présage rien de bon pour les Rebelles. D'autant que le Slave I vient d'arriver sur place... Il est impératif de lancer une mission contre ce vaisseau.</i>",
+		"bonusText": "Après que les héros ont résolu n'importe quelle autre Mission annexe, défaussez cette carte et l'Empire reçoit la récompense figurant ci-dessous. Si les héros échouent à cette mission, augmenter de 1 le niveau de menace de la prochaine mission. Pendant la séquence d'Amélioration Rebelle, les joueurs Rebelle peuvent décider de dépenser 50 crédits par héros pour éviter ce malus.",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText":
 			[
-			"Deep Space",
-			"Imperial"
+			"Espace profond",
+			"Impérial"
 			],
-		"expansionText": "Twin Shadows",
+		"expansionText": "Ombres Jumelles",
 		"rebelRewardText": "",
-		"imperialRewardText": "+1 Threat Level for the next mission"
+		"imperialRewardText": "+1 au niveau de menace pour la prochaine mission"
 	},
 	{
 		"id": "Twin6",
-		"name": "Infiltrated",
-		"descriptionText": "<i>The Empire has been hunting Luke Skywalker's location for months. Now a Star Destroyer is closing in on his hideout on Sullust, hoping to capture the Rebellion's hero.</i>",
-		"bonusText": "After the heroes resolve any other side mission, discard this card and the Empire receives the listed reward. If the heroes lose this mission, increase the threat level of the next mission by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+		"name": "Infiltrés",
+		"descriptionText": "<i>L'Empire cherche à localiser Luke Skywalker depuis des mois. Un Destroyer Stellaire s'approche de son refuge sur Sullust, prêt à capturer le héros de la Rébellion.</i>",
+		"bonusText": "Après que les héros ont résolu n'importe quelle autre Mission annexe, défaussez cette carte et l'Empire reçoit la récompense figurant ci-dessous. Si les héros échouent à cette mission, augmenter de 1 le niveau de menace de la prochaine mission. Pendant la séquence d'Amélioration Rebelle, les joueurs Rebelle peuvent décider de dépenser 50 crédits par héros pour éviter ce malus.",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText":
 			[
-			"Deep Space",
-			"Imperial"
+			"Espace profond",
+			"Impérial"
 			],
-		"expansionText": "Twin Shadows",
+		"expansionText": "Ombres Jumelles",
 		"rebelRewardText": "",
-		"imperialRewardText": "+1 Threat Level for the next mission"
+		"imperialRewardText": "+1 au niveau de menace pour la prochaine mission"
 	}
 ]

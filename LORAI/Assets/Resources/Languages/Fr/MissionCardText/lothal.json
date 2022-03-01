@@ -1,8 +1,8 @@
 [
 	{
 		"id": "Lothal1",
-		"name": "Call to Action",
-		"descriptionText": "<i>\"Every time I have worked with a Rebel, everyone has profited!\" declares Hondo Ohnaka, former pirate and current ne'er-do-well. \"The Empire thinks there are no Rebels left on Lothal, so stealing this weapons should be like taking credits from a baby.\" He stares off into space, grinning. \"Ah, good times.\"</i>",
+		"name": "Appel à l'action",
+		"descriptionText": "<i>\"Chaque fois que j'ai travaillé avec un Rebelle, tout le monde en a profité !\" déclare Hondo Ohnaka, ancien pirate et irresponsable notoire. \"L'Empire pense qu'il n'y a plus de Rebelles sur Lothal, alors voler ces armes, ce sera comme de piquer des crédits à un bébé.\" Son regard se perd dans le vide et un grand sourire s'affiche sur son visage. \"Ah, le bon vieux temps.\"</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
@@ -10,50 +10,50 @@
 		"tagsText":
 			[
 			"Lothal",
-			"Outskirts"
+			"Abords"
 			],
-		"expansionText": "Tyrants of Lothal",
-		"rebelRewardText": "\"Nova Cell Leader\" Reward Card",
+		"expansionText": "Tyrans de Lothal",
+		"rebelRewardText": "Carte récompense \"Leader de la cellule nova\"",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Lothal2",
-		"name": "Duel on Devaron",
-		"descriptionText": "<i>Tress's father used to tell the wildest stories of his days smuggling spice all over the Outer Rim. She remembers his bravado... and his obsessive need to record and protect every clever hyperroute he ever used. Though he is gone, these navigational records could help Rebel smugglers, but to get it, Tress will have to return to a home of which she has only bad memories.</i>",
+		"name": "Duel sur Dévaron",
+		"descriptionText": "<i>Le père de Tress avait pour habitude de raconter les histoires les plus folles à propos de l'époque où il faisait de la contrebande d'épice dans toute la Bordure Extérieure. Elle se souvient de ses bravades... et de son obsession d'enregistrer et de mettre à l'abri toute hyperroute qu'il a pu emprunter. Bien qu'il ne soit plus de ce monde, ces enregistrements de navigation pourraient aider les contrebandiers Rebelles. Mais pour les obtenir, Tress devra retourner chez elle. Un endroit où ne l'attendent que des mauvais souvenirs.</i>",
 		"bonusText": "",
 		"heroText": "Tress Hacnua",
 		"allyText": "",
 		"villainText": "",
 		"tagsText":
 			[
-			"Devaron",
+			"Dévaron",
 			"Jungle"
 			],
-		"expansionText": "Tyrants of Lothal",
-		"rebelRewardText": "\"Wholeness\" Reward Card",
+		"expansionText": "Tyrans de Lothal",
+		"rebelRewardText": "Carte récompense \"Plénitude\"",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Lothal3",
-		"name": "Race on Ryloth",
-		"descriptionText": "<i>A recent ISB raid has captured supplies critical to the resistance on Ryloth, along with encrypted data detailing their operations across the planet. Hera Syndulla has dispatched one of her crew to help you reclaim the supplies and data before the Empire can use it against the Twi'lek rebels.</i>",
+		"name": "Course de vitesse sur Ryloth",
+		"descriptionText": "<i>Un récent raid du BSI a intercepté des équipements d'une importance vitale pour la résistance de Ryloth, ainsi que des données cryptées rapportant en détail leurs opérations sur toute la planète. Héra Syndulla a dépêché un de ses équipiers pour vous aider à récupérer le matériel et les informations avant que l'Empire ne s'en serve contre les Rebelles Twi'lek.</i>",
 		"bonusText": "",
 		"heroText": "",
-		"allyText": "Any 1 Spectre ally",
+		"allyText": "1 allié Spectre au choix",
 		"villainText": "",
 		"tagsText":
 			[
 			"Ryloth",
-			"Plains"
+			"Plaines"
 			],
-		"expansionText": "Tyrants of Lothal",
-		"rebelRewardText": "Any 1 Spectre ally",
+		"expansionText": "Tyrans de Lothal",
+		"rebelRewardText": "1 allié Spectre au choix",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Lothal4",
-		"name": "Sands of Seelos",
-		"descriptionText": "<i>Upon hearing that his commander during the Clone Wars, Wolffe, is not only alive but an ally to the Rebellion, CT-1701 volunteers his team to travel to Seelos to pick up useful intelligence gathered from Wolffe's stolen AT-AT walker. But the Empire arrives first, pursuing Wolffe's walker with their own armored war machines.</i>",
+		"name": "Les Dunes de Seelos",
+		"descriptionText": "<i>Lorsqu'il apprend que Wolffe, son commandant pendant la Guerre des Clones, est non seulement vivant, mais qu'il s'est allié à la Rébellion, CT-1701 déclare que son équipe est volontaire pour voyager jusqu'à Seelos et ramener les précieuses informations que Wolffe a rassemblées sur son marcheur TB-TT volé. Mais l'Empire arrive en premier et pourchasse le marcheur de Wolffe avec leurs propres machines de guerre blindées...</i>",
 		"bonusText": "",
 		"heroText": "CT-1701",
 		"allyText": "",
@@ -61,33 +61,33 @@
 		"tagsText":
 			[
 			"Seelos",
-			"Desert"
+			"Désert"
 			],
-		"expansionText": "Tyrants of Lothal",
-		"rebelRewardText": "\"Bullseye!\" Reward Card",
+		"expansionText": "Tyrans de Lothal",
+		"rebelRewardText": "Carte récompense \"Dans le mille!\"",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Lothal5",
-		"name": "Siege on Geonosis",
-		"descriptionText": "<i>Thanks to the reconnaissance the Spectres performed on Geonosis, the Rebellion sees an opportunity to salvage an old battle droid factory on the planet and turn these Clone Wars soldiers against the might of the Empire. A member of Spectre group will meet you at the side.</i>",
+		"name": "État de siège sur Géonosis",
+		"descriptionText": "<i>Grâce aux missions de reconnaissance que les Spectres ont effectuées sur Géonosis, la Rébellion caresse l'opportunité de récupérer une ancienne usine de droïdes de combat sur cette planète afin d'utiliser ces soldats datant de la Guerre des Clones contre les forces de l'Empire. Un membre des Spectres vous rejoindra sur le site.</i>",
 		"bonusText": "",
 		"heroText": "",
-		"allyText": "Any 1 Spectre ally",
+		"allyText": "1 allié Spectre au choix",
 		"villainText": "",
 		"tagsText":
 			[
-			"Geonosis",
-			"Facility"
+			"Géonosis",
+			"Complexe"
 			],
-		"expansionText": "Tyrants of Lothal",
-		"rebelRewardText": "Any 1 Spectre ally",
+		"expansionText": "Tyrans de Lothal",
+		"rebelRewardText": "1 allié Spectre au choix",
 		"imperialRewardText": ""
 	},
 	{
 		"id": "Lothal6",
-		"name": "The Final Order",
-		"descriptionText": "<i>An Imperial engineer on Lothal has offered to defect. What's more, he claims to know where we can find vital information on Grand Admiral Thrawn's latest plans for the Lothal system. Command wants you to check into his claim and, if necessary, put a stop to whatever Thrawn is planning.</i>",
+		"name": "L'Ordre final",
+		"descriptionText": "<i>Un ingénieur Impérial de Lothal souhaite déserter. De plus, il prétend savoir où nous pouvons trouver des informations vitales concernant les projets du Grand Amiral Thrawn pour le système de Lothal. Vos ordres sont de vérifier ce qu'il en est réellement et, si nécessaire, de mettre fin aux plans de Thrawn, quels qu'ils soient.</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
@@ -95,10 +95,10 @@
 		"tagsText":
 			[
 			"Lothal",
-			"Outskirts"
+			"Abords"
 			],
-		"expansionText": "Tyrants of Lothal",
-		"rebelRewardText": "Credits",
+		"expansionText": "Tyrans de Lothal",
+		"rebelRewardText": "Crédits",
 		"imperialRewardText": ""
 	}
 ]

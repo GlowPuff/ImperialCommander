@@ -209,7 +209,7 @@ public class NewGameScreen : MonoBehaviour
 	public void LoadMissionPreset()
 	{
 		var presets = DataStore.missionPresets[DataStore.sessionData.selectedMissionExpansion.ToString().ToLower()];
-		var mp = presets.Where( x => x.id == DataStore.sessionData.selectedMissionID ).FirstOr( null );
+		var mp = presets.Where( x => x.id.ToLower() == DataStore.sessionData.selectedMissionID.ToLower() ).FirstOr( null );
 		if ( mp != null )
 		{
 			//update UI with preset values

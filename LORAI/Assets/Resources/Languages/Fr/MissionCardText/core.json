@@ -1,490 +1,490 @@
 [
  	{
 		"id": "Core1",
-		"name": "A New Threat",
-		"descriptionText": "<i>Rebel forces discover that the distress beacon was a distraction orchestrated by General Weiss, a rising star in the Imperial military.\nHis efforts have made him a person of interest to Rebel High Command. Operatives are searching the galaxy for information on this General's plans...</i>",
+		"name": "Une nouvelle menace",
+		"descriptionText": "<i>Les forces Rebelles découvrent que le signal de détresse était une diversion orchestrée de détresse était une diversion orchestrée par le général Weiss, une étoile montante de la hiérarchie Impériale.\nSes efforts ont attiré sur lui l'attention du Haut Commandement Rebelle. Des agents recherchent dans toute la galaxie des informations sur ses plans...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core2",
-		"name": "Aftermath",
-		"descriptionText": "<i>VICTORY! With the destruction of the Death Star, the Rebellion has given hope to a galaxy living in fear. Having lost their ultimate weapon, the Empire scrambles to recover in the face of this crushing defeat.\nAs the scattered fragments of the battle station rain down upon the Rebel base on Yavin 4, the Empire sets in motion a plan to seek retribution against Rebel forces stationed on the small moon.\nNot long after, when an Imperial beacon begins to broadcast from an outpost some distance away from the Rebel base, a small team of elite operatives is dispatched; their mission: to silence the signal at all costs...</i>",
+		"name": "Conséquences",
+		"descriptionText": "<i>Victoire! Avec la destruction de l'Étoile de la Mort, la Rébellion a redonné espoir à une galaxie qui vivait dans la peur. Ayant perdu son arme ultime, l'Empire s'efforce de se redresser face à cette défaite écrasante.\nAlors que les fragments éparpillés de la station de combat s'abattent sur la base rebelle de Yavin 4, l'Empire met en place un plan pour se venger des forces rebelles stationnées sur la petite lune.\nPeu de temps après, lorsqu'une balise impériale commence à émettre à partir d'un avant-poste situé à une certaine distance de la base rebelle, une petite équipe d'agents d'élite est envoyée sur place ; leur mission: faire taire le signal à tout prix...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core3",
-		"name": "Chain of Command",
-		"descriptionText": "<i>The Empire continues to increase the pressure against Rebel targets. Despite losing several outposts, the Rebellion has managed to remain one step ahead of the dreaded Imperial fleet.\nNow on the offensive, Rebel forces are on the verge of locating a very important facility under the control of General Weiss...</i>",
+		"name": "La hiérarchie",
+		"descriptionText": "<i>L'Empire ne cesse d'accroître la pression sur ses cibles Rebelles. Bien qu'elle ait perdu plusieurs avant-postes, l'Alliance a toutefois réussi à garder une longueur d'avance sur la flotte Impériale.\nPassant à l'offensive, les troupes Rebelles sont sur le point de localiser un complexe crucial placé sous la direction du général Weiss...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core4",
-		"name": "Desperate Hour",
-		"descriptionText": "<i>Rebel spies have discovered the location of the secret weapon. If Weiss is to be stopped, it must be done now.\nThe Rebel fleet is poised to jump into the system, launching a full-scale assault to defeat Weiss and destroy this weapon before it becomes fully operational...</i>",
+		"name": "Cause perdue",
+		"descriptionText": "<i>Les espions Rebelles ont localisé l'arme secrète. Si l'on veut arrêter Weiss, c'est maintenant ou jamais.\nLa flotte Rebelle s'apprête à surgir dans le système pour lancer un assaut décisif. Il faut vaincre Weiss et détruire son arme avant qu'elle ne soit opérationnelle.</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core5",
-		"name": "Drawn In",
-		"descriptionText": "<i>Though still reeling from the shock of losing the Death Star, the Empire has begun to recover. The Imperial fleet has spread out, aggressively hunting for Rebel forces. All across the galaxy, Rebel facilities lie in danger of discovery...</i>",
+		"name": "Compromis",
+		"descriptionText": "<i>Encore secoué par la désastreuse disparition de l'Étoile Noire, l'Empire a toutefois commencé à se remettre.\nLa flotte Impériale s'est déployée et traque agressivement les forces Rebelles. D'un bout à l'autre de la galaxie, toutes les bases  Rebelles risquent d'être découvertes...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core6",
-		"name": "Fly Solo",
-		"descriptionText": "<i>With so little Information on the weapons project, the Rebellion is forced seek out information from any source they can find.\nHan Solo, an important ally of the Rebellion, was following a lead when contact with him was lost somewhere in Hutt Space. The smuggler's whereabouts are currently unknown...</i>",
+		"name": "Vol en Solo",
+		"descriptionText": "<i>Dépourvue d'informations précises sur le projet d'armement, la Rébellion se trouve contrainte d'exploiter toutes les sources de données disponibles.\nHan Solo, un important allié de la Rébellion, suivait une piste quand on a perdu le contact avec lui quelque part dans l'Espace Hutt. On ignore à présent où a bien pu passer le contrebandier...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core7",
-		"name": "Imperial Hospitality",
-		"descriptionText": "<i>Vital information on the dreaded weapons project of General Weiss has come to light, but the Rebel spy who carries it has been captured!\nOperatives stand ready to launch a daring rescue mission, but little can be done until his location is discovered... </i>",
+		"name": "Hospitalité impériale",
+		"descriptionText": "<i>Des informations vitales relatives aux armes effroyables que développe le général Weiss ont été révélées, mais l'espion Rebelle qui les détient s'est fait prendre!\nDes agents secrets s'apprêtent à lancer une audacieuse mission de sauvetage, mais on ne peut pas faire grand-chose tant qu'on ignore où il a été emmené.</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core8",
-		"name": "Incoming",
-		"descriptionText": "<i>The Rebellion continues to analyze the schematics from Weiss's secret weapons project as the Imperial fleet increases their efforts to find and destroy Rebel forces.\nUntil more information is extracted, the Rebellion can only hold fast against steadily mounting Imperial might...</i>",
+		"name": "En approche",
+		"descriptionText": "<i>La Rébellion continue à analyser les plans de l'arme secrète de Weiss tandis que la flotte Impériale s'efforce de localiser et de détruire les forces de l'Alliance.\nTant qu'on n'en saura pas plus, la Rébellion devra se contenter de tenir bon face à une puissance adverse qui ne cesse de croître...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core9",
-		"name": "Last Stand",
-		"descriptionText": "<i>The discovery of Weiss's true plans has given the Rebellion the upper hand!\nAs the Rebel fleet makes ready to engage Imperial forces above Ord Mantell, operatives will descend into Weiss's secret fortress. Their final mission is to confront the General and defeat him once and for all...</i>",
+		"name": "Baroud d'honneur",
+		"descriptionText": "<i>En découvrant les véritables plans de Weiss, la Rébellion a pris l'avantage!\nTandis que la flotte Rebelle s'apprête à affronter les forces Impériales au-dessus d'Ord Mantell, des agents secrets vont s'infiltrer dans la forteresse secrète de Weiss. Leur mission finale consiste à vaincre le général une bonne fois pour toutes...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core10",
-		"name": "The Source",
-		"descriptionText": "<i>Vicious attacks from the Imperial armada have sent the Rebellion into full retreat, scrambling to find a place to regroup their forces.\nMeanwhile, Rebel Command looks to secure the final schematics for the General's devastating weapon. If found, these plans could be the perfect opportunity to turn the tide against the Empire...</i>",
+		"name": "La Source",
+		"descriptionText": "<i>Les attaques impitoyables de l'armada Impériale ont forcé la Rébellion à battre précipitamment en retraite afin de trouver un lieu où rassembler ses troupes.\nPendant ce temps, le Haut Commandement cherche à s'emparer des derniers schémas de l'arme dévastatrice du général. Si les Rebelles les découvrent, la chanée pourrait bien tourner en leur faveur...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core11",
-		"name": "Under Siege",
-		"descriptionText": "<i>The distress beacon covered the escape of several prominent Imperials, including the man who concocted the scheme, a general named Weiss.\nWhile Rebel spies scour the galaxy in search of any information about this man, other efforts to slow the Empire's recovery in the aftermath of the Battle of Yavin continue...</i>",
+		"name": "État de siège",
+		"descriptionText": "<i>Le signal de détresse a couvert la fuite de plusieurs importants Impériaux, y compris l'homme qui avait ourdi ce plan, un certain général Weiss.\nTandis que des espions Rebelles écument la galaxie en quête d'informations le concernant, les efforts continuent pour empêcher l'Empire de se remettre de la Bataille de Yavin...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core12",
-		"name": "A Simple Task",
-		"descriptionText": "<i>Bureaucracy in the Empire has led to a constant flow of proposed and abandoned projects. A formula for a potent battle stimulant was one such project.\nThe base in which it was developed has since been abandoned, so finding information about the formula should not prove difficult...</i>",
+		"name": "Une tâche élémentaire",
+		"descriptionText": "<i>La bureaucratie de l'Empire a donné naissance à un flux constant de projets proposés et abandonnés.\nL'un d'entre eux consistait à développer un puissant stimulant de combat. La base où on le développait a été désertée depuis, et découvrir des informations sur la formule ne devrait pas être bien difficile...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Dantooine",
-			"Imperial",
-			"Wastes"
+			"Impérial",
+			"Désolations"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "\"Adrenal Implant\" Reward Card",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Carte récompense \"Implant surrénal\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core13",
-		"name": "Brushfire",
-		"descriptionText": "<i>The site of one of the earliest battles between the Empire and the Rebellion, Fenn Signis's heroic actions were instrumental in the liberation of Onderon.\nNow the Empire seeks revenge against the insurgent world. Fenn is called to aid in keeping the planet safe from Imperial influence once again.</i>",
+		"name": "Feu de broussailles",
+		"descriptionText": "<i>Les actes héroïques de Fenn Signis contribuèrent à libérer Onderon, théâtre d'une des premières batailles entre l'Empire et la Rébellion.\nÀ présent, l'Empire cherche à se venger du monde insurgé. Fenn est appelé à l'aide pour aider la planète à échapper une fois de plus à l'influence de l'Empire.</i>",
 		"bonusText": "",
 		"heroText": "Fenn Signis",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Onderon",
-			"Wilderness"
+			"Région sauvage"
 			],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core14",
-		"name": "Dark Obsession",
-		"descriptionText": "<i>Darth Vader has a deep interest in the actions of Luke Skywalker. He has found an opportunity to capture Obi-Wan's pupil once and for all.</i>",
-		"bonusText": "After the heroes resolve any other side mission, discard this card and the Empire receives the listed reward.",
+		"name": "Obscure Obsession",
+		"descriptionText": "<i>Dark Vador s'intéresse de près aux agissements de Luke Skywalker. Il a trouvé l'occasion de capturer le disciple d'Obi-Wan une bonne fois pour toutes.</i>",
+		"bonusText": "Après que les héros ont résolu n'importe quelle autre mission annexe, défaussez cette carte et l'Empire reçoive la récompense mentionnée ci-dessous.",
 		"heroText": "",
 		"allyText": "",
-		"villainText": "Darth Vader (Lord of the Sith)",
+		"villainText": "Dark Vador (Seigneur des Sith)",
 		"tagsText": [
-			"Imperial",
-			"Installation"
+			"Impérial",
+			"Complexe"
 			],
-		"expansionText": "\"Darth Vader (Lord of the Sith)\" pack",
+		"expansionText": "Extension \"Dark Vador (Seigneur des Sith)\"",
 		"rebelRewardText": "",
-		"imperialRewardText": "\"Darth Vader (Lord of the Sith)\" villain"
+		"imperialRewardText": "Antagoniste \"Dark Vador (Seigneur des Sith)\""
  	},
  	{
 		"id": "Core15",
-		"name": "Friends of Old",
-		"descriptionText": "<i>Gideon Argus was a founding member of the legendary SpecForce unit \"Saber Team\". However, a botched operation led to accusations of treachery. Gideon left the squad, uncertain whom among his old comrades he could trust.\nNow the members of Saber Team have contacted their old commander, begging for his help...</i>",
+		"name": "De vieilles connaissances",
+		"descriptionText": "<i>Gideon Argus était un membre fondateur de la légendaire unité des forces spéciales, l'Équipe Sabre. Cependant, une opération ratée donna lieu à des accusations de traîtrise. Gideon quitta l'équipe sans trop savoir sur lesquels de ses anciens camarades il pouvait encore compter.\nAujourd'hui, les membres de l'Équipe Sabre viennent de contacter leur ancien commandant et le supplient de les aider...</i>",
 		"bonusText": "",
 		"heroText": "Gideon Argus",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Talus",
-			"Wilderness"
+			"Région sauvage"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "\"Fearless Leader\" Reward Card",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Carte récompense \"Chef intrépide\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core16",
-		"name": "Generous Donations",
-		"descriptionText": "<i>An Imperial Moff named Mino Ferrin has long been known to utilize his finances to oppress those he governs.\nThe Rebellion has found a hidden facility on Sullust that maintains his secret accounts. Infiltrating the base and slicing into his accounts should fund the construction of a few new Rebel starships...</i>",
+		"name": "Généreuse donation",
+		"descriptionText": "<i>Un moff Impérial du nom de Mino Ferrin utilise depuis longtemps sa richesse pour opprimer ceux qu'il gouverne.\nLa Rébellion a découvert un complexe caché sur Sullust où sont gérés ses comptes bancaires secrets. S'infiltrer dans la base pour les pirater permettrait de financer la construction de quelques navires Rebelles...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Sullust",
-			"Imperial",
-			"Wilderness"
+			"Impérial",
+			"Région sauvage"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "Credits",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Crédits",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core17",
-		"name": "High Moon",
-		"descriptionText": "<i>Jyn Odan's former associate, a Trandoshan by the name of Szark, betrayed her in the past and has since made his fortune in selling out Rebels to the Empire.\nJyn has recently gotten wind of his current whereabouts, and the time may have come for Szark to get what he rightly deserves...</i>",
+		"name": "Au lever de la lune",
+		"descriptionText": "<i>L'ancien associé de Jyn Odan, un Trandosien du nom de Szark, l'a trahie autrefois et a fait fortune en livrant des Rebelles à l'Empire.\nJyn a récemment eu vent de sa position actuelle. L'heure a peut-être sonné pour Szark de recevoir son dû...</i>",
 		"bonusText": "",
 		"heroText": "Jyn Odan",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Rayamal 22",
-			"Scum",
-			"Outskirts"
+			"Racaille",
+			"Abords"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "\"Peacemaker\" Reward Card",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Carte récompense \"Pacification\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core18",
-		"name": "Homecoming",
-		"descriptionText": "<i>Involved in the recruitment of new pilots for the Rebellion, Luke Skywalker has not been heard from in several days.\nAs the Hero of the Rebellion, Luke has been a prime target for Imperial forces and bounty hunters alike, and High Command fears that he could be in grave danger...</i>",
+		"name": "Retour au pays",
+		"descriptionText": "<i>Impliqué dans le recrutement de nouveaux pilotes pour la Rébellion, Luke Skywalker a disparu depuis plusieurs jours.\nEn tant que héros de la Rébellion, Luke était une cible de choix pour les forces Impériales comme pour les chasseurs de primes, et on craint au sein du Haut Commandement qu'il ne courre un grave danger...</i>",
 		"bonusText": "",
 		"heroText": "",
-		"allyText": "Luke Skywalker (Hero of the Rebellion)",
+		"allyText": "Luke Skywalker (Héros de la Rébellion)",
 		"villainText": "",
 		"tagsText": [
 			"Tatooine",
-			"Wastes"
+			"Désolations"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "Luke Skywalker (Hero of the Rebellion) ally",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Allié \"Luke Skywalker (Héros de la Rébellion)\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core19",
-		"name": "Indebted",
-		"descriptionText": "<i>An Imperial ambush has resulted in Gaarkhan's brother Jirritt being killed. In the sarne battle, another Wookiee to whom Jirritt swore a life debt was captured. \nWith no one going to rescue the captive Wookiee, it falls to Gaarkhan to honor his brother's debt...</i>",
+		"name": "Endettés",
+		"descriptionText": "<i>Le frère de Gaarkhan, Jirritt, a été tué lors d'une embuscade Impériale. Pendant la même bataille, un autre Wookie envers lequel Jirritt avait une dette de vie a été capturé.\nPuisque personne n'ira sauver le Wookie captif, c'est à Gaarkhan que revient la tâche d'honorer la dette de son frère...</i>",
 		"bonusText": "",
 		"heroText": "Gaarkhan",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Bakura",
-			"Imperial",
-			"Wilderness"
+			"Impérial",
+			"Région sauvage"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "\"Life Debt\" Reward Card",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Carte récompense \"Dette de vie\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core20",
-		"name": "Loose Cannon",
-		"descriptionText": "<i>Forever haunted by his greatest failure, Mak Eshka'rey's chance for redemption has arrived.\nThe garrison defending the outpost he failed to sabotage has temporarily departed, leaving Mak the perfect opportunity to finish the task he left incomplete so long ago...</i>",
+		"name": "Marche ou crève",
+		"descriptionText": "<i>Obnubilé par son plus grand échec, Mak Eshka'rey voit là occasion de trouver la rédemption.\nLa garnison défendant l'avant-poste qu'il n'a pas réussi à saboter vient de s'absenter temporairement. Mak dispose de l'occasion idéale pour finir le travail qu'il a laissé en plan il y a si longtemps...</i>",
 		"bonusText": "",
 		"heroText": "Mak Eshka'rey",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Ord Mantell",
-			"Imperial",
-			"Facility"
+			"Impérial",
+			"Complexe"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "\"Shadow Suit\" Reward Card",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Carte récompense \"Combinaison furtive\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core21",
-		"name": "Luxury Cruise",
-		"descriptionText": "<i>For use in infiltration, the Alliance is attempting to collect vessels used by the Empire. One such shuttle is undergoing repairs and would appear to be easy prey...</i>",
+		"name": "Croisière de luxe",
+		"descriptionText": "<i>L'Alliance rassemble actuellement des vaisseaux utilisés par l'Empire, et qui serviront à des missions d'infiltration.\nUne des navettes en question est actuellement en réparation et constitue par conséquent une proie facile...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Kuat",
-			"Imperial",
-			"Facility"
+			"Impérial",
+			"Complexe"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "\"Allied Operations\" Reward Card",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Carte récompense \"Opérations alliées\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core22",
-		"name": "Sorry About the Mess",
-		"descriptionText": "<i>The Rebellion owes a great debt to the cunning smuggler, Han Solo. Never shy to remind them of this fact, Han has made a request for support. \nSince he has been quick to assure that the operation will disrupt Imperial activities, the Rebellion is willing to oblige his request... </i>",
+		"name": "Navrés pour le désordre",
+		"descriptionText": "<i>La Rébellion doit une fière chandelle au rusé contrebandier Han Solo. Celui-ci n'hésite jamais à le rappeler, et il vient justement de requérir de l'aide.\nEt comme il a aussitôt affirmé que l'opération entraverait les activités Impériales, la Rébellion se fait un plaisir d'accéder à sa requête...</i>",
 		"bonusText": "",
 		"heroText": "",
-		"allyText": "Han Solo (Scoundrel)",
+		"allyText": "Han Solo (Vaurien)",
 		"villainText": "",
 		"tagsText": [
 			"Corellia",
-			"Outskirts"
+			"Abords"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "\"Han Solo (Scoundrel)\" ally",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Allié \"Han Solo (Vaurien)\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core23",
-		"name": "Sympathy for the Rebellion",
-		"descriptionText": "<i>The Rebellion's message of hope draws many to the cause. Who better to spearhead the recruiting effort than the man behind the Death Star's destruction, Luke Skywalker?\nHowever, what makes him an ideal figure of inspiration also makes him a priority target for Imperial reprisal...</i>",
+		"name": "Sympathisants Rebelles",
+		"descriptionText": "<i>Le message d'espoir de la Rébellion attire beaucoup de sympathisants. Qui pourrait mieux servir de porte-parole pour l'effort de recrutement que le vainqueur de l'Étoile Noire, Luke Skywalker?\nToutefois, sa notoriété en fait à la fois un modèle... et une cible de choix pour des représailles Impériales.</i>",
 		"bonusText": "",
 		"heroText": "",
-		"allyText": "Luke Skywalker (Hero of the Rebellion)",
+		"allyText": "Luke Skywalker (Héros de la Rébellion)",
 		"villainText": "",
 		"tagsText": [
 			"Tatooine",
-			"Outskirts"
+			"Abords"
 			],
-		"expansionText": "\"Luke Skywalker (Hero of the Rebellion)\" pack",
-		"rebelRewardText": "\"Luke Skywalker (Hero of the Rebellion)\" ally",
+		"expansionText": "Extension \"Luke Skywalker (Héros de la Rébellion)\"",
+		"rebelRewardText": "Allié \"Luke Skywalker (Héros de la Rébellion)\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core24",
-		"name": "Target of Opportunity",
-		"descriptionText": "<i>The Rebellion always seeks to gain the upper hand over the Empire, and sabotage is a favored method.\nA pair of saboteurs has a target in mind. Their reputation is mixed, but it sounds like their reckless and stubborn attitude is more than matched by their skill at demolitions...</i>",
+		"name": "Cible de choix",
+		"descriptionText": "<i>La Rébellion cherche toujours à prendre l'avantage sur l'Empire, et le sabotage constitue une de ses méthodes de prédilection.\nUn duo de saboteurs a choisi une cible. Tous deux ont une réputation douteuse, mais il semble que leur talent pour les démolitions égale largement leur attitude intrépide et obstinée...</i>",
 		"bonusText": "",
 		"heroText": "",
-		"allyText": "Rebel Saboteur",
+		"allyText": "Saboteur Rebelle",
 		"villainText": "",
 		"tagsText": [
 			"Centax 1",
-			"Imperial",
-			"Facility"
+			"Impérial",
+			"Complexe"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "\"Rebel Saboteur\" ally",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Allié \"Saboteur Rebelle\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core25",
-		"name": "Temptation",
-		"descriptionText": "<i>The nightmares of her mentor's death grow more intense for the young exile, Diala Passil.\nA dark and corrupt energy remains in the place where the Jedi Master Shu Yen fell. The evil force calls out to Diala, stretching across the vast expanse of the galaxy and haunting her every waking moment...</i>",
+		"name": "Tentation",
+		"descriptionText": "<i>Les cauchemars liés à la mort de son mentor hantent la jeune exilée, Diala Passil.\nUne énergie sinistre et corrompue imprègne le lieu où le maitre Jedi Shu Yen a succombé. Cette force maléfique appelle Diala depuis l'autre bout de la galaxie, et la torture à chaque instant lorsqu'elle est éveillée...</i>",
 		"bonusText": "",
 		"heroText": "Diala Passil",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Yavin 4",
-			"Wilderness"
+			"Région sauvage"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "\"Shu Yen's Lightsaber\" Reward Card",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Carte récompense \"Sabre laser de Shu Yen\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core26",
-		"name": "The Spice Job",
-		"descriptionText": "<i>Han Solo’ debts have become a prime concern for his companion. Against Han’s wishes, Chewbacca has a task that he hopes will reduce the Hutts’ attention toward Han.\nIf successful, the job may earn some credits and distract the Hutts, allowings Han a time of respite, however brief...</i>",
+		"name": "La cargaison",
+		"descriptionText": "<i>Les dettes de Han Solo tracassent ses compagnons. Contre la volonté de Han, Chewbacca a trouvé un contrat qui pourrait amener les Hutts à s'intéresser un peu moins à son ami.\nEn cas de succès, cette mission pourrait rapporter quelques crédits, détourner l'attention des Hutts, et fournir un répit à Han, aussi bref soit-il...</i>",
 		"bonusText": "",
 		"heroText": "",
-		"allyText": "Chewbacca (Loyal Wookiee)",
+		"allyText": "Chewbacca (Fidèle Wookie)",
 		"villainText": "",
 		"tagsText": [
 			"Nar Shaddaa",
-			"Scum",
-			"Outskirts"
+			"Racaille",
+			"Abords"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "\"Chewbacca (Loyal Wookiee)\" ally",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Allié \"Chewbacca (Fidèle Wookie)\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core27",
-		"name": "Viper's Den",
-		"descriptionText": "<i>A distress call was received by Rebel High Command. An informant of ill repute, Weyn Jarl, swears he has acquired sensitive information regarding Imperial troop movements.\nJarl has proven untrustworthy in the past, but his information could be useful, could even be worth the risk that trusting him represents...</i>",
+		"name": "Nid de vipères",
+		"descriptionText": "<i>Le Haut Commandement Rebelle a reçu un appel de détresse. Un informateur controversé, Weyn Jarl, jure avoir obtenu des informations sensibles concernant les mouvements des troupes Impériales.\nJarl s'est révélé indigne de confiance par le passé, mais ces données pourraient être utiles. Peut-être valent-elles même la peine de lui faire confiance, malgré les risques...</i>",
 		"bonusText": "",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Tatooine",
-			"Outskirts"
+			"Abords"
 			],
-		"expansionText": "Core Game",
-		"rebelRewardText": "\"Rebel Recon\" Reward Card",
+		"expansionText": "Jeu de base",
+		"rebelRewardText": "Carte récompense \"Reconnaissance Rebelle\"",
 		"imperialRewardText": ""
  	},
  	{
 		"id": "Core28",
-		"name": "Breaking Point",
-		"descriptionText": "<i>Imperial operatives conduct surgical strikes to destroy the Rebellion's vital supplies. Weaken them, and their surrender is all but assured.</i>",
-		"bonusText": "After the heroes resolve any other side mission, discard this card and the Empire receives the listed reward. If the heroes lose this mission, increase the threat level of the next mission by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+		"name": "Point de rupture",
+		"descriptionText": "<i>Des agents secrets Impériaux effectuent des frappes chirurgicales visant à détruire les stocks vitaux des Rebelles. Une fois affaiblis, leur reddition est assurée.</i>",
+		"bonusText": "Après que les héros ont résolu n'importe quelle autre Mission annexe, défaussez cette carte et l'Empire reçoit la récompense figurant ci-dessous. Si les héros échouent à cette mission, augmenter de 1 le niveau de menace de la prochaine mission. Pendant la séquence d'Amélioration Rebelle, les joueurs Rebelle peuvent décider de dépenser 50 crédits par héros pour éviter ce malus.",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Yavin 4",
-			"Rebel",
-			"Facility"
+			"Rebelle",
+			"Complexe"
 			],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
-		"imperialRewardText": "+1 Threat Level for the next mission"
+		"imperialRewardText": "+1 au niveau de menace pour la prochaine mission"
  	},
  	{
 		"id": "Core29",
-		"name": "Captured",
-		"descriptionText": "<i>Taken prisoner while trying to escape the sieged outpost, the Rebels have been working for days to break out of their cells. However, finding their equipment and leaving the facility will prove difficult...</i>",
-		"bonusText": "Play \"Captured\" as a forced mission. If the heroes lose this mission, increase the threat level of the next mission by 2. During the Rebel Upgrade stage, the Rebel players can decide to spend 100 credits per hero to prevent this.",
+		"name": "Capturés",
+		"descriptionText": "<i>Faits prisonniers alors qu'ils tentaient de s'échapper de l'avant-poste assiégé, les Rebelles travaillent depuis des jours pour s'évader de leurs cellules. Cependant, trouver leur équipement et quitter l'établissement s'avère difficile...</i>",
+		"bonusText": "Jouez la mission \"Capturés\" en tant que mission forcée. Si les héros échouent à cette mission, augmenter de 2 le niveau de menace de la prochaine mission. Pendant la séquence d'Amélioration Rebelle, les joueurs Rebelle peuvent décider de dépenser 100 crédits par héros pour éviter ce malus.",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
-		"imperialRewardText": "+2 Threat Level for the next mission"
+		"imperialRewardText": "+2 au niveau de menace pour la prochaine mission"
  	},
  	{
 		"id": "Core30",
-		"name": "Impounded",
-		"descriptionText": "<i>The vessel has proper authorization, but its crew are known Rebel sympathizers. Interrogating them and stripping their ships data files could provide important intelligence.\nThese are dangerous criminals, not to be underestimated. With a few measures of subtlety, perhaps the information could be gained without direct conflict...</i>",
-		"bonusText": "Play \"Impounded\" as a forced mission. If the heroes lose this mission, increase the threat level of the next mission by 2. During the Rebel Upgrade stage, the Rebel players can decide to spend 100 credits per hero to prevent this.",
+		"name": "Confiscation",
+		"descriptionText": "<i>Les documents du vaisseau sont en ordre, mais il abrite un équipage de sympathisants Rebelles. Les interroger et passer leurs données au peigne fin pourrait fournir des informations importantes.\nIl s'agit là de dangereux criminels qu'il ne faut pas prendre à la légère. Avec un peu de subtilité, on pourrait peut-être leur soutirer des informations sans conflit direct...</i>",
+		"bonusText": "Jouez la mission \"Confiscation\" en tant que mission forcée. Si les héros échouent à cette mission, augmenter de 2 le niveau de menace de la prochaine mission. Pendant la séquence d'Amélioration Rebelle, les joueurs Rebelle peuvent décider de dépenser 100 crédits par héros pour éviter ce malus.",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Corellia",
-			"Imperial",
-			"Wastes"
+			"Impérial",
+			"Désolations"
 			],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
-		"imperialRewardText": "+2 Threat Level for the next mission"
+		"imperialRewardText": "+2 au niveau de menace pour la prochaine mission"
  	},
  	{
 		"id": "Core31",
-		"name": "Means of Production",
-		"descriptionText": "<i>An Imperial testing facility has made a recent breakthrough. With support, their deadly innovations could be put to work very soon.</i>",
-		"bonusText": "After the heroes resolve any other side mission, discard this card and the Empire receives the listed reward. If the heroes lose this mission, increase the threat level of the next mission by 1. During the Rebel Upgrade stage, the Rebel players can decide to spend 50 credits per hero to prevent this.",
+		"name": "Chaîne de production",
+		"descriptionText": "<i>Un centre d'essai Impérial a fait un progrès décisif. Avec un peu de soutien, ces innovations redoutables pourraient être rapidement mises en fonction.</i>",
+		"bonusText": "Après que les héros ont résolu n'importe quelle autre Mission annexe, défaussez cette carte et l'Empire reçoit la récompense figurant ci-dessous. Si les héros échouent à cette mission, augmenter de 1 le niveau de menace de la prochaine mission. Pendant la séquence d'Amélioration Rebelle, les joueurs Rebelle peuvent décider de dépenser 50 crédits par héros pour éviter ce malus.",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Corellia",
-			"Imperial",
-			"Facility"
+			"Impérial",
+			"Complexe"
 			],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
-		"imperialRewardText": "+1 Threat Level for the next mission"
+		"imperialRewardText": "+1 au niveau de menace pour la prochaine mission"
  	},
  	{
 		"id": "Core32",
-		"name": "Wanted",
-		"descriptionText": "<i>Rebel operatives are proving to be a thorn in the Empires side. Working with mercenaries can be distasteful, but a sizable bounty could place considerable pressure upon them.</i>",
-		"bonusText": "Play \"Wanted\" as a forced mission. If the heroes lose this mission, increase the threat level of the next mission by 2. During the Rebel Upgrade stage, the Rebel players can decide to spend 100 credits per hero to prevent this.",
+		"name": "Recherchés",
+		"descriptionText": "<i>Les agents Rebelles sont une épine dans le pied de l'Empire. Travailler avec des mercenaires n'est guère reluisant, mais une prime juteuse pourrait faire subir une considérable pression d vos adversaires.\nCes Rebelles sont dangereux. Conseillez au chasseur de s'assurer un avantage tactique avant de les affronter directement.</i>",
+		"bonusText": "Jouez la mission \"Recherchés\" en tant que mission forcée. Si les héros échouent à cette mission, augmenter de 2 le niveau de menace de la prochaine mission. Pendant la séquence d'Amélioration Rebelle, les joueurs Rebelle peuvent décider de dépenser 100 crédits par héros pour éviter ce malus.",
 		"heroText": "",
 		"allyText": "",
 		"villainText": "",
 		"tagsText": [
 			"Nal Hutta",
-			"Scum",
-			"Outskirts"
+			"Racaille",
+			"Abords"
 			],
-		"expansionText": "Core Game",
+		"expansionText": "Jeu de base",
 		"rebelRewardText": "",
-		"imperialRewardText": "+2 Threat Level for the next mission"
+		"imperialRewardText": "+2 au niveau de menace pour la prochaine mission"
  	}
 ]

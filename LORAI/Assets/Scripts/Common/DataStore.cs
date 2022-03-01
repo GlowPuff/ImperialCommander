@@ -7,7 +7,7 @@ using UnityEngine;
 
 public static class DataStore
 {
-	public static readonly string appVersion = "v.1.0.21";
+	public static readonly string appVersion = "v.1.0.22";
 	public static readonly string[] languageCodeList = { "En", "De", "Es", "Fr", "Pl", "It" };
 
 	public static Dictionary<string, List<MissionCard>> missionCards;
@@ -303,10 +303,12 @@ public static class DataStore
 	/// </summary>
 	static void LoadMissionCardTranslations()
 	{
+		string asset = "";
 		try
 		{
 			for ( int i = 0; i < Enum.GetNames( typeof( Expansion ) ).Length; i++ )
 			{
+				asset = ((Expansion)i).ToString();
 				TextAsset missions = Resources.Load<TextAsset>( $"Languages/{languageCodeList[languageCode]}/MissionCardText/{(Expansion)i}" );
 				var cards = JsonConvert.DeserializeObject<List<MissionCard>>( missions.text );
 				//set translation data ONLY
@@ -328,7 +330,7 @@ public static class DataStore
 		}
 		catch ( JsonReaderException e )
 		{
-			Debug.Log( $"LoadMissionCardTranslations() ERROR:\r\nError parsing Card Languages" );
+			Debug.Log( $"LoadMissionCardTranslations({asset}) ERROR:\r\nError parsing Card Languages" );
 			Debug.Log( e.Message );
 			LogError( e.Message );
 			throw new Exception();
