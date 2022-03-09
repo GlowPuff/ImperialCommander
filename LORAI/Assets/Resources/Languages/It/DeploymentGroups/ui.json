@@ -31,7 +31,7 @@
 		"zoom": "zoom",
 		"initialHeading": "iniziali",
 		"reservedHeading": "di riserva",
-		"villainsHeading": "antagonisti",
+		"villainsHeading": "personaggi nemici",
 		"ignoredHeading": "ignorare",
 		"addHero": "aggiungi eroe",
 		"addAlly": "aggiungi alleato",
@@ -104,12 +104,11 @@
 		"fameIncreasedUC": "Hai guadagnato fama",
 		"noRandomMatchesUC": "Nessun gruppo corrispondente che costa {d} o meno.",
 		"noAbilitiesUC": "Nessuna abilità",
-		"ignoredAbilitiesUC": "Abilità delle carte ignorate",
-		"noKeywordsUC": "Nessuno",
-		"noneUC": "Nessuno",
+		"ignoredAbilitiesUC": "Abilità ignorate",
+		"noKeywordsUC": "Nessuna parola chiave",
+		"noneUC": "Nessuno"
 		"rewardUC": "Ricompensa",
-		"pageUC": "Pagina",
-		"optionalDeployment": "facoltativo"
+		"pageUC": "Pagina"
 	},
 	"uiSettings": {
 		"settingsHeading": "Impostazioni",
@@ -117,7 +116,7 @@
 		"sound": "suoni",
 		"bloom": "luminescenza",
 		"vignette": "vignette",
-		"quit": "Esci",
+		"quit": "esci",
 		"returnBtn": "torna indietro",
 		"ok": "ok"
 	},

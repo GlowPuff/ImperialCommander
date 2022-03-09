@@ -1,3 +1,6 @@
+<b>Objetivo de la misión:</b>
+El Rebelde transportando el chip de datos
+
 <b>Objetivo de reposicionamiento:</b>
 Bloquea el acceso a la Caja fuerte, el chip de datos, y al terminal.
 

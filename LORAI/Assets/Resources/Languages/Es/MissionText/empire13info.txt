@@ -1,5 +1,5 @@
 <b>Objetivo de misión:</b>
-Civiles
+Las figuras imperiales tratan a los civiles como Rebeldes cuando seleccionan el objetivo.
 
 <b>Reglas especiales</b>
 El Imperio no puede gastar <font="ImperialAssaultSymbols SDF">D</font> para garantizar los puntos de movimiento del <color="red">AT-DP</color>.

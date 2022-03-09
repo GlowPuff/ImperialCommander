@@ -239,6 +239,12 @@ public class NewGameScreen : MonoBehaviour
 			{
 				DataStore.sessionData.MissionReserved.Add( allCards.Where( x => x.id == card ).First() );
 			}
+			DataStore.sessionData.MissionIgnored.Clear();
+			foreach ( var card in mp.ignoredGroups )
+			{
+				DataStore.sessionData.MissionIgnored.Add( allCards.Where( x => x.id == card ).First() );
+			}
+
 			if ( mp.allyGroups.Count > 0 )
 				DataStore.sessionData.selectedAlly = DataStore.allyCards.cards.Where( x => x.id == mp.allyGroups[0] ).First();
 			else
@@ -451,5 +457,12 @@ public class NewGameScreen : MonoBehaviour
 			startMissionButton.interactable = true;
 		else
 			startMissionButton.interactable = false;
+
+		if ( Input.GetKeyDown( KeyCode.Escape )
+			&& !GlowEngine.FindObjectsOfTypeSingle<GroupChooserScreen>().gameObject.activeInHierarchy
+			&& !GlowEngine.FindObjectsOfTypeSingle<MissionTextBox>().gameObject.activeInHierarchy
+			&& !GlowEngine.FindObjectsOfTypeSingle<HeroChooser>().gameObject.activeInHierarchy
+			&& !GlowEngine.FindObjectsOfTypeSingle<CardViewPopup>().gameObject.activeInHierarchy )
+			OnBack();
 	}
 }
