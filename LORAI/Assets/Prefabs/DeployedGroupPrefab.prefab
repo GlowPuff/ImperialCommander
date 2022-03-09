@@ -1011,6 +1011,7 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0, a: 1}
   exhaustedOverlay: {fileID: 6218507574144178855}
   selfButton: {fileID: 3734764380663410858}
+  costText: {fileID: 0}
 --- !u!222 &5725093811284621743
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -102,16 +102,16 @@ public static class Extensions
 	/// </summary>
 	public static List<CardDescriptor> GetHealthy( this List<CardDescriptor> thisCD )
 	{
-		if ( thisCD.Any( x => x.heroState.isHealthy ) )
-			return thisCD.Where( x => x.heroState.isHealthy ).ToList();
+		if ( thisCD.Any( x => !x.isDummy && x.heroState.isHealthy ) )
+			return thisCD.Where( x => !x.isDummy && x.heroState.isHealthy ).ToList();
 		else
 			return null;
 	}
 
 	public static List<CardDescriptor> GetUnhealthy( this List<CardDescriptor> thisCD )
 	{
-		if ( thisCD.Any( x => !x.heroState.isHealthy ) )
-			return thisCD.Where( x => !x.heroState.isHealthy ).ToList();
+		if ( thisCD.Any( x => !x.isDummy && !x.heroState.isHealthy ) )
+			return thisCD.Where( x => !x.isDummy && !x.heroState.isHealthy ).ToList();
 		else
 			return null;
 	}

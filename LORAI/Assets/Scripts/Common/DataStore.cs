@@ -348,14 +348,24 @@ public static class DataStore
 
 			for ( int i = 0; i < toCards.Count; i++ )
 			{
-				var langcard = langCards.Where( x => x.id == toCards[i].id ).First();
-				toCards[i].name = langcard.name;
-				toCards[i].subname = langcard.subname;
-				toCards[i].ignored = langcard.ignored;
-				toCards[i].traits = langcard.traits;
-				toCards[i].surges = langcard.surges;
-				toCards[i].keywords = langcard.keywords;
-				toCards[i].abilities = langcard.abilities;
+				//don't try to load card data TO a dummy hero, since no data exists
+				if ( !toCards[i].isDummy )
+				{
+					var langcard = langCards.Where( x => x.id == toCards[i].id ).FirstOr( null );
+					//sanity check
+					if ( langcard != null )
+					{
+						toCards[i].name = langcard.name;
+						toCards[i].subname = langcard.subname;
+						toCards[i].ignored = langcard.ignored;
+						toCards[i].traits = langcard.traits;
+						toCards[i].surges = langcard.surges;
+						toCards[i].keywords = langcard.keywords;
+						toCards[i].abilities = langcard.abilities;
+					}
+					else
+						throw new Exception( "'langcard' is null" );
+				}
 			}
 		}
 		catch ( Exception e )

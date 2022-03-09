@@ -108,7 +108,8 @@
 		"noKeywordsUC": "None",
 		"noneUC": "None",
 		"rewardUC": "Reward",
-		"pageUC": "Page"
+		"pageUC": "Page",
+		"optionalDeployment": "optional"
 	},
 	"uiSettings": {
 		"settingsHeading": "settings",

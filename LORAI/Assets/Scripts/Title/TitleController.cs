@@ -1,10 +1,10 @@
-﻿using DG.Tweening;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections;
 using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
+using DG.Tweening;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -223,6 +223,11 @@ public class TitleController : MonoBehaviour
 	{
 		if ( gitHubResponse != null )
 			versionPopup.Show( gitHubResponse.body );
+	}
+
+	public void OnDownloadLatest()
+	{
+		Application.OpenURL( "https://github.com/GlowPuff/ImperialCommander/releases" );
 	}
 
 	public void OnLanguageChange()

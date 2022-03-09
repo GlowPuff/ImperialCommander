@@ -11,12 +11,13 @@ public class DiceRoller : MonoBehaviour
 	public Text okBtn;
 	public GameObject addAttackContainer, addDefenseContainer;
 	public DynamicCardPrefab dynamicCard;
+	[HideInInspector]
 
 	CardDescriptor card;
 	Action<bool> callback;
 	GridLayoutGroup gridLayout;
 
-	public void Show( CardDescriptor cd, bool isAttack, Action<bool> ac )
+	public void Show( CardDescriptor cd, bool isAttack, Action<bool> ac = null )
 	{
 		callback = ac;
 		okBtn.text = DataStore.uiLanguage.uiSettings.ok;

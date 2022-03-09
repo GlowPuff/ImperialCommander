@@ -13,6 +13,7 @@ public class HGPrefab : MonoBehaviour
 
 	CardDescriptor cardDescriptor;
 	bool isAlly = false;
+	bool isHero = false;
 
 	private void Awake()
 	{
@@ -29,7 +30,7 @@ public class HGPrefab : MonoBehaviour
 		{
 			if ( DataStore.heroCards.cards.Any( x => x.id == cd.id ) )
 			{
-				isAlly = false;
+				isHero = true;
 				iconImage.sprite = Resources.Load<Sprite>( $"Cards/Heroes/{cd.id}" );
 			}
 			else if ( DataStore.allyCards.cards.Any( x => x.id == cd.id ) )
@@ -117,7 +118,7 @@ public class HGPrefab : MonoBehaviour
 
 	public void OnPointerClick()
 	{
-		if ( cardDescriptor.isDummy )
+		if ( cardDescriptor.isDummy || isHero )
 			return;
 		CardViewPopup cardViewPopup = GlowEngine.FindObjectsOfTypeSingle<CardViewPopup>();
 		cardViewPopup.Show( cardDescriptor );

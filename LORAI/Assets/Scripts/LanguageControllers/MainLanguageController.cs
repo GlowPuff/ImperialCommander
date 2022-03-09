@@ -6,7 +6,7 @@ public class MainLanguageController : MonoBehaviour
 {
 	public TextMeshProUGUI quickMessageUC, fame1UC, fameItem1UC, fameItem2UC, fame2UC, debugThreatUC, debugDepModUC, debugDepHandUC, tooltip, onslaughtIncreasedUC, landingIncreasedUC, reinforceIncreasedUC, reinforceWarningUC, deploymentWarningUC, depWarningUC, calmMessageUC;
 
-	public Text deploymentHeading, reservedBtn, allyBtn, enemyBtn, randomBtn, modThreatHeading, applyBtn, roundHeading, depTypeHeading, eventHeading, randomHeading, maxThreatHeading, endRoundBtn, fameHeading, awardsHeading, fameContinueBtn, randomConfirmBtn, randomCancelBtn, debugContinueBtn, deploymentContinueBtn, onslaughtDeploy, landingDeploy1, landingDeploy2, chooserCloseBtn, infoContinueBtn, zoomCloseBtn, activateContinueBtn, eventContinueBtn, coreHeading, twinHeading, hothHeading, bespinHeading, jabbaHeading, empireHeading, lothalHeading, otherHeading;
+	public Text deploymentHeading, reservedBtn, allyBtn, enemyBtn, randomBtn, modThreatHeading, applyBtn, roundHeading, depTypeHeading, eventHeading, randomHeading, maxThreatHeading, endRoundBtn, fameHeading, awardsHeading, fameContinueBtn, randomConfirmBtn, randomCancelBtn, debugContinueBtn, deploymentContinueBtn, onslaughtDeploy, landingDeploy1, landingDeploy2, chooserCloseBtn, infoContinueBtn, zoomCloseBtn, activateContinueBtn, eventContinueBtn, coreHeading, twinHeading, hothHeading, bespinHeading, jabbaHeading, empireHeading, lothalHeading, otherHeading, optionDeployment;
 
 	/// <summary>
 	/// Sets the UI with the current language
@@ -58,6 +58,7 @@ public class MainLanguageController : MonoBehaviour
 		landingIncreasedUC.text = ui.threatIncreasedUC;
 		reinforceIncreasedUC.text = ui.threatIncreasedUC;
 		calmMessageUC.text = ui.calmMessageUC;
+		optionDeployment.text = ui.optionalDeployment;
 
 		UIExpansions uie = DataStore.uiLanguage.uiExpansions;
 		coreHeading.text = uie.core;
