@@ -551,6 +551,7 @@ public static class DataStore
 			SetCardTranslations( manualDeploymentList );
 			SetCardTranslations( deployedEnemies );
 			SetCardTranslations( deployedHeroes );
+			cardEvents = (from ev in LoadEvents() join ev2 in cardEvents on ev.eventID equals ev2.eventID select ev).ToList();
 
 			return true;
 		}
